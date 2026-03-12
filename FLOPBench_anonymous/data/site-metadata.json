@@ -130,7 +130,7 @@
     "category_source": "source-data/HeCBench/README.md"
   },
   "audit": {
-    "generated_at": "2026-03-12T18:36:13.754358+00:00",
+    "generated_at": "2026-03-12T18:50:30.780750+00:00",
     "dataset_source": "source-data/gpuFLOPBench.json.gz",
     "category_source": "source-data/HeCBench/README.md",
     "categorized_benchmarks": 484
@@ -257,8 +257,8 @@
     {
       "model": "cuda",
       "available": 504,
-      "profiled": 1429,
-      "profiled_ratio": 2.8353
+      "profiled": 364,
+      "profiled_ratio": 0.7222
     },
     {
       "model": "hip",
@@ -269,8 +269,8 @@
     {
       "model": "omp",
       "available": 326,
-      "profiled": 1006,
-      "profiled_ratio": 3.0859
+      "profiled": 259,
+      "profiled_ratio": 0.7945
     },
     {
       "model": "sycl",

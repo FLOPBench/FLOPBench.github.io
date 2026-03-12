@@ -472,7 +472,13 @@ def build_model_matrix(metadata: dict, source_rows: list[dict]) -> list[dict]:
         for model in details.get("models", []):
             available_by_model[model] = available_by_model.get(model, 0) + 1
 
-    profiled_by_model = Counter(row["model_type"] for row in source_rows)
+    profiled_by_model: dict[str, int] = defaultdict(int)
+    profiled_programs_by_model: dict[str, set[str]] = defaultdict(set)
+    for row in source_rows:
+        profiled_programs_by_model[row["model_type"]].add(row["source"])
+    for model, sources in profiled_programs_by_model.items():
+        profiled_by_model[model] = len(sources)
+
     result = []
     for model, available in sorted(available_by_model.items()):
         profiled = profiled_by_model.get(model, 0)
