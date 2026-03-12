@@ -858,6 +858,68 @@ main {
   overflow: hidden;
 }
 
+.explorer-kernel-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.explorer-kernel-head h3 {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.15;
+}
+
+.explorer-kernel-head p {
+  margin: 6px 0 0;
+}
+
+.explorer-code-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.85fr);
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.explorer-pane {
+  padding: 20px;
+}
+
+.explorer-code-block {
+  min-height: 420px;
+  max-height: 720px;
+  overflow: auto;
+  margin: 0;
+  padding: 18px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(145, 183, 255, 0.1);
+  background: rgba(6, 13, 24, 0.82);
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.55;
+  white-space: pre;
+}
+
+.explorer-imix-shell {
+  margin-top: 6px;
+}
+
+.table-row-selectable {
+  cursor: pointer;
+  transition: background 160ms ease;
+}
+
+.table-row-selectable:hover {
+  background: rgba(145, 183, 255, 0.05);
+}
+
+.table-row-selected {
+  background: rgba(106, 224, 191, 0.08);
+}
+
 .table-scroll {
   overflow: auto;
   max-height: 640px;
@@ -938,6 +1000,7 @@ td span {
 @media (max-width: 1120px) {
   .hero-grid,
   .split-grid,
+  .explorer-code-grid,
   .performance-grid,
   .status-grid,
   .downloads-grid,
@@ -1034,6 +1097,14 @@ td span {
 
   .chart {
     min-height: 340px;
+  }
+
+  .explorer-kernel-head {
+    flex-direction: column;
+  }
+
+  .explorer-code-block {
+    min-height: 320px;
   }
 
   .footer {

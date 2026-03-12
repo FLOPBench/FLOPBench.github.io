@@ -239,10 +239,11 @@
         <div class="section-head">
           <div>
             <div class="eyebrow">Source explorer</div>
-            <h2>Search the benchmark without leaving the page.</h2>
+            <h2>Inspect a program, pick a kernel, and read the exact metadata.</h2>
             <p>
-              Filter the source-level view by device, programming model, HeCBench README category, or benchmark name.
-              The plot and the table move together so the outliers stay visible.
+              Filter by GPU, programming model, HeCBench README category, or search term, then select a program and
+              kernel. The table shows per-GPU measurements, while the code panes expose the matching SASS and IMIX from
+              gpuFLOPBench.json.
             </p>
           </div>
         </div>
@@ -268,11 +269,29 @@
             </div>
             <div class="field" style="flex: 1 1 280px;">
               <label for="explorerSearch">search</label>
-              <input id="explorerSearch" type="search" placeholder="source or benchmark name">
+              <input id="explorerSearch" type="search" placeholder="program, benchmark, or kernel name">
+            </div>
+            <div class="field" style="flex: 1 1 260px;">
+              <label for="explorerProgram">program</label>
+              <select id="explorerProgram"></select>
+            </div>
+            <div class="field" style="flex: 1 1 360px;">
+              <label for="explorerKernel">kernel</label>
+              <select id="explorerKernel"></select>
+            </div>
+            <div class="field">
+              <label for="explorerArch">SASS / IMIX target</label>
+              <select id="explorerArch"></select>
             </div>
           </div>
-          <p id="sourceCountSummary" class="muted" style="margin-top: 16px;">Loading source explorer...</p>
-          <div class="chart" id="explorerChart" data-fallback="source explorer chart"></div>
+          <p id="explorerSummary" class="muted" style="margin-top: 16px;">Loading source explorer...</p>
+          <div class="explorer-kernel-head">
+            <div>
+              <h3 id="explorerKernelName">Loading kernel metadata...</h3>
+              <p id="explorerKernelMeta" class="muted">Reading the profiled kernel inventory.</p>
+            </div>
+            <p id="explorerCodeSummary" class="muted">Waiting for a kernel selection.</p>
+          </div>
         </article>
 
         <div class="table-shell" style="margin-top: 18px;">
@@ -280,19 +299,54 @@
             <table>
               <thead>
                 <tr>
-                  <th>source</th>
                   <th>device</th>
-                  <th>model</th>
-                  <th>kernels</th>
-                  <th>best perf</th>
-                  <th>median AI</th>
-                  <th>median time (ns)</th>
-                  <th>rank</th>
+                  <th>arch</th>
+                  <th>FLOPs</th>
+                  <th>bytes</th>
+                  <th>perf (TFLOP/s)</th>
+                  <th>xtime (ns)</th>
+                  <th>gridSz</th>
+                  <th>blockSz</th>
+                  <th>exeArgs</th>
                 </tr>
               </thead>
-              <tbody id="sourceTableBody"></tbody>
+              <tbody id="explorerGpuTableBody"></tbody>
             </table>
           </div>
+        </div>
+
+        <div class="explorer-code-grid">
+          <article class="panel explorer-pane">
+            <div class="section-head section-head-tight">
+              <div>
+                <h3>SASS disassembly</h3>
+                <p class="muted">Selected architecture, including dependency sections when they are present.</p>
+              </div>
+            </div>
+            <div id="explorerSassCode" class="explorer-code-block mono"></div>
+          </article>
+
+          <article class="panel explorer-pane">
+            <div class="section-head section-head-tight">
+              <div>
+                <h3>IMIX</h3>
+                <p class="muted">Instruction counts for the selected architecture.</p>
+              </div>
+            </div>
+            <div class="table-shell explorer-imix-shell">
+              <div class="table-scroll short-scroll">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>instruction</th>
+                      <th>count</th>
+                    </tr>
+                  </thead>
+                  <tbody id="explorerImixBody"></tbody>
+                </table>
+              </div>
+            </div>
+          </article>
         </div>
       </section>
 

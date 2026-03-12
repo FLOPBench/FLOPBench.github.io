@@ -46,9 +46,13 @@
   const rooflineSpecGridNode = document.getElementById("rooflineSpecGrid");
   const rooflineDetailSummaryNode = document.getElementById("rooflineDetailSummary");
   const rooflineDetailBody = document.getElementById("rooflineDetailBody");
-  const explorerNode = document.getElementById("explorerChart");
-  const sourceTableBody = document.getElementById("sourceTableBody");
-  const sourceCountSummary = document.getElementById("sourceCountSummary");
+  const explorerSummaryNode = document.getElementById("explorerSummary");
+  const explorerKernelNameNode = document.getElementById("explorerKernelName");
+  const explorerKernelMetaNode = document.getElementById("explorerKernelMeta");
+  const explorerCodeSummaryNode = document.getElementById("explorerCodeSummary");
+  const explorerGpuTableBody = document.getElementById("explorerGpuTableBody");
+  const explorerSassCodeNode = document.getElementById("explorerSassCode");
+  const explorerImixBody = document.getElementById("explorerImixBody");
 
   const rooflineDevice = document.getElementById("rooflineDevice");
   const rooflineModel = document.getElementById("rooflineModel");
@@ -60,6 +64,9 @@
   const explorerModel = document.getElementById("explorerModel");
   const explorerCategory = document.getElementById("explorerCategory");
   const explorerSearch = document.getElementById("explorerSearch");
+  const explorerProgram = document.getElementById("explorerProgram");
+  const explorerKernel = document.getElementById("explorerKernel");
+  const explorerArch = document.getElementById("explorerArch");
 
   function uniqueSorted(values) {
     return [...new Set(values.filter(Boolean))].sort((left, right) => left.localeCompare(right));
@@ -90,6 +97,43 @@
 
     node.value = values.includes(current) ? current : "all";
   }
+
+  function refillChoiceSelect(node, options, emptyLabel) {
+    const current = node.value;
+    node.innerHTML = "";
+
+    if (!options.length) {
+      const option = document.createElement("option");
+      option.value = "";
+      option.textContent = emptyLabel;
+      option.disabled = true;
+      option.selected = true;
+      node.appendChild(option);
+      node.disabled = true;
+      return "";
+    }
+
+    node.disabled = false;
+    options.forEach((entry) => {
+      const option = document.createElement("option");
+      option.value = entry.value;
+      option.textContent = entry.label;
+      node.appendChild(option);
+    });
+
+    const nextValue = options.some((entry) => entry.value === current) ? current : options[0].value;
+    node.value = nextValue;
+    return nextValue;
+  }
+
+  const deviceArchMap = Object.fromEntries(
+    (meta.roofline_specs || []).map((spec) => [
+      spec.device,
+      `sm_${String(spec.compute_capability).replace(/[^0-9]/g, "")}`,
+    ])
+  );
+  let explorerDatasetPromise = null;
+  let explorerRenderToken = 0;
 
   function buildRooflineRange(rows) {
     const aiValues = rows.map((row) => Number(row.arithmetic_intensity)).filter((value) => Number.isFinite(value) && value > 0);
@@ -612,7 +656,7 @@
     queuePerformancePanelSync();
   }
 
-  function filteredSourceRows(rows) {
+  function filteredExplorerKernelRows(rows) {
     const search = explorerSearch.value.trim().toLowerCase();
     return rows.filter((row) => {
       const matchesDevice = explorerDevice.value === "all" || row.device === explorerDevice.value;
@@ -621,74 +665,239 @@
       const matchesSearch =
         !search ||
         row.source.toLowerCase().includes(search) ||
-        row.benchmark.toLowerCase().includes(search);
+        row.benchmark.toLowerCase().includes(search) ||
+        String(row.kernel_demangled || row.kernel || "").toLowerCase().includes(search) ||
+        String(row.kernel_symbol || "").toLowerCase().includes(search);
       return matchesDevice && matchesModel && matchesCategory && matchesSearch;
     });
   }
 
-  function renderSourceTable(rows) {
-    sourceTableBody.innerHTML = "";
-    rows.slice(0, 120).forEach((row) => {
-      const tr = document.createElement("tr");
-      tr.innerHTML = `
-        <td>
-          <strong>${row.source}</strong>
-          <span>${row.category}</span>
-        </td>
-        <td><span class="tag">${row.device}</span></td>
-        <td><span class="tag">${row.model_type}</span></td>
-        <td class="mono">${formatNumber(row.kernel_count, 0)}</td>
-        <td class="mono">${formatNumber(row.peak_performance_tflops, 4)}</td>
-        <td class="mono">${formatNumber(row.median_arithmetic_intensity, 4)}</td>
-        <td class="mono">${formatNumber(row.median_xtime_ns, 2)}</td>
-        <td class="mono">${formatNumber(row.coverage_rank, 0)}</td>
-      `;
-      sourceTableBody.appendChild(tr);
+  function buildExplorerPairs(rows) {
+    const pairs = new Map();
+    rows.forEach((row) => {
+      const key = `${row.source}::${row.kernel_symbol}`;
+      if (!pairs.has(key)) {
+        pairs.set(key, {
+          program: row.source,
+          benchmark: row.benchmark,
+          category: row.category,
+          model_type: row.model_type,
+          kernel_symbol: row.kernel_symbol,
+          kernel_demangled: row.kernel_demangled || row.kernel || row.kernel_symbol,
+          exe_args: row.exe_args,
+        });
+      }
+    });
+    return [...pairs.values()].sort((left, right) => {
+      const programOrder = left.program.localeCompare(right.program);
+      if (programOrder !== 0) {
+        return programOrder;
+      }
+      return left.kernel_demangled.localeCompare(right.kernel_demangled);
     });
   }
 
-  function renderSourceChart(rows) {
-    renderPlot(
-      explorerNode,
-      uniqueSorted(rows.map((row) => row.device)).map((device) => {
-        const subset = rows.filter((row) => row.device === device && Number(row.peak_performance_tflops) > 0 && Number(row.median_arithmetic_intensity) > 0);
-        return {
-          type: "scattergl",
-          mode: "markers",
-          name: device,
-          x: subset.map((row) => row.median_arithmetic_intensity),
-          y: subset.map((row) => row.peak_performance_tflops),
-          text: subset.map((row) => row.source),
-          customdata: subset.map((row) => [row.model_type, row.kernel_count, row.category]),
-          hovertemplate:
-            "<b>%{text}</b><br>" +
-            "model=%{customdata[0]}<br>" +
-            "kernels=%{customdata[1]}<br>" +
-            "category=%{customdata[2]}<br>" +
-            "median AI=%{x:.4f}<br>" +
-            "best performance=%{y:.4f} TFLOP/s<extra></extra>",
-          marker: {
-            color: COLORS[device] || "#90b7ff",
-            size: subset.map((row) => Math.max(8, Math.min(28, Number(row.kernel_count) || 8))),
-            opacity: 0.66,
-          },
-        };
-      }),
-      basePlotlyLayout({
-        xaxis: { title: "median source AI (FLOPs / byte)", type: "log" },
-        yaxis: { title: "best observed source performance (TFLOP/s)", type: "log" },
+  async function loadExplorerDataset() {
+    if (!explorerDatasetPromise) {
+      explorerDatasetPromise = fetch("./downloads/gpuFLOPBench.json.gz")
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`Failed to fetch gpuFLOPBench.json.gz (${response.status}).`);
+          }
+          if (!response.body || typeof window.DecompressionStream !== "function") {
+            throw new Error("This browser cannot decompress the bundled gpuFLOPBench.json.gz dataset.");
+          }
+          const decompressed = response.body.pipeThrough(new window.DecompressionStream("gzip"));
+          return new Response(decompressed).text();
+        })
+        .then((text) => JSON.parse(text));
+    }
+    return explorerDatasetPromise;
+  }
+
+  function renderExplorerGpuTable(rows, selectedArch) {
+    explorerGpuTableBody.innerHTML = "";
+
+    if (!rows.length) {
+      const tr = document.createElement("tr");
+      tr.innerHTML = '<td class="muted" colspan="8">No GPU measurements are available for the selected kernel.</td>';
+      explorerGpuTableBody.appendChild(tr);
+      return;
+    }
+
+    rows.forEach((row) => {
+      const arch = deviceArchMap[row.device] || "n/a";
+      const tr = document.createElement("tr");
+      tr.className = `table-row-selectable${arch === selectedArch ? " table-row-selected" : ""}`;
+      tr.innerHTML = `
+        <td><span class="tag">${row.device}</span></td>
+        <td class="mono">${arch}</td>
+        <td class="mono">${formatNumber(row.float_flops, 0)}</td>
+        <td class="mono">${formatNumber(row.bytes_total, 0)}</td>
+        <td class="mono">${formatNumber(row.performance_tflops, 4)}</td>
+        <td class="mono">${formatNumber(row.xtime_ns, 2)}</td>
+        <td class="mono">${row.grid_size || "n/a"}</td>
+        <td class="mono">${row.block_size || "n/a"}</td>
+        <td class="mono">${row.exe_args || "n/a"}</td>
+      `;
+      tr.addEventListener("click", function () {
+        if (arch && arch !== "n/a") {
+          explorerArch.value = arch;
+          renderExplorer(kernelRows);
+        }
+      });
+      explorerGpuTableBody.appendChild(tr);
+    });
+  }
+
+  function renderExplorerSass(sections, kernelSymbol) {
+    if (!sections) {
+      emptyState(explorerSassCodeNode, "No SASS disassembly is available for the selected architecture.");
+      return;
+    }
+
+    if (typeof sections === "string") {
+      explorerSassCodeNode.textContent = sections;
+      return;
+    }
+
+    const rendered = Object.entries(sections).map(([sectionName, code]) => {
+      const header = sectionName === kernelSymbol ? `${sectionName} (kernel entry)` : sectionName;
+      return `// [${header}]\n${code}`;
+    });
+    explorerSassCodeNode.textContent = rendered.join("\n\n");
+  }
+
+  function renderExplorerImix(imix, emptyMessage) {
+    explorerImixBody.innerHTML = "";
+
+    if (!imix || !Object.keys(imix).length) {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `<td class="muted" colspan="2">${emptyMessage || "No IMIX is available for the selected architecture."}</td>`;
+      explorerImixBody.appendChild(tr);
+      return;
+    }
+
+    Object.entries(imix)
+      .sort((left, right) => {
+        if (right[1] !== left[1]) {
+          return right[1] - left[1];
+        }
+        return left[0].localeCompare(right[0]);
       })
-    );
+      .forEach(([instruction, count]) => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td class="mono">${instruction}</td>
+          <td class="mono">${formatNumber(count, 0)}</td>
+        `;
+        explorerImixBody.appendChild(tr);
+      });
+  }
+
+  async function renderExplorerCodePane(selectedPair, selectedRows, selectedArch, renderToken) {
+    explorerCodeSummaryNode.textContent = "Loading SASS and IMIX from the structured gpuFLOPBench.json.gz dataset.";
+    emptyState(explorerSassCodeNode, "Loading kernel SASS...");
+    renderExplorerImix(null, "Loading kernel IMIX...");
+
+    try {
+      const dataset = await loadExplorerDataset();
+      if (renderToken !== explorerRenderToken) {
+        return;
+      }
+
+      const rawKernel = dataset?.[selectedPair.program]?.kernels?.[selectedPair.kernel_symbol];
+      if (!rawKernel) {
+        explorerCodeSummaryNode.textContent = "The selected kernel was not found in gpuFLOPBench.json.gz.";
+        emptyState(explorerSassCodeNode, "The selected kernel was not found in the bundled dataset.");
+        renderExplorerImix(null);
+        return;
+      }
+
+      const availableArchs = uniqueSorted(
+        [
+          ...selectedRows.map((row) => deviceArchMap[row.device]).filter(Boolean),
+          ...Object.keys(rawKernel.sass_code || {}),
+          ...Object.keys(rawKernel.imix || {}),
+        ]
+      );
+      const activeArch = refillChoiceSelect(
+        explorerArch,
+        availableArchs.map((arch) => ({ value: arch, label: arch })),
+        "no architecture"
+      );
+      const sassSections = rawKernel.sass_code ? rawKernel.sass_code[activeArch] : null;
+      const imix = rawKernel.imix ? rawKernel.imix[activeArch] : null;
+      const sectionCount =
+        sassSections && typeof sassSections === "object" ? Object.keys(sassSections).length : sassSections ? 1 : 0;
+
+      explorerCodeSummaryNode.textContent = `${activeArch || "n/a"} selected. ${sectionCount} SASS section${
+        sectionCount === 1 ? "" : "s"
+      } and the matching IMIX are shown for this kernel.`;
+      renderExplorerSass(sassSections, selectedPair.kernel_symbol);
+      renderExplorerImix(imix);
+      renderExplorerGpuTable(selectedRows, activeArch);
+    } catch (error) {
+      if (renderToken !== explorerRenderToken) {
+        return;
+      }
+      console.error(error);
+      explorerCodeSummaryNode.textContent = "The structured gpuFLOPBench.json.gz dataset could not be loaded in this browser.";
+      emptyState(explorerSassCodeNode, "Could not load kernel SASS from gpuFLOPBench.json.gz.");
+      renderExplorerImix(null, "Could not load kernel IMIX from gpuFLOPBench.json.gz.");
+    }
   }
 
   function renderExplorer(rows) {
-    const subset = filteredSourceRows(rows).sort((left, right) => Number(right.peak_performance_tflops) - Number(left.peak_performance_tflops));
-    sourceCountSummary.innerHTML = `
-      <strong>${subset.length}</strong> source-device rows match the current filters.
-      The table below shows the top 120 by best observed floating-point performance.
-    `;
-    renderSourceTable(subset);
-    renderSourceChart(subset);
+    const filteredRows = filteredExplorerKernelRows(rows);
+    const pairs = buildExplorerPairs(filteredRows);
+    const programNames = uniqueSorted(pairs.map((pair) => pair.program));
+    const selectedProgram = refillChoiceSelect(
+      explorerProgram,
+      programNames.map((program) => ({ value: program, label: program })),
+      "no matching programs"
+    );
+    const selectedProgramPairs = pairs.filter((pair) => pair.program === selectedProgram);
+    const selectedKernelSymbol = refillChoiceSelect(
+      explorerKernel,
+      selectedProgramPairs.map((pair) => ({
+        value: pair.kernel_symbol,
+        label: pair.kernel_demangled,
+      })),
+      "no matching kernels"
+    );
+    const selectedPair = selectedProgramPairs.find((pair) => pair.kernel_symbol === selectedKernelSymbol);
+    const selectedRows = filteredRows
+      .filter((row) => row.source === selectedProgram && row.kernel_symbol === selectedKernelSymbol)
+      .sort((left, right) => left.device.localeCompare(right.device));
+
+    const rowArchs = uniqueSorted(selectedRows.map((row) => deviceArchMap[row.device]).filter(Boolean));
+    refillChoiceSelect(
+      explorerArch,
+      rowArchs.map((arch) => ({ value: arch, label: arch })),
+      "no architecture"
+    );
+
+    explorerSummaryNode.innerHTML = `<strong>${pairs.length}</strong> program-kernel pairs across <strong>${
+      programNames.length
+    }</strong> programs match the current filters.`;
+
+    if (!selectedPair || !selectedRows.length) {
+      explorerKernelNameNode.textContent = "No kernel matches the current filters.";
+      explorerKernelMetaNode.textContent = "Adjust the Source Explorer filters to select a profiled program and kernel.";
+      explorerCodeSummaryNode.textContent = "Waiting for a matching kernel selection.";
+      renderExplorerGpuTable([], "");
+      emptyState(explorerSassCodeNode, "Select a profiled kernel to inspect SASS.");
+      renderExplorerImix(null, "Select a profiled kernel to inspect IMIX.");
+      return;
+    }
+
+    explorerKernelNameNode.textContent = selectedPair.kernel_demangled;
+    explorerKernelMetaNode.textContent = `${selectedPair.program} | ${selectedPair.model_type.toUpperCase()} | ${
+      selectedPair.category
+    } | benchmark ${selectedPair.benchmark} | symbol ${selectedPair.kernel_symbol}`;
+    renderExplorerGpuTable(selectedRows, explorerArch.value);
+    renderExplorerCodePane(selectedPair, selectedRows, explorerArch.value, ++explorerRenderToken);
   }
 
   function init() {
@@ -710,9 +919,9 @@
     refillSelect(rooflineCategory, uniqueSorted(kernelRows.map((row) => row.category)), "all categories");
     syncRooflineFilters();
 
-    refillSelect(explorerDevice, uniqueSorted(sourceRows.map((row) => row.device)), "all devices");
-    refillSelect(explorerModel, uniqueSorted(sourceRows.map((row) => row.model_type)), "all models");
-    refillSelect(explorerCategory, uniqueSorted(sourceRows.map((row) => row.category)), "all categories");
+    refillSelect(explorerDevice, uniqueSorted(kernelRows.map((row) => row.device)), "all devices");
+    refillSelect(explorerModel, uniqueSorted(kernelRows.map((row) => row.model_type)), "all models");
+    refillSelect(explorerCategory, uniqueSorted(kernelRows.map((row) => row.category)), "all categories");
 
     [rooflineDevice, rooflineModel, rooflineProgram, rooflineCategory, rooflineKernel, rooflinePrecision].forEach((node) => {
       node.addEventListener("change", function () {
@@ -721,17 +930,17 @@
       });
     });
 
-    [explorerDevice, explorerModel, explorerCategory].forEach((node) => {
+    [explorerDevice, explorerModel, explorerCategory, explorerProgram, explorerKernel, explorerArch].forEach((node) => {
       node.addEventListener("change", function () {
-        renderExplorer(sourceRows);
+        renderExplorer(kernelRows);
       });
     });
     explorerSearch.addEventListener("input", function () {
-      renderExplorer(sourceRows);
+      renderExplorer(kernelRows);
     });
 
     renderRoofline(kernelRows);
-    renderExplorer(sourceRows);
+    renderExplorer(kernelRows);
     lastUpdatedNode.textContent = new Date(meta.audit.generated_at).toLocaleString();
     window.addEventListener("resize", queuePerformancePanelSync);
   }

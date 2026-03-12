@@ -352,6 +352,7 @@ def build_perf_data(dataset: dict, metadata: dict, category_map: dict[str, str])
                     "category": category,
                     "model_type": model_type,
                     "device": device,
+                    "kernel_symbol": kernel_symbol,
                     "kernel": kernel_name,
                     "kernel_demangled": demangled_kernel,
                     "block_size": block_size,
@@ -613,7 +614,7 @@ def main() -> None:
     write_json(DATA_DIR / "source-performance.json", source_rows)
 
     kernel_csv_lines = [
-        "kernel_row_id,source,benchmark,category,model_type,device,kernel,block_size,grid_size,exe_args,SP_FLOP,DP_FLOP,HP_FLOP,int_ops,float_flops,bytes_total,xtime_ns,arithmetic_intensity,performance_tflops,dominant_precision"
+        "kernel_row_id,source,benchmark,category,model_type,device,kernel_symbol,kernel,kernel_demangled,block_size,grid_size,exe_args,SP_FLOP,DP_FLOP,HP_FLOP,int_ops,float_flops,bytes_total,xtime_ns,arithmetic_intensity,performance_tflops,dominant_precision"
     ]
     for row in kernel_rows:
         kernel_csv_lines.append(
@@ -626,7 +627,9 @@ def main() -> None:
                     "category",
                     "model_type",
                     "device",
+                    "kernel_symbol",
                     "kernel",
+                    "kernel_demangled",
                     "block_size",
                     "grid_size",
                     "exe_args",
