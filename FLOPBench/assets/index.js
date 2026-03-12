@@ -34,17 +34,8 @@
 
   const modelCoverageNode = document.getElementById("modelCoverageChart");
   const categoryCoverageNode = document.getElementById("categoryCoverageChart");
-  const devicePerfNode = document.getElementById("devicePerfChart");
   const rooflineNode = document.getElementById("rooflineChart");
   const rooflineSummaryNode = document.getElementById("rooflineSummary");
-  const rooflineReferenceSummaryNode = document.getElementById("rooflineReferenceSummary");
-  const rooflineReferencePreviewNode = document.getElementById("rooflineReferencePreview");
-  const rooflineReferenceCountNode = document.getElementById("rooflineReferenceCount");
-  const devicePerfPanelNode = document.getElementById("devicePerfPanel");
-  const rooflineReferencePanelNode = document.getElementById("rooflineReferencePanel");
-  const rooflineReferenceBodyNode = document.getElementById("rooflineReferenceBody");
-  const rooflineAtlasPanelNode = document.getElementById("rooflineAtlasPanel");
-  const rooflineSpecGridNode = document.getElementById("rooflineSpecGrid");
   const rooflineDetailSummaryNode = document.getElementById("rooflineDetailSummary");
   const rooflineDetailBody = document.getElementById("rooflineDetailBody");
   const explorerSummaryNode = document.getElementById("explorerSummary");
@@ -278,92 +269,6 @@
     node.appendChild(card);
   }
 
-  function renderRooflineReference() {
-    const selectedPrecision = rooflinePrecision.value;
-    const secondaryPrecision = selectedPrecision === "fp32" ? "fp16" : "fp32";
-    const specs = meta.roofline_specs.filter((spec) => rooflineDevice.value === "all" || spec.device === rooflineDevice.value);
-    rooflineSpecGridNode.innerHTML = "";
-    rooflineReferencePreviewNode.innerHTML = "";
-    rooflineReferenceCountNode.textContent = String(specs.length);
-
-    if (!specs.length) {
-      rooflineReferenceSummaryNode.textContent = "No roofline reference cards match the current device filter.";
-      return;
-    }
-
-    const scopeLabel =
-      rooflineDevice.value === "all"
-        ? "All devices"
-        : `${specs[0].label}`;
-    rooflineReferenceSummaryNode.textContent =
-      `${scopeLabel}. ${selectedPrecision.toUpperCase()} roofs at default clocks. Scroll for the hardware cards.`;
-
-    specs.slice(0, 3).forEach((spec) => {
-      const pill = document.createElement("div");
-      pill.className = "roofline-preview-pill";
-      pill.innerHTML = `
-        <span>${spec.device}</span>
-        <strong>${formatNumber(spec[`peak_${selectedPrecision}_tflops`], 2)} TFLOP/s</strong>
-      `;
-      rooflineReferencePreviewNode.appendChild(pill);
-    });
-
-    if (specs.length > 3) {
-      const extra = document.createElement("div");
-      extra.className = "roofline-preview-pill roofline-preview-pill-faint";
-      extra.innerHTML = `<span>more</span><strong>+${specs.length - 3} GPUs</strong>`;
-      rooflineReferencePreviewNode.appendChild(extra);
-    }
-
-    specs.forEach((spec) => {
-      const card = document.createElement("article");
-      card.className = "roofline-spec-card";
-      card.innerHTML = `
-        <div class="roofline-spec-head">
-          <span class="tag">${spec.device}</span>
-          <strong>${spec.label}</strong>
-        </div>
-        <p>${spec.architecture}, compute capability ${spec.compute_capability}.</p>
-        <div class="inline-metrics roofline-inline-metrics"></div>
-      `;
-      const metrics = card.querySelector(".roofline-inline-metrics");
-      metrics.append(
-        inlineMetric("bandwidth (GB/s)", spec.memory_bandwidth_gbps, 0),
-        inlineMetric(`${selectedPrecision.toUpperCase()} roof`, spec[`peak_${selectedPrecision}_tflops`], 2),
-        inlineMetric(`${secondaryPrecision.toUpperCase()} roof`, spec[`peak_${secondaryPrecision}_tflops`], 2)
-      );
-      rooflineSpecGridNode.appendChild(card);
-    });
-  }
-
-  function syncPerformancePanelHeights() {
-    if (!devicePerfPanelNode || !rooflineReferencePanelNode || !rooflineReferenceBodyNode || !rooflineAtlasPanelNode) {
-      return;
-    }
-
-    if (window.innerWidth <= 1120) {
-      rooflineReferencePanelNode.style.height = "";
-      rooflineReferenceBodyNode.style.maxHeight = "";
-      return;
-    }
-
-    const stackNode = devicePerfPanelNode.parentElement;
-    const gapValue = stackNode ? window.getComputedStyle(stackNode).rowGap || window.getComputedStyle(stackNode).gap : "20px";
-    const gap = Number.parseFloat(gapValue) || 20;
-    const atlasHeight = rooflineAtlasPanelNode.getBoundingClientRect().height;
-    const overviewHeight = devicePerfPanelNode.getBoundingClientRect().height;
-    const targetHeight = Math.max(280, Math.floor(atlasHeight - overviewHeight - gap));
-
-    rooflineReferencePanelNode.style.height = `${targetHeight}px`;
-    rooflineReferenceBodyNode.style.maxHeight = `${Math.max(180, targetHeight - 142)}px`;
-  }
-
-  function queuePerformancePanelSync() {
-    window.requestAnimationFrame(function () {
-      window.requestAnimationFrame(syncPerformancePanelHeights);
-    });
-  }
-
   function renderReadingGuide() {
     const uniqueCategories = new Set(meta.category_profiled.map((entry) => entry.category)).size;
     readingGuideMetricsNode.append(
@@ -470,43 +375,6 @@
     );
   }
 
-  function renderDevicePerf(devices) {
-    renderPlot(
-      devicePerfNode,
-      [
-        {
-          type: "bar",
-          name: "sources",
-          x: devices.map((device) => device.device),
-          y: devices.map((device) => device.sources),
-          marker: { color: "rgba(144, 183, 255, 0.76)" },
-          yaxis: "y",
-        },
-        {
-          type: "scatter",
-          mode: "lines+markers",
-          name: "median performance",
-          x: devices.map((device) => device.device),
-          y: devices.map((device) => device.median_performance_tflops),
-          marker: { color: "#ff9c5b", size: 10 },
-          line: { color: "#ff9c5b", width: 3 },
-          yaxis: "y2",
-        },
-      ],
-      basePlotlyLayout({
-        yaxis: { title: "source count" },
-        yaxis2: {
-          title: "median performance (TFLOP/s)",
-          overlaying: "y",
-          side: "right",
-          gridcolor: "rgba(0,0,0,0)",
-          color: "#ff9c5b",
-        },
-      })
-    );
-    queuePerformancePanelSync();
-  }
-
   function matchesRooflineFilters(row) {
     const selectedPrecision = rooflinePrecision.value;
     const kernelLabel = row.kernel_demangled || row.kernel;
@@ -579,12 +447,10 @@
     const exactRows = filteredKernelRows(rows);
     const subset = exactRows.filter((row) => Number(row.arithmetic_intensity) > 0 && Number(row.performance_tflops) > 0);
     renderRooflineDetails(rows);
-    renderRooflineReference();
 
     if (!subset.length) {
       emptyState(rooflineNode, "No floating-point kernel rows match the current filters.");
       rooflineSummaryNode.textContent = "";
-      queuePerformancePanelSync();
       return;
     }
 
@@ -654,7 +520,6 @@
       median performance <strong>${formatNumber(perfValues[Math.floor(perfValues.length / 2)], 4)} TFLOP/s</strong>.
       Dashed lines show the ${selectedPrecision.toUpperCase()} theoretical roofline at default device clocks.
     `;
-    queuePerformancePanelSync();
   }
 
   function filteredExplorerKernelRows(rows) {
@@ -924,7 +789,6 @@
     renderTeam(meta.team);
     renderModelCoverage(meta.model_matrix);
     renderCategoryCoverage(meta.category_profiled);
-    renderDevicePerf(meta.device_summary);
 
     refillSelect(rooflineDevice, uniqueSorted(kernelRows.map((row) => row.device)), "all devices");
     refillSelect(rooflineModel, uniqueSorted(kernelRows.map((row) => row.model_type)), "all models");
@@ -954,7 +818,6 @@
     renderRoofline(kernelRows);
     renderExplorer(kernelRows);
     lastUpdatedNode.textContent = new Date(meta.audit.generated_at).toLocaleString();
-    window.addEventListener("resize", queuePerformancePanelSync);
   }
 
   init();
