@@ -10,7 +10,7 @@ from pathlib import Path
 
 DOCS_DIR = Path(__file__).resolve().parents[1]
 REPO_DIR = DOCS_DIR.parent
-OUT_DIR = REPO_DIR / "docs-anon"
+OUT_DIR = REPO_DIR / "FLOPBench_anonymous"
 ANON_REPO_URL = "https://github.com/FLOPBench/FLOPBench.github.io"
 SITE_DATA_PREFIX = "window.GPU_FLOWBENCH_DATA = "
 
