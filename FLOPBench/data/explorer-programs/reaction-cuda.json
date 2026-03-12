@@ -1,0 +1,449 @@
+{
+  "exeArgs": "10000",
+  "kernels": {
+    "_Z19construct_laplacianPfPKfS1_S1_jf": {
+      "demangledName": "construct_laplacian(float *, const float *, const float *, const float *, unsigned int, float)",
+      "imix": {
+        "sm_80": {
+          "NOP": 15,
+          "IMAD": 6,
+          "LDG": 3,
+          "MOV": 2,
+          "S2R": 2,
+          "ISETP": 2,
+          "EXIT": 2,
+          "FADD": 2,
+          "BRA": 2,
+          "ULDC": 1,
+          "HFMA2": 1,
+          "FMUL": 1,
+          "STG": 1
+        },
+        "sm_86": {
+          "NOP": 15,
+          "IMAD": 6,
+          "MOV": 3,
+          "LDG": 3,
+          "S2R": 2,
+          "ISETP": 2,
+          "EXIT": 2,
+          "FADD": 2,
+          "BRA": 2,
+          "ULDC": 1,
+          "FMUL": 1,
+          "STG": 1
+        },
+        "sm_90": {
+          "NOP": 8,
+          "LDC": 5,
+          "ULDC": 5,
+          "IMAD": 5,
+          "LDG": 3,
+          "S2R": 2,
+          "ISETP": 2,
+          "EXIT": 2,
+          "FADD": 2,
+          "BRA": 2,
+          "UIMAD": 1,
+          "FMUL": 1,
+          "IADD3": 1,
+          "STG": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z19construct_laplacianPfPKfS1_S1_jf": "//--------------------- .text._Z19construct_laplacianPfPKfS1_S1_jf --------------------------\n\t.section\t.text._Z19construct_laplacianPfPKfS1_S1_jf,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=16\"\n\t.align\t128\n        .global         _Z19construct_laplacianPfPKfS1_S1_jf\n        .type           _Z19construct_laplacianPfPKfS1_S1_jf,@function\n        .size           _Z19construct_laplacianPfPKfS1_S1_jf,(.L_x_24 - _Z19construct_laplacianPfPKfS1_S1_jf)\n        .other          _Z19construct_laplacianPfPKfS1_S1_jf,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z19construct_laplacianPfPKfS1_S1_jf:\n.text._Z19construct_laplacianPfPKfS1_S1_jf:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R0, R0, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x180], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   ULDC.64 UR4, c[0x0][0x118] ;\n.L_x_2:\n        /*0070*/                   HFMA2.MMA R9, -RZ, RZ, 0, 2.384185791015625e-07 ;\n        /*0080*/                   IMAD.WIDE R2, R0, R9, c[0x0][0x168] ;\n        /*0090*/                   IMAD.WIDE R4, R0.reuse, R9.reuse, c[0x0][0x170] ;\n        /*00a0*/                   LDG.E.CONSTANT R3, [R2.64] ;\n        /*00b0*/                   IMAD.WIDE R6, R0, R9, c[0x0][0x178] ;\n        /*00c0*/                   LDG.E.CONSTANT R4, [R4.64] ;\n        /*00d0*/                   LDG.E.CONSTANT R7, [R6.64] ;\n        /*00e0*/                   MOV R13, c[0x0][0x0] ;\n        /*00f0*/                   FADD R8, R4, R3 ;\n        /*0100*/                   FADD R10, R8, R7 ;\n        /*0110*/                   IMAD.WIDE R8, R0, R9, c[0x0][0x160] ;\n        /*0120*/                   FMUL R11, R10, c[0x0][0x184] ;\n        /*0130*/                   IMAD R0, R13, c[0x0][0xc], R0 ;\n        /*0140*/                   STG.E [R8.64], R11 ;\n        /*0150*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x180], PT ;\n        /*0160*/              @!P0 BRA `(.L_x_2) ;\n        /*0170*/                   EXIT ;\n.L_x_3:\n        /*0180*/                   BRA `(.L_x_3);\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n        /*0200*/                   NOP;\n        /*0210*/                   NOP;\n        /*0220*/                   NOP;\n        /*0230*/                   NOP;\n        /*0240*/                   NOP;\n        /*0250*/                   NOP;\n        /*0260*/                   NOP;\n        /*0270*/                   NOP;\n.L_x_24:"
+        },
+        "sm_86": {
+          "_Z19construct_laplacianPfPKfS1_S1_jf": "//--------------------- .text._Z19construct_laplacianPfPKfS1_S1_jf --------------------------\n\t.section\t.text._Z19construct_laplacianPfPKfS1_S1_jf,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=16\"\n\t.align\t128\n        .global         _Z19construct_laplacianPfPKfS1_S1_jf\n        .type           _Z19construct_laplacianPfPKfS1_S1_jf,@function\n        .size           _Z19construct_laplacianPfPKfS1_S1_jf,(.L_x_24 - _Z19construct_laplacianPfPKfS1_S1_jf)\n        .other          _Z19construct_laplacianPfPKfS1_S1_jf,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z19construct_laplacianPfPKfS1_S1_jf:\n.text._Z19construct_laplacianPfPKfS1_S1_jf:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R0, R0, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x180], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   ULDC.64 UR4, c[0x0][0x118] ;\n.L_x_2:\n        /*0070*/                   MOV R9, 0x4 ;\n        /*0080*/                   IMAD.WIDE R2, R0, R9, c[0x0][0x168] ;\n        /*0090*/                   IMAD.WIDE R4, R0.reuse, R9.reuse, c[0x0][0x170] ;\n        /*00a0*/                   LDG.E.CONSTANT R3, [R2.64] ;\n        /*00b0*/                   IMAD.WIDE R6, R0, R9, c[0x0][0x178] ;\n        /*00c0*/                   LDG.E.CONSTANT R4, [R4.64] ;\n        /*00d0*/                   LDG.E.CONSTANT R7, [R6.64] ;\n        /*00e0*/                   MOV R13, c[0x0][0x0] ;\n        /*00f0*/                   FADD R8, R4, R3 ;\n        /*0100*/                   FADD R10, R8, R7 ;\n        /*0110*/                   IMAD.WIDE R8, R0, R9, c[0x0][0x160] ;\n        /*0120*/                   FMUL R11, R10, c[0x0][0x184] ;\n        /*0130*/                   IMAD R0, R13, c[0x0][0xc], R0 ;\n        /*0140*/                   STG.E [R8.64], R11 ;\n        /*0150*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x180], PT ;\n        /*0160*/              @!P0 BRA `(.L_x_2) ;\n        /*0170*/                   EXIT ;\n.L_x_3:\n        /*0180*/                   BRA `(.L_x_3);\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n        /*0200*/                   NOP;\n        /*0210*/                   NOP;\n        /*0220*/                   NOP;\n        /*0230*/                   NOP;\n        /*0240*/                   NOP;\n        /*0250*/                   NOP;\n        /*0260*/                   NOP;\n        /*0270*/                   NOP;\n.L_x_24:"
+        },
+        "sm_90": {
+          "_Z19construct_laplacianPfPKfS1_S1_jf": "//--------------------- .text._Z19construct_laplacianPfPKfS1_S1_jf --------------------------\n\t.section\t.text._Z19construct_laplacianPfPKfS1_S1_jf,\"ax\",@progbits\n\t.align\t128\n        .global         _Z19construct_laplacianPfPKfS1_S1_jf\n        .type           _Z19construct_laplacianPfPKfS1_S1_jf,@function\n        .size           _Z19construct_laplacianPfPKfS1_S1_jf,(.L_x_28 - _Z19construct_laplacianPfPKfS1_S1_jf)\n        .other          _Z19construct_laplacianPfPKfS1_S1_jf,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z19construct_laplacianPfPKfS1_S1_jf:\n.text._Z19construct_laplacianPfPKfS1_S1_jf:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_CTAID.X ;\n        /*0020*/                   ULDC UR4, c[0x0][0x0] ;\n        /*0030*/                   ULDC UR8, c[0x0][0x230] ;\n        /*0040*/                   S2R R3, SR_TID.X ;\n        /*0050*/                   IMAD R0, R0, UR4, R3 ;\n        /*0060*/                   ISETP.GE.U32.AND P0, PT, R0, UR8, PT ;\n        /*0070*/               @P0 EXIT ;\n        /*0080*/                   LDC.64 R2, c[0x0][0x218] ;\n        /*0090*/                   ULDC UR5, c[0x0][0xc] ;\n        /*00a0*/                   ULDC.64 UR6, c[0x0][0x208] ;\n        /*00b0*/                   UIMAD UR4, UR4, UR5, URZ ;\n        /*00c0*/                   ULDC UR5, c[0x0][0x234] ;\n        /*00d0*/                   LDC.64 R4, c[0x0][0x220] ;\n        /*00e0*/                   LDC.64 R6, c[0x0][0x228] ;\n        /*00f0*/                   LDC.64 R8, c[0x0][0x210] ;\n.L_x_2:\n        /*0100*/                   IMAD.WIDE R10, R0, 0x4, R2 ;\n        /*0110*/                   IMAD.WIDE R12, R0.reuse, 0x4, R4 ;\n        /*0120*/                   LDG.E.CONSTANT R11, desc[UR6][R10.64] ;\n        /*0130*/                   IMAD.WIDE R14, R0, 0x4, R6 ;\n        /*0140*/                   LDG.E.CONSTANT R12, desc[UR6][R12.64] ;\n        /*0150*/                   LDG.E.CONSTANT R15, desc[UR6][R14.64] ;\n        /*0160*/                   FADD R16, R12, R11 ;\n        /*0170*/                   FADD R18, R16, R15 ;\n        /*0180*/                   IMAD.WIDE R16, R0, 0x4, R8 ;\n        /*0190*/                   FMUL R19, R18, UR5 ;\n        /*01a0*/                   IADD3 R0, R0, UR4, RZ ;\n        /*01b0*/                   STG.E desc[UR6][R16.64], R19 ;\n        /*01c0*/                   ISETP.GE.U32.AND P0, PT, R0, UR8, PT ;\n        /*01d0*/              @!P0 BRA `(.L_x_2) ;\n        /*01e0*/                   EXIT ;\n.L_x_3:\n        /*01f0*/                   BRA `(.L_x_3);\n        /*0200*/                   NOP;\n        /*0210*/                   NOP;\n        /*0220*/                   NOP;\n        /*0230*/                   NOP;\n        /*0240*/                   NOP;\n        /*0250*/                   NOP;\n        /*0260*/                   NOP;\n        /*0270*/                   NOP;\n.L_x_28:"
+        }
+      }
+    },
+    "_Z19reaction_gray_scottPKfS0_PfS1_jff": {
+      "demangledName": "reaction_gray_scott(const float *, const float *, float *, float *, unsigned int, float, float)",
+      "imix": {
+        "sm_80": {
+          "NOP": 11,
+          "IMAD": 6,
+          "MOV": 3,
+          "S2R": 2,
+          "ISETP": 2,
+          "EXIT": 2,
+          "FADD": 2,
+          "LDG": 2,
+          "FMUL": 2,
+          "FFMA": 2,
+          "STG": 2,
+          "BRA": 2,
+          "ULDC": 1,
+          "HFMA2": 1
+        },
+        "sm_86": {
+          "NOP": 11,
+          "IMAD": 6,
+          "MOV": 4,
+          "S2R": 2,
+          "ISETP": 2,
+          "EXIT": 2,
+          "FADD": 2,
+          "LDG": 2,
+          "FMUL": 2,
+          "FFMA": 2,
+          "STG": 2,
+          "BRA": 2,
+          "ULDC": 1
+        },
+        "sm_90": {
+          "NOP": 12,
+          "LDC": 6,
+          "ULDC": 5,
+          "IMAD": 5,
+          "S2R": 2,
+          "ISETP": 2,
+          "EXIT": 2,
+          "FADD": 2,
+          "LDG": 2,
+          "FMUL": 2,
+          "FFMA": 2,
+          "STG": 2,
+          "BRA": 2,
+          "UIMAD": 1,
+          "IADD3": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z19reaction_gray_scottPKfS0_PfS1_jff": "//--------------------- .text._Z19reaction_gray_scottPKfS0_PfS1_jff --------------------------\n\t.section\t.text._Z19reaction_gray_scottPKfS0_PfS1_jff,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=18\"\n\t.align\t128\n        .global         _Z19reaction_gray_scottPKfS0_PfS1_jff\n        .type           _Z19reaction_gray_scottPKfS0_PfS1_jff,@function\n        .size           _Z19reaction_gray_scottPKfS0_PfS1_jff,(.L_x_31 - _Z19reaction_gray_scottPKfS0_PfS1_jff)\n        .other          _Z19reaction_gray_scottPKfS0_PfS1_jff,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z19reaction_gray_scottPKfS0_PfS1_jff:\n.text._Z19reaction_gray_scottPKfS0_PfS1_jff:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R0, R0, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x180], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   MOV R10, c[0x0][0x184] ;\n        /*0070*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0080*/                   FADD R10, R10, c[0x0][0x188] ;\n.L_x_21:\n        /*0090*/                   HFMA2.MMA R15, -RZ, RZ, 0, 2.384185791015625e-07 ;\n        /*00a0*/                   IMAD.WIDE R2, R0, R15, c[0x0][0x160] ;\n        /*00b0*/                   IMAD.WIDE R4, R0, R15, c[0x0][0x168] ;\n        /*00c0*/                   LDG.E.CONSTANT R2, [R2.64] ;\n        /*00d0*/                   LDG.E.CONSTANT R5, [R4.64] ;\n        /*00e0*/                   MOV R3, c[0x0][0x0] ;\n        /*00f0*/                   FADD R9, -R2, 1 ;\n        /*0100*/                   FMUL R6, R5, R2 ;\n        /*0110*/                   FMUL R8, R5, R6 ;\n        /*0120*/                   IMAD.WIDE R6, R0, R15, c[0x0][0x170] ;\n        /*0130*/                   FFMA R11, R9, c[0x0][0x184], -R8.reuse ;\n        /*0140*/                   FFMA R13, -R10, R5, R8 ;\n        /*0150*/                   IMAD.WIDE R8, R0, R15, c[0x0][0x178] ;\n        /*0160*/                   STG.E [R6.64], R11 ;\n        /*0170*/                   IMAD R0, R3, c[0x0][0xc], R0 ;\n        /*0180*/                   STG.E [R8.64], R13 ;\n        /*0190*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x180], PT ;\n        /*01a0*/              @!P0 BRA `(.L_x_21) ;\n        /*01b0*/                   EXIT ;\n.L_x_22:\n        /*01c0*/                   BRA `(.L_x_22);\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n        /*0200*/                   NOP;\n        /*0210*/                   NOP;\n        /*0220*/                   NOP;\n        /*0230*/                   NOP;\n        /*0240*/                   NOP;\n        /*0250*/                   NOP;\n        /*0260*/                   NOP;\n        /*0270*/                   NOP;\n.L_x_31:"
+        },
+        "sm_86": {
+          "_Z19reaction_gray_scottPKfS0_PfS1_jff": "//--------------------- .text._Z19reaction_gray_scottPKfS0_PfS1_jff --------------------------\n\t.section\t.text._Z19reaction_gray_scottPKfS0_PfS1_jff,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=18\"\n\t.align\t128\n        .global         _Z19reaction_gray_scottPKfS0_PfS1_jff\n        .type           _Z19reaction_gray_scottPKfS0_PfS1_jff,@function\n        .size           _Z19reaction_gray_scottPKfS0_PfS1_jff,(.L_x_31 - _Z19reaction_gray_scottPKfS0_PfS1_jff)\n        .other          _Z19reaction_gray_scottPKfS0_PfS1_jff,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z19reaction_gray_scottPKfS0_PfS1_jff:\n.text._Z19reaction_gray_scottPKfS0_PfS1_jff:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R0, R0, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x180], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   MOV R10, c[0x0][0x184] ;\n        /*0070*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0080*/                   FADD R10, R10, c[0x0][0x188] ;\n.L_x_21:\n        /*0090*/                   MOV R15, 0x4 ;\n        /*00a0*/                   IMAD.WIDE R2, R0, R15, c[0x0][0x160] ;\n        /*00b0*/                   IMAD.WIDE R4, R0, R15, c[0x0][0x168] ;\n        /*00c0*/                   LDG.E.CONSTANT R2, [R2.64] ;\n        /*00d0*/                   LDG.E.CONSTANT R5, [R4.64] ;\n        /*00e0*/                   MOV R3, c[0x0][0x0] ;\n        /*00f0*/                   FADD R8, -R2, 1 ;\n        /*0100*/                   FMUL R6, R5, R2 ;\n        /*0110*/                   FMUL R9, R5, R6 ;\n        /*0120*/                   IMAD.WIDE R6, R0, R15, c[0x0][0x170] ;\n        /*0130*/                   FFMA R11, R8, c[0x0][0x184], -R9.reuse ;\n        /*0140*/                   FFMA R13, -R10, R5, R9 ;\n        /*0150*/                   IMAD.WIDE R8, R0, R15, c[0x0][0x178] ;\n        /*0160*/                   STG.E [R6.64], R11 ;\n        /*0170*/                   IMAD R0, R3, c[0x0][0xc], R0 ;\n        /*0180*/                   STG.E [R8.64], R13 ;\n        /*0190*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x180], PT ;\n        /*01a0*/              @!P0 BRA `(.L_x_21) ;\n        /*01b0*/                   EXIT ;\n.L_x_22:\n        /*01c0*/                   BRA `(.L_x_22);\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n        /*0200*/                   NOP;\n        /*0210*/                   NOP;\n        /*0220*/                   NOP;\n        /*0230*/                   NOP;\n        /*0240*/                   NOP;\n        /*0250*/                   NOP;\n        /*0260*/                   NOP;\n        /*0270*/                   NOP;\n.L_x_31:"
+        },
+        "sm_90": {
+          "_Z19reaction_gray_scottPKfS0_PfS1_jff": "//--------------------- .text._Z19reaction_gray_scottPKfS0_PfS1_jff --------------------------\n\t.section\t.text._Z19reaction_gray_scottPKfS0_PfS1_jff,\"ax\",@progbits\n\t.align\t128\n        .global         _Z19reaction_gray_scottPKfS0_PfS1_jff\n        .type           _Z19reaction_gray_scottPKfS0_PfS1_jff,@function\n        .size           _Z19reaction_gray_scottPKfS0_PfS1_jff,(.L_x_35 - _Z19reaction_gray_scottPKfS0_PfS1_jff)\n        .other          _Z19reaction_gray_scottPKfS0_PfS1_jff,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z19reaction_gray_scottPKfS0_PfS1_jff:\n.text._Z19reaction_gray_scottPKfS0_PfS1_jff:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_CTAID.X ;\n        /*0020*/                   ULDC UR4, c[0x0][0x0] ;\n        /*0030*/                   ULDC UR8, c[0x0][0x230] ;\n        /*0040*/                   S2R R3, SR_TID.X ;\n        /*0050*/                   IMAD R0, R0, UR4, R3 ;\n        /*0060*/                   ISETP.GE.U32.AND P0, PT, R0, UR8, PT ;\n        /*0070*/               @P0 EXIT ;\n        /*0080*/                   LDC R18, c[0x0][0x238] ;\n        /*0090*/                   ULDC UR5, c[0x0][0xc] ;\n        /*00a0*/                   ULDC.64 UR6, c[0x0][0x208] ;\n        /*00b0*/                   UIMAD UR4, UR4, UR5, URZ ;\n        /*00c0*/                   ULDC UR5, c[0x0][0x234] ;\n        /*00d0*/                   LDC.64 R2, c[0x0][0x210] ;\n        /*00e0*/                   LDC.64 R4, c[0x0][0x218] ;\n        /*00f0*/                   LDC.64 R6, c[0x0][0x220] ;\n        /*0100*/                   FADD R18, R18, UR5 ;\n        /*0110*/                   LDC.64 R8, c[0x0][0x228] ;\n.L_x_25:\n        /*0120*/                   IMAD.WIDE R10, R0, 0x4, R2 ;\n        /*0130*/                   IMAD.WIDE R12, R0, 0x4, R4 ;\n        /*0140*/                   LDG.E.CONSTANT R10, desc[UR6][R10.64] ;\n        /*0150*/                   LDG.E.CONSTANT R13, desc[UR6][R12.64] ;\n        /*0160*/                   FADD R16, -R10, 1 ;\n        /*0170*/                   FMUL R14, R13, R10 ;\n        /*0180*/                   FMUL R17, R13, R14 ;\n        /*0190*/                   IMAD.WIDE R14, R0, 0x4, R6 ;\n        /*01a0*/                   FFMA R19, R16, UR5, -R17.reuse ;\n        /*01b0*/                   FFMA R21, -R18, R13, R17 ;\n        /*01c0*/                   IMAD.WIDE R16, R0.reuse, 0x4, R8 ;\n        /*01d0*/                   IADD3 R0, R0, UR4, RZ ;\n        /*01e0*/                   STG.E desc[UR6][R14.64], R19 ;\n        /*01f0*/                   ISETP.GE.U32.AND P0, PT, R0, UR8, PT ;\n        /*0200*/                   STG.E desc[UR6][R16.64], R21 ;\n        /*0210*/              @!P0 BRA `(.L_x_25) ;\n        /*0220*/                   EXIT ;\n.L_x_26:\n        /*0230*/                   BRA `(.L_x_26);\n        /*0240*/                   NOP;\n        /*0250*/                   NOP;\n        /*0260*/                   NOP;\n        /*0270*/                   NOP;\n        /*0280*/                   NOP;\n        /*0290*/                   NOP;\n        /*02a0*/                   NOP;\n        /*02b0*/                   NOP;\n        /*02c0*/                   NOP;\n        /*02d0*/                   NOP;\n        /*02e0*/                   NOP;\n        /*02f0*/                   NOP;\n.L_x_35:"
+        }
+      }
+    },
+    "_Z22derivative_x2_zerofluxPKfPfjj": {
+      "demangledName": "derivative_x2_zeroflux(const float *, float *, unsigned int, unsigned int)",
+      "imix": {
+        "sm_80": {
+          "NOP": 8,
+          "IMAD": 5,
+          "LDS": 5,
+          "FADD": 5,
+          "S2R": 4,
+          "BRA": 3,
+          "ULDC": 2,
+          "ISETP": 2,
+          "LEA": 2,
+          "MOV": 1,
+          "HFMA2": 1,
+          "LDG": 1,
+          "BSSY": 1,
+          "SHF": 1,
+          "IADD3": 1,
+          "STS": 1,
+          "BAR": 1,
+          "UIADD3": 1,
+          "BSYNC": 1,
+          "STG": 1,
+          "EXIT": 1
+        },
+        "sm_86": {
+          "NOP": 8,
+          "IMAD": 5,
+          "LDS": 5,
+          "FADD": 5,
+          "S2R": 4,
+          "BRA": 3,
+          "MOV": 2,
+          "ULDC": 2,
+          "ISETP": 2,
+          "LEA": 2,
+          "LDG": 1,
+          "BSSY": 1,
+          "SHF": 1,
+          "IADD3": 1,
+          "STS": 1,
+          "BAR": 1,
+          "UIADD3": 1,
+          "BSYNC": 1,
+          "STG": 1,
+          "EXIT": 1
+        },
+        "sm_90": {
+          "NOP": 15,
+          "IMAD": 5,
+          "LDS": 5,
+          "FADD": 5,
+          "LEA": 4,
+          "LDC": 3,
+          "S2R": 3,
+          "ULDC": 3,
+          "BRA": 3,
+          "S2UR": 2,
+          "UMOV": 2,
+          "ISETP": 2,
+          "IADD3": 2,
+          "LDG": 1,
+          "UIADD3": 1,
+          "BSSY": 1,
+          "ULEA": 1,
+          "SHF": 1,
+          "STS": 1,
+          "BAR": 1,
+          "BSYNC": 1,
+          "STG": 1,
+          "EXIT": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z22derivative_x2_zerofluxPKfPfjj": "//--------------------- .text._Z22derivative_x2_zerofluxPKfPfjj --------------------------\n\t.section\t.text._Z22derivative_x2_zerofluxPKfPfjj,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=12\"\n\t.align\t128\n        .global         _Z22derivative_x2_zerofluxPKfPfjj\n        .type           _Z22derivative_x2_zerofluxPKfPfjj,@function\n        .size           _Z22derivative_x2_zerofluxPKfPfjj,(.L_x_29 - _Z22derivative_x2_zerofluxPKfPfjj)\n        .other          _Z22derivative_x2_zerofluxPKfPfjj,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z22derivative_x2_zerofluxPKfPfjj:\n.text._Z22derivative_x2_zerofluxPKfPfjj:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_CTAID.X ;\n        /*0020*/                   ULDC.64 UR6, c[0x0][0x118] ;\n        /*0030*/                   S2R R5, SR_TID.Y ;\n        /*0040*/                   S2R R3, SR_CTAID.Y ;\n        /*0050*/                   S2R R7, SR_TID.X ;\n        /*0060*/                   IMAD R0, R0, c[0x0][0x4], R5 ;\n        /*0070*/                   IMAD R0, R3, c[0x0][0x174], R0 ;\n        /*0080*/                   HFMA2.MMA R3, -RZ, RZ, 0, 2.384185791015625e-07 ;\n        /*0090*/                   IMAD R0, R0, c[0x0][0x170], R7 ;\n        /*00a0*/                   IMAD.WIDE R2, R0, R3, c[0x0][0x160] ;\n        /*00b0*/                   LDG.E.CONSTANT R2, [R2.64] ;\n        /*00c0*/                   ISETP.NE.AND P0, PT, R7, RZ, PT ;\n        /*00d0*/                   IMAD R4, R5, c[0x0][0x170], RZ ;\n        /*00e0*/                   BSSY B0, `(.L_x_16) ;\n        /*00f0*/                   SHF.R.S32.HI R9, RZ, 0x1f, R0 ;\n        /*0100*/                   IADD3 R5, R4, R7, RZ ;\n        /*0110*/                   STS [R5.X4], R2 ;\n        /*0120*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*0130*/              @!P0 BRA `(.L_x_17) ;\n        /*0140*/                   ULDC UR4, c[0x0][0x170] ;\n        /*0150*/                   LDS R2, [R5.X4] ;\n        /*0160*/                   UIADD3 UR4, UR4, -0x1, URZ ;\n        /*0170*/                   LDS R6, [R5.X4+-0x4] ;\n        /*0180*/                   ISETP.NE.AND P0, PT, R7, UR4, PT ;\n        /*0190*/               @P0 LDS R3, [R5.X4+0x4] ;\n        /*01a0*/               @P0 FADD R4, R2, R2 ;\n        /*01b0*/               @P0 FADD R3, R3, -R4 ;\n        /*01c0*/               @P0 FADD R7, R3, R6.reuse ;\n        /*01d0*/              @!P0 FADD R7, -R2, R6 ;\n        /*01e0*/                   BRA `(.L_x_18) ;\n.L_x_17:\n        /*01f0*/                   LDS R7, [R4.X4] ;\n        /*0200*/                   LDS R2, [R4.X4+0x4] ;\n        /*0210*/                   FADD R7, -R7, R2 ;\n.L_x_18:\n        /*0220*/                   BSYNC B0 ;\n.L_x_16:\n        /*0230*/                   LEA R2, P0, R0, c[0x0][0x168], 0x2 ;\n        /*0240*/                   LEA.HI.X R3, R0, c[0x0][0x16c], R9, 0x2, P0 ;\n        /*0250*/                   STG.E [R2.64], R7 ;\n        /*0260*/                   EXIT ;\n.L_x_19:\n        /*0270*/                   BRA `(.L_x_19);\n        /*0280*/                   NOP;\n        /*0290*/                   NOP;\n        /*02a0*/                   NOP;\n        /*02b0*/                   NOP;\n        /*02c0*/                   NOP;\n        /*02d0*/                   NOP;\n        /*02e0*/                   NOP;\n        /*02f0*/                   NOP;\n.L_x_29:"
+        },
+        "sm_86": {
+          "_Z22derivative_x2_zerofluxPKfPfjj": "//--------------------- .text._Z22derivative_x2_zerofluxPKfPfjj --------------------------\n\t.section\t.text._Z22derivative_x2_zerofluxPKfPfjj,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=12\"\n\t.align\t128\n        .global         _Z22derivative_x2_zerofluxPKfPfjj\n        .type           _Z22derivative_x2_zerofluxPKfPfjj,@function\n        .size           _Z22derivative_x2_zerofluxPKfPfjj,(.L_x_29 - _Z22derivative_x2_zerofluxPKfPfjj)\n        .other          _Z22derivative_x2_zerofluxPKfPfjj,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z22derivative_x2_zerofluxPKfPfjj:\n.text._Z22derivative_x2_zerofluxPKfPfjj:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_CTAID.X ;\n        /*0020*/                   ULDC.64 UR6, c[0x0][0x118] ;\n        /*0030*/                   S2R R5, SR_TID.Y ;\n        /*0040*/                   S2R R3, SR_CTAID.Y ;\n        /*0050*/                   S2R R7, SR_TID.X ;\n        /*0060*/                   IMAD R0, R0, c[0x0][0x4], R5 ;\n        /*0070*/                   IMAD R0, R3, c[0x0][0x174], R0 ;\n        /*0080*/                   MOV R3, 0x4 ;\n        /*0090*/                   IMAD R0, R0, c[0x0][0x170], R7 ;\n        /*00a0*/                   IMAD.WIDE R2, R0, R3, c[0x0][0x160] ;\n        /*00b0*/                   LDG.E.CONSTANT R2, [R2.64] ;\n        /*00c0*/                   ISETP.NE.AND P0, PT, R7, RZ, PT ;\n        /*00d0*/                   IMAD R4, R5, c[0x0][0x170], RZ ;\n        /*00e0*/                   BSSY B0, `(.L_x_16) ;\n        /*00f0*/                   SHF.R.S32.HI R9, RZ, 0x1f, R0 ;\n        /*0100*/                   IADD3 R5, R4, R7, RZ ;\n        /*0110*/                   STS [R5.X4], R2 ;\n        /*0120*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*0130*/              @!P0 BRA `(.L_x_17) ;\n        /*0140*/                   ULDC UR4, c[0x0][0x170] ;\n        /*0150*/                   LDS R2, [R5.X4] ;\n        /*0160*/                   UIADD3 UR4, UR4, -0x1, URZ ;\n        /*0170*/                   LDS R6, [R5.X4+-0x4] ;\n        /*0180*/                   ISETP.NE.AND P0, PT, R7, UR4, PT ;\n        /*0190*/               @P0 LDS R3, [R5.X4+0x4] ;\n        /*01a0*/               @P0 FADD R4, R2, R2 ;\n        /*01b0*/               @P0 FADD R3, R3, -R4 ;\n        /*01c0*/               @P0 FADD R7, R3, R6.reuse ;\n        /*01d0*/              @!P0 FADD R7, -R2, R6 ;\n        /*01e0*/                   BRA `(.L_x_18) ;\n.L_x_17:\n        /*01f0*/                   LDS R7, [R4.X4] ;\n        /*0200*/                   LDS R2, [R4.X4+0x4] ;\n        /*0210*/                   FADD R7, -R7, R2 ;\n.L_x_18:\n        /*0220*/                   BSYNC B0 ;\n.L_x_16:\n        /*0230*/                   LEA R2, P0, R0, c[0x0][0x168], 0x2 ;\n        /*0240*/                   LEA.HI.X R3, R0, c[0x0][0x16c], R9, 0x2, P0 ;\n        /*0250*/                   STG.E [R2.64], R7 ;\n        /*0260*/                   EXIT ;\n.L_x_19:\n        /*0270*/                   BRA `(.L_x_19);\n        /*0280*/                   NOP;\n        /*0290*/                   NOP;\n        /*02a0*/                   NOP;\n        /*02b0*/                   NOP;\n        /*02c0*/                   NOP;\n        /*02d0*/                   NOP;\n        /*02e0*/                   NOP;\n        /*02f0*/                   NOP;\n.L_x_29:"
+        },
+        "sm_90": {
+          "_Z22derivative_x2_zerofluxPKfPfjj": "//--------------------- .text._Z22derivative_x2_zerofluxPKfPfjj --------------------------\n\t.section\t.text._Z22derivative_x2_zerofluxPKfPfjj,\"ax\",@progbits\n\t.align\t128\n        .global         _Z22derivative_x2_zerofluxPKfPfjj\n        .type           _Z22derivative_x2_zerofluxPKfPfjj,@function\n        .size           _Z22derivative_x2_zerofluxPKfPfjj,(.L_x_33 - _Z22derivative_x2_zerofluxPKfPfjj)\n        .other          _Z22derivative_x2_zerofluxPKfPfjj,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z22derivative_x2_zerofluxPKfPfjj:\n.text._Z22derivative_x2_zerofluxPKfPfjj:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_CTAID.X ;\n        /*0020*/                   S2UR UR5, SR_CTAID.Y ;\n        /*0030*/                   ULDC UR4, c[0x0][0x4] ;\n        /*0040*/                   ULDC.64 UR8, c[0x0][0x208] ;\n        /*0050*/                   S2R R7, SR_TID.Y ;\n        /*0060*/                   S2R R9, SR_TID.X ;\n        /*0070*/                   LDC.64 R10, c[0x0][0x220] ;\n        /*0080*/                   LDC.64 R2, c[0x0][0x210] ;\n        /*0090*/                   IMAD R0, R0, UR4, R7 ;\n        /*00a0*/                   IMAD R5, R11, UR5, R0 ;\n        /*00b0*/                   IMAD R5, R5, R10, R9 ;\n        /*00c0*/                   IMAD.WIDE R2, R5, 0x4, R2 ;\n        /*00d0*/                   LDG.E.CONSTANT R2, desc[UR8][R2.64] ;\n        /*00e0*/                   S2UR UR6, SR_CgaCtaId ;\n        /*00f0*/                   UMOV UR4, 0x0 ;\n        /*0100*/                   UMOV UR5, 0x400 ;\n        /*0110*/                   IMAD R0, R7, R10, RZ ;\n        /*0120*/                   UIADD3 UR4, UR4, UR5, URZ ;\n        /*0130*/                   ISETP.NE.AND P0, PT, R9, RZ, PT ;\n        /*0140*/                   BSSY B0, `(.L_x_20) ;\n        /*0150*/                   IADD3 R4, R0, R9, RZ ;\n        /*0160*/                   ULEA UR4, UR6, UR4, 0x18 ;\n        /*0170*/                   LEA R7, R4, UR4, 0x2 ;\n        /*0180*/                   SHF.R.S32.HI R4, RZ, 0x1f, R5 ;\n        /*0190*/                   STS [R7], R2 ;\n        /*01a0*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*01b0*/              @!P0 BRA `(.L_x_21) ;\n        /*01c0*/                   IADD3 R0, R10, -0x1, RZ ;\n        /*01d0*/                   LDS R11, [R7+-0x4] ;\n        /*01e0*/                   ISETP.NE.AND P0, PT, R9, R0, PT ;\n        /*01f0*/                   LDS R0, [R7] ;\n        /*0200*/               @P0 LDS R2, [R7+0x4] ;\n        /*0210*/               @P0 FADD R3, R0, R0 ;\n        /*0220*/               @P0 FADD R2, R2, -R3 ;\n        /*0230*/               @P0 FADD R9, R2, R11.reuse ;\n        /*0240*/              @!P0 FADD R9, -R0, R11 ;\n        /*0250*/                   BRA `(.L_x_22) ;\n.L_x_21:\n        /*0260*/                   LEA R0, R0, UR4, 0x2 ;\n        /*0270*/                   LDS R9, [R0] ;\n        /*0280*/                   LDS R2, [R0+0x4] ;\n        /*0290*/                   FADD R9, -R9, R2 ;\n.L_x_22:\n        /*02a0*/                   BSYNC B0 ;\n.L_x_20:\n        /*02b0*/                   ULDC.64 UR6, c[0x0][0x218] ;\n        /*02c0*/                   LEA R2, P0, R5, UR6, 0x2 ;\n        /*02d0*/                   LEA.HI.X R3, R5, UR7, R4, 0x2, P0 ;\n        /*02e0*/                   STG.E desc[UR8][R2.64], R9 ;\n        /*02f0*/                   EXIT ;\n.L_x_23:\n        /*0300*/                   BRA `(.L_x_23);\n        /*0310*/                   NOP;\n        /*0320*/                   NOP;\n        /*0330*/                   NOP;\n        /*0340*/                   NOP;\n        /*0350*/                   NOP;\n        /*0360*/                   NOP;\n        /*0370*/                   NOP;\n        /*0380*/                   NOP;\n        /*0390*/                   NOP;\n        /*03a0*/                   NOP;\n        /*03b0*/                   NOP;\n        /*03c0*/                   NOP;\n        /*03d0*/                   NOP;\n        /*03e0*/                   NOP;\n        /*03f0*/                   NOP;\n.L_x_33:"
+        }
+      }
+    },
+    "_Z22derivative_y2_zerofluxPKfPfjjj": {
+      "demangledName": "derivative_y2_zeroflux(const float *, float *, unsigned int, unsigned int, unsigned int)",
+      "imix": {
+        "sm_80": {
+          "NOP": 10,
+          "IMAD": 7,
+          "LDS": 7,
+          "BRA": 5,
+          "FADD": 5,
+          "S2R": 4,
+          "IADD3": 4,
+          "LEA": 4,
+          "MOV": 3,
+          "ULDC": 2,
+          "ISETP": 2,
+          "SHF": 2,
+          "HFMA2": 1,
+          "LDG": 1,
+          "BSSY": 1,
+          "STS": 1,
+          "BAR": 1,
+          "UIADD3": 1,
+          "BSYNC": 1,
+          "STG": 1,
+          "EXIT": 1
+        },
+        "sm_86": {
+          "NOP": 10,
+          "IMAD": 7,
+          "LDS": 7,
+          "BRA": 5,
+          "FADD": 5,
+          "MOV": 4,
+          "S2R": 4,
+          "IADD3": 4,
+          "LEA": 4,
+          "ULDC": 2,
+          "ISETP": 2,
+          "SHF": 2,
+          "LDG": 1,
+          "BSSY": 1,
+          "STS": 1,
+          "BAR": 1,
+          "UIADD3": 1,
+          "BSYNC": 1,
+          "STG": 1,
+          "EXIT": 1
+        },
+        "sm_90": {
+          "LEA": 9,
+          "NOP": 8,
+          "IMAD": 7,
+          "LDS": 7,
+          "BRA": 5,
+          "IADD3": 5,
+          "FADD": 5,
+          "LDC": 4,
+          "S2R": 3,
+          "ULDC": 3,
+          "S2UR": 2,
+          "UMOV": 2,
+          "ISETP": 2,
+          "LDG": 1,
+          "UIADD3": 1,
+          "BSSY": 1,
+          "ULEA": 1,
+          "SHF": 1,
+          "STS": 1,
+          "BAR": 1,
+          "BSYNC": 1,
+          "STG": 1,
+          "EXIT": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z22derivative_y2_zerofluxPKfPfjjj": "//--------------------- .text._Z22derivative_y2_zerofluxPKfPfjjj --------------------------\n\t.section\t.text._Z22derivative_y2_zerofluxPKfPfjjj,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=14\"\n\t.align\t128\n        .global         _Z22derivative_y2_zerofluxPKfPfjjj\n        .type           _Z22derivative_y2_zerofluxPKfPfjjj,@function\n        .size           _Z22derivative_y2_zerofluxPKfPfjjj,(.L_x_27 - _Z22derivative_y2_zerofluxPKfPfjjj)\n        .other          _Z22derivative_y2_zerofluxPKfPfjjj,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z22derivative_y2_zerofluxPKfPfjjj:\n.text._Z22derivative_y2_zerofluxPKfPfjjj:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_CTAID.X ;\n        /*0020*/                   HFMA2.MMA R5, -RZ, RZ, 0, 2.384185791015625e-07 ;\n        /*0030*/                   ULDC.64 UR6, c[0x0][0x118] ;\n        /*0040*/                   S2R R9, SR_TID.X ;\n        /*0050*/                   S2R R4, SR_TID.Y ;\n        /*0060*/                   S2R R3, SR_CTAID.Y ;\n        /*0070*/                   IMAD R0, R0, c[0x0][0x0], R9 ;\n        /*0080*/                   IMAD R3, R3, c[0x0][0x174], R4 ;\n        /*0090*/                   IMAD R0, R3, c[0x0][0x170], R0 ;\n        /*00a0*/                   IMAD.WIDE R2, R0, R5, c[0x0][0x160] ;\n        /*00b0*/                   LDG.E.CONSTANT R2, [R2.64] ;\n        /*00c0*/                   ISETP.NE.AND P0, PT, R4.reuse, RZ, PT ;\n        /*00d0*/                   IMAD R5, R4, c[0x0][0x178], R9 ;\n        /*00e0*/                   BSSY B0, `(.L_x_10) ;\n        /*00f0*/                   SHF.R.S32.HI R11, RZ, 0x1f, R0 ;\n        /*0100*/                   STS [R5.X4], R2 ;\n        /*0110*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*0120*/              @!P0 BRA `(.L_x_11) ;\n        /*0130*/                   ULDC UR4, c[0x0][0x174] ;\n        /*0140*/                   UIADD3 UR4, UR4, -0x1, URZ ;\n        /*0150*/                   ISETP.NE.AND P0, PT, R4, UR4, PT ;\n        /*0160*/              @!P0 BRA `(.L_x_12) ;\n        /*0170*/                   MOV R3, c[0x0][0x178] ;\n        /*0180*/                   LDS R5, [R5.X4] ;\n        /*0190*/                   IMAD R2, R4, R3, c[0x0][0x178] ;\n        /*01a0*/                   IADD3 R4, RZ, -c[0x0][0x178], RZ ;\n        /*01b0*/                   IADD3 R2, R2, R9, RZ ;\n        /*01c0*/                   SHF.L.U32 R3, R2, 0x2, RZ ;\n        /*01d0*/                   LDS R2, [R2.X4] ;\n        /*01e0*/                   LEA R3, R4, R3, 0x2 ;\n        /*01f0*/                   LEA R4, R4, R3, 0x2 ;\n        /*0200*/                   LDS R4, [R4] ;\n        /*0210*/                   FADD R3, R5, R5 ;\n        /*0220*/                   FADD R3, R2, -R3 ;\n        /*0230*/                   FADD R7, R3, R4 ;\n        /*0240*/                   BRA `(.L_x_13) ;\n.L_x_12:\n        /*0250*/                   MOV R3, c[0x0][0x178] ;\n        /*0260*/                   LDS R5, [R5.X4] ;\n        /*0270*/                   IMAD R2, R4, R3, -c[0x0][0x178] ;\n        /*0280*/                   IADD3 R2, R2, R9, RZ ;\n        /*0290*/                   LDS R2, [R2.X4] ;\n        /*02a0*/                   FADD R7, R2, -R5 ;\n        /*02b0*/                   BRA `(.L_x_13) ;\n.L_x_11:\n        /*02c0*/                   IADD3 R2, R9, c[0x0][0x178], RZ ;\n        /*02d0*/                   LDS R7, [R9.X4] ;\n        /*02e0*/                   LDS R2, [R2.X4] ;\n        /*02f0*/                   FADD R7, -R7, R2 ;\n.L_x_13:\n        /*0300*/                   BSYNC B0 ;\n.L_x_10:\n        /*0310*/                   LEA R2, P0, R0, c[0x0][0x168], 0x2 ;\n        /*0320*/                   LEA.HI.X R3, R0, c[0x0][0x16c], R11, 0x2, P0 ;\n        /*0330*/                   STG.E [R2.64], R7 ;\n        /*0340*/                   EXIT ;\n.L_x_14:\n        /*0350*/                   BRA `(.L_x_14);\n        /*0360*/                   NOP;\n        /*0370*/                   NOP;\n        /*0380*/                   NOP;\n        /*0390*/                   NOP;\n        /*03a0*/                   NOP;\n        /*03b0*/                   NOP;\n        /*03c0*/                   NOP;\n        /*03d0*/                   NOP;\n        /*03e0*/                   NOP;\n        /*03f0*/                   NOP;\n.L_x_27:"
+        },
+        "sm_86": {
+          "_Z22derivative_y2_zerofluxPKfPfjjj": "//--------------------- .text._Z22derivative_y2_zerofluxPKfPfjjj --------------------------\n\t.section\t.text._Z22derivative_y2_zerofluxPKfPfjjj,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=14\"\n\t.align\t128\n        .global         _Z22derivative_y2_zerofluxPKfPfjjj\n        .type           _Z22derivative_y2_zerofluxPKfPfjjj,@function\n        .size           _Z22derivative_y2_zerofluxPKfPfjjj,(.L_x_27 - _Z22derivative_y2_zerofluxPKfPfjjj)\n        .other          _Z22derivative_y2_zerofluxPKfPfjjj,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z22derivative_y2_zerofluxPKfPfjjj:\n.text._Z22derivative_y2_zerofluxPKfPfjjj:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_CTAID.X ;\n        /*0020*/                   MOV R5, 0x4 ;\n        /*0030*/                   ULDC.64 UR6, c[0x0][0x118] ;\n        /*0040*/                   S2R R9, SR_TID.X ;\n        /*0050*/                   S2R R4, SR_TID.Y ;\n        /*0060*/                   S2R R3, SR_CTAID.Y ;\n        /*0070*/                   IMAD R0, R0, c[0x0][0x0], R9 ;\n        /*0080*/                   IMAD R3, R3, c[0x0][0x174], R4 ;\n        /*0090*/                   IMAD R0, R3, c[0x0][0x170], R0 ;\n        /*00a0*/                   IMAD.WIDE R2, R0, R5, c[0x0][0x160] ;\n        /*00b0*/                   LDG.E.CONSTANT R2, [R2.64] ;\n        /*00c0*/                   ISETP.NE.AND P0, PT, R4.reuse, RZ, PT ;\n        /*00d0*/                   IMAD R5, R4, c[0x0][0x178], R9 ;\n        /*00e0*/                   BSSY B0, `(.L_x_10) ;\n        /*00f0*/                   SHF.R.S32.HI R11, RZ, 0x1f, R0 ;\n        /*0100*/                   STS [R5.X4], R2 ;\n        /*0110*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*0120*/              @!P0 BRA `(.L_x_11) ;\n        /*0130*/                   ULDC UR4, c[0x0][0x174] ;\n        /*0140*/                   UIADD3 UR4, UR4, -0x1, URZ ;\n        /*0150*/                   ISETP.NE.AND P0, PT, R4, UR4, PT ;\n        /*0160*/              @!P0 BRA `(.L_x_12) ;\n        /*0170*/                   MOV R3, c[0x0][0x178] ;\n        /*0180*/                   LDS R5, [R5.X4] ;\n        /*0190*/                   IMAD R2, R4, R3, c[0x0][0x178] ;\n        /*01a0*/                   IADD3 R4, RZ, -c[0x0][0x178], RZ ;\n        /*01b0*/                   IADD3 R2, R2, R9, RZ ;\n        /*01c0*/                   SHF.L.U32 R3, R2, 0x2, RZ ;\n        /*01d0*/                   LDS R2, [R2.X4] ;\n        /*01e0*/                   LEA R3, R4, R3, 0x2 ;\n        /*01f0*/                   LEA R4, R4, R3, 0x2 ;\n        /*0200*/                   LDS R4, [R4] ;\n        /*0210*/                   FADD R3, R5, R5 ;\n        /*0220*/                   FADD R3, R2, -R3 ;\n        /*0230*/                   FADD R7, R3, R4 ;\n        /*0240*/                   BRA `(.L_x_13) ;\n.L_x_12:\n        /*0250*/                   MOV R3, c[0x0][0x178] ;\n        /*0260*/                   LDS R5, [R5.X4] ;\n        /*0270*/                   IMAD R2, R4, R3, -c[0x0][0x178] ;\n        /*0280*/                   IADD3 R2, R2, R9, RZ ;\n        /*0290*/                   LDS R2, [R2.X4] ;\n        /*02a0*/                   FADD R7, R2, -R5 ;\n        /*02b0*/                   BRA `(.L_x_13) ;\n.L_x_11:\n        /*02c0*/                   IADD3 R2, R9, c[0x0][0x178], RZ ;\n        /*02d0*/                   LDS R7, [R9.X4] ;\n        /*02e0*/                   LDS R2, [R2.X4] ;\n        /*02f0*/                   FADD R7, -R7, R2 ;\n.L_x_13:\n        /*0300*/                   BSYNC B0 ;\n.L_x_10:\n        /*0310*/                   LEA R2, P0, R0, c[0x0][0x168], 0x2 ;\n        /*0320*/                   LEA.HI.X R3, R0, c[0x0][0x16c], R11, 0x2, P0 ;\n        /*0330*/                   STG.E [R2.64], R7 ;\n        /*0340*/                   EXIT ;\n.L_x_14:\n        /*0350*/                   BRA `(.L_x_14);\n        /*0360*/                   NOP;\n        /*0370*/                   NOP;\n        /*0380*/                   NOP;\n        /*0390*/                   NOP;\n        /*03a0*/                   NOP;\n        /*03b0*/                   NOP;\n        /*03c0*/                   NOP;\n        /*03d0*/                   NOP;\n        /*03e0*/                   NOP;\n        /*03f0*/                   NOP;\n.L_x_27:"
+        },
+        "sm_90": {
+          "_Z22derivative_y2_zerofluxPKfPfjjj": "//--------------------- .text._Z22derivative_y2_zerofluxPKfPfjjj --------------------------\n\t.section\t.text._Z22derivative_y2_zerofluxPKfPfjjj,\"ax\",@progbits\n\t.align\t128\n        .global         _Z22derivative_y2_zerofluxPKfPfjjj\n        .type           _Z22derivative_y2_zerofluxPKfPfjjj,@function\n        .size           _Z22derivative_y2_zerofluxPKfPfjjj,(.L_x_31 - _Z22derivative_y2_zerofluxPKfPfjjj)\n        .other          _Z22derivative_y2_zerofluxPKfPfjjj,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z22derivative_y2_zerofluxPKfPfjjj:\n.text._Z22derivative_y2_zerofluxPKfPfjjj:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R5, SR_CTAID.X ;\n        /*0020*/                   S2UR UR5, SR_CTAID.Y ;\n        /*0030*/                   ULDC UR4, c[0x0][0x0] ;\n        /*0040*/                   ULDC.64 UR8, c[0x0][0x208] ;\n        /*0050*/                   S2R R7, SR_TID.X ;\n        /*0060*/                   S2R R6, SR_TID.Y ;\n        /*0070*/                   LDC.64 R8, c[0x0][0x220] ;\n        /*0080*/                   LDC.64 R2, c[0x0][0x210] ;\n        /*0090*/                   S2UR UR6, SR_CgaCtaId ;\n        /*00a0*/                   LDC R11, c[0x0][0x228] ;\n        /*00b0*/                   IMAD R5, R5, UR4, R7 ;\n        /*00c0*/                   IMAD R0, R9, UR5, R6 ;\n        /*00d0*/                   IMAD R0, R0, R8, R5 ;\n        /*00e0*/                   IMAD.WIDE R2, R0, 0x4, R2 ;\n        /*00f0*/                   LDG.E.CONSTANT R2, desc[UR8][R2.64] ;\n        /*0100*/                   UMOV UR4, 0x0 ;\n        /*0110*/                   UMOV UR5, 0x400 ;\n        /*0120*/                   ISETP.NE.AND P0, PT, R6.reuse, RZ, PT ;\n        /*0130*/                   UIADD3 UR4, UR4, UR5, URZ ;\n        /*0140*/                   IMAD R4, R6, R11, R7 ;\n        /*0150*/                   BSSY B0, `(.L_x_12) ;\n        /*0160*/                   ULEA UR4, UR6, UR4, 0x18 ;\n        /*0170*/                   SHF.R.S32.HI R3, RZ, 0x1f, R0 ;\n        /*0180*/                   LEA R5, R4, UR4, 0x2 ;\n        /*0190*/                   STS [R5], R2 ;\n        /*01a0*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*01b0*/              @!P0 BRA `(.L_x_13) ;\n        /*01c0*/                   IADD3 R2, R9, -0x1, RZ ;\n        /*01d0*/                   ISETP.NE.AND P0, PT, R6, R2, PT ;\n        /*01e0*/              @!P0 BRA `(.L_x_14) ;\n        /*01f0*/                   IMAD R2, R6, R11, R11 ;\n        /*0200*/                   IADD3 R11, -R11, RZ, RZ ;\n        /*0210*/                   LDS R5, [R5] ;\n        /*0220*/                   IADD3 R2, R2, R7, RZ ;\n        /*0230*/                   LEA R2, R2, UR4, 0x2 ;\n        /*0240*/                   LEA R4, R11.reuse, R2, 0x2 ;\n        /*0250*/                   LDS R2, [R2] ;\n        /*0260*/                   LEA R4, R11, R4, 0x2 ;\n        /*0270*/                   LDS R4, [R4] ;\n        /*0280*/                   FADD R7, R5, R5 ;\n        /*0290*/                   FADD R7, R2, -R7 ;\n        /*02a0*/                   FADD R7, R7, R4 ;\n        /*02b0*/                   BRA `(.L_x_15) ;\n.L_x_14:\n        /*02c0*/                   IMAD R2, R6, R11, -R11 ;\n        /*02d0*/                   LDS R5, [R5] ;\n        /*02e0*/                   IADD3 R2, R2, R7, RZ ;\n        /*02f0*/                   LEA R2, R2, UR4, 0x2 ;\n        /*0300*/                   LDS R2, [R2] ;\n        /*0310*/                   FADD R7, R2, -R5 ;\n        /*0320*/                   BRA `(.L_x_15) ;\n.L_x_13:\n        /*0330*/                   IADD3 R2, R7.reuse, R11, RZ ;\n        /*0340*/                   LEA R4, R7, UR4, 0x2 ;\n        /*0350*/                   LEA R2, R2, UR4, 0x2 ;\n        /*0360*/                   LDS R4, [R4] ;\n        /*0370*/                   LDS R7, [R2] ;\n        /*0380*/                   FADD R7, -R4, R7 ;\n.L_x_15:\n        /*0390*/                   BSYNC B0 ;\n.L_x_12:\n        /*03a0*/                   ULDC.64 UR6, c[0x0][0x218] ;\n        /*03b0*/                   LEA R2, P0, R0, UR6, 0x2 ;\n        /*03c0*/                   LEA.HI.X R3, R0, UR7, R3, 0x2, P0 ;\n        /*03d0*/                   STG.E desc[UR8][R2.64], R7 ;\n        /*03e0*/                   EXIT ;\n.L_x_16:\n        /*03f0*/                   BRA `(.L_x_16);\n        /*0400*/                   NOP;\n        /*0410*/                   NOP;\n        /*0420*/                   NOP;\n        /*0430*/                   NOP;\n        /*0440*/                   NOP;\n        /*0450*/                   NOP;\n        /*0460*/                   NOP;\n        /*0470*/                   NOP;\n.L_x_31:"
+        }
+      }
+    },
+    "_Z22derivative_z2_zerofluxPKfPfjjjj": {
+      "demangledName": "derivative_z2_zeroflux(const float *, float *, unsigned int, unsigned int, unsigned int, unsigned int)",
+      "imix": {
+        "sm_80": {
+          "NOP": 10,
+          "IMAD": 7,
+          "LDS": 7,
+          "BRA": 5,
+          "FADD": 5,
+          "S2R": 4,
+          "IADD3": 4,
+          "LEA": 4,
+          "MOV": 3,
+          "ULDC": 2,
+          "ISETP": 2,
+          "SHF": 2,
+          "HFMA2": 1,
+          "LDG": 1,
+          "BSSY": 1,
+          "STS": 1,
+          "BAR": 1,
+          "UIADD3": 1,
+          "BSYNC": 1,
+          "STG": 1,
+          "EXIT": 1
+        },
+        "sm_86": {
+          "NOP": 10,
+          "IMAD": 7,
+          "LDS": 7,
+          "BRA": 5,
+          "FADD": 5,
+          "MOV": 4,
+          "S2R": 4,
+          "IADD3": 4,
+          "LEA": 4,
+          "ULDC": 2,
+          "ISETP": 2,
+          "SHF": 2,
+          "LDG": 1,
+          "BSSY": 1,
+          "STS": 1,
+          "BAR": 1,
+          "UIADD3": 1,
+          "BSYNC": 1,
+          "STG": 1,
+          "EXIT": 1
+        },
+        "sm_90": {
+          "NOP": 15,
+          "LEA": 9,
+          "IMAD": 7,
+          "LDS": 7,
+          "BRA": 5,
+          "FADD": 5,
+          "LDC": 4,
+          "ULDC": 4,
+          "IADD3": 4,
+          "S2R": 3,
+          "S2UR": 2,
+          "UMOV": 2,
+          "ISETP": 2,
+          "UIADD3": 2,
+          "LDG": 1,
+          "BSSY": 1,
+          "SHF": 1,
+          "ULEA": 1,
+          "STS": 1,
+          "BAR": 1,
+          "BSYNC": 1,
+          "STG": 1,
+          "EXIT": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z22derivative_z2_zerofluxPKfPfjjjj": "//--------------------- .text._Z22derivative_z2_zerofluxPKfPfjjjj --------------------------\n\t.section\t.text._Z22derivative_z2_zerofluxPKfPfjjjj,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=14\"\n\t.align\t128\n        .global         _Z22derivative_z2_zerofluxPKfPfjjjj\n        .type           _Z22derivative_z2_zerofluxPKfPfjjjj,@function\n        .size           _Z22derivative_z2_zerofluxPKfPfjjjj,(.L_x_25 - _Z22derivative_z2_zerofluxPKfPfjjjj)\n        .other          _Z22derivative_z2_zerofluxPKfPfjjjj,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z22derivative_z2_zerofluxPKfPfjjjj:\n.text._Z22derivative_z2_zerofluxPKfPfjjjj:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_CTAID.X ;\n        /*0020*/                   HFMA2.MMA R5, -RZ, RZ, 0, 2.384185791015625e-07 ;\n        /*0030*/                   ULDC.64 UR6, c[0x0][0x118] ;\n        /*0040*/                   S2R R9, SR_TID.X ;\n        /*0050*/                   S2R R4, SR_TID.Y ;\n        /*0060*/                   S2R R3, SR_CTAID.Y ;\n        /*0070*/                   IMAD R0, R0, c[0x0][0x0], R9 ;\n        /*0080*/                   IMAD R3, R4, c[0x0][0x174], R3 ;\n        /*0090*/                   IMAD R0, R3, c[0x0][0x170], R0 ;\n        /*00a0*/                   IMAD.WIDE R2, R0, R5, c[0x0][0x160] ;\n        /*00b0*/                   LDG.E.CONSTANT R2, [R2.64] ;\n        /*00c0*/                   ISETP.NE.AND P0, PT, R4.reuse, RZ, PT ;\n        /*00d0*/                   IMAD R5, R4, c[0x0][0x17c], R9 ;\n        /*00e0*/                   BSSY B0, `(.L_x_4) ;\n        /*00f0*/                   SHF.R.S32.HI R11, RZ, 0x1f, R0 ;\n        /*0100*/                   STS [R5.X4], R2 ;\n        /*0110*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*0120*/              @!P0 BRA `(.L_x_5) ;\n        /*0130*/                   ULDC UR4, c[0x0][0x178] ;\n        /*0140*/                   UIADD3 UR4, UR4, -0x1, URZ ;\n        /*0150*/                   ISETP.NE.AND P0, PT, R4, UR4, PT ;\n        /*0160*/              @!P0 BRA `(.L_x_6) ;\n        /*0170*/                   MOV R3, c[0x0][0x17c] ;\n        /*0180*/                   LDS R5, [R5.X4] ;\n        /*0190*/                   IMAD R2, R4, R3, c[0x0][0x17c] ;\n        /*01a0*/                   IADD3 R4, RZ, -c[0x0][0x17c], RZ ;\n        /*01b0*/                   IADD3 R2, R2, R9, RZ ;\n        /*01c0*/                   SHF.L.U32 R3, R2, 0x2, RZ ;\n        /*01d0*/                   LDS R2, [R2.X4] ;\n        /*01e0*/                   LEA R3, R4, R3, 0x2 ;\n        /*01f0*/                   LEA R4, R4, R3, 0x2 ;\n        /*0200*/                   LDS R4, [R4] ;\n        /*0210*/                   FADD R3, R5, R5 ;\n        /*0220*/                   FADD R3, R2, -R3 ;\n        /*0230*/                   FADD R7, R3, R4 ;\n        /*0240*/                   BRA `(.L_x_7) ;\n.L_x_6:\n        /*0250*/                   MOV R3, c[0x0][0x17c] ;\n        /*0260*/                   LDS R5, [R5.X4] ;\n        /*0270*/                   IMAD R2, R4, R3, -c[0x0][0x17c] ;\n        /*0280*/                   IADD3 R2, R2, R9, RZ ;\n        /*0290*/                   LDS R2, [R2.X4] ;\n        /*02a0*/                   FADD R7, R2, -R5 ;\n        /*02b0*/                   BRA `(.L_x_7) ;\n.L_x_5:\n        /*02c0*/                   IADD3 R2, R9, c[0x0][0x17c], RZ ;\n        /*02d0*/                   LDS R7, [R9.X4] ;\n        /*02e0*/                   LDS R2, [R2.X4] ;\n        /*02f0*/                   FADD R7, -R7, R2 ;\n.L_x_7:\n        /*0300*/                   BSYNC B0 ;\n.L_x_4:\n        /*0310*/                   LEA R2, P0, R0, c[0x0][0x168], 0x2 ;\n        /*0320*/                   LEA.HI.X R3, R0, c[0x0][0x16c], R11, 0x2, P0 ;\n        /*0330*/                   STG.E [R2.64], R7 ;\n        /*0340*/                   EXIT ;\n.L_x_8:\n        /*0350*/                   BRA `(.L_x_8);\n        /*0360*/                   NOP;\n        /*0370*/                   NOP;\n        /*0380*/                   NOP;\n        /*0390*/                   NOP;\n        /*03a0*/                   NOP;\n        /*03b0*/                   NOP;\n        /*03c0*/                   NOP;\n        /*03d0*/                   NOP;\n        /*03e0*/                   NOP;\n        /*03f0*/                   NOP;\n.L_x_25:"
+        },
+        "sm_86": {
+          "_Z22derivative_z2_zerofluxPKfPfjjjj": "//--------------------- .text._Z22derivative_z2_zerofluxPKfPfjjjj --------------------------\n\t.section\t.text._Z22derivative_z2_zerofluxPKfPfjjjj,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=14\"\n\t.align\t128\n        .global         _Z22derivative_z2_zerofluxPKfPfjjjj\n        .type           _Z22derivative_z2_zerofluxPKfPfjjjj,@function\n        .size           _Z22derivative_z2_zerofluxPKfPfjjjj,(.L_x_25 - _Z22derivative_z2_zerofluxPKfPfjjjj)\n        .other          _Z22derivative_z2_zerofluxPKfPfjjjj,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z22derivative_z2_zerofluxPKfPfjjjj:\n.text._Z22derivative_z2_zerofluxPKfPfjjjj:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_CTAID.X ;\n        /*0020*/                   MOV R5, 0x4 ;\n        /*0030*/                   ULDC.64 UR6, c[0x0][0x118] ;\n        /*0040*/                   S2R R9, SR_TID.X ;\n        /*0050*/                   S2R R4, SR_TID.Y ;\n        /*0060*/                   S2R R3, SR_CTAID.Y ;\n        /*0070*/                   IMAD R0, R0, c[0x0][0x0], R9 ;\n        /*0080*/                   IMAD R3, R4, c[0x0][0x174], R3 ;\n        /*0090*/                   IMAD R0, R3, c[0x0][0x170], R0 ;\n        /*00a0*/                   IMAD.WIDE R2, R0, R5, c[0x0][0x160] ;\n        /*00b0*/                   LDG.E.CONSTANT R2, [R2.64] ;\n        /*00c0*/                   ISETP.NE.AND P0, PT, R4.reuse, RZ, PT ;\n        /*00d0*/                   IMAD R5, R4, c[0x0][0x17c], R9 ;\n        /*00e0*/                   BSSY B0, `(.L_x_4) ;\n        /*00f0*/                   SHF.R.S32.HI R11, RZ, 0x1f, R0 ;\n        /*0100*/                   STS [R5.X4], R2 ;\n        /*0110*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*0120*/              @!P0 BRA `(.L_x_5) ;\n        /*0130*/                   ULDC UR4, c[0x0][0x178] ;\n        /*0140*/                   UIADD3 UR4, UR4, -0x1, URZ ;\n        /*0150*/                   ISETP.NE.AND P0, PT, R4, UR4, PT ;\n        /*0160*/              @!P0 BRA `(.L_x_6) ;\n        /*0170*/                   MOV R3, c[0x0][0x17c] ;\n        /*0180*/                   LDS R5, [R5.X4] ;\n        /*0190*/                   IMAD R2, R4, R3, c[0x0][0x17c] ;\n        /*01a0*/                   IADD3 R4, RZ, -c[0x0][0x17c], RZ ;\n        /*01b0*/                   IADD3 R2, R2, R9, RZ ;\n        /*01c0*/                   SHF.L.U32 R3, R2, 0x2, RZ ;\n        /*01d0*/                   LDS R2, [R2.X4] ;\n        /*01e0*/                   LEA R3, R4, R3, 0x2 ;\n        /*01f0*/                   LEA R4, R4, R3, 0x2 ;\n        /*0200*/                   LDS R4, [R4] ;\n        /*0210*/                   FADD R3, R5, R5 ;\n        /*0220*/                   FADD R3, R2, -R3 ;\n        /*0230*/                   FADD R7, R3, R4 ;\n        /*0240*/                   BRA `(.L_x_7) ;\n.L_x_6:\n        /*0250*/                   MOV R3, c[0x0][0x17c] ;\n        /*0260*/                   LDS R5, [R5.X4] ;\n        /*0270*/                   IMAD R2, R4, R3, -c[0x0][0x17c] ;\n        /*0280*/                   IADD3 R2, R2, R9, RZ ;\n        /*0290*/                   LDS R2, [R2.X4] ;\n        /*02a0*/                   FADD R7, R2, -R5 ;\n        /*02b0*/                   BRA `(.L_x_7) ;\n.L_x_5:\n        /*02c0*/                   IADD3 R2, R9, c[0x0][0x17c], RZ ;\n        /*02d0*/                   LDS R7, [R9.X4] ;\n        /*02e0*/                   LDS R2, [R2.X4] ;\n        /*02f0*/                   FADD R7, -R7, R2 ;\n.L_x_7:\n        /*0300*/                   BSYNC B0 ;\n.L_x_4:\n        /*0310*/                   LEA R2, P0, R0, c[0x0][0x168], 0x2 ;\n        /*0320*/                   LEA.HI.X R3, R0, c[0x0][0x16c], R11, 0x2, P0 ;\n        /*0330*/                   STG.E [R2.64], R7 ;\n        /*0340*/                   EXIT ;\n.L_x_8:\n        /*0350*/                   BRA `(.L_x_8);\n        /*0360*/                   NOP;\n        /*0370*/                   NOP;\n        /*0380*/                   NOP;\n        /*0390*/                   NOP;\n        /*03a0*/                   NOP;\n        /*03b0*/                   NOP;\n        /*03c0*/                   NOP;\n        /*03d0*/                   NOP;\n        /*03e0*/                   NOP;\n        /*03f0*/                   NOP;\n.L_x_25:"
+        },
+        "sm_90": {
+          "_Z22derivative_z2_zerofluxPKfPfjjjj": "//--------------------- .text._Z22derivative_z2_zerofluxPKfPfjjjj --------------------------\n\t.section\t.text._Z22derivative_z2_zerofluxPKfPfjjjj,\"ax\",@progbits\n\t.align\t128\n        .global         _Z22derivative_z2_zerofluxPKfPfjjjj\n        .type           _Z22derivative_z2_zerofluxPKfPfjjjj,@function\n        .size           _Z22derivative_z2_zerofluxPKfPfjjjj,(.L_x_29 - _Z22derivative_z2_zerofluxPKfPfjjjj)\n        .other          _Z22derivative_z2_zerofluxPKfPfjjjj,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z22derivative_z2_zerofluxPKfPfjjjj:\n.text._Z22derivative_z2_zerofluxPKfPfjjjj:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R5, SR_CTAID.X ;\n        /*0020*/                   S2UR UR5, SR_CTAID.Y ;\n        /*0030*/                   ULDC UR4, c[0x0][0x0] ;\n        /*0040*/                   ULDC.64 UR8, c[0x0][0x208] ;\n        /*0050*/                   S2R R7, SR_TID.X ;\n        /*0060*/                   S2R R6, SR_TID.Y ;\n        /*0070*/                   LDC.64 R8, c[0x0][0x220] ;\n        /*0080*/                   LDC.64 R2, c[0x0][0x210] ;\n        /*0090*/                   IMAD R5, R5, UR4, R7 ;\n        /*00a0*/                   IMAD R0, R6, R9, UR5 ;\n        /*00b0*/                   S2UR UR6, SR_CgaCtaId ;\n        /*00c0*/                   IMAD R0, R0, R8, R5 ;\n        /*00d0*/                   IMAD.WIDE R2, R0, 0x4, R2 ;\n        /*00e0*/                   LDC R9, c[0x0][0x22c] ;\n        /*00f0*/                   LDG.E.CONSTANT R2, desc[UR8][R2.64] ;\n        /*0100*/                   UMOV UR4, 0x0 ;\n        /*0110*/                   UMOV UR5, 0x400 ;\n        /*0120*/                   ISETP.NE.AND P0, PT, R6.reuse, RZ, PT ;\n        /*0130*/                   UIADD3 UR4, UR4, UR5, URZ ;\n        /*0140*/                   BSSY B0, `(.L_x_4) ;\n        /*0150*/                   SHF.R.S32.HI R3, RZ, 0x1f, R0 ;\n        /*0160*/                   ULEA UR4, UR6, UR4, 0x18 ;\n        /*0170*/                   IMAD R4, R6, R9, R7 ;\n        /*0180*/                   LEA R5, R4, UR4, 0x2 ;\n        /*0190*/                   STS [R5], R2 ;\n        /*01a0*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*01b0*/              @!P0 BRA `(.L_x_5) ;\n        /*01c0*/                   ULDC UR5, c[0x0][0x228] ;\n        /*01d0*/                   UIADD3 UR5, UR5, -0x1, URZ ;\n        /*01e0*/                   ISETP.NE.AND P0, PT, R6, UR5, PT ;\n        /*01f0*/              @!P0 BRA `(.L_x_6) ;\n        /*0200*/                   IMAD R2, R6, R9, R9 ;\n        /*0210*/                   IADD3 R9, -R9, RZ, RZ ;\n        /*0220*/                   LDS R5, [R5] ;\n        /*0230*/                   IADD3 R2, R2, R7, RZ ;\n        /*0240*/                   LEA R2, R2, UR4, 0x2 ;\n        /*0250*/                   LEA R4, R9.reuse, R2, 0x2 ;\n        /*0260*/                   LDS R2, [R2] ;\n        /*0270*/                   LEA R4, R9, R4, 0x2 ;\n        /*0280*/                   LDS R4, [R4] ;\n        /*0290*/                   FADD R7, R5, R5 ;\n        /*02a0*/                   FADD R7, R2, -R7 ;\n        /*02b0*/                   FADD R7, R7, R4 ;\n        /*02c0*/                   BRA `(.L_x_7) ;\n.L_x_6:\n        /*02d0*/                   IMAD R2, R6, R9, -R9 ;\n        /*02e0*/                   LDS R5, [R5] ;\n        /*02f0*/                   IADD3 R2, R2, R7, RZ ;\n        /*0300*/                   LEA R2, R2, UR4, 0x2 ;\n        /*0310*/                   LDS R2, [R2] ;\n        /*0320*/                   FADD R7, R2, -R5 ;\n        /*0330*/                   BRA `(.L_x_7) ;\n.L_x_5:\n        /*0340*/                   IADD3 R2, R7.reuse, R9, RZ ;\n        /*0350*/                   LEA R4, R7, UR4, 0x2 ;\n        /*0360*/                   LEA R2, R2, UR4, 0x2 ;\n        /*0370*/                   LDS R4, [R4] ;\n        /*0380*/                   LDS R7, [R2] ;\n        /*0390*/                   FADD R7, -R4, R7 ;\n.L_x_7:\n        /*03a0*/                   BSYNC B0 ;\n.L_x_4:\n        /*03b0*/                   ULDC.64 UR6, c[0x0][0x218] ;\n        /*03c0*/                   LEA R2, P0, R0, UR6, 0x2 ;\n        /*03d0*/                   LEA.HI.X R3, R0, UR7, R3, 0x2, P0 ;\n        /*03e0*/                   STG.E desc[UR8][R2.64], R7 ;\n        /*03f0*/                   EXIT ;\n.L_x_8:\n        /*0400*/                   BRA `(.L_x_8);\n        /*0410*/                   NOP;\n        /*0420*/                   NOP;\n        /*0430*/                   NOP;\n        /*0440*/                   NOP;\n        /*0450*/                   NOP;\n        /*0460*/                   NOP;\n        /*0470*/                   NOP;\n        /*0480*/                   NOP;\n        /*0490*/                   NOP;\n        /*04a0*/                   NOP;\n        /*04b0*/                   NOP;\n        /*04c0*/                   NOP;\n        /*04d0*/                   NOP;\n        /*04e0*/                   NOP;\n        /*04f0*/                   NOP;\n.L_x_29:"
+        }
+      }
+    },
+    "_Z6updatePfS_PKfS1_S1_S1_jf": {
+      "demangledName": "update(float *, float *, const float *, const float *, const float *, const float *, unsigned int, float)",
+      "imix": {
+        "sm_80": {
+          "IMAD": 8,
+          "NOP": 8,
+          "LDG": 6,
+          "MOV": 2,
+          "S2R": 2,
+          "ISETP": 2,
+          "EXIT": 2,
+          "FADD": 2,
+          "FFMA": 2,
+          "STG": 2,
+          "BRA": 2,
+          "ULDC": 1,
+          "HFMA2": 1
+        },
+        "sm_86": {
+          "IMAD": 8,
+          "NOP": 8,
+          "LDG": 6,
+          "MOV": 3,
+          "S2R": 2,
+          "ISETP": 2,
+          "EXIT": 2,
+          "FADD": 2,
+          "FFMA": 2,
+          "STG": 2,
+          "BRA": 2,
+          "ULDC": 1
+        },
+        "sm_90": {
+          "NOP": 15,
+          "LDC": 7,
+          "IMAD": 7,
+          "LDG": 6,
+          "ULDC": 5,
+          "S2R": 2,
+          "ISETP": 2,
+          "EXIT": 2,
+          "FADD": 2,
+          "FFMA": 2,
+          "STG": 2,
+          "BRA": 2,
+          "UIMAD": 1,
+          "IADD3": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z6updatePfS_PKfS1_S1_S1_jf": "//--------------------- .text._Z6updatePfS_PKfS1_S1_S1_jf --------------------------\n\t.section\t.text._Z6updatePfS_PKfS1_S1_S1_jf,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=20\"\n\t.align\t128\n        .global         _Z6updatePfS_PKfS1_S1_S1_jf\n        .type           _Z6updatePfS_PKfS1_S1_S1_jf,@function\n        .size           _Z6updatePfS_PKfS1_S1_S1_jf,(.L_x_23 - _Z6updatePfS_PKfS1_S1_S1_jf)\n        .other          _Z6updatePfS_PKfS1_S1_S1_jf,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z6updatePfS_PKfS1_S1_S1_jf:\n.text._Z6updatePfS_PKfS1_S1_S1_jf:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R0, R0, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x190], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   ULDC.64 UR4, c[0x0][0x118] ;\n.L_x_0:\n        /*0070*/                   HFMA2.MMA R17, -RZ, RZ, 0, 2.384185791015625e-07 ;\n        /*0080*/                   IMAD.WIDE R4, R0, R17, c[0x0][0x170] ;\n        /*0090*/                   IMAD.WIDE R6, R0.reuse, R17.reuse, c[0x0][0x180] ;\n        /*00a0*/                   LDG.E.CONSTANT R5, [R4.64] ;\n        /*00b0*/                   IMAD.WIDE R2, R0.reuse, R17.reuse, c[0x0][0x160] ;\n        /*00c0*/                   LDG.E.CONSTANT R6, [R6.64] ;\n        /*00d0*/                   LDG.E R13, [R2.64] ;\n        /*00e0*/                   IMAD.WIDE R8, R0, R17, c[0x0][0x178] ;\n        /*00f0*/                   IMAD.WIDE R10, R0, R17, c[0x0][0x188] ;\n        /*0100*/                   LDG.E.CONSTANT R9, [R8.64] ;\n        /*0110*/                   LDG.E.CONSTANT R10, [R10.64] ;\n        /*0120*/                   FADD R12, R6, R5 ;\n        /*0130*/                   FFMA R15, R12, c[0x0][0x194], R13 ;\n        /*0140*/                   IMAD.WIDE R12, R0, R17, c[0x0][0x168] ;\n        /*0150*/                   STG.E [R2.64], R15 ;\n        /*0160*/                   LDG.E R5, [R12.64] ;\n        /*0170*/                   FADD R4, R10, R9 ;\n        /*0180*/                   MOV R7, c[0x0][0x0] ;\n        /*0190*/                   IMAD R0, R7, c[0x0][0xc], R0 ;\n        /*01a0*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x190], PT ;\n        /*01b0*/                   FFMA R5, R4, c[0x0][0x194], R5 ;\n        /*01c0*/                   STG.E [R12.64], R5 ;\n        /*01d0*/              @!P0 BRA `(.L_x_0) ;\n        /*01e0*/                   EXIT ;\n.L_x_1:\n        /*01f0*/                   BRA `(.L_x_1);\n        /*0200*/                   NOP;\n        /*0210*/                   NOP;\n        /*0220*/                   NOP;\n        /*0230*/                   NOP;\n        /*0240*/                   NOP;\n        /*0250*/                   NOP;\n        /*0260*/                   NOP;\n        /*0270*/                   NOP;\n.L_x_23:"
+        },
+        "sm_86": {
+          "_Z6updatePfS_PKfS1_S1_S1_jf": "//--------------------- .text._Z6updatePfS_PKfS1_S1_S1_jf --------------------------\n\t.section\t.text._Z6updatePfS_PKfS1_S1_S1_jf,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=20\"\n\t.align\t128\n        .global         _Z6updatePfS_PKfS1_S1_S1_jf\n        .type           _Z6updatePfS_PKfS1_S1_S1_jf,@function\n        .size           _Z6updatePfS_PKfS1_S1_S1_jf,(.L_x_23 - _Z6updatePfS_PKfS1_S1_S1_jf)\n        .other          _Z6updatePfS_PKfS1_S1_S1_jf,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z6updatePfS_PKfS1_S1_S1_jf:\n.text._Z6updatePfS_PKfS1_S1_S1_jf:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R0, R0, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x190], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   ULDC.64 UR4, c[0x0][0x118] ;\n.L_x_0:\n        /*0070*/                   MOV R17, 0x4 ;\n        /*0080*/                   IMAD.WIDE R2, R0, R17, c[0x0][0x170] ;\n        /*0090*/                   IMAD.WIDE R4, R0.reuse, R17.reuse, c[0x0][0x180] ;\n        /*00a0*/                   LDG.E.CONSTANT R3, [R2.64] ;\n        /*00b0*/                   IMAD.WIDE R6, R0.reuse, R17.reuse, c[0x0][0x160] ;\n        /*00c0*/                   LDG.E.CONSTANT R4, [R4.64] ;\n        /*00d0*/                   LDG.E R13, [R6.64] ;\n        /*00e0*/                   IMAD.WIDE R8, R0, R17, c[0x0][0x178] ;\n        /*00f0*/                   IMAD.WIDE R10, R0, R17, c[0x0][0x188] ;\n        /*0100*/                   LDG.E.CONSTANT R9, [R8.64] ;\n        /*0110*/                   LDG.E.CONSTANT R10, [R10.64] ;\n        /*0120*/                   FADD R12, R4, R3 ;\n        /*0130*/                   FFMA R15, R12, c[0x0][0x194], R13 ;\n        /*0140*/                   IMAD.WIDE R12, R0, R17, c[0x0][0x168] ;\n        /*0150*/                   STG.E [R6.64], R15 ;\n        /*0160*/                   LDG.E R3, [R12.64] ;\n        /*0170*/                   FADD R2, R10, R9 ;\n        /*0180*/                   MOV R5, c[0x0][0x0] ;\n        /*0190*/                   IMAD R0, R5, c[0x0][0xc], R0 ;\n        /*01a0*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x190], PT ;\n        /*01b0*/                   FFMA R3, R2, c[0x0][0x194], R3 ;\n        /*01c0*/                   STG.E [R12.64], R3 ;\n        /*01d0*/              @!P0 BRA `(.L_x_0) ;\n        /*01e0*/                   EXIT ;\n.L_x_1:\n        /*01f0*/                   BRA `(.L_x_1);\n        /*0200*/                   NOP;\n        /*0210*/                   NOP;\n        /*0220*/                   NOP;\n        /*0230*/                   NOP;\n        /*0240*/                   NOP;\n        /*0250*/                   NOP;\n        /*0260*/                   NOP;\n        /*0270*/                   NOP;\n.L_x_23:"
+        },
+        "sm_90": {
+          "_Z6updatePfS_PKfS1_S1_S1_jf": "//--------------------- .text._Z6updatePfS_PKfS1_S1_S1_jf --------------------------\n\t.section\t.text._Z6updatePfS_PKfS1_S1_S1_jf,\"ax\",@progbits\n\t.align\t128\n        .global         _Z6updatePfS_PKfS1_S1_S1_jf\n        .type           _Z6updatePfS_PKfS1_S1_S1_jf,@function\n        .size           _Z6updatePfS_PKfS1_S1_S1_jf,(.L_x_27 - _Z6updatePfS_PKfS1_S1_S1_jf)\n        .other          _Z6updatePfS_PKfS1_S1_S1_jf,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z6updatePfS_PKfS1_S1_S1_jf:\n.text._Z6updatePfS_PKfS1_S1_S1_jf:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_CTAID.X ;\n        /*0020*/                   ULDC UR4, c[0x0][0x0] ;\n        /*0030*/                   ULDC UR8, c[0x0][0x240] ;\n        /*0040*/                   S2R R3, SR_TID.X ;\n        /*0050*/                   IMAD R0, R0, UR4, R3 ;\n        /*0060*/                   ISETP.GE.U32.AND P0, PT, R0, UR8, PT ;\n        /*0070*/               @P0 EXIT ;\n        /*0080*/                   ULDC UR5, c[0x0][0xc] ;\n        /*0090*/                   ULDC.64 UR6, c[0x0][0x208] ;\n        /*00a0*/                   UIMAD UR4, UR4, UR5, URZ ;\n        /*00b0*/                   ULDC UR5, c[0x0][0x244] ;\n.L_x_0:\n        /*00c0*/                   LDC.64 R4, c[0x0][0x220] ;\n        /*00d0*/                   LDC.64 R6, c[0x0][0x230] ;\n        /*00e0*/                   LDC.64 R2, c[0x0][0x210] ;\n        /*00f0*/                   IMAD.WIDE R4, R0, 0x4, R4 ;\n        /*0100*/                   LDC.64 R8, c[0x0][0x228] ;\n        /*0110*/                   LDG.E.CONSTANT R5, desc[UR6][R4.64] ;\n        /*0120*/                   IMAD.WIDE R6, R0, 0x4, R6 ;\n        /*0130*/                   LDC.64 R10, c[0x0][0x238] ;\n        /*0140*/                   LDG.E.CONSTANT R6, desc[UR6][R6.64] ;\n        /*0150*/                   IMAD.WIDE R2, R0, 0x4, R2 ;\n        /*0160*/                   LDC.64 R12, c[0x0][0x218] ;\n        /*0170*/                   LDG.E R15, desc[UR6][R2.64] ;\n        /*0180*/                   IMAD.WIDE R8, R0, 0x4, R8 ;\n        /*0190*/                   LDG.E.CONSTANT R9, desc[UR6][R8.64] ;\n        /*01a0*/                   IMAD.WIDE R10, R0, 0x4, R10 ;\n        /*01b0*/                   LDG.E.CONSTANT R10, desc[UR6][R10.64] ;\n        /*01c0*/                   FADD R14, R6, R5 ;\n        /*01d0*/                   IMAD.WIDE R4, R0, 0x4, R12 ;\n        /*01e0*/                   FFMA R15, R14, UR5, R15 ;\n        /*01f0*/                   STG.E desc[UR6][R2.64], R15 ;\n        /*0200*/                   LDG.E R7, desc[UR6][R4.64] ;\n        /*0210*/                   FADD R6, R10, R9 ;\n        /*0220*/                   IADD3 R0, R0, UR4, RZ ;\n        /*0230*/                   ISETP.GE.U32.AND P0, PT, R0, UR8, PT ;\n        /*0240*/                   FFMA R7, R6, UR5, R7 ;\n        /*0250*/                   STG.E desc[UR6][R4.64], R7 ;\n        /*0260*/              @!P0 BRA `(.L_x_0) ;\n        /*0270*/                   EXIT ;\n.L_x_1:\n        /*0280*/                   BRA `(.L_x_1);\n        /*0290*/                   NOP;\n        /*02a0*/                   NOP;\n        /*02b0*/                   NOP;\n        /*02c0*/                   NOP;\n        /*02d0*/                   NOP;\n        /*02e0*/                   NOP;\n        /*02f0*/                   NOP;\n        /*0300*/                   NOP;\n        /*0310*/                   NOP;\n        /*0320*/                   NOP;\n        /*0330*/                   NOP;\n        /*0340*/                   NOP;\n        /*0350*/                   NOP;\n        /*0360*/                   NOP;\n        /*0370*/                   NOP;\n.L_x_27:"
+        }
+      }
+    }
+  }
+}

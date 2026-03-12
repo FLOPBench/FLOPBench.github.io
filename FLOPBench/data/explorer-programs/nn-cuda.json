@@ -1,0 +1,96 @@
+{
+  "exeArgs": "filelist.txt -r 5 -lat 30 -lng 90 -i 10000 -t",
+  "kernels": {
+    "_Z2nniffPK7latLongPf": {
+      "demangledName": "nn(int, float, float, const latLong *, float *)",
+      "imix": {
+        "sm_80": {
+          "NOP": 22,
+          "MOV": 7,
+          "BRA": 7,
+          "FMUL": 6,
+          "FFMA": 6,
+          "FADD": 4,
+          "IMAD": 3,
+          "FSETP": 3,
+          "S2R": 2,
+          "ISETP": 2,
+          "EXIT": 2,
+          "HFMA2": 2,
+          "LDG": 2,
+          "BSSY": 2,
+          "MUFU": 2,
+          "BSYNC": 2,
+          "ULDC": 1,
+          "IADD3": 1,
+          "CALL": 1,
+          "STG": 1,
+          "LOP3": 1,
+          "RET": 1
+        },
+        "sm_86": {
+          "NOP": 22,
+          "MOV": 9,
+          "BRA": 7,
+          "FMUL": 6,
+          "FFMA": 6,
+          "FADD": 4,
+          "IMAD": 3,
+          "FSETP": 3,
+          "S2R": 2,
+          "ISETP": 2,
+          "EXIT": 2,
+          "LDG": 2,
+          "BSSY": 2,
+          "MUFU": 2,
+          "BSYNC": 2,
+          "ULDC": 1,
+          "IADD3": 1,
+          "CALL": 1,
+          "STG": 1,
+          "LOP3": 1,
+          "RET": 1
+        },
+        "sm_90": {
+          "NOP": 18,
+          "BRA": 7,
+          "FMUL": 6,
+          "FFMA": 6,
+          "MOV": 6,
+          "LDC": 4,
+          "ULDC": 4,
+          "FADD": 4,
+          "IMAD": 3,
+          "FSETP": 3,
+          "ISETP": 2,
+          "EXIT": 2,
+          "LDG": 2,
+          "BSSY": 2,
+          "MUFU": 2,
+          "BSYNC": 2,
+          "S2R": 1,
+          "S2UR": 1,
+          "IADD3": 1,
+          "CALL": 1,
+          "STG": 1,
+          "LOP3": 1,
+          "RET": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z2nniffPK7latLongPf": "//--------------------- .text._Z2nniffPK7latLongPf --------------------------\n\t.section\t.text._Z2nniffPK7latLongPf,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=24\"\n\t.align\t128\n        .global         _Z2nniffPK7latLongPf\n        .type           _Z2nniffPK7latLongPf,@function\n        .size           _Z2nniffPK7latLongPf,(.L_x_9 - _Z2nniffPK7latLongPf)\n        .other          _Z2nniffPK7latLongPf,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z2nniffPK7latLongPf:\n.text._Z2nniffPK7latLongPf:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R2, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R2, R2, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.AND P0, PT, R2, c[0x0][0x160], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   HFMA2.MMA R7, -RZ, RZ, 0, 4.76837158203125e-07 ;\n        /*0070*/                   ULDC.64 UR36, c[0x0][0x118] ;\n        /*0080*/                   IMAD.WIDE R6, R2, R7, c[0x0][0x170] ;\n        /*0090*/                   LDG.E.CONSTANT R3, [R6.64+0x4] ;\n        /*00a0*/                   LDG.E.CONSTANT R0, [R6.64] ;\n        /*00b0*/                   BSSY B6, `(.L_x_4) ;\n        /*00c0*/                   FADD R3, -R3, c[0x0][0x168] ;\n        /*00d0*/                   FADD R0, -R0, c[0x0][0x164] ;\n        /*00e0*/                   FMUL R3, R3, R3 ;\n        /*00f0*/                   FFMA R4, R0, R0, R3 ;\n        /*0100*/                   MUFU.RSQ R3, R4 ;\n        /*0110*/                   IADD3 R0, R4, -0xd000000, RZ ;\n        /*0120*/                   ISETP.GT.U32.AND P0, PT, R0, 0x727fffff, PT ;\n        /*0130*/              @!P0 BRA `(.L_x_5) ;\n        /*0140*/                   MOV R20, 32@lo((_Z2nniffPK7latLongPf + .L_x_0@srel)) ;\n        /*0150*/                   MOV R21, 32@hi((_Z2nniffPK7latLongPf + .L_x_0@srel)) ;\n        /*0160*/                   CALL.ABS.NOINC `(__cuda_sm20_sqrt_rn_f32_slowpath) ;\n.L_x_0:\n        /*0170*/                   BRA `(.L_x_6) ;\n.L_x_5:\n        /*0180*/                   FMUL.FTZ R5, R4, R3 ;\n        /*0190*/                   FMUL.FTZ R3, R3, 0.5 ;\n        /*01a0*/                   FFMA R4, -R5, R5, R4 ;\n        /*01b0*/                   FFMA R4, R4, R3, R5 ;\n.L_x_6:\n        /*01c0*/                   BSYNC B6 ;\n.L_x_4:\n        /*01d0*/                   HFMA2.MMA R3, -RZ, RZ, 0, 2.384185791015625e-07 ;\n        /*01e0*/                   IMAD.WIDE R2, R2, R3, c[0x0][0x178] ;\n        /*01f0*/                   STG.E [R2.64], R4 ;\n        /*0200*/                   EXIT ;\n.L_x_7:\n        /*0210*/                   BRA `(.L_x_7);\n        /*0220*/                   NOP;\n        /*0230*/                   NOP;\n        /*0240*/                   NOP;\n        /*0250*/                   NOP;\n        /*0260*/                   NOP;\n        /*0270*/                   NOP;\n        /*0280*/                   NOP;\n        /*0290*/                   NOP;\n        /*02a0*/                   NOP;\n        /*02b0*/                   NOP;\n        /*02c0*/                   NOP;\n        /*02d0*/                   NOP;\n        /*02e0*/                   NOP;\n        /*02f0*/                   NOP;\n.L_x_9:\n// Disassembly for nn-cuda-nn.1.sm_80.cubin",
+          "__cuda_sm20_sqrt_rn_f32_slowpath": "//--------------------- .text.__cuda_sm20_sqrt_rn_f32_slowpath --------------------------\n\t.section\t.text.__cuda_sm20_sqrt_rn_f32_slowpath,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=24\"\n\t.align\t128\n.text.__cuda_sm20_sqrt_rn_f32_slowpath:\n        .type           __cuda_sm20_sqrt_rn_f32_slowpath,@function\n        .size           __cuda_sm20_sqrt_rn_f32_slowpath,(.L_x_8 - __cuda_sm20_sqrt_rn_f32_slowpath)\n__cuda_sm20_sqrt_rn_f32_slowpath:\n        /*0000*/                   MOV R0, R4 ;\n        /*0010*/                   LOP3.LUT P0, RZ, R0, 0x7fffffff, RZ, 0xc0, !PT ;\n        /*0020*/                   BSSY B0, `(.L_x_1) ;\n        /*0030*/              @!P0 MOV R4, R0 ;\n        /*0040*/              @!P0 BRA `(.L_x_2) ;\n        /*0050*/                   FSETP.GEU.FTZ.AND P0, PT, R0, RZ, PT ;\n        /*0060*/              @!P0 MOV R4, 0x7fffffff ;\n        /*0070*/              @!P0 BRA `(.L_x_2) ;\n        /*0080*/                   FSETP.GTU.FTZ.AND P0, PT, |R0|, +INF , PT ;\n        /*0090*/               @P0 FADD.FTZ R4, R0, 1 ;\n        /*00a0*/               @P0 BRA `(.L_x_2) ;\n        /*00b0*/                   FSETP.NEU.FTZ.AND P0, PT, |R0|, +INF , PT ;\n        /*00c0*/               @P0 FFMA R3, R0, 1.84467440737095516160e+19, RZ ;\n        /*00d0*/               @P0 MUFU.RSQ R4, R3 ;\n        /*00e0*/               @P0 FMUL.FTZ R6, R3, R4 ;\n        /*00f0*/               @P0 FMUL.FTZ R7, R4, 0.5 ;\n        /*0100*/              @!P0 MOV R4, R0 ;\n        /*0110*/               @P0 FADD.FTZ R5, -R6, -RZ ;\n        /*0120*/               @P0 FFMA R5, R6, R5, R3 ;\n        /*0130*/               @P0 FFMA R5, R5, R7, R6 ;\n        /*0140*/               @P0 FMUL.FTZ R4, R5, 2.3283064365386962891e-10 ;\n.L_x_2:\n        /*0150*/                   BSYNC B0 ;\n.L_x_1:\n        /*0160*/                   RET.ABS.NODEC R20 0x0 ;\n.L_x_3:\n        /*0170*/                   BRA `(.L_x_3);\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_8:"
+        },
+        "sm_86": {
+          "_Z2nniffPK7latLongPf": "//--------------------- .text._Z2nniffPK7latLongPf --------------------------\n\t.section\t.text._Z2nniffPK7latLongPf,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=24\"\n\t.align\t128\n        .global         _Z2nniffPK7latLongPf\n        .type           _Z2nniffPK7latLongPf,@function\n        .size           _Z2nniffPK7latLongPf,(.L_x_9 - _Z2nniffPK7latLongPf)\n        .other          _Z2nniffPK7latLongPf,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z2nniffPK7latLongPf:\n.text._Z2nniffPK7latLongPf:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R16, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R16, R16, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.AND P0, PT, R16, c[0x0][0x160], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   MOV R3, 0x8 ;\n        /*0070*/                   ULDC.64 UR36, c[0x0][0x118] ;\n        /*0080*/                   IMAD.WIDE R2, R16, R3, c[0x0][0x170] ;\n        /*0090*/                   LDG.E.CONSTANT R4, [R2.64+0x4] ;\n        /*00a0*/                   LDG.E.CONSTANT R0, [R2.64] ;\n        /*00b0*/                   BSSY B6, `(.L_x_4) ;\n        /*00c0*/                   FADD R4, -R4, c[0x0][0x168] ;\n        /*00d0*/                   FADD R0, -R0, c[0x0][0x164] ;\n        /*00e0*/                   FMUL R5, R4, R4 ;\n        /*00f0*/                   FFMA R4, R0, R0, R5 ;\n        /*0100*/                   MUFU.RSQ R5, R4 ;\n        /*0110*/                   IADD3 R0, R4, -0xd000000, RZ ;\n        /*0120*/                   ISETP.GT.U32.AND P0, PT, R0, 0x727fffff, PT ;\n        /*0130*/              @!P0 BRA `(.L_x_5) ;\n        /*0140*/                   MOV R20, 32@lo((_Z2nniffPK7latLongPf + .L_x_0@srel)) ;\n        /*0150*/                   MOV R21, 32@hi((_Z2nniffPK7latLongPf + .L_x_0@srel)) ;\n        /*0160*/                   CALL.ABS.NOINC `(__cuda_sm20_sqrt_rn_f32_slowpath) ;\n.L_x_0:\n        /*0170*/                   BRA `(.L_x_6) ;\n.L_x_5:\n        /*0180*/                   FMUL.FTZ R3, R4, R5 ;\n        /*0190*/                   FMUL.FTZ R5, R5, 0.5 ;\n        /*01a0*/                   FFMA R4, -R3, R3, R4 ;\n        /*01b0*/                   FFMA R4, R4, R5, R3 ;\n.L_x_6:\n        /*01c0*/                   BSYNC B6 ;\n.L_x_4:\n        /*01d0*/                   MOV R3, 0x4 ;\n        /*01e0*/                   IMAD.WIDE R2, R16, R3, c[0x0][0x178] ;\n        /*01f0*/                   STG.E [R2.64], R4 ;\n        /*0200*/                   EXIT ;\n.L_x_7:\n        /*0210*/                   BRA `(.L_x_7);\n        /*0220*/                   NOP;\n        /*0230*/                   NOP;\n        /*0240*/                   NOP;\n        /*0250*/                   NOP;\n        /*0260*/                   NOP;\n        /*0270*/                   NOP;\n        /*0280*/                   NOP;\n        /*0290*/                   NOP;\n        /*02a0*/                   NOP;\n        /*02b0*/                   NOP;\n        /*02c0*/                   NOP;\n        /*02d0*/                   NOP;\n        /*02e0*/                   NOP;\n        /*02f0*/                   NOP;\n.L_x_9:\n// Disassembly for nn-cuda-nn.1.sm_86.cubin",
+          "__cuda_sm20_sqrt_rn_f32_slowpath": "//--------------------- .text.__cuda_sm20_sqrt_rn_f32_slowpath --------------------------\n\t.section\t.text.__cuda_sm20_sqrt_rn_f32_slowpath,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=24\"\n\t.align\t128\n.text.__cuda_sm20_sqrt_rn_f32_slowpath:\n        .type           __cuda_sm20_sqrt_rn_f32_slowpath,@function\n        .size           __cuda_sm20_sqrt_rn_f32_slowpath,(.L_x_8 - __cuda_sm20_sqrt_rn_f32_slowpath)\n__cuda_sm20_sqrt_rn_f32_slowpath:\n        /*0000*/                   MOV R0, R4 ;\n        /*0010*/                   LOP3.LUT P0, RZ, R0, 0x7fffffff, RZ, 0xc0, !PT ;\n        /*0020*/                   BSSY B0, `(.L_x_1) ;\n        /*0030*/              @!P0 MOV R4, R0 ;\n        /*0040*/              @!P0 BRA `(.L_x_2) ;\n        /*0050*/                   FSETP.GEU.FTZ.AND P0, PT, R0, RZ, PT ;\n        /*0060*/              @!P0 MOV R4, 0x7fffffff ;\n        /*0070*/              @!P0 BRA `(.L_x_2) ;\n        /*0080*/                   FSETP.GTU.FTZ.AND P0, PT, |R0|, +INF , PT ;\n        /*0090*/               @P0 FADD.FTZ R4, R0, 1 ;\n        /*00a0*/               @P0 BRA `(.L_x_2) ;\n        /*00b0*/                   FSETP.NEU.FTZ.AND P0, PT, |R0|, +INF , PT ;\n        /*00c0*/               @P0 FFMA R3, R0, 1.84467440737095516160e+19, RZ ;\n        /*00d0*/               @P0 MUFU.RSQ R4, R3 ;\n        /*00e0*/               @P0 FMUL.FTZ R6, R3, R4 ;\n        /*00f0*/               @P0 FMUL.FTZ R7, R4, 0.5 ;\n        /*0100*/              @!P0 MOV R4, R0 ;\n        /*0110*/               @P0 FADD.FTZ R5, -R6, -RZ ;\n        /*0120*/               @P0 FFMA R5, R6, R5, R3 ;\n        /*0130*/               @P0 FFMA R5, R5, R7, R6 ;\n        /*0140*/               @P0 FMUL.FTZ R4, R5, 2.3283064365386962891e-10 ;\n.L_x_2:\n        /*0150*/                   BSYNC B0 ;\n.L_x_1:\n        /*0160*/                   RET.ABS.NODEC R20 0x0 ;\n.L_x_3:\n        /*0170*/                   BRA `(.L_x_3);\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_8:"
+        },
+        "sm_90": {
+          "_Z2nniffPK7latLongPf": "//--------------------- .text._Z2nniffPK7latLongPf --------------------------\n\t.section\t.text._Z2nniffPK7latLongPf,\"ax\",@progbits\n\t.align\t128\n        .global         _Z2nniffPK7latLongPf\n        .type           _Z2nniffPK7latLongPf,@function\n        .size           _Z2nniffPK7latLongPf,(.L_x_9 - _Z2nniffPK7latLongPf)\n        .other          _Z2nniffPK7latLongPf,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z2nniffPK7latLongPf:\n.text._Z2nniffPK7latLongPf:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R3, SR_TID.X ;\n        /*0020*/                   S2UR UR4, SR_CTAID.X ;\n        /*0030*/                   LDC R2, c[0x0][RZ] ;\n        /*0040*/                   IMAD R2, R2, UR4, R3 ;\n        /*0050*/                   ULDC UR4, c[0x0][0x210] ;\n        /*0060*/                   ISETP.GE.AND P0, PT, R2, UR4, PT ;\n        /*0070*/               @P0 EXIT ;\n        /*0080*/                   LDC.64 R6, c[0x0][0x220] ;\n        /*0090*/                   ULDC.64 UR36, c[0x0][0x208] ;\n        /*00a0*/                   ULDC UR4, c[0x0][0x218] ;\n        /*00b0*/                   IMAD.WIDE R6, R2, 0x8, R6 ;\n        /*00c0*/                   LDG.E.CONSTANT R3, desc[UR36][R6.64+0x4] ;\n        /*00d0*/                   LDG.E.CONSTANT R0, desc[UR36][R6.64] ;\n        /*00e0*/                   BSSY B6, `(.L_x_4) ;\n        /*00f0*/                   FADD R3, -R3, UR4 ;\n        /*0100*/                   ULDC UR4, c[0x0][0x214] ;\n        /*0110*/                   FADD R0, -R0, UR4 ;\n        /*0120*/                   FMUL R3, R3, R3 ;\n        /*0130*/                   FFMA R4, R0, R0, R3 ;\n        /*0140*/                   MUFU.RSQ R3, R4 ;\n        /*0150*/                   IADD3 R0, R4, -0xd000000, RZ ;\n        /*0160*/                   ISETP.GT.U32.AND P0, PT, R0, 0x727fffff, PT ;\n        /*0170*/              @!P0 BRA `(.L_x_5) ;\n        /*0180*/                   MOV R20, 32@lo((_Z2nniffPK7latLongPf + .L_x_0@srel)) ;\n        /*0190*/                   MOV R21, 32@hi((_Z2nniffPK7latLongPf + .L_x_0@srel)) ;\n        /*01a0*/                   CALL.ABS.NOINC `(__cuda_sm20_sqrt_rn_f32_slowpath) ;\n.L_x_0:\n        /*01b0*/                   BRA `(.L_x_6) ;\n.L_x_5:\n        /*01c0*/                   FMUL.FTZ R5, R4, R3 ;\n        /*01d0*/                   FMUL.FTZ R3, R3, 0.5 ;\n        /*01e0*/                   FFMA R4, -R5, R5, R4 ;\n        /*01f0*/                   FFMA R4, R4, R3, R5 ;\n.L_x_6:\n        /*0200*/                   BSYNC B6 ;\n.L_x_4:\n        /*0210*/                   LDC.64 R6, c[0x0][0x228] ;\n        /*0220*/                   IMAD.WIDE R2, R2, 0x4, R6 ;\n        /*0230*/                   STG.E desc[UR36][R2.64], R4 ;\n        /*0240*/                   EXIT ;\n.L_x_7:\n        /*0250*/                   BRA `(.L_x_7);\n        /*0260*/                   NOP;\n        /*0270*/                   NOP;\n        /*0280*/                   NOP;\n        /*0290*/                   NOP;\n        /*02a0*/                   NOP;\n        /*02b0*/                   NOP;\n        /*02c0*/                   NOP;\n        /*02d0*/                   NOP;\n        /*02e0*/                   NOP;\n        /*02f0*/                   NOP;\n.L_x_9:",
+          "__cuda_sm20_sqrt_rn_f32_slowpath": "//--------------------- .text.__cuda_sm20_sqrt_rn_f32_slowpath --------------------------\n\t.section\t.text.__cuda_sm20_sqrt_rn_f32_slowpath,\"ax\",@progbits\n\t.align\t128\n.text.__cuda_sm20_sqrt_rn_f32_slowpath:\n        .type           __cuda_sm20_sqrt_rn_f32_slowpath,@function\n        .size           __cuda_sm20_sqrt_rn_f32_slowpath,(.L_x_8 - __cuda_sm20_sqrt_rn_f32_slowpath)\n__cuda_sm20_sqrt_rn_f32_slowpath:\n        /*0000*/                   MOV R0, R4 ;\n        /*0010*/                   LOP3.LUT P0, RZ, R0, 0x7fffffff, RZ, 0xc0, !PT ;\n        /*0020*/                   BSSY B0, `(.L_x_1) ;\n        /*0030*/              @!P0 MOV R4, R0 ;\n        /*0040*/              @!P0 BRA `(.L_x_2) ;\n        /*0050*/                   FSETP.GEU.FTZ.AND P0, PT, R0, RZ, PT ;\n        /*0060*/              @!P0 MOV R4, 0x7fffffff ;\n        /*0070*/              @!P0 BRA `(.L_x_2) ;\n        /*0080*/                   FSETP.GTU.FTZ.AND P0, PT, |R0|, +INF , PT ;\n        /*0090*/               @P0 FADD.FTZ R4, R0, 1 ;\n        /*00a0*/               @P0 BRA `(.L_x_2) ;\n        /*00b0*/                   FSETP.NEU.FTZ.AND P0, PT, |R0|, +INF , PT ;\n        /*00c0*/               @P0 FFMA R3, R0, 1.84467440737095516160e+19, RZ ;\n        /*00d0*/               @P0 MUFU.RSQ R4, R3 ;\n        /*00e0*/               @P0 FMUL.FTZ R6, R3, R4 ;\n        /*00f0*/               @P0 FMUL.FTZ R7, R4, 0.5 ;\n        /*0100*/              @!P0 MOV R4, R0 ;\n        /*0110*/               @P0 FADD.FTZ R5, -R6, -RZ ;\n        /*0120*/               @P0 FFMA R5, R6, R5, R3 ;\n        /*0130*/               @P0 FFMA R5, R5, R7, R6 ;\n        /*0140*/               @P0 FMUL.FTZ R4, R5, 2.3283064365386962891e-10 ;\n.L_x_2:\n        /*0150*/                   BSYNC B0 ;\n.L_x_1:\n        /*0160*/                   RET.ABS.NODEC R20 0x0 ;\n.L_x_3:\n        /*0170*/                   BRA `(.L_x_3);\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_8:"
+        }
+      }
+    }
+  }
+}

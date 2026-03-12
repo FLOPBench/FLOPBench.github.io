@@ -1,0 +1,93 @@
+{
+  "exeArgs": "8192 8192 100",
+  "kernels": {
+    "_Z1kILi256ELi1024EEvPKiPii": {
+      "demangledName": "void k<(int)256, (int)1024>(const int *, int *, int)",
+      "imix": {
+        "sm_80": {
+          "NOP": 14,
+          "ISETP": 6,
+          "IADD3": 5,
+          "LEA": 5,
+          "LDG": 4,
+          "LDS": 4,
+          "STG": 4,
+          "IMAD": 3,
+          "S2R": 2,
+          "ULDC": 2,
+          "ULOP3": 2,
+          "UIADD3": 2,
+          "EXIT": 2,
+          "BRA": 2,
+          "MOV": 1,
+          "USHF": 1,
+          "ULEA": 1,
+          "SHF": 1,
+          "IMNMX": 1,
+          "STS": 1,
+          "BAR": 1
+        },
+        "sm_86": {
+          "NOP": 14,
+          "ISETP": 6,
+          "IADD3": 5,
+          "LEA": 5,
+          "LDG": 4,
+          "LDS": 4,
+          "STG": 4,
+          "IMAD": 3,
+          "S2R": 2,
+          "ULDC": 2,
+          "ULOP3": 2,
+          "UIADD3": 2,
+          "EXIT": 2,
+          "BRA": 2,
+          "MOV": 1,
+          "USHF": 1,
+          "ULEA": 1,
+          "SHF": 1,
+          "IMNMX": 1,
+          "STS": 1,
+          "BAR": 1
+        },
+        "sm_90": {
+          "NOP": 13,
+          "ISETP": 6,
+          "LEA": 6,
+          "ULDC": 4,
+          "LDG": 4,
+          "LDS": 4,
+          "STG": 4,
+          "LDC": 3,
+          "UIADD3": 3,
+          "IMAD": 3,
+          "IADD3": 3,
+          "S2R": 2,
+          "ULOP3": 2,
+          "ULEA": 2,
+          "EXIT": 2,
+          "UMOV": 2,
+          "BRA": 2,
+          "USHF": 1,
+          "SHF": 1,
+          "S2UR": 1,
+          "VIADD": 1,
+          "VIADDMNMX": 1,
+          "STS": 1,
+          "BAR": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z1kILi256ELi1024EEvPKiPii": "//--------------------- .text._Z1kILi256ELi1024EEvPKiPii --------------------------\n\t.section\t.text._Z1kILi256ELi1024EEvPKiPii,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=19\"\n\t.align\t128\n.text._Z1kILi256ELi1024EEvPKiPii:\n        .weak           _Z1kILi256ELi1024EEvPKiPii\n        .type           _Z1kILi256ELi1024EEvPKiPii,@function\n        .size           _Z1kILi256ELi1024EEvPKiPii,(.L_x_2 - _Z1kILi256ELi1024EEvPKiPii)\n        .other          _Z1kILi256ELi1024EEvPKiPii,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z1kILi256ELi1024EEvPKiPii:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_CTAID.X ;\n        /*0020*/                   ULDC UR5, c[0x0][0x170] ;\n        /*0030*/                   USHF.R.S32.HI UR4, URZ, 0x1f, UR5 ;\n        /*0040*/                   ULOP3.LUT UP0, URZ, UR5, 0x3ff, URZ, 0xc0, !UPT ;\n        /*0050*/                   ULEA.HI UR4, UR4, UR5, URZ, 0xa ;\n        /*0060*/                   ULOP3.LUT UR4, UR4, 0xfffffc00, URZ, 0xc0, !UPT ;\n        /*0070*/                   UIADD3 UR5, UR4, 0x400, URZ ;\n        /*0080*/                   @!UP0 UIADD3 UR5, UR4, URZ, URZ ;\n        /*0090*/                   SHF.L.U32 R0, R0, 0xa, RZ ;\n        /*00a0*/                   ISETP.GE.U32.AND P0, PT, R0, UR5, PT ;\n        /*00b0*/               @P0 EXIT ;\n        /*00c0*/                   S2R R14, SR_TID.X ;\n        /*00d0*/                   ULDC.64 UR6, c[0x0][0x118] ;\n        /*00e0*/                   IMAD.SHL.U32 R11, R14, 0x4, RZ ;\n        /*00f0*/                   IADD3 R10, R11.reuse, 0x1, RZ ;\n        /*0100*/                   IADD3 R12, R11.reuse, 0x2, RZ ;\n        /*0110*/                   IADD3 R13, R11, 0x3, RZ ;\n.L_x_0:\n        /*0120*/                   IADD3 R2, -R0, c[0x0][0x170], RZ ;\n        /*0130*/                   IADD3 R9, P4, R11.reuse, R0, RZ ;\n        /*0140*/                   IMNMX.U32 R2, R2, 0x400, PT ;\n        /*0150*/                   LEA.HI.X.SX32 R16, R11, RZ, 0x1, P4 ;\n        /*0160*/                   ISETP.GE.AND P3, PT, R11, R2.reuse, PT ;\n        /*0170*/                   ISETP.GE.AND P2, PT, R10, R2.reuse, PT ;\n        /*0180*/                   ISETP.GE.AND P1, PT, R12, R2.reuse, PT ;\n        /*0190*/                   ISETP.GE.AND P0, PT, R13, R2, PT ;\n        /*01a0*/                   LEA R2, P4, R9, c[0x0][0x160], 0x2 ;\n        /*01b0*/                   LEA.HI.X R3, R9, c[0x0][0x164], R16, 0x2, P4 ;\n        /*01c0*/              @!P3 LDG.E R4, [R2.64] ;\n        /*01d0*/              @!P2 LDG.E R5, [R2.64+0x4] ;\n        /*01e0*/              @!P1 LDG.E R6, [R2.64+0x8] ;\n        /*01f0*/              @!P0 LDG.E R7, [R2.64+0xc] ;\n        /*0200*/                   LEA R8, P4, R9, c[0x0][0x168], 0x2 ;\n        /*0210*/                   LEA.HI.X R9, R9, c[0x0][0x16c], R16, 0x2, P4 ;\n        /*0220*/                   IMAD.MOV.U32 R3, RZ, RZ, c[0x0][0xc] ;\n        /*0230*/                   IMAD R0, R3, 0x400, R0 ;\n        /*0240*/                   STS.128 [R14.X16+`(_ZZ1kILi256ELi1024EEvPKiPiiE12temp_storage)], R4 ;\n        /*0250*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*0260*/                   LDS R7, [R14.X4+`((_ZZ1kILi256ELi1024EEvPKiPiiE12temp_storage + 0xc00))] ;\n        /*0270*/                   LDS R4, [R14.X4+`(_ZZ1kILi256ELi1024EEvPKiPiiE12temp_storage)] ;\n        /*0280*/                   LDS R5, [R14.X4+`((_ZZ1kILi256ELi1024EEvPKiPiiE12temp_storage + 0x400))] ;\n        /*0290*/                   LDS R6, [R14.X4+`((_ZZ1kILi256ELi1024EEvPKiPiiE12temp_storage + 0x800))] ;\n        /*02a0*/              @!P0 STG.E [R8.64+0xc], R7 ;\n        /*02b0*/                   ISETP.GE.U32.AND P0, PT, R0, UR5, PT ;\n        /*02c0*/              @!P3 STG.E [R8.64], R4 ;\n        /*02d0*/              @!P2 STG.E [R8.64+0x4], R5 ;\n        /*02e0*/              @!P1 STG.E [R8.64+0x8], R6 ;\n        /*02f0*/              @!P0 BRA `(.L_x_0) ;\n        /*0300*/                   EXIT ;\n.L_x_1:\n        /*0310*/                   BRA `(.L_x_1);\n        /*0320*/                   NOP;\n        /*0330*/                   NOP;\n        /*0340*/                   NOP;\n        /*0350*/                   NOP;\n        /*0360*/                   NOP;\n        /*0370*/                   NOP;\n        /*0380*/                   NOP;\n        /*0390*/                   NOP;\n        /*03a0*/                   NOP;\n        /*03b0*/                   NOP;\n        /*03c0*/                   NOP;\n        /*03d0*/                   NOP;\n        /*03e0*/                   NOP;\n        /*03f0*/                   NOP;\n.L_x_2:"
+        },
+        "sm_86": {
+          "_Z1kILi256ELi1024EEvPKiPii": "//--------------------- .text._Z1kILi256ELi1024EEvPKiPii --------------------------\n\t.section\t.text._Z1kILi256ELi1024EEvPKiPii,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=19\"\n\t.align\t128\n.text._Z1kILi256ELi1024EEvPKiPii:\n        .weak           _Z1kILi256ELi1024EEvPKiPii\n        .type           _Z1kILi256ELi1024EEvPKiPii,@function\n        .size           _Z1kILi256ELi1024EEvPKiPii,(.L_x_2 - _Z1kILi256ELi1024EEvPKiPii)\n        .other          _Z1kILi256ELi1024EEvPKiPii,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z1kILi256ELi1024EEvPKiPii:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_CTAID.X ;\n        /*0020*/                   ULDC UR5, c[0x0][0x170] ;\n        /*0030*/                   USHF.R.S32.HI UR4, URZ, 0x1f, UR5 ;\n        /*0040*/                   ULOP3.LUT UP0, URZ, UR5, 0x3ff, URZ, 0xc0, !UPT ;\n        /*0050*/                   ULEA.HI UR4, UR4, UR5, URZ, 0xa ;\n        /*0060*/                   ULOP3.LUT UR4, UR4, 0xfffffc00, URZ, 0xc0, !UPT ;\n        /*0070*/                   UIADD3 UR5, UR4, 0x400, URZ ;\n        /*0080*/                   @!UP0 UIADD3 UR5, UR4, URZ, URZ ;\n        /*0090*/                   SHF.L.U32 R0, R0, 0xa, RZ ;\n        /*00a0*/                   ISETP.GE.U32.AND P0, PT, R0, UR5, PT ;\n        /*00b0*/               @P0 EXIT ;\n        /*00c0*/                   S2R R14, SR_TID.X ;\n        /*00d0*/                   ULDC.64 UR6, c[0x0][0x118] ;\n        /*00e0*/                   IMAD.SHL.U32 R11, R14, 0x4, RZ ;\n        /*00f0*/                   IADD3 R10, R11.reuse, 0x1, RZ ;\n        /*0100*/                   IADD3 R12, R11.reuse, 0x2, RZ ;\n        /*0110*/                   IADD3 R13, R11, 0x3, RZ ;\n.L_x_0:\n        /*0120*/                   IADD3 R2, -R0, c[0x0][0x170], RZ ;\n        /*0130*/                   IADD3 R9, P4, R11.reuse, R0, RZ ;\n        /*0140*/                   IMNMX.U32 R2, R2, 0x400, PT ;\n        /*0150*/                   LEA.HI.X.SX32 R16, R11, RZ, 0x1, P4 ;\n        /*0160*/                   ISETP.GE.AND P3, PT, R11, R2.reuse, PT ;\n        /*0170*/                   ISETP.GE.AND P2, PT, R10, R2.reuse, PT ;\n        /*0180*/                   ISETP.GE.AND P1, PT, R12, R2.reuse, PT ;\n        /*0190*/                   ISETP.GE.AND P0, PT, R13, R2, PT ;\n        /*01a0*/                   LEA R2, P4, R9, c[0x0][0x160], 0x2 ;\n        /*01b0*/                   LEA.HI.X R3, R9, c[0x0][0x164], R16, 0x2, P4 ;\n        /*01c0*/              @!P3 LDG.E R4, [R2.64] ;\n        /*01d0*/              @!P2 LDG.E R5, [R2.64+0x4] ;\n        /*01e0*/              @!P1 LDG.E R6, [R2.64+0x8] ;\n        /*01f0*/              @!P0 LDG.E R7, [R2.64+0xc] ;\n        /*0200*/                   LEA R8, P4, R9, c[0x0][0x168], 0x2 ;\n        /*0210*/                   LEA.HI.X R9, R9, c[0x0][0x16c], R16, 0x2, P4 ;\n        /*0220*/                   IMAD.MOV.U32 R3, RZ, RZ, c[0x0][0xc] ;\n        /*0230*/                   IMAD R0, R3, 0x400, R0 ;\n        /*0240*/                   STS.128 [R14.X16+`(_ZZ1kILi256ELi1024EEvPKiPiiE12temp_storage)], R4 ;\n        /*0250*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*0260*/                   LDS R7, [R14.X4+`((_ZZ1kILi256ELi1024EEvPKiPiiE12temp_storage + 0xc00))] ;\n        /*0270*/                   LDS R4, [R14.X4+`(_ZZ1kILi256ELi1024EEvPKiPiiE12temp_storage)] ;\n        /*0280*/                   LDS R5, [R14.X4+`((_ZZ1kILi256ELi1024EEvPKiPiiE12temp_storage + 0x400))] ;\n        /*0290*/                   LDS R6, [R14.X4+`((_ZZ1kILi256ELi1024EEvPKiPiiE12temp_storage + 0x800))] ;\n        /*02a0*/              @!P0 STG.E [R8.64+0xc], R7 ;\n        /*02b0*/                   ISETP.GE.U32.AND P0, PT, R0, UR5, PT ;\n        /*02c0*/              @!P3 STG.E [R8.64], R4 ;\n        /*02d0*/              @!P2 STG.E [R8.64+0x4], R5 ;\n        /*02e0*/              @!P1 STG.E [R8.64+0x8], R6 ;\n        /*02f0*/              @!P0 BRA `(.L_x_0) ;\n        /*0300*/                   EXIT ;\n.L_x_1:\n        /*0310*/                   BRA `(.L_x_1);\n        /*0320*/                   NOP;\n        /*0330*/                   NOP;\n        /*0340*/                   NOP;\n        /*0350*/                   NOP;\n        /*0360*/                   NOP;\n        /*0370*/                   NOP;\n        /*0380*/                   NOP;\n        /*0390*/                   NOP;\n        /*03a0*/                   NOP;\n        /*03b0*/                   NOP;\n        /*03c0*/                   NOP;\n        /*03d0*/                   NOP;\n        /*03e0*/                   NOP;\n        /*03f0*/                   NOP;\n.L_x_2:"
+        },
+        "sm_90": {
+          "_Z1kILi256ELi1024EEvPKiPii": "//--------------------- .text._Z1kILi256ELi1024EEvPKiPii --------------------------\n\t.section\t.text._Z1kILi256ELi1024EEvPKiPii,\"ax\",@progbits\n\t.align\t128\n.text._Z1kILi256ELi1024EEvPKiPii:\n        .weak           _Z1kILi256ELi1024EEvPKiPii\n        .type           _Z1kILi256ELi1024EEvPKiPii,@function\n        .size           _Z1kILi256ELi1024EEvPKiPii,(.L_x_2 - _Z1kILi256ELi1024EEvPKiPii)\n        .other          _Z1kILi256ELi1024EEvPKiPii,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z1kILi256ELi1024EEvPKiPii:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_CTAID.X ;\n        /*0020*/                   ULDC UR5, c[0x0][0x220] ;\n        /*0030*/                   USHF.R.S32.HI UR4, URZ, 0x1f, UR5 ;\n        /*0040*/                   ULOP3.LUT UP0, URZ, UR5, 0x3ff, URZ, 0xc0, !UPT ;\n        /*0050*/                   ULEA.HI UR4, UR4, UR5, URZ, 0xa ;\n        /*0060*/                   ULOP3.LUT UR4, UR4, 0xfffffc00, URZ, 0xc0, !UPT ;\n        /*0070*/                   UIADD3 UR7, UR4, 0x400, URZ ;\n        /*0080*/                   @!UP0 UIADD3 UR7, UR4, URZ, URZ ;\n        /*0090*/                   SHF.L.U32 R0, R0, 0xa, RZ ;\n        /*00a0*/                   ISETP.GE.U32.AND P0, PT, R0, UR7, PT ;\n        /*00b0*/               @P0 EXIT ;\n        /*00c0*/                   S2R R14, SR_TID.X ;\n        /*00d0*/                   S2UR UR6, SR_CgaCtaId ;\n        /*00e0*/                   UMOV UR4, `(_ZZ1kILi256ELi1024EEvPKiPiiE12temp_storage) ;\n        /*00f0*/                   UMOV UR5, 0x400 ;\n        /*0100*/                   ULDC.64 UR8, c[0x0][0x208] ;\n        /*0110*/                   UIADD3 UR4, UR4, UR5, URZ ;\n        /*0120*/                   ULDC.64 UR10, c[0x0][0x210] ;\n        /*0130*/                   ULDC.64 UR12, c[0x0][0x218] ;\n        /*0140*/                   LDC R15, c[0x0][0xc] ;\n        /*0150*/                   LDC R17, c[0x0][0x220] ;\n        /*0160*/                   ULEA UR4, UR6, UR4, 0x18 ;\n        /*0170*/                   IMAD.SHL.U32 R11, R14, 0x4, RZ ;\n        /*0180*/                   LEA R14, R14, UR4, 0x4 ;\n        /*0190*/                   VIADD R10, R11.reuse, 0x1 ;\n        /*01a0*/                   IADD3 R12, R11.reuse, 0x2, RZ ;\n        /*01b0*/                   IADD3 R13, R11, 0x3, RZ ;\n.L_x_0:\n        /*01c0*/                   IMAD.MOV R2, RZ, RZ, -R0 ;\n        /*01d0*/                   IADD3 R9, P4, R11, R0, RZ ;\n        /*01e0*/                   VIADDMNMX.U32 R2, R2, R17, 0x400, PT ;\n        /*01f0*/                   LEA.HI.X.SX32 R16, R11.reuse, RZ, 0x1, P4 ;\n        /*0200*/                   ISETP.GE.AND P3, PT, R11, R2.reuse, PT ;\n        /*0210*/                   ISETP.GE.AND P2, PT, R10, R2.reuse, PT ;\n        /*0220*/                   ISETP.GE.AND P1, PT, R12, R2.reuse, PT ;\n        /*0230*/                   ISETP.GE.AND P0, PT, R13, R2, PT ;\n        /*0240*/                   LEA R2, P4, R9, UR10, 0x2 ;\n        /*0250*/                   LEA.HI.X R3, R9, UR11, R16, 0x2, P4 ;\n        /*0260*/              @!P3 LDG.E R4, desc[UR8][R2.64] ;\n        /*0270*/              @!P2 LDG.E R5, desc[UR8][R2.64+0x4] ;\n        /*0280*/              @!P1 LDG.E R6, desc[UR8][R2.64+0x8] ;\n        /*0290*/              @!P0 LDG.E R7, desc[UR8][R2.64+0xc] ;\n        /*02a0*/                   LEA R8, P4, R9, UR12, 0x2 ;\n        /*02b0*/                   IMAD R0, R15, 0x400, R0 ;\n        /*02c0*/                   LEA.HI.X R9, R9, UR13, R16, 0x2, P4 ;\n        /*02d0*/                   STS.128 [R14], R4 ;\n        /*02e0*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*02f0*/                   LDS R7, [R11+UR4+0xc00] ;\n        /*0300*/                   LDS R4, [R11+UR4] ;\n        /*0310*/                   LDS R5, [R11+UR4+0x400] ;\n        /*0320*/                   LDS R6, [R11+UR4+0x800] ;\n        /*0330*/              @!P0 STG.E desc[UR8][R8.64+0xc], R7 ;\n        /*0340*/                   ISETP.GE.U32.AND P0, PT, R0, UR7, PT ;\n        /*0350*/              @!P3 STG.E desc[UR8][R8.64], R4 ;\n        /*0360*/              @!P2 STG.E desc[UR8][R8.64+0x4], R5 ;\n        /*0370*/              @!P1 STG.E desc[UR8][R8.64+0x8], R6 ;\n        /*0380*/              @!P0 BRA `(.L_x_0) ;\n        /*0390*/                   EXIT ;\n.L_x_1:\n        /*03a0*/                   BRA `(.L_x_1);\n        /*03b0*/                   NOP;\n        /*03c0*/                   NOP;\n        /*03d0*/                   NOP;\n        /*03e0*/                   NOP;\n        /*03f0*/                   NOP;\n        /*0400*/                   NOP;\n        /*0410*/                   NOP;\n        /*0420*/                   NOP;\n        /*0430*/                   NOP;\n        /*0440*/                   NOP;\n        /*0450*/                   NOP;\n        /*0460*/                   NOP;\n        /*0470*/                   NOP;\n.L_x_2:"
+        }
+      }
+    }
+  }
+}

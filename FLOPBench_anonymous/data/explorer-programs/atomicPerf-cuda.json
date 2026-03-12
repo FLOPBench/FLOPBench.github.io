@@ -1,0 +1,1195 @@
+{
+  "exeArgs": "10",
+  "kernels": {
+    "_Z26WarpRangeAtomicOnGlobalMemIdEvPT_i": {
+      "demangledName": "void WarpRangeAtomicOnGlobalMem<double>(T1 *, int)",
+      "imix": {
+        "sm_80": {
+          "NOP": 11,
+          "IMAD": 4,
+          "MOV": 3,
+          "S2R": 2,
+          "ISETP": 2,
+          "EXIT": 2,
+          "BRA": 2,
+          "HFMA2": 1,
+          "ULDC": 1,
+          "YIELD": 1,
+          "LOP3": 1,
+          "IADD3": 1,
+          "ATOMG": 1
+        },
+        "sm_86": {
+          "NOP": 11,
+          "MOV": 4,
+          "IMAD": 4,
+          "S2R": 2,
+          "ISETP": 2,
+          "EXIT": 2,
+          "BRA": 2,
+          "ULDC": 1,
+          "YIELD": 1,
+          "LOP3": 1,
+          "IADD3": 1,
+          "ATOMG": 1
+        },
+        "sm_90": {
+          "NOP": 8,
+          "ULDC": 5,
+          "IMAD": 3,
+          "S2R": 2,
+          "ISETP": 2,
+          "EXIT": 2,
+          "BRA": 2,
+          "LDC": 1,
+          "HFMA2": 1,
+          "MOV": 1,
+          "UIMAD": 1,
+          "LOP3": 1,
+          "VIADD": 1,
+          "IADD3": 1,
+          "ATOMG": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z26WarpRangeAtomicOnGlobalMemIdEvPT_i": "//--------------------- .text._Z26WarpRangeAtomicOnGlobalMemIdEvPT_i --------------------------\n\t.section\t.text._Z26WarpRangeAtomicOnGlobalMemIdEvPT_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=10\"\n\t.align\t128\n.text._Z26WarpRangeAtomicOnGlobalMemIdEvPT_i:\n        .weak           _Z26WarpRangeAtomicOnGlobalMemIdEvPT_i\n        .type           _Z26WarpRangeAtomicOnGlobalMemIdEvPT_i,@function\n        .size           _Z26WarpRangeAtomicOnGlobalMemIdEvPT_i,(.L_x_82 - _Z26WarpRangeAtomicOnGlobalMemIdEvPT_i)\n        .other          _Z26WarpRangeAtomicOnGlobalMemIdEvPT_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z26WarpRangeAtomicOnGlobalMemIdEvPT_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R0, R0, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x168], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   HFMA2.MMA R4, -RZ, RZ, 0, 0 ;\n        /*0070*/                   MOV R7, c[0x0][0x0] ;\n        /*0080*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0090*/                   MOV R5, 0x3ff00000 ;\n.L_x_62:\n        /*00a0*/                   IMAD.SHL.U32 R2, R0, 0x8, RZ ;\n        /*00b0*/                   YIELD ;\n        /*00c0*/                   LOP3.LUT R2, R2, 0xf8, RZ, 0xc0, !PT ;\n        /*00d0*/                   IMAD R0, R7, c[0x0][0xc], R0 ;\n        /*00e0*/                   IADD3 R2, P0, R2, c[0x0][0x160], RZ ;\n        /*00f0*/                   IMAD.X R3, RZ, RZ, c[0x0][0x164], P0 ;\n        /*0100*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x168], PT ;\n        /*0110*/                   ATOMG.E.ADD.F64.RN.STRONG.GPU PT, RZ, [R2.64], R4 ;\n        /*0120*/              @!P0 BRA `(.L_x_62) ;\n        /*0130*/                   EXIT ;\n.L_x_63:\n        /*0140*/                   BRA `(.L_x_63);\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_82:"
+        },
+        "sm_86": {
+          "_Z26WarpRangeAtomicOnGlobalMemIdEvPT_i": "//--------------------- .text._Z26WarpRangeAtomicOnGlobalMemIdEvPT_i --------------------------\n\t.section\t.text._Z26WarpRangeAtomicOnGlobalMemIdEvPT_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=10\"\n\t.align\t128\n.text._Z26WarpRangeAtomicOnGlobalMemIdEvPT_i:\n        .weak           _Z26WarpRangeAtomicOnGlobalMemIdEvPT_i\n        .type           _Z26WarpRangeAtomicOnGlobalMemIdEvPT_i,@function\n        .size           _Z26WarpRangeAtomicOnGlobalMemIdEvPT_i,(.L_x_82 - _Z26WarpRangeAtomicOnGlobalMemIdEvPT_i)\n        .other          _Z26WarpRangeAtomicOnGlobalMemIdEvPT_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z26WarpRangeAtomicOnGlobalMemIdEvPT_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R0, R0, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x168], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   MOV R7, c[0x0][0x0] ;\n        /*0070*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0080*/                   MOV R4, 0x0 ;\n        /*0090*/                   MOV R5, 0x3ff00000 ;\n.L_x_62:\n        /*00a0*/                   IMAD.SHL.U32 R2, R0, 0x8, RZ ;\n        /*00b0*/                   YIELD ;\n        /*00c0*/                   LOP3.LUT R2, R2, 0xf8, RZ, 0xc0, !PT ;\n        /*00d0*/                   IMAD R0, R7, c[0x0][0xc], R0 ;\n        /*00e0*/                   IADD3 R2, P0, R2, c[0x0][0x160], RZ ;\n        /*00f0*/                   IMAD.X R3, RZ, RZ, c[0x0][0x164], P0 ;\n        /*0100*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x168], PT ;\n        /*0110*/                   ATOMG.E.ADD.F64.RN.STRONG.GPU PT, RZ, [R2.64], R4 ;\n        /*0120*/              @!P0 BRA `(.L_x_62) ;\n        /*0130*/                   EXIT ;\n.L_x_63:\n        /*0140*/                   BRA `(.L_x_63);\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_82:"
+        },
+        "sm_90": {
+          "_Z26WarpRangeAtomicOnGlobalMemIdEvPT_i": "//--------------------- .text._Z26WarpRangeAtomicOnGlobalMemIdEvPT_i --------------------------\n\t.section\t.text._Z26WarpRangeAtomicOnGlobalMemIdEvPT_i,\"ax\",@progbits\n\t.align\t128\n.text._Z26WarpRangeAtomicOnGlobalMemIdEvPT_i:\n        .weak           _Z26WarpRangeAtomicOnGlobalMemIdEvPT_i\n        .type           _Z26WarpRangeAtomicOnGlobalMemIdEvPT_i,@function\n        .size           _Z26WarpRangeAtomicOnGlobalMemIdEvPT_i,(.L_x_82 - _Z26WarpRangeAtomicOnGlobalMemIdEvPT_i)\n        .other          _Z26WarpRangeAtomicOnGlobalMemIdEvPT_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z26WarpRangeAtomicOnGlobalMemIdEvPT_i:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_CTAID.X ;\n        /*0020*/                   ULDC UR4, c[0x0][0x0] ;\n        /*0030*/                   ULDC UR8, c[0x0][0x218] ;\n        /*0040*/                   S2R R3, SR_TID.X ;\n        /*0050*/                   IMAD R0, R0, UR4, R3 ;\n        /*0060*/                   ISETP.GE.U32.AND P0, PT, R0, UR8, PT ;\n        /*0070*/               @P0 EXIT ;\n        /*0080*/                   HFMA2.MMA R4, -RZ, RZ, 0, 0 ;\n        /*0090*/                   MOV R5, 0x3ff00000 ;\n        /*00a0*/                   ULDC UR5, c[0x0][0xc] ;\n        /*00b0*/                   ULDC.64 UR6, c[0x0][0x208] ;\n        /*00c0*/                   UIMAD UR4, UR4, UR5, URZ ;\n        /*00d0*/                   ULDC.64 UR10, c[0x0][0x210] ;\n.L_x_62:\n        /*00e0*/                   IMAD.SHL.U32 R2, R0, 0x8, RZ ;\n        /*00f0*/                   LOP3.LUT R2, R2, 0xf8, RZ, 0xc0, !PT ;\n        /*0100*/                   VIADD R0, R0, UR4 ;\n        /*0110*/                   IADD3 R2, P0, R2, UR10, RZ ;\n        /*0120*/                   IMAD.X R3, RZ, RZ, UR11, P0 ;\n        /*0130*/                   ISETP.GE.U32.AND P0, PT, R0, UR8, PT ;\n        /*0140*/                   ATOMG.E.ADD.F64.RN.STRONG.GPU PT, RZ, desc[UR6][R2.64], R4 ;\n        /*0150*/              @!P0 BRA `(.L_x_62) ;\n        /*0160*/                   EXIT ;\n.L_x_63:\n        /*0170*/                   BRA `(.L_x_63);\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_82:"
+        }
+      }
+    },
+    "_Z26WarpRangeAtomicOnGlobalMemIfEvPT_i": {
+      "demangledName": "void WarpRangeAtomicOnGlobalMem<float>(T1 *, int)",
+      "imix": {
+        "sm_80": {
+          "NOP": 12,
+          "IMAD": 4,
+          "MOV": 2,
+          "S2R": 2,
+          "ISETP": 2,
+          "EXIT": 2,
+          "BRA": 2,
+          "HFMA2": 1,
+          "ULDC": 1,
+          "YIELD": 1,
+          "LOP3": 1,
+          "IADD3": 1,
+          "ATOMG": 1
+        },
+        "sm_86": {
+          "NOP": 12,
+          "IMAD": 4,
+          "MOV": 3,
+          "S2R": 2,
+          "ISETP": 2,
+          "EXIT": 2,
+          "BRA": 2,
+          "ULDC": 1,
+          "YIELD": 1,
+          "LOP3": 1,
+          "IADD3": 1,
+          "ATOMG": 1
+        },
+        "sm_90": {
+          "NOP": 9,
+          "ULDC": 5,
+          "IMAD": 3,
+          "S2R": 2,
+          "ISETP": 2,
+          "EXIT": 2,
+          "BRA": 2,
+          "LDC": 1,
+          "HFMA2": 1,
+          "UIMAD": 1,
+          "LOP3": 1,
+          "VIADD": 1,
+          "IADD3": 1,
+          "ATOMG": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z26WarpRangeAtomicOnGlobalMemIfEvPT_i": "//--------------------- .text._Z26WarpRangeAtomicOnGlobalMemIfEvPT_i --------------------------\n\t.section\t.text._Z26WarpRangeAtomicOnGlobalMemIfEvPT_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=10\"\n\t.align\t128\n.text._Z26WarpRangeAtomicOnGlobalMemIfEvPT_i:\n        .weak           _Z26WarpRangeAtomicOnGlobalMemIfEvPT_i\n        .type           _Z26WarpRangeAtomicOnGlobalMemIfEvPT_i,@function\n        .size           _Z26WarpRangeAtomicOnGlobalMemIfEvPT_i,(.L_x_70 - _Z26WarpRangeAtomicOnGlobalMemIfEvPT_i)\n        .other          _Z26WarpRangeAtomicOnGlobalMemIfEvPT_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z26WarpRangeAtomicOnGlobalMemIfEvPT_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R0, R0, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x168], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   HFMA2.MMA R5, -RZ, RZ, 1.875, 0 ;\n        /*0070*/                   MOV R7, c[0x0][0x0] ;\n        /*0080*/                   ULDC.64 UR4, c[0x0][0x118] ;\n.L_x_20:\n        /*0090*/                   IMAD.SHL.U32 R2, R0, 0x4, RZ ;\n        /*00a0*/                   YIELD ;\n        /*00b0*/                   LOP3.LUT R2, R2, 0x7c, RZ, 0xc0, !PT ;\n        /*00c0*/                   IMAD R0, R7, c[0x0][0xc], R0 ;\n        /*00d0*/                   IADD3 R2, P0, R2, c[0x0][0x160], RZ ;\n        /*00e0*/                   IMAD.X R3, RZ, RZ, c[0x0][0x164], P0 ;\n        /*00f0*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x168], PT ;\n        /*0100*/                   ATOMG.E.ADD.F32.FTZ.RN.STRONG.GPU PT, RZ, [R2.64], R5 ;\n        /*0110*/              @!P0 BRA `(.L_x_20) ;\n        /*0120*/                   EXIT ;\n.L_x_21:\n        /*0130*/                   BRA `(.L_x_21);\n        /*0140*/                   NOP;\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_70:"
+        },
+        "sm_86": {
+          "_Z26WarpRangeAtomicOnGlobalMemIfEvPT_i": "//--------------------- .text._Z26WarpRangeAtomicOnGlobalMemIfEvPT_i --------------------------\n\t.section\t.text._Z26WarpRangeAtomicOnGlobalMemIfEvPT_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=10\"\n\t.align\t128\n.text._Z26WarpRangeAtomicOnGlobalMemIfEvPT_i:\n        .weak           _Z26WarpRangeAtomicOnGlobalMemIfEvPT_i\n        .type           _Z26WarpRangeAtomicOnGlobalMemIfEvPT_i,@function\n        .size           _Z26WarpRangeAtomicOnGlobalMemIfEvPT_i,(.L_x_70 - _Z26WarpRangeAtomicOnGlobalMemIfEvPT_i)\n        .other          _Z26WarpRangeAtomicOnGlobalMemIfEvPT_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z26WarpRangeAtomicOnGlobalMemIfEvPT_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R0, R0, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x168], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   MOV R5, 0x3f800000 ;\n        /*0070*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0080*/                   MOV R7, c[0x0][0x0] ;\n.L_x_20:\n        /*0090*/                   IMAD.SHL.U32 R2, R0, 0x4, RZ ;\n        /*00a0*/                   YIELD ;\n        /*00b0*/                   LOP3.LUT R2, R2, 0x7c, RZ, 0xc0, !PT ;\n        /*00c0*/                   IMAD R0, R7, c[0x0][0xc], R0 ;\n        /*00d0*/                   IADD3 R2, P0, R2, c[0x0][0x160], RZ ;\n        /*00e0*/                   IMAD.X R3, RZ, RZ, c[0x0][0x164], P0 ;\n        /*00f0*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x168], PT ;\n        /*0100*/                   ATOMG.E.ADD.F32.FTZ.RN.STRONG.GPU PT, RZ, [R2.64], R5 ;\n        /*0110*/              @!P0 BRA `(.L_x_20) ;\n        /*0120*/                   EXIT ;\n.L_x_21:\n        /*0130*/                   BRA `(.L_x_21);\n        /*0140*/                   NOP;\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_70:"
+        },
+        "sm_90": {
+          "_Z26WarpRangeAtomicOnGlobalMemIfEvPT_i": "//--------------------- .text._Z26WarpRangeAtomicOnGlobalMemIfEvPT_i --------------------------\n\t.section\t.text._Z26WarpRangeAtomicOnGlobalMemIfEvPT_i,\"ax\",@progbits\n\t.align\t128\n.text._Z26WarpRangeAtomicOnGlobalMemIfEvPT_i:\n        .weak           _Z26WarpRangeAtomicOnGlobalMemIfEvPT_i\n        .type           _Z26WarpRangeAtomicOnGlobalMemIfEvPT_i,@function\n        .size           _Z26WarpRangeAtomicOnGlobalMemIfEvPT_i,(.L_x_70 - _Z26WarpRangeAtomicOnGlobalMemIfEvPT_i)\n        .other          _Z26WarpRangeAtomicOnGlobalMemIfEvPT_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z26WarpRangeAtomicOnGlobalMemIfEvPT_i:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_CTAID.X ;\n        /*0020*/                   ULDC UR4, c[0x0][0x0] ;\n        /*0030*/                   ULDC UR8, c[0x0][0x218] ;\n        /*0040*/                   S2R R3, SR_TID.X ;\n        /*0050*/                   IMAD R0, R0, UR4, R3 ;\n        /*0060*/                   ISETP.GE.U32.AND P0, PT, R0, UR8, PT ;\n        /*0070*/               @P0 EXIT ;\n        /*0080*/                   HFMA2.MMA R5, -RZ, RZ, 1.875, 0 ;\n        /*0090*/                   ULDC UR5, c[0x0][0xc] ;\n        /*00a0*/                   ULDC.64 UR6, c[0x0][0x208] ;\n        /*00b0*/                   UIMAD UR4, UR4, UR5, URZ ;\n        /*00c0*/                   ULDC.64 UR10, c[0x0][0x210] ;\n.L_x_20:\n        /*00d0*/                   IMAD.SHL.U32 R2, R0, 0x4, RZ ;\n        /*00e0*/                   LOP3.LUT R2, R2, 0x7c, RZ, 0xc0, !PT ;\n        /*00f0*/                   VIADD R0, R0, UR4 ;\n        /*0100*/                   IADD3 R2, P0, R2, UR10, RZ ;\n        /*0110*/                   IMAD.X R3, RZ, RZ, UR11, P0 ;\n        /*0120*/                   ISETP.GE.U32.AND P0, PT, R0, UR8, PT ;\n        /*0130*/                   ATOMG.E.ADD.F32.FTZ.RN.STRONG.GPU PT, RZ, desc[UR6][R2.64], R5 ;\n        /*0140*/              @!P0 BRA `(.L_x_20) ;\n        /*0150*/                   EXIT ;\n.L_x_21:\n        /*0160*/                   BRA `(.L_x_21);\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_70:"
+        }
+      }
+    },
+    "_Z26WarpRangeAtomicOnGlobalMemIiEvPT_i": {
+      "demangledName": "void WarpRangeAtomicOnGlobalMem<int>(T1 *, int)",
+      "imix": {
+        "sm_80": {
+          "NOP": 12,
+          "IMAD": 4,
+          "MOV": 2,
+          "S2R": 2,
+          "ISETP": 2,
+          "EXIT": 2,
+          "BRA": 2,
+          "HFMA2": 1,
+          "ULDC": 1,
+          "YIELD": 1,
+          "LOP3": 1,
+          "IADD3": 1,
+          "ATOMG": 1
+        },
+        "sm_86": {
+          "NOP": 12,
+          "IMAD": 4,
+          "MOV": 3,
+          "S2R": 2,
+          "ISETP": 2,
+          "EXIT": 2,
+          "BRA": 2,
+          "ULDC": 1,
+          "YIELD": 1,
+          "LOP3": 1,
+          "IADD3": 1,
+          "ATOMG": 1
+        },
+        "sm_90": {
+          "NOP": 9,
+          "ULDC": 5,
+          "IMAD": 3,
+          "S2R": 2,
+          "ISETP": 2,
+          "EXIT": 2,
+          "BRA": 2,
+          "LDC": 1,
+          "HFMA2": 1,
+          "UIMAD": 1,
+          "LOP3": 1,
+          "VIADD": 1,
+          "IADD3": 1,
+          "ATOMG": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z26WarpRangeAtomicOnGlobalMemIiEvPT_i": "//--------------------- .text._Z26WarpRangeAtomicOnGlobalMemIiEvPT_i --------------------------\n\t.section\t.text._Z26WarpRangeAtomicOnGlobalMemIiEvPT_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=10\"\n\t.align\t128\n.text._Z26WarpRangeAtomicOnGlobalMemIiEvPT_i:\n        .weak           _Z26WarpRangeAtomicOnGlobalMemIiEvPT_i\n        .type           _Z26WarpRangeAtomicOnGlobalMemIiEvPT_i,@function\n        .size           _Z26WarpRangeAtomicOnGlobalMemIiEvPT_i,(.L_x_76 - _Z26WarpRangeAtomicOnGlobalMemIiEvPT_i)\n        .other          _Z26WarpRangeAtomicOnGlobalMemIiEvPT_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z26WarpRangeAtomicOnGlobalMemIiEvPT_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R0, R0, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x168], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   HFMA2.MMA R5, -RZ, RZ, 0, 5.9604644775390625e-08 ;\n        /*0070*/                   MOV R7, c[0x0][0x0] ;\n        /*0080*/                   ULDC.64 UR4, c[0x0][0x118] ;\n.L_x_38:\n        /*0090*/                   IMAD.SHL.U32 R2, R0, 0x4, RZ ;\n        /*00a0*/                   YIELD ;\n        /*00b0*/                   LOP3.LUT R2, R2, 0x7c, RZ, 0xc0, !PT ;\n        /*00c0*/                   IMAD R0, R7, c[0x0][0xc], R0 ;\n        /*00d0*/                   IADD3 R2, P0, R2, c[0x0][0x160], RZ ;\n        /*00e0*/                   IMAD.X R3, RZ, RZ, c[0x0][0x164], P0 ;\n        /*00f0*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x168], PT ;\n        /*0100*/                   ATOMG.E.ADD.STRONG.GPU PT, RZ, [R2.64], R5 ;\n        /*0110*/              @!P0 BRA `(.L_x_38) ;\n        /*0120*/                   EXIT ;\n.L_x_39:\n        /*0130*/                   BRA `(.L_x_39);\n        /*0140*/                   NOP;\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_76:"
+        },
+        "sm_86": {
+          "_Z26WarpRangeAtomicOnGlobalMemIiEvPT_i": "//--------------------- .text._Z26WarpRangeAtomicOnGlobalMemIiEvPT_i --------------------------\n\t.section\t.text._Z26WarpRangeAtomicOnGlobalMemIiEvPT_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=10\"\n\t.align\t128\n.text._Z26WarpRangeAtomicOnGlobalMemIiEvPT_i:\n        .weak           _Z26WarpRangeAtomicOnGlobalMemIiEvPT_i\n        .type           _Z26WarpRangeAtomicOnGlobalMemIiEvPT_i,@function\n        .size           _Z26WarpRangeAtomicOnGlobalMemIiEvPT_i,(.L_x_76 - _Z26WarpRangeAtomicOnGlobalMemIiEvPT_i)\n        .other          _Z26WarpRangeAtomicOnGlobalMemIiEvPT_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z26WarpRangeAtomicOnGlobalMemIiEvPT_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R0, R0, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x168], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   MOV R5, 0x1 ;\n        /*0070*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0080*/                   MOV R7, c[0x0][0x0] ;\n.L_x_38:\n        /*0090*/                   IMAD.SHL.U32 R2, R0, 0x4, RZ ;\n        /*00a0*/                   YIELD ;\n        /*00b0*/                   LOP3.LUT R2, R2, 0x7c, RZ, 0xc0, !PT ;\n        /*00c0*/                   IMAD R0, R7, c[0x0][0xc], R0 ;\n        /*00d0*/                   IADD3 R2, P0, R2, c[0x0][0x160], RZ ;\n        /*00e0*/                   IMAD.X R3, RZ, RZ, c[0x0][0x164], P0 ;\n        /*00f0*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x168], PT ;\n        /*0100*/                   ATOMG.E.ADD.STRONG.GPU PT, RZ, [R2.64], R5 ;\n        /*0110*/              @!P0 BRA `(.L_x_38) ;\n        /*0120*/                   EXIT ;\n.L_x_39:\n        /*0130*/                   BRA `(.L_x_39);\n        /*0140*/                   NOP;\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_76:"
+        },
+        "sm_90": {
+          "_Z26WarpRangeAtomicOnGlobalMemIiEvPT_i": "//--------------------- .text._Z26WarpRangeAtomicOnGlobalMemIiEvPT_i --------------------------\n\t.section\t.text._Z26WarpRangeAtomicOnGlobalMemIiEvPT_i,\"ax\",@progbits\n\t.align\t128\n.text._Z26WarpRangeAtomicOnGlobalMemIiEvPT_i:\n        .weak           _Z26WarpRangeAtomicOnGlobalMemIiEvPT_i\n        .type           _Z26WarpRangeAtomicOnGlobalMemIiEvPT_i,@function\n        .size           _Z26WarpRangeAtomicOnGlobalMemIiEvPT_i,(.L_x_76 - _Z26WarpRangeAtomicOnGlobalMemIiEvPT_i)\n        .other          _Z26WarpRangeAtomicOnGlobalMemIiEvPT_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z26WarpRangeAtomicOnGlobalMemIiEvPT_i:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_CTAID.X ;\n        /*0020*/                   ULDC UR4, c[0x0][0x0] ;\n        /*0030*/                   ULDC UR8, c[0x0][0x218] ;\n        /*0040*/                   S2R R3, SR_TID.X ;\n        /*0050*/                   IMAD R0, R0, UR4, R3 ;\n        /*0060*/                   ISETP.GE.U32.AND P0, PT, R0, UR8, PT ;\n        /*0070*/               @P0 EXIT ;\n        /*0080*/                   HFMA2.MMA R5, -RZ, RZ, 0, 5.9604644775390625e-08 ;\n        /*0090*/                   ULDC UR5, c[0x0][0xc] ;\n        /*00a0*/                   ULDC.64 UR6, c[0x0][0x208] ;\n        /*00b0*/                   UIMAD UR4, UR4, UR5, URZ ;\n        /*00c0*/                   ULDC.64 UR10, c[0x0][0x210] ;\n.L_x_38:\n        /*00d0*/                   IMAD.SHL.U32 R2, R0, 0x4, RZ ;\n        /*00e0*/                   LOP3.LUT R2, R2, 0x7c, RZ, 0xc0, !PT ;\n        /*00f0*/                   VIADD R0, R0, UR4 ;\n        /*0100*/                   IADD3 R2, P0, R2, UR10, RZ ;\n        /*0110*/                   IMAD.X R3, RZ, RZ, UR11, P0 ;\n        /*0120*/                   ISETP.GE.U32.AND P0, PT, R0, UR8, PT ;\n        /*0130*/                   ATOMG.E.ADD.STRONG.GPU PT, RZ, desc[UR6][R2.64], R5 ;\n        /*0140*/              @!P0 BRA `(.L_x_38) ;\n        /*0150*/                   EXIT ;\n.L_x_39:\n        /*0160*/                   BRA `(.L_x_39);\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_76:"
+        }
+      }
+    },
+    "_Z26WarpRangeAtomicOnSharedMemIdEvPT_i": {
+      "demangledName": "void WarpRangeAtomicOnSharedMem<double>(T1 *, int)",
+      "imix": {
+        "sm_80": {
+          "NOP": 15,
+          "ISETP": 6,
+          "BRA": 4,
+          "IMAD": 3,
+          "MOV": 2,
+          "S2R": 2,
+          "BSSY": 2,
+          "LDS": 2,
+          "BSYNC": 2,
+          "EXIT": 2,
+          "SHF": 1,
+          "YIELD": 1,
+          "LOP3": 1,
+          "DADD": 1,
+          "ATOMS": 1,
+          "HFMA2": 1,
+          "ULDC": 1,
+          "STG": 1
+        },
+        "sm_86": {
+          "NOP": 15,
+          "ISETP": 6,
+          "BRA": 4,
+          "MOV": 3,
+          "IMAD": 3,
+          "S2R": 2,
+          "BSSY": 2,
+          "LDS": 2,
+          "BSYNC": 2,
+          "EXIT": 2,
+          "SHF": 1,
+          "YIELD": 1,
+          "LOP3": 1,
+          "DADD": 1,
+          "ATOMS": 1,
+          "ULDC": 1,
+          "STG": 1
+        },
+        "sm_90": {
+          "NOP": 15,
+          "ISETP": 6,
+          "ULDC": 5,
+          "IMAD": 4,
+          "BRA": 4,
+          "LDC": 3,
+          "S2R": 3,
+          "UMOV": 3,
+          "IADD3": 3,
+          "BSSY": 2,
+          "LEA": 2,
+          "LDS": 2,
+          "BSYNC": 2,
+          "EXIT": 2,
+          "MOV": 1,
+          "LOP3": 1,
+          "DADD": 1,
+          "ATOMS": 1,
+          "S2UR": 1,
+          "UIADD3": 1,
+          "ULEA": 1,
+          "STG": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z26WarpRangeAtomicOnSharedMemIdEvPT_i": "//--------------------- .text._Z26WarpRangeAtomicOnSharedMemIdEvPT_i --------------------------\n\t.section\t.text._Z26WarpRangeAtomicOnSharedMemIdEvPT_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=12\"\n\t.align\t128\n.text._Z26WarpRangeAtomicOnSharedMemIdEvPT_i:\n        .weak           _Z26WarpRangeAtomicOnSharedMemIdEvPT_i\n        .type           _Z26WarpRangeAtomicOnSharedMemIdEvPT_i,@function\n        .size           _Z26WarpRangeAtomicOnSharedMemIdEvPT_i,(.L_x_79 - _Z26WarpRangeAtomicOnSharedMemIdEvPT_i)\n        .other          _Z26WarpRangeAtomicOnSharedMemIdEvPT_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z26WarpRangeAtomicOnSharedMemIdEvPT_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R3, SR_CTAID.X ;\n        /*0020*/                   BSSY B0, `(.L_x_48) ;\n        /*0030*/                   S2R R8, SR_TID.X ;\n        /*0040*/                   IMAD R0, R3, c[0x0][0x0], R8 ;\n        /*0050*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x168], PT ;\n        /*0060*/               @P0 BRA `(.L_x_49) ;\n.L_x_52:\n        /*0070*/                   SHF.L.U32 R2, R0, 0x3, RZ ;\n        /*0080*/                   YIELD ;\n        /*0090*/                   BSSY B1, `(.L_x_50) ;\n        /*00a0*/                   LOP3.LUT R9, R2, 0xf8, RZ, 0xc0, !PT ;\n.L_x_51:\n        /*00b0*/                   LDS.64 R4, [R9+`(_ZZ26WarpRangeAtomicOnSharedMemIdEvPT_iE9smem_data)] ;\n        /*00c0*/                   DADD R6, R4, 1 ;\n        /*00d0*/                   ATOMS.CAST.SPIN.64 R6, [R9+`(_ZZ26WarpRangeAtomicOnSharedMemIdEvPT_iE9smem_data)], R4, R6 ;\n        /*00e0*/                   ISETP.EQ.U32.AND P0, PT, R6, 0x1, PT ;\n        /*00f0*/                   ISETP.EQ.U32.AND.EX P0, PT, R7, RZ, PT, P0 ;\n        /*0100*/              @!P0 BRA `(.L_x_51) ;\n        /*0110*/                   BSYNC B1 ;\n.L_x_50:\n        /*0120*/                   MOV R5, c[0x0][0x0] ;\n        /*0130*/                   IMAD R0, R5, c[0x0][0xc], R0 ;\n        /*0140*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x168], PT ;\n        /*0150*/              @!P0 BRA `(.L_x_52) ;\n.L_x_49:\n        /*0160*/                   BSYNC B0 ;\n.L_x_48:\n        /*0170*/                   ISETP.GT.U32.AND P0, PT, R8, 0x1e, PT ;\n        /*0180*/                   ISETP.NE.OR P0, PT, R3, c[0x0][0xc], P0 ;\n        /*0190*/               @P0 EXIT ;\n        /*01a0*/                   LDS.64 R2, [R8.X8+`(_ZZ26WarpRangeAtomicOnSharedMemIdEvPT_iE9smem_data)] ;\n        /*01b0*/                   HFMA2.MMA R5, -RZ, RZ, 0, 4.76837158203125e-07 ;\n        /*01c0*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*01d0*/                   IMAD.WIDE.U32 R4, R8, R5, c[0x0][0x160] ;\n        /*01e0*/                   STG.E.64 [R4.64], R2 ;\n        /*01f0*/                   EXIT ;\n.L_x_53:\n        /*0200*/                   BRA `(.L_x_53);\n        /*0210*/                   NOP;\n        /*0220*/                   NOP;\n        /*0230*/                   NOP;\n        /*0240*/                   NOP;\n        /*0250*/                   NOP;\n        /*0260*/                   NOP;\n        /*0270*/                   NOP;\n        /*0280*/                   NOP;\n        /*0290*/                   NOP;\n        /*02a0*/                   NOP;\n        /*02b0*/                   NOP;\n        /*02c0*/                   NOP;\n        /*02d0*/                   NOP;\n        /*02e0*/                   NOP;\n        /*02f0*/                   NOP;\n.L_x_79:"
+        },
+        "sm_86": {
+          "_Z26WarpRangeAtomicOnSharedMemIdEvPT_i": "//--------------------- .text._Z26WarpRangeAtomicOnSharedMemIdEvPT_i --------------------------\n\t.section\t.text._Z26WarpRangeAtomicOnSharedMemIdEvPT_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=12\"\n\t.align\t128\n.text._Z26WarpRangeAtomicOnSharedMemIdEvPT_i:\n        .weak           _Z26WarpRangeAtomicOnSharedMemIdEvPT_i\n        .type           _Z26WarpRangeAtomicOnSharedMemIdEvPT_i,@function\n        .size           _Z26WarpRangeAtomicOnSharedMemIdEvPT_i,(.L_x_79 - _Z26WarpRangeAtomicOnSharedMemIdEvPT_i)\n        .other          _Z26WarpRangeAtomicOnSharedMemIdEvPT_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z26WarpRangeAtomicOnSharedMemIdEvPT_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R3, SR_CTAID.X ;\n        /*0020*/                   BSSY B0, `(.L_x_48) ;\n        /*0030*/                   S2R R8, SR_TID.X ;\n        /*0040*/                   IMAD R0, R3, c[0x0][0x0], R8 ;\n        /*0050*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x168], PT ;\n        /*0060*/               @P0 BRA `(.L_x_49) ;\n.L_x_52:\n        /*0070*/                   SHF.L.U32 R2, R0, 0x3, RZ ;\n        /*0080*/                   YIELD ;\n        /*0090*/                   BSSY B1, `(.L_x_50) ;\n        /*00a0*/                   LOP3.LUT R9, R2, 0xf8, RZ, 0xc0, !PT ;\n.L_x_51:\n        /*00b0*/                   LDS.64 R4, [R9+`(_ZZ26WarpRangeAtomicOnSharedMemIdEvPT_iE9smem_data)] ;\n        /*00c0*/                   DADD R6, R4, 1 ;\n        /*00d0*/                   ATOMS.CAST.SPIN.64 R6, [R9+`(_ZZ26WarpRangeAtomicOnSharedMemIdEvPT_iE9smem_data)], R4, R6 ;\n        /*00e0*/                   ISETP.EQ.U32.AND P0, PT, R6, 0x1, PT ;\n        /*00f0*/                   ISETP.EQ.U32.AND.EX P0, PT, R7, RZ, PT, P0 ;\n        /*0100*/              @!P0 BRA `(.L_x_51) ;\n        /*0110*/                   BSYNC B1 ;\n.L_x_50:\n        /*0120*/                   MOV R5, c[0x0][0x0] ;\n        /*0130*/                   IMAD R0, R5, c[0x0][0xc], R0 ;\n        /*0140*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x168], PT ;\n        /*0150*/              @!P0 BRA `(.L_x_52) ;\n.L_x_49:\n        /*0160*/                   BSYNC B0 ;\n.L_x_48:\n        /*0170*/                   ISETP.GT.U32.AND P0, PT, R8, 0x1e, PT ;\n        /*0180*/                   ISETP.NE.OR P0, PT, R3, c[0x0][0xc], P0 ;\n        /*0190*/               @P0 EXIT ;\n        /*01a0*/                   LDS.64 R2, [R8.X8+`(_ZZ26WarpRangeAtomicOnSharedMemIdEvPT_iE9smem_data)] ;\n        /*01b0*/                   MOV R5, 0x8 ;\n        /*01c0*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*01d0*/                   IMAD.WIDE.U32 R4, R8, R5, c[0x0][0x160] ;\n        /*01e0*/                   STG.E.64 [R4.64], R2 ;\n        /*01f0*/                   EXIT ;\n.L_x_53:\n        /*0200*/                   BRA `(.L_x_53);\n        /*0210*/                   NOP;\n        /*0220*/                   NOP;\n        /*0230*/                   NOP;\n        /*0240*/                   NOP;\n        /*0250*/                   NOP;\n        /*0260*/                   NOP;\n        /*0270*/                   NOP;\n        /*0280*/                   NOP;\n        /*0290*/                   NOP;\n        /*02a0*/                   NOP;\n        /*02b0*/                   NOP;\n        /*02c0*/                   NOP;\n        /*02d0*/                   NOP;\n        /*02e0*/                   NOP;\n        /*02f0*/                   NOP;\n.L_x_79:"
+        },
+        "sm_90": {
+          "_Z26WarpRangeAtomicOnSharedMemIdEvPT_i": "//--------------------- .text._Z26WarpRangeAtomicOnSharedMemIdEvPT_i --------------------------\n\t.section\t.text._Z26WarpRangeAtomicOnSharedMemIdEvPT_i,\"ax\",@progbits\n\t.align\t128\n.text._Z26WarpRangeAtomicOnSharedMemIdEvPT_i:\n        .weak           _Z26WarpRangeAtomicOnSharedMemIdEvPT_i\n        .type           _Z26WarpRangeAtomicOnSharedMemIdEvPT_i,@function\n        .size           _Z26WarpRangeAtomicOnSharedMemIdEvPT_i,(.L_x_79 - _Z26WarpRangeAtomicOnSharedMemIdEvPT_i)\n        .other          _Z26WarpRangeAtomicOnSharedMemIdEvPT_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z26WarpRangeAtomicOnSharedMemIdEvPT_i:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R8, SR_CTAID.X ;\n        /*0020*/                   ULDC UR5, c[0x0][0x0] ;\n        /*0030*/                   ULDC UR4, c[0x0][0x218] ;\n        /*0040*/                   BSSY B0, `(.L_x_48) ;\n        /*0050*/                   S2R R11, SR_TID.X ;\n        /*0060*/                   IMAD R0, R8, UR5, R11 ;\n        /*0070*/                   ISETP.GE.U32.AND P0, PT, R0, UR4, PT ;\n        /*0080*/               @P0 BRA `(.L_x_49) ;\n        /*0090*/                   S2R R9, SR_CgaCtaId ;\n        /*00a0*/                   LDC R3, c[0x0][0xc] ;\n        /*00b0*/                   MOV R2, 0x400 ;\n        /*00c0*/                   UMOV UR4, `(_ZZ26WarpRangeAtomicOnSharedMemIdEvPT_iE9smem_data) ;\n        /*00d0*/                   IADD3 R2, R2, UR4, RZ ;\n        /*00e0*/                   IMAD R3, R3, UR5, RZ ;\n        /*00f0*/                   LEA R9, R9, R2, 0x18 ;\n.L_x_52:\n        /*0100*/                   IMAD.SHL.U32 R2, R0, 0x8, RZ ;\n        /*0110*/                   BSSY B1, `(.L_x_50) ;\n        /*0120*/                   LOP3.LUT R2, R2, 0xf8, RZ, 0xc0, !PT ;\n        /*0130*/                   IADD3 R13, R2, R9, RZ ;\n.L_x_51:\n        /*0140*/                   LDS.64 R4, [R13] ;\n        /*0150*/                   DADD R6, R4, 1 ;\n        /*0160*/                   ATOMS.CAST.SPIN.64 R6, [R13], R4, R6 ;\n        /*0170*/                   ISETP.EQ.U32.AND P0, PT, R6, 0x1, PT ;\n        /*0180*/                   ISETP.EQ.U32.AND.EX P0, PT, R7, RZ, PT, P0 ;\n        /*0190*/              @!P0 BRA `(.L_x_51) ;\n        /*01a0*/                   BSYNC B1 ;\n.L_x_50:\n        /*01b0*/                   IADD3 R0, R3, R0, RZ ;\n        /*01c0*/                   ULDC UR4, c[0x0][0x218] ;\n        /*01d0*/                   ISETP.GE.U32.AND P0, PT, R0, UR4, PT ;\n        /*01e0*/              @!P0 BRA `(.L_x_52) ;\n.L_x_49:\n        /*01f0*/                   BSYNC B0 ;\n.L_x_48:\n        /*0200*/                   ISETP.GT.U32.AND P0, PT, R11, 0x1e, PT ;\n        /*0210*/                   ULDC UR4, c[0x0][0xc] ;\n        /*0220*/                   ISETP.NE.OR P0, PT, R8, UR4, P0 ;\n        /*0230*/               @P0 EXIT ;\n        /*0240*/                   S2UR UR6, SR_CgaCtaId ;\n        /*0250*/                   UMOV UR4, `(_ZZ26WarpRangeAtomicOnSharedMemIdEvPT_iE9smem_data) ;\n        /*0260*/                   UMOV UR5, 0x400 ;\n        /*0270*/                   UIADD3 UR4, UR4, UR5, URZ ;\n        /*0280*/                   LDC.64 R4, c[0x0][0x210] ;\n        /*0290*/                   ULEA UR4, UR6, UR4, 0x18 ;\n        /*02a0*/                   LEA R2, R11.reuse, UR4, 0x3 ;\n        /*02b0*/                   ULDC.64 UR4, c[0x0][0x208] ;\n        /*02c0*/                   IMAD.WIDE.U32 R4, R11, 0x8, R4 ;\n        /*02d0*/                   LDS.64 R2, [R2] ;\n        /*02e0*/                   STG.E.64 desc[UR4][R4.64], R2 ;\n        /*02f0*/                   EXIT ;\n.L_x_53:\n        /*0300*/                   BRA `(.L_x_53);\n        /*0310*/                   NOP;\n        /*0320*/                   NOP;\n        /*0330*/                   NOP;\n        /*0340*/                   NOP;\n        /*0350*/                   NOP;\n        /*0360*/                   NOP;\n        /*0370*/                   NOP;\n        /*0380*/                   NOP;\n        /*0390*/                   NOP;\n        /*03a0*/                   NOP;\n        /*03b0*/                   NOP;\n        /*03c0*/                   NOP;\n        /*03d0*/                   NOP;\n        /*03e0*/                   NOP;\n        /*03f0*/                   NOP;\n.L_x_79:"
+        }
+      }
+    },
+    "_Z26WarpRangeAtomicOnSharedMemIfEvPT_i": {
+      "demangledName": "void WarpRangeAtomicOnSharedMem<float>(T1 *, int)",
+      "imix": {
+        "sm_80": {
+          "NOP": 8,
+          "ISETP": 5,
+          "BRA": 4,
+          "IMAD": 3,
+          "MOV": 2,
+          "S2R": 2,
+          "BSSY": 2,
+          "LDS": 2,
+          "BSYNC": 2,
+          "EXIT": 2,
+          "SHF": 1,
+          "YIELD": 1,
+          "LOP3": 1,
+          "FADD": 1,
+          "ATOMS": 1,
+          "HFMA2": 1,
+          "ULDC": 1,
+          "STG": 1
+        },
+        "sm_86": {
+          "NOP": 8,
+          "ISETP": 5,
+          "BRA": 4,
+          "MOV": 3,
+          "IMAD": 3,
+          "S2R": 2,
+          "BSSY": 2,
+          "LDS": 2,
+          "BSYNC": 2,
+          "EXIT": 2,
+          "SHF": 1,
+          "YIELD": 1,
+          "LOP3": 1,
+          "FADD": 1,
+          "ATOMS": 1,
+          "ULDC": 1,
+          "STG": 1
+        },
+        "sm_90": {
+          "NOP": 8,
+          "ULDC": 5,
+          "ISETP": 5,
+          "IMAD": 4,
+          "BRA": 4,
+          "LDC": 3,
+          "S2R": 3,
+          "UMOV": 3,
+          "IADD3": 3,
+          "BSSY": 2,
+          "LEA": 2,
+          "LDS": 2,
+          "BSYNC": 2,
+          "EXIT": 2,
+          "MOV": 1,
+          "LOP3": 1,
+          "FADD": 1,
+          "ATOMS": 1,
+          "S2UR": 1,
+          "UIADD3": 1,
+          "ULEA": 1,
+          "STG": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z26WarpRangeAtomicOnSharedMemIfEvPT_i": "//--------------------- .text._Z26WarpRangeAtomicOnSharedMemIfEvPT_i --------------------------\n\t.section\t.text._Z26WarpRangeAtomicOnSharedMemIfEvPT_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=10\"\n\t.align\t128\n.text._Z26WarpRangeAtomicOnSharedMemIfEvPT_i:\n        .weak           _Z26WarpRangeAtomicOnSharedMemIfEvPT_i\n        .type           _Z26WarpRangeAtomicOnSharedMemIfEvPT_i,@function\n        .size           _Z26WarpRangeAtomicOnSharedMemIfEvPT_i,(.L_x_67 - _Z26WarpRangeAtomicOnSharedMemIfEvPT_i)\n        .other          _Z26WarpRangeAtomicOnSharedMemIfEvPT_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z26WarpRangeAtomicOnSharedMemIfEvPT_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R3, SR_CTAID.X ;\n        /*0020*/                   BSSY B0, `(.L_x_6) ;\n        /*0030*/                   S2R R4, SR_TID.X ;\n        /*0040*/                   IMAD R0, R3, c[0x0][0x0], R4 ;\n        /*0050*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x168], PT ;\n        /*0060*/               @P0 BRA `(.L_x_7) ;\n.L_x_10:\n        /*0070*/                   SHF.L.U32 R2, R0, 0x2, RZ ;\n        /*0080*/                   YIELD ;\n        /*0090*/                   BSSY B1, `(.L_x_8) ;\n        /*00a0*/                   LOP3.LUT R2, R2, 0x7c, RZ, 0xc0, !PT ;\n.L_x_9:\n        /*00b0*/                   LDS R6, [R2+`(_ZZ26WarpRangeAtomicOnSharedMemIfEvPT_iE9smem_data)] ;\n        /*00c0*/                   FADD R7, R6, 1 ;\n        /*00d0*/                   ATOMS.CAST.SPIN R7, [R2+`(_ZZ26WarpRangeAtomicOnSharedMemIfEvPT_iE9smem_data)], R6, R7 ;\n        /*00e0*/                   ISETP.EQ.U32.AND P0, PT, R7, 0x1, PT ;\n        /*00f0*/              @!P0 BRA `(.L_x_9) ;\n        /*0100*/                   BSYNC B1 ;\n.L_x_8:\n        /*0110*/                   MOV R5, c[0x0][0x0] ;\n        /*0120*/                   IMAD R0, R5, c[0x0][0xc], R0 ;\n        /*0130*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x168], PT ;\n        /*0140*/              @!P0 BRA `(.L_x_10) ;\n.L_x_7:\n        /*0150*/                   BSYNC B0 ;\n.L_x_6:\n        /*0160*/                   ISETP.GT.U32.AND P0, PT, R4, 0x1e, PT ;\n        /*0170*/                   ISETP.NE.OR P0, PT, R3, c[0x0][0xc], P0 ;\n        /*0180*/               @P0 EXIT ;\n        /*0190*/                   LDS R5, [R4.X4+`(_ZZ26WarpRangeAtomicOnSharedMemIfEvPT_iE9smem_data)] ;\n        /*01a0*/                   HFMA2.MMA R3, -RZ, RZ, 0, 2.384185791015625e-07 ;\n        /*01b0*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*01c0*/                   IMAD.WIDE.U32 R2, R4, R3, c[0x0][0x160] ;\n        /*01d0*/                   STG.E [R2.64], R5 ;\n        /*01e0*/                   EXIT ;\n.L_x_11:\n        /*01f0*/                   BRA `(.L_x_11);\n        /*0200*/                   NOP;\n        /*0210*/                   NOP;\n        /*0220*/                   NOP;\n        /*0230*/                   NOP;\n        /*0240*/                   NOP;\n        /*0250*/                   NOP;\n        /*0260*/                   NOP;\n        /*0270*/                   NOP;\n.L_x_67:"
+        },
+        "sm_86": {
+          "_Z26WarpRangeAtomicOnSharedMemIfEvPT_i": "//--------------------- .text._Z26WarpRangeAtomicOnSharedMemIfEvPT_i --------------------------\n\t.section\t.text._Z26WarpRangeAtomicOnSharedMemIfEvPT_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=10\"\n\t.align\t128\n.text._Z26WarpRangeAtomicOnSharedMemIfEvPT_i:\n        .weak           _Z26WarpRangeAtomicOnSharedMemIfEvPT_i\n        .type           _Z26WarpRangeAtomicOnSharedMemIfEvPT_i,@function\n        .size           _Z26WarpRangeAtomicOnSharedMemIfEvPT_i,(.L_x_67 - _Z26WarpRangeAtomicOnSharedMemIfEvPT_i)\n        .other          _Z26WarpRangeAtomicOnSharedMemIfEvPT_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z26WarpRangeAtomicOnSharedMemIfEvPT_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R3, SR_CTAID.X ;\n        /*0020*/                   BSSY B0, `(.L_x_6) ;\n        /*0030*/                   S2R R4, SR_TID.X ;\n        /*0040*/                   IMAD R0, R3, c[0x0][0x0], R4 ;\n        /*0050*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x168], PT ;\n        /*0060*/               @P0 BRA `(.L_x_7) ;\n.L_x_10:\n        /*0070*/                   SHF.L.U32 R2, R0, 0x2, RZ ;\n        /*0080*/                   YIELD ;\n        /*0090*/                   BSSY B1, `(.L_x_8) ;\n        /*00a0*/                   LOP3.LUT R2, R2, 0x7c, RZ, 0xc0, !PT ;\n.L_x_9:\n        /*00b0*/                   LDS R6, [R2+`(_ZZ26WarpRangeAtomicOnSharedMemIfEvPT_iE9smem_data)] ;\n        /*00c0*/                   FADD R7, R6, 1 ;\n        /*00d0*/                   ATOMS.CAST.SPIN R7, [R2+`(_ZZ26WarpRangeAtomicOnSharedMemIfEvPT_iE9smem_data)], R6, R7 ;\n        /*00e0*/                   ISETP.EQ.U32.AND P0, PT, R7, 0x1, PT ;\n        /*00f0*/              @!P0 BRA `(.L_x_9) ;\n        /*0100*/                   BSYNC B1 ;\n.L_x_8:\n        /*0110*/                   MOV R5, c[0x0][0x0] ;\n        /*0120*/                   IMAD R0, R5, c[0x0][0xc], R0 ;\n        /*0130*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x168], PT ;\n        /*0140*/              @!P0 BRA `(.L_x_10) ;\n.L_x_7:\n        /*0150*/                   BSYNC B0 ;\n.L_x_6:\n        /*0160*/                   ISETP.GT.U32.AND P0, PT, R4, 0x1e, PT ;\n        /*0170*/                   ISETP.NE.OR P0, PT, R3, c[0x0][0xc], P0 ;\n        /*0180*/               @P0 EXIT ;\n        /*0190*/                   LDS R5, [R4.X4+`(_ZZ26WarpRangeAtomicOnSharedMemIfEvPT_iE9smem_data)] ;\n        /*01a0*/                   MOV R3, 0x4 ;\n        /*01b0*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*01c0*/                   IMAD.WIDE.U32 R2, R4, R3, c[0x0][0x160] ;\n        /*01d0*/                   STG.E [R2.64], R5 ;\n        /*01e0*/                   EXIT ;\n.L_x_11:\n        /*01f0*/                   BRA `(.L_x_11);\n        /*0200*/                   NOP;\n        /*0210*/                   NOP;\n        /*0220*/                   NOP;\n        /*0230*/                   NOP;\n        /*0240*/                   NOP;\n        /*0250*/                   NOP;\n        /*0260*/                   NOP;\n        /*0270*/                   NOP;\n.L_x_67:"
+        },
+        "sm_90": {
+          "_Z26WarpRangeAtomicOnSharedMemIfEvPT_i": "//--------------------- .text._Z26WarpRangeAtomicOnSharedMemIfEvPT_i --------------------------\n\t.section\t.text._Z26WarpRangeAtomicOnSharedMemIfEvPT_i,\"ax\",@progbits\n\t.align\t128\n.text._Z26WarpRangeAtomicOnSharedMemIfEvPT_i:\n        .weak           _Z26WarpRangeAtomicOnSharedMemIfEvPT_i\n        .type           _Z26WarpRangeAtomicOnSharedMemIfEvPT_i,@function\n        .size           _Z26WarpRangeAtomicOnSharedMemIfEvPT_i,(.L_x_67 - _Z26WarpRangeAtomicOnSharedMemIfEvPT_i)\n        .other          _Z26WarpRangeAtomicOnSharedMemIfEvPT_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z26WarpRangeAtomicOnSharedMemIfEvPT_i:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R4, SR_CTAID.X ;\n        /*0020*/                   ULDC UR5, c[0x0][0x0] ;\n        /*0030*/                   ULDC UR4, c[0x0][0x218] ;\n        /*0040*/                   BSSY B0, `(.L_x_6) ;\n        /*0050*/                   S2R R7, SR_TID.X ;\n        /*0060*/                   IMAD R0, R4, UR5, R7 ;\n        /*0070*/                   ISETP.GE.U32.AND P0, PT, R0, UR4, PT ;\n        /*0080*/               @P0 BRA `(.L_x_7) ;\n        /*0090*/                   S2R R5, SR_CgaCtaId ;\n        /*00a0*/                   LDC R3, c[0x0][0xc] ;\n        /*00b0*/                   MOV R2, 0x400 ;\n        /*00c0*/                   UMOV UR4, `(_ZZ26WarpRangeAtomicOnSharedMemIfEvPT_iE9smem_data) ;\n        /*00d0*/                   IADD3 R2, R2, UR4, RZ ;\n        /*00e0*/                   IMAD R3, R3, UR5, RZ ;\n        /*00f0*/                   LEA R5, R5, R2, 0x18 ;\n.L_x_10:\n        /*0100*/                   IMAD.SHL.U32 R2, R0, 0x4, RZ ;\n        /*0110*/                   BSSY B1, `(.L_x_8) ;\n        /*0120*/                   LOP3.LUT R2, R2, 0x7c, RZ, 0xc0, !PT ;\n        /*0130*/                   IADD3 R2, R2, R5, RZ ;\n.L_x_9:\n        /*0140*/                   LDS R8, [R2] ;\n        /*0150*/                   FADD R9, R8, 1 ;\n        /*0160*/                   ATOMS.CAST.SPIN R9, [R2], R8, R9 ;\n        /*0170*/                   ISETP.EQ.U32.AND P0, PT, R9, 0x1, PT ;\n        /*0180*/              @!P0 BRA `(.L_x_9) ;\n        /*0190*/                   BSYNC B1 ;\n.L_x_8:\n        /*01a0*/                   IADD3 R0, R3, R0, RZ ;\n        /*01b0*/                   ULDC UR4, c[0x0][0x218] ;\n        /*01c0*/                   ISETP.GE.U32.AND P0, PT, R0, UR4, PT ;\n        /*01d0*/              @!P0 BRA `(.L_x_10) ;\n.L_x_7:\n        /*01e0*/                   BSYNC B0 ;\n.L_x_6:\n        /*01f0*/                   ISETP.GT.U32.AND P0, PT, R7, 0x1e, PT ;\n        /*0200*/                   ULDC UR4, c[0x0][0xc] ;\n        /*0210*/                   ISETP.NE.OR P0, PT, R4, UR4, P0 ;\n        /*0220*/               @P0 EXIT ;\n        /*0230*/                   S2UR UR6, SR_CgaCtaId ;\n        /*0240*/                   UMOV UR4, `(_ZZ26WarpRangeAtomicOnSharedMemIfEvPT_iE9smem_data) ;\n        /*0250*/                   UMOV UR5, 0x400 ;\n        /*0260*/                   UIADD3 UR4, UR4, UR5, URZ ;\n        /*0270*/                   LDC.64 R2, c[0x0][0x210] ;\n        /*0280*/                   ULEA UR4, UR6, UR4, 0x18 ;\n        /*0290*/                   LEA R0, R7.reuse, UR4, 0x2 ;\n        /*02a0*/                   ULDC.64 UR4, c[0x0][0x208] ;\n        /*02b0*/                   IMAD.WIDE.U32 R2, R7, 0x4, R2 ;\n        /*02c0*/                   LDS R5, [R0] ;\n        /*02d0*/                   STG.E desc[UR4][R2.64], R5 ;\n        /*02e0*/                   EXIT ;\n.L_x_11:\n        /*02f0*/                   BRA `(.L_x_11);\n        /*0300*/                   NOP;\n        /*0310*/                   NOP;\n        /*0320*/                   NOP;\n        /*0330*/                   NOP;\n        /*0340*/                   NOP;\n        /*0350*/                   NOP;\n        /*0360*/                   NOP;\n        /*0370*/                   NOP;\n.L_x_67:"
+        }
+      }
+    },
+    "_Z26WarpRangeAtomicOnSharedMemIiEvPT_i": {
+      "demangledName": "void WarpRangeAtomicOnSharedMem<int>(T1 *, int)",
+      "imix": {
+        "sm_80": {
+          "NOP": 14,
+          "ISETP": 4,
+          "IMAD": 3,
+          "BRA": 3,
+          "MOV": 2,
+          "S2R": 2,
+          "EXIT": 2,
+          "BSSY": 1,
+          "SHF": 1,
+          "YIELD": 1,
+          "LOP3": 1,
+          "ATOMS": 1,
+          "BSYNC": 1,
+          "LDS": 1,
+          "HFMA2": 1,
+          "ULDC": 1,
+          "STG": 1
+        },
+        "sm_86": {
+          "NOP": 14,
+          "ISETP": 4,
+          "MOV": 3,
+          "IMAD": 3,
+          "BRA": 3,
+          "S2R": 2,
+          "EXIT": 2,
+          "BSSY": 1,
+          "SHF": 1,
+          "YIELD": 1,
+          "LOP3": 1,
+          "ATOMS": 1,
+          "BSYNC": 1,
+          "LDS": 1,
+          "ULDC": 1,
+          "STG": 1
+        },
+        "sm_90": {
+          "NOP": 15,
+          "IMAD": 5,
+          "ULDC": 4,
+          "ISETP": 4,
+          "LDC": 3,
+          "S2R": 3,
+          "BRA": 3,
+          "UMOV": 3,
+          "IADD3": 2,
+          "LEA": 2,
+          "EXIT": 2,
+          "BSSY": 1,
+          "MOV": 1,
+          "LOP3": 1,
+          "ATOMS": 1,
+          "BSYNC": 1,
+          "S2UR": 1,
+          "UIADD3": 1,
+          "ULEA": 1,
+          "LDS": 1,
+          "STG": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z26WarpRangeAtomicOnSharedMemIiEvPT_i": "//--------------------- .text._Z26WarpRangeAtomicOnSharedMemIiEvPT_i --------------------------\n\t.section\t.text._Z26WarpRangeAtomicOnSharedMemIiEvPT_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=10\"\n\t.align\t128\n.text._Z26WarpRangeAtomicOnSharedMemIiEvPT_i:\n        .weak           _Z26WarpRangeAtomicOnSharedMemIiEvPT_i\n        .type           _Z26WarpRangeAtomicOnSharedMemIiEvPT_i,@function\n        .size           _Z26WarpRangeAtomicOnSharedMemIiEvPT_i,(.L_x_73 - _Z26WarpRangeAtomicOnSharedMemIiEvPT_i)\n        .other          _Z26WarpRangeAtomicOnSharedMemIiEvPT_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z26WarpRangeAtomicOnSharedMemIiEvPT_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R2, SR_CTAID.X ;\n        /*0020*/                   BSSY B0, `(.L_x_28) ;\n        /*0030*/                   S2R R7, SR_TID.X ;\n        /*0040*/                   IMAD R0, R2, c[0x0][0x0], R7 ;\n        /*0050*/                   ISETP.GT.U32.AND P0, PT, R7, 0x1e, PT ;\n        /*0060*/                   ISETP.GE.U32.AND P1, PT, R0, c[0x0][0x168], PT ;\n        /*0070*/                   ISETP.NE.OR P0, PT, R2, c[0x0][0xc], P0 ;\n        /*0080*/               @P1 BRA `(.L_x_29) ;\n        /*0090*/                   MOV R3, c[0x0][0x0] ;\n.L_x_30:\n        /*00a0*/                   SHF.L.U32 R2, R0, 0x2, RZ ;\n        /*00b0*/                   IMAD R0, R3, c[0x0][0xc], R0 ;\n        /*00c0*/                   YIELD ;\n        /*00d0*/                   LOP3.LUT R2, R2, 0x7c, RZ, 0xc0, !PT ;\n        /*00e0*/                   ISETP.GE.U32.AND P1, PT, R0, c[0x0][0x168], PT ;\n        /*00f0*/                   ATOMS.POPC.INC.32 RZ, [R2+URZ+`(_ZZ26WarpRangeAtomicOnSharedMemIiEvPT_iE9smem_data)] ;\n        /*0100*/              @!P1 BRA `(.L_x_30) ;\n.L_x_29:\n        /*0110*/                   BSYNC B0 ;\n.L_x_28:\n        /*0120*/               @P0 EXIT ;\n        /*0130*/                   LDS R5, [R7.X4+`(_ZZ26WarpRangeAtomicOnSharedMemIiEvPT_iE9smem_data)] ;\n        /*0140*/                   HFMA2.MMA R2, -RZ, RZ, 0, 2.384185791015625e-07 ;\n        /*0150*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0160*/                   IMAD.WIDE.U32 R2, R7, R2, c[0x0][0x160] ;\n        /*0170*/                   STG.E [R2.64], R5 ;\n        /*0180*/                   EXIT ;\n.L_x_31:\n        /*0190*/                   BRA `(.L_x_31);\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n        /*0200*/                   NOP;\n        /*0210*/                   NOP;\n        /*0220*/                   NOP;\n        /*0230*/                   NOP;\n        /*0240*/                   NOP;\n        /*0250*/                   NOP;\n        /*0260*/                   NOP;\n        /*0270*/                   NOP;\n.L_x_73:"
+        },
+        "sm_86": {
+          "_Z26WarpRangeAtomicOnSharedMemIiEvPT_i": "//--------------------- .text._Z26WarpRangeAtomicOnSharedMemIiEvPT_i --------------------------\n\t.section\t.text._Z26WarpRangeAtomicOnSharedMemIiEvPT_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=10\"\n\t.align\t128\n.text._Z26WarpRangeAtomicOnSharedMemIiEvPT_i:\n        .weak           _Z26WarpRangeAtomicOnSharedMemIiEvPT_i\n        .type           _Z26WarpRangeAtomicOnSharedMemIiEvPT_i,@function\n        .size           _Z26WarpRangeAtomicOnSharedMemIiEvPT_i,(.L_x_73 - _Z26WarpRangeAtomicOnSharedMemIiEvPT_i)\n        .other          _Z26WarpRangeAtomicOnSharedMemIiEvPT_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z26WarpRangeAtomicOnSharedMemIiEvPT_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R2, SR_CTAID.X ;\n        /*0020*/                   BSSY B0, `(.L_x_28) ;\n        /*0030*/                   S2R R7, SR_TID.X ;\n        /*0040*/                   IMAD R0, R2, c[0x0][0x0], R7 ;\n        /*0050*/                   ISETP.GT.U32.AND P0, PT, R7, 0x1e, PT ;\n        /*0060*/                   ISETP.GE.U32.AND P1, PT, R0, c[0x0][0x168], PT ;\n        /*0070*/                   ISETP.NE.OR P0, PT, R2, c[0x0][0xc], P0 ;\n        /*0080*/               @P1 BRA `(.L_x_29) ;\n        /*0090*/                   MOV R3, c[0x0][0x0] ;\n.L_x_30:\n        /*00a0*/                   SHF.L.U32 R2, R0, 0x2, RZ ;\n        /*00b0*/                   IMAD R0, R3, c[0x0][0xc], R0 ;\n        /*00c0*/                   YIELD ;\n        /*00d0*/                   LOP3.LUT R2, R2, 0x7c, RZ, 0xc0, !PT ;\n        /*00e0*/                   ISETP.GE.U32.AND P1, PT, R0, c[0x0][0x168], PT ;\n        /*00f0*/                   ATOMS.POPC.INC.32 RZ, [R2+URZ+`(_ZZ26WarpRangeAtomicOnSharedMemIiEvPT_iE9smem_data)] ;\n        /*0100*/              @!P1 BRA `(.L_x_30) ;\n.L_x_29:\n        /*0110*/                   BSYNC B0 ;\n.L_x_28:\n        /*0120*/               @P0 EXIT ;\n        /*0130*/                   LDS R5, [R7.X4+`(_ZZ26WarpRangeAtomicOnSharedMemIiEvPT_iE9smem_data)] ;\n        /*0140*/                   MOV R2, 0x4 ;\n        /*0150*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0160*/                   IMAD.WIDE.U32 R2, R7, R2, c[0x0][0x160] ;\n        /*0170*/                   STG.E [R2.64], R5 ;\n        /*0180*/                   EXIT ;\n.L_x_31:\n        /*0190*/                   BRA `(.L_x_31);\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n        /*0200*/                   NOP;\n        /*0210*/                   NOP;\n        /*0220*/                   NOP;\n        /*0230*/                   NOP;\n        /*0240*/                   NOP;\n        /*0250*/                   NOP;\n        /*0260*/                   NOP;\n        /*0270*/                   NOP;\n.L_x_73:"
+        },
+        "sm_90": {
+          "_Z26WarpRangeAtomicOnSharedMemIiEvPT_i": "//--------------------- .text._Z26WarpRangeAtomicOnSharedMemIiEvPT_i --------------------------\n\t.section\t.text._Z26WarpRangeAtomicOnSharedMemIiEvPT_i,\"ax\",@progbits\n\t.align\t128\n.text._Z26WarpRangeAtomicOnSharedMemIiEvPT_i:\n        .weak           _Z26WarpRangeAtomicOnSharedMemIiEvPT_i\n        .type           _Z26WarpRangeAtomicOnSharedMemIiEvPT_i,@function\n        .size           _Z26WarpRangeAtomicOnSharedMemIiEvPT_i,(.L_x_73 - _Z26WarpRangeAtomicOnSharedMemIiEvPT_i)\n        .other          _Z26WarpRangeAtomicOnSharedMemIiEvPT_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z26WarpRangeAtomicOnSharedMemIiEvPT_i:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R4, SR_CTAID.X ;\n        /*0020*/                   ULDC UR5, c[0x0][0x0] ;\n        /*0030*/                   ULDC UR6, c[0x0][0x218] ;\n        /*0040*/                   BSSY B0, `(.L_x_28) ;\n        /*0050*/                   S2R R7, SR_TID.X ;\n        /*0060*/                   IMAD R0, R4, UR5, R7 ;\n        /*0070*/                   ISETP.GT.U32.AND P0, PT, R7, 0x1e, PT ;\n        /*0080*/                   ISETP.GE.U32.AND P1, PT, R0, UR6, PT ;\n        /*0090*/               @P1 BRA `(.L_x_29) ;\n        /*00a0*/                   S2R R5, SR_CgaCtaId ;\n        /*00b0*/                   LDC R3, c[0x0][0xc] ;\n        /*00c0*/                   MOV R2, 0x400 ;\n        /*00d0*/                   UMOV UR4, `(_ZZ26WarpRangeAtomicOnSharedMemIiEvPT_iE9smem_data) ;\n        /*00e0*/                   IADD3 R2, R2, UR4, RZ ;\n        /*00f0*/                   IMAD R3, R3, UR5, RZ ;\n        /*0100*/                   LEA R5, R5, R2, 0x18 ;\n.L_x_30:\n        /*0110*/                   IMAD.SHL.U32 R2, R0, 0x4, RZ ;\n        /*0120*/                   IMAD.IADD R0, R3, 0x1, R0 ;\n        /*0130*/                   LOP3.LUT R2, R2, 0x7c, RZ, 0xc0, !PT ;\n        /*0140*/                   ISETP.GE.U32.AND P1, PT, R0, UR6, PT ;\n        /*0150*/                   IADD3 R2, R2, R5, RZ ;\n        /*0160*/                   ATOMS.POPC.INC.32 RZ, [R2+URZ] ;\n        /*0170*/              @!P1 BRA `(.L_x_30) ;\n.L_x_29:\n        /*0180*/                   BSYNC B0 ;\n.L_x_28:\n        /*0190*/                   ULDC UR4, c[0x0][0xc] ;\n        /*01a0*/                   ISETP.NE.OR P0, PT, R4, UR4, P0 ;\n        /*01b0*/               @P0 EXIT ;\n        /*01c0*/                   S2UR UR6, SR_CgaCtaId ;\n        /*01d0*/                   UMOV UR4, `(_ZZ26WarpRangeAtomicOnSharedMemIiEvPT_iE9smem_data) ;\n        /*01e0*/                   UMOV UR5, 0x400 ;\n        /*01f0*/                   UIADD3 UR4, UR4, UR5, URZ ;\n        /*0200*/                   LDC.64 R2, c[0x0][0x210] ;\n        /*0210*/                   ULEA UR4, UR6, UR4, 0x18 ;\n        /*0220*/                   LEA R0, R7.reuse, UR4, 0x2 ;\n        /*0230*/                   ULDC.64 UR4, c[0x0][0x208] ;\n        /*0240*/                   IMAD.WIDE.U32 R2, R7, 0x4, R2 ;\n        /*0250*/                   LDS R5, [R0] ;\n        /*0260*/                   STG.E desc[UR4][R2.64], R5 ;\n        /*0270*/                   EXIT ;\n.L_x_31:\n        /*0280*/                   BRA `(.L_x_31);\n        /*0290*/                   NOP;\n        /*02a0*/                   NOP;\n        /*02b0*/                   NOP;\n        /*02c0*/                   NOP;\n        /*02d0*/                   NOP;\n        /*02e0*/                   NOP;\n        /*02f0*/                   NOP;\n        /*0300*/                   NOP;\n        /*0310*/                   NOP;\n        /*0320*/                   NOP;\n        /*0330*/                   NOP;\n        /*0340*/                   NOP;\n        /*0350*/                   NOP;\n        /*0360*/                   NOP;\n        /*0370*/                   NOP;\n.L_x_73:"
+        }
+      }
+    },
+    "_Z27BlockRangeAtomicOnGlobalMemIdEvPT_i": {
+      "demangledName": "void BlockRangeAtomicOnGlobalMem<double>(T1 *, int)",
+      "imix": {
+        "sm_80": {
+          "NOP": 13,
+          "MOV": 3,
+          "IMAD": 3,
+          "S2R": 2,
+          "ISETP": 2,
+          "EXIT": 2,
+          "HFMA2": 2,
+          "BRA": 2,
+          "ULDC": 1,
+          "YIELD": 1,
+          "ATOMG": 1
+        },
+        "sm_86": {
+          "NOP": 13,
+          "MOV": 5,
+          "IMAD": 3,
+          "S2R": 2,
+          "ISETP": 2,
+          "EXIT": 2,
+          "BRA": 2,
+          "ULDC": 1,
+          "YIELD": 1,
+          "ATOMG": 1
+        },
+        "sm_90": {
+          "NOP": 11,
+          "LDC": 3,
+          "ULDC": 3,
+          "IMAD": 3,
+          "ISETP": 2,
+          "EXIT": 2,
+          "BRA": 2,
+          "S2R": 1,
+          "S2UR": 1,
+          "MOV": 1,
+          "HFMA2": 1,
+          "IADD3": 1,
+          "ATOMG": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z27BlockRangeAtomicOnGlobalMemIdEvPT_i": "//--------------------- .text._Z27BlockRangeAtomicOnGlobalMemIdEvPT_i --------------------------\n\t.section\t.text._Z27BlockRangeAtomicOnGlobalMemIdEvPT_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=10\"\n\t.align\t128\n.text._Z27BlockRangeAtomicOnGlobalMemIdEvPT_i:\n        .weak           _Z27BlockRangeAtomicOnGlobalMemIdEvPT_i\n        .type           _Z27BlockRangeAtomicOnGlobalMemIdEvPT_i,@function\n        .size           _Z27BlockRangeAtomicOnGlobalMemIdEvPT_i,(.L_x_83 - _Z27BlockRangeAtomicOnGlobalMemIdEvPT_i)\n        .other          _Z27BlockRangeAtomicOnGlobalMemIdEvPT_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z27BlockRangeAtomicOnGlobalMemIdEvPT_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R0, R0, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x168], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   HFMA2.MMA R2, -RZ, RZ, 0, 4.76837158203125e-07 ;\n        /*0070*/                   MOV R7, c[0x0][0x0] ;\n        /*0080*/                   HFMA2.MMA R4, -RZ, RZ, 0, 0 ;\n        /*0090*/                   MOV R5, 0x3ff00000 ;\n        /*00a0*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*00b0*/                   IMAD.WIDE.U32 R2, R3, R2, c[0x0][0x160] ;\n.L_x_64:\n        /*00c0*/                   IMAD R0, R7, c[0x0][0xc], R0 ;\n        /*00d0*/                   YIELD ;\n        /*00e0*/                   ATOMG.E.ADD.F64.RN.STRONG.GPU PT, RZ, [R2.64], R4 ;\n        /*00f0*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x168], PT ;\n        /*0100*/              @!P0 BRA `(.L_x_64) ;\n        /*0110*/                   EXIT ;\n.L_x_65:\n        /*0120*/                   BRA `(.L_x_65);\n        /*0130*/                   NOP;\n        /*0140*/                   NOP;\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_83:"
+        },
+        "sm_86": {
+          "_Z27BlockRangeAtomicOnGlobalMemIdEvPT_i": "//--------------------- .text._Z27BlockRangeAtomicOnGlobalMemIdEvPT_i --------------------------\n\t.section\t.text._Z27BlockRangeAtomicOnGlobalMemIdEvPT_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=10\"\n\t.align\t128\n.text._Z27BlockRangeAtomicOnGlobalMemIdEvPT_i:\n        .weak           _Z27BlockRangeAtomicOnGlobalMemIdEvPT_i\n        .type           _Z27BlockRangeAtomicOnGlobalMemIdEvPT_i,@function\n        .size           _Z27BlockRangeAtomicOnGlobalMemIdEvPT_i,(.L_x_83 - _Z27BlockRangeAtomicOnGlobalMemIdEvPT_i)\n        .other          _Z27BlockRangeAtomicOnGlobalMemIdEvPT_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z27BlockRangeAtomicOnGlobalMemIdEvPT_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R0, R0, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x168], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   MOV R2, 0x8 ;\n        /*0070*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0080*/                   MOV R7, c[0x0][0x0] ;\n        /*0090*/                   MOV R4, 0x0 ;\n        /*00a0*/                   IMAD.WIDE.U32 R2, R3, R2, c[0x0][0x160] ;\n        /*00b0*/                   MOV R5, 0x3ff00000 ;\n.L_x_64:\n        /*00c0*/                   IMAD R0, R7, c[0x0][0xc], R0 ;\n        /*00d0*/                   YIELD ;\n        /*00e0*/                   ATOMG.E.ADD.F64.RN.STRONG.GPU PT, RZ, [R2.64], R4 ;\n        /*00f0*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x168], PT ;\n        /*0100*/              @!P0 BRA `(.L_x_64) ;\n        /*0110*/                   EXIT ;\n.L_x_65:\n        /*0120*/                   BRA `(.L_x_65);\n        /*0130*/                   NOP;\n        /*0140*/                   NOP;\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_83:"
+        },
+        "sm_90": {
+          "_Z27BlockRangeAtomicOnGlobalMemIdEvPT_i": "//--------------------- .text._Z27BlockRangeAtomicOnGlobalMemIdEvPT_i --------------------------\n\t.section\t.text._Z27BlockRangeAtomicOnGlobalMemIdEvPT_i,\"ax\",@progbits\n\t.align\t128\n.text._Z27BlockRangeAtomicOnGlobalMemIdEvPT_i:\n        .weak           _Z27BlockRangeAtomicOnGlobalMemIdEvPT_i\n        .type           _Z27BlockRangeAtomicOnGlobalMemIdEvPT_i,@function\n        .size           _Z27BlockRangeAtomicOnGlobalMemIdEvPT_i,(.L_x_83 - _Z27BlockRangeAtomicOnGlobalMemIdEvPT_i)\n        .other          _Z27BlockRangeAtomicOnGlobalMemIdEvPT_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z27BlockRangeAtomicOnGlobalMemIdEvPT_i:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R4, SR_TID.X ;\n        /*0020*/                   S2UR UR4, SR_CTAID.X ;\n        /*0030*/                   ULDC UR6, c[0x0][0x218] ;\n        /*0040*/                   LDC R7, c[0x0][RZ] ;\n        /*0050*/                   IMAD R0, R7, UR4, R4 ;\n        /*0060*/                   ISETP.GE.U32.AND P0, PT, R0, UR6, PT ;\n        /*0070*/               @P0 EXIT ;\n        /*0080*/                   LDC.64 R2, c[0x0][0x210] ;\n        /*0090*/                   ULDC UR4, c[0x0][0xc] ;\n        /*00a0*/                   MOV R5, 0x3ff00000 ;\n        /*00b0*/                   IMAD R7, R7, UR4, RZ ;\n        /*00c0*/                   ULDC.64 UR4, c[0x0][0x208] ;\n        /*00d0*/                   IMAD.WIDE.U32 R2, R4, 0x8, R2 ;\n        /*00e0*/                   HFMA2.MMA R4, -RZ, RZ, 0, 0 ;\n.L_x_64:\n        /*00f0*/                   IADD3 R0, R7, R0, RZ ;\n        /*0100*/                   ATOMG.E.ADD.F64.RN.STRONG.GPU PT, RZ, desc[UR4][R2.64], R4 ;\n        /*0110*/                   ISETP.GE.U32.AND P0, PT, R0, UR6, PT ;\n        /*0120*/              @!P0 BRA `(.L_x_64) ;\n        /*0130*/                   EXIT ;\n.L_x_65:\n        /*0140*/                   BRA `(.L_x_65);\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_83:"
+        }
+      }
+    },
+    "_Z27BlockRangeAtomicOnGlobalMemIfEvPT_i": {
+      "demangledName": "void BlockRangeAtomicOnGlobalMem<float>(T1 *, int)",
+      "imix": {
+        "sm_80": {
+          "NOP": 14,
+          "MOV": 3,
+          "IMAD": 3,
+          "S2R": 2,
+          "ISETP": 2,
+          "EXIT": 2,
+          "BRA": 2,
+          "HFMA2": 1,
+          "ULDC": 1,
+          "YIELD": 1,
+          "ATOMG": 1
+        },
+        "sm_86": {
+          "NOP": 14,
+          "MOV": 4,
+          "IMAD": 3,
+          "S2R": 2,
+          "ISETP": 2,
+          "EXIT": 2,
+          "BRA": 2,
+          "ULDC": 1,
+          "YIELD": 1,
+          "ATOMG": 1
+        },
+        "sm_90": {
+          "NOP": 12,
+          "LDC": 3,
+          "ULDC": 3,
+          "IMAD": 3,
+          "ISETP": 2,
+          "EXIT": 2,
+          "BRA": 2,
+          "S2R": 1,
+          "S2UR": 1,
+          "HFMA2": 1,
+          "IADD3": 1,
+          "ATOMG": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z27BlockRangeAtomicOnGlobalMemIfEvPT_i": "//--------------------- .text._Z27BlockRangeAtomicOnGlobalMemIfEvPT_i --------------------------\n\t.section\t.text._Z27BlockRangeAtomicOnGlobalMemIfEvPT_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=10\"\n\t.align\t128\n.text._Z27BlockRangeAtomicOnGlobalMemIfEvPT_i:\n        .weak           _Z27BlockRangeAtomicOnGlobalMemIfEvPT_i\n        .type           _Z27BlockRangeAtomicOnGlobalMemIfEvPT_i,@function\n        .size           _Z27BlockRangeAtomicOnGlobalMemIfEvPT_i,(.L_x_71 - _Z27BlockRangeAtomicOnGlobalMemIfEvPT_i)\n        .other          _Z27BlockRangeAtomicOnGlobalMemIfEvPT_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z27BlockRangeAtomicOnGlobalMemIfEvPT_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R0, R0, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x168], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   HFMA2.MMA R2, -RZ, RZ, 0, 2.384185791015625e-07 ;\n        /*0070*/                   MOV R5, 0x3f800000 ;\n        /*0080*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0090*/                   MOV R7, c[0x0][0x0] ;\n        /*00a0*/                   IMAD.WIDE.U32 R2, R3, R2, c[0x0][0x160] ;\n.L_x_22:\n        /*00b0*/                   IMAD R0, R7, c[0x0][0xc], R0 ;\n        /*00c0*/                   YIELD ;\n        /*00d0*/                   ATOMG.E.ADD.F32.FTZ.RN.STRONG.GPU PT, RZ, [R2.64], R5 ;\n        /*00e0*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x168], PT ;\n        /*00f0*/              @!P0 BRA `(.L_x_22) ;\n        /*0100*/                   EXIT ;\n.L_x_23:\n        /*0110*/                   BRA `(.L_x_23);\n        /*0120*/                   NOP;\n        /*0130*/                   NOP;\n        /*0140*/                   NOP;\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_71:"
+        },
+        "sm_86": {
+          "_Z27BlockRangeAtomicOnGlobalMemIfEvPT_i": "//--------------------- .text._Z27BlockRangeAtomicOnGlobalMemIfEvPT_i --------------------------\n\t.section\t.text._Z27BlockRangeAtomicOnGlobalMemIfEvPT_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=10\"\n\t.align\t128\n.text._Z27BlockRangeAtomicOnGlobalMemIfEvPT_i:\n        .weak           _Z27BlockRangeAtomicOnGlobalMemIfEvPT_i\n        .type           _Z27BlockRangeAtomicOnGlobalMemIfEvPT_i,@function\n        .size           _Z27BlockRangeAtomicOnGlobalMemIfEvPT_i,(.L_x_71 - _Z27BlockRangeAtomicOnGlobalMemIfEvPT_i)\n        .other          _Z27BlockRangeAtomicOnGlobalMemIfEvPT_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z27BlockRangeAtomicOnGlobalMemIfEvPT_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R0, R0, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x168], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   MOV R2, 0x4 ;\n        /*0070*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0080*/                   MOV R5, 0x3f800000 ;\n        /*0090*/                   MOV R7, c[0x0][0x0] ;\n        /*00a0*/                   IMAD.WIDE.U32 R2, R3, R2, c[0x0][0x160] ;\n.L_x_22:\n        /*00b0*/                   IMAD R0, R7, c[0x0][0xc], R0 ;\n        /*00c0*/                   YIELD ;\n        /*00d0*/                   ATOMG.E.ADD.F32.FTZ.RN.STRONG.GPU PT, RZ, [R2.64], R5 ;\n        /*00e0*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x168], PT ;\n        /*00f0*/              @!P0 BRA `(.L_x_22) ;\n        /*0100*/                   EXIT ;\n.L_x_23:\n        /*0110*/                   BRA `(.L_x_23);\n        /*0120*/                   NOP;\n        /*0130*/                   NOP;\n        /*0140*/                   NOP;\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_71:"
+        },
+        "sm_90": {
+          "_Z27BlockRangeAtomicOnGlobalMemIfEvPT_i": "//--------------------- .text._Z27BlockRangeAtomicOnGlobalMemIfEvPT_i --------------------------\n\t.section\t.text._Z27BlockRangeAtomicOnGlobalMemIfEvPT_i,\"ax\",@progbits\n\t.align\t128\n.text._Z27BlockRangeAtomicOnGlobalMemIfEvPT_i:\n        .weak           _Z27BlockRangeAtomicOnGlobalMemIfEvPT_i\n        .type           _Z27BlockRangeAtomicOnGlobalMemIfEvPT_i,@function\n        .size           _Z27BlockRangeAtomicOnGlobalMemIfEvPT_i,(.L_x_71 - _Z27BlockRangeAtomicOnGlobalMemIfEvPT_i)\n        .other          _Z27BlockRangeAtomicOnGlobalMemIfEvPT_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z27BlockRangeAtomicOnGlobalMemIfEvPT_i:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R4, SR_TID.X ;\n        /*0020*/                   S2UR UR4, SR_CTAID.X ;\n        /*0030*/                   ULDC UR6, c[0x0][0x218] ;\n        /*0040*/                   LDC R5, c[0x0][RZ] ;\n        /*0050*/                   IMAD R0, R5, UR4, R4 ;\n        /*0060*/                   ISETP.GE.U32.AND P0, PT, R0, UR6, PT ;\n        /*0070*/               @P0 EXIT ;\n        /*0080*/                   LDC.64 R2, c[0x0][0x210] ;\n        /*0090*/                   HFMA2.MMA R7, -RZ, RZ, 1.875, 0 ;\n        /*00a0*/                   ULDC UR4, c[0x0][0xc] ;\n        /*00b0*/                   IMAD R5, R5, UR4, RZ ;\n        /*00c0*/                   ULDC.64 UR4, c[0x0][0x208] ;\n        /*00d0*/                   IMAD.WIDE.U32 R2, R4, 0x4, R2 ;\n.L_x_22:\n        /*00e0*/                   IADD3 R0, R5, R0, RZ ;\n        /*00f0*/                   ATOMG.E.ADD.F32.FTZ.RN.STRONG.GPU PT, RZ, desc[UR4][R2.64], R7 ;\n        /*0100*/                   ISETP.GE.U32.AND P0, PT, R0, UR6, PT ;\n        /*0110*/              @!P0 BRA `(.L_x_22) ;\n        /*0120*/                   EXIT ;\n.L_x_23:\n        /*0130*/                   BRA `(.L_x_23);\n        /*0140*/                   NOP;\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_71:"
+        }
+      }
+    },
+    "_Z27BlockRangeAtomicOnGlobalMemIiEvPT_i": {
+      "demangledName": "void BlockRangeAtomicOnGlobalMem<int>(T1 *, int)",
+      "imix": {
+        "sm_80": {
+          "NOP": 14,
+          "MOV": 3,
+          "IMAD": 3,
+          "S2R": 2,
+          "ISETP": 2,
+          "EXIT": 2,
+          "BRA": 2,
+          "HFMA2": 1,
+          "ULDC": 1,
+          "YIELD": 1,
+          "ATOMG": 1
+        },
+        "sm_86": {
+          "NOP": 14,
+          "MOV": 4,
+          "IMAD": 3,
+          "S2R": 2,
+          "ISETP": 2,
+          "EXIT": 2,
+          "BRA": 2,
+          "ULDC": 1,
+          "YIELD": 1,
+          "ATOMG": 1
+        },
+        "sm_90": {
+          "NOP": 12,
+          "LDC": 3,
+          "ULDC": 3,
+          "IMAD": 3,
+          "ISETP": 2,
+          "EXIT": 2,
+          "BRA": 2,
+          "S2R": 1,
+          "S2UR": 1,
+          "HFMA2": 1,
+          "IADD3": 1,
+          "ATOMG": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z27BlockRangeAtomicOnGlobalMemIiEvPT_i": "//--------------------- .text._Z27BlockRangeAtomicOnGlobalMemIiEvPT_i --------------------------\n\t.section\t.text._Z27BlockRangeAtomicOnGlobalMemIiEvPT_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=10\"\n\t.align\t128\n.text._Z27BlockRangeAtomicOnGlobalMemIiEvPT_i:\n        .weak           _Z27BlockRangeAtomicOnGlobalMemIiEvPT_i\n        .type           _Z27BlockRangeAtomicOnGlobalMemIiEvPT_i,@function\n        .size           _Z27BlockRangeAtomicOnGlobalMemIiEvPT_i,(.L_x_77 - _Z27BlockRangeAtomicOnGlobalMemIiEvPT_i)\n        .other          _Z27BlockRangeAtomicOnGlobalMemIiEvPT_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z27BlockRangeAtomicOnGlobalMemIiEvPT_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R0, R0, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x168], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   HFMA2.MMA R2, -RZ, RZ, 0, 2.384185791015625e-07 ;\n        /*0070*/                   MOV R5, 0x1 ;\n        /*0080*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0090*/                   MOV R7, c[0x0][0x0] ;\n        /*00a0*/                   IMAD.WIDE.U32 R2, R3, R2, c[0x0][0x160] ;\n.L_x_40:\n        /*00b0*/                   IMAD R0, R7, c[0x0][0xc], R0 ;\n        /*00c0*/                   YIELD ;\n        /*00d0*/                   ATOMG.E.ADD.STRONG.GPU PT, RZ, [R2.64], R5 ;\n        /*00e0*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x168], PT ;\n        /*00f0*/              @!P0 BRA `(.L_x_40) ;\n        /*0100*/                   EXIT ;\n.L_x_41:\n        /*0110*/                   BRA `(.L_x_41);\n        /*0120*/                   NOP;\n        /*0130*/                   NOP;\n        /*0140*/                   NOP;\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_77:"
+        },
+        "sm_86": {
+          "_Z27BlockRangeAtomicOnGlobalMemIiEvPT_i": "//--------------------- .text._Z27BlockRangeAtomicOnGlobalMemIiEvPT_i --------------------------\n\t.section\t.text._Z27BlockRangeAtomicOnGlobalMemIiEvPT_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=10\"\n\t.align\t128\n.text._Z27BlockRangeAtomicOnGlobalMemIiEvPT_i:\n        .weak           _Z27BlockRangeAtomicOnGlobalMemIiEvPT_i\n        .type           _Z27BlockRangeAtomicOnGlobalMemIiEvPT_i,@function\n        .size           _Z27BlockRangeAtomicOnGlobalMemIiEvPT_i,(.L_x_77 - _Z27BlockRangeAtomicOnGlobalMemIiEvPT_i)\n        .other          _Z27BlockRangeAtomicOnGlobalMemIiEvPT_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z27BlockRangeAtomicOnGlobalMemIiEvPT_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R0, R0, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x168], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   MOV R2, 0x4 ;\n        /*0070*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0080*/                   MOV R5, 0x1 ;\n        /*0090*/                   MOV R7, c[0x0][0x0] ;\n        /*00a0*/                   IMAD.WIDE.U32 R2, R3, R2, c[0x0][0x160] ;\n.L_x_40:\n        /*00b0*/                   IMAD R0, R7, c[0x0][0xc], R0 ;\n        /*00c0*/                   YIELD ;\n        /*00d0*/                   ATOMG.E.ADD.STRONG.GPU PT, RZ, [R2.64], R5 ;\n        /*00e0*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x168], PT ;\n        /*00f0*/              @!P0 BRA `(.L_x_40) ;\n        /*0100*/                   EXIT ;\n.L_x_41:\n        /*0110*/                   BRA `(.L_x_41);\n        /*0120*/                   NOP;\n        /*0130*/                   NOP;\n        /*0140*/                   NOP;\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_77:"
+        },
+        "sm_90": {
+          "_Z27BlockRangeAtomicOnGlobalMemIiEvPT_i": "//--------------------- .text._Z27BlockRangeAtomicOnGlobalMemIiEvPT_i --------------------------\n\t.section\t.text._Z27BlockRangeAtomicOnGlobalMemIiEvPT_i,\"ax\",@progbits\n\t.align\t128\n.text._Z27BlockRangeAtomicOnGlobalMemIiEvPT_i:\n        .weak           _Z27BlockRangeAtomicOnGlobalMemIiEvPT_i\n        .type           _Z27BlockRangeAtomicOnGlobalMemIiEvPT_i,@function\n        .size           _Z27BlockRangeAtomicOnGlobalMemIiEvPT_i,(.L_x_77 - _Z27BlockRangeAtomicOnGlobalMemIiEvPT_i)\n        .other          _Z27BlockRangeAtomicOnGlobalMemIiEvPT_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z27BlockRangeAtomicOnGlobalMemIiEvPT_i:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R4, SR_TID.X ;\n        /*0020*/                   S2UR UR4, SR_CTAID.X ;\n        /*0030*/                   ULDC UR6, c[0x0][0x218] ;\n        /*0040*/                   LDC R5, c[0x0][RZ] ;\n        /*0050*/                   IMAD R0, R5, UR4, R4 ;\n        /*0060*/                   ISETP.GE.U32.AND P0, PT, R0, UR6, PT ;\n        /*0070*/               @P0 EXIT ;\n        /*0080*/                   LDC.64 R2, c[0x0][0x210] ;\n        /*0090*/                   HFMA2.MMA R7, -RZ, RZ, 0, 5.9604644775390625e-08 ;\n        /*00a0*/                   ULDC UR4, c[0x0][0xc] ;\n        /*00b0*/                   IMAD R5, R5, UR4, RZ ;\n        /*00c0*/                   ULDC.64 UR4, c[0x0][0x208] ;\n        /*00d0*/                   IMAD.WIDE.U32 R2, R4, 0x4, R2 ;\n.L_x_40:\n        /*00e0*/                   IADD3 R0, R5, R0, RZ ;\n        /*00f0*/                   ATOMG.E.ADD.STRONG.GPU PT, RZ, desc[UR4][R2.64], R7 ;\n        /*0100*/                   ISETP.GE.U32.AND P0, PT, R0, UR6, PT ;\n        /*0110*/              @!P0 BRA `(.L_x_40) ;\n        /*0120*/                   EXIT ;\n.L_x_41:\n        /*0130*/                   BRA `(.L_x_41);\n        /*0140*/                   NOP;\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_77:"
+        }
+      }
+    },
+    "_Z27BlockRangeAtomicOnSharedMemIdEvPT_i": {
+      "demangledName": "void BlockRangeAtomicOnSharedMem<double>(T1 *, int)",
+      "imix": {
+        "sm_80": {
+          "NOP": 10,
+          "ISETP": 5,
+          "BRA": 4,
+          "IMAD": 3,
+          "MOV": 2,
+          "S2R": 2,
+          "BSSY": 2,
+          "LDS": 2,
+          "BSYNC": 2,
+          "EXIT": 2,
+          "YIELD": 1,
+          "DADD": 1,
+          "ATOMS": 1,
+          "HFMA2": 1,
+          "ULDC": 1,
+          "STG": 1
+        },
+        "sm_86": {
+          "NOP": 10,
+          "ISETP": 5,
+          "BRA": 4,
+          "MOV": 3,
+          "IMAD": 3,
+          "S2R": 2,
+          "BSSY": 2,
+          "LDS": 2,
+          "BSYNC": 2,
+          "EXIT": 2,
+          "YIELD": 1,
+          "DADD": 1,
+          "ATOMS": 1,
+          "ULDC": 1,
+          "STG": 1
+        },
+        "sm_90": {
+          "NOP": 8,
+          "ULDC": 5,
+          "ISETP": 5,
+          "BRA": 5,
+          "UMOV": 4,
+          "LDC": 3,
+          "IMAD": 3,
+          "S2R": 2,
+          "BSSY": 2,
+          "S2UR": 2,
+          "UIADD3": 2,
+          "ULEA": 2,
+          "LEA": 2,
+          "LDS": 2,
+          "BSYNC": 2,
+          "EXIT": 2,
+          "DADD": 1,
+          "ATOMS": 1,
+          "IADD3": 1,
+          "BREAK": 1,
+          "STG": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z27BlockRangeAtomicOnSharedMemIdEvPT_i": "//--------------------- .text._Z27BlockRangeAtomicOnSharedMemIdEvPT_i --------------------------\n\t.section\t.text._Z27BlockRangeAtomicOnSharedMemIdEvPT_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=12\"\n\t.align\t128\n.text._Z27BlockRangeAtomicOnSharedMemIdEvPT_i:\n        .weak           _Z27BlockRangeAtomicOnSharedMemIdEvPT_i\n        .type           _Z27BlockRangeAtomicOnSharedMemIdEvPT_i,@function\n        .size           _Z27BlockRangeAtomicOnSharedMemIdEvPT_i,(.L_x_80 - _Z27BlockRangeAtomicOnSharedMemIdEvPT_i)\n        .other          _Z27BlockRangeAtomicOnSharedMemIdEvPT_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z27BlockRangeAtomicOnSharedMemIdEvPT_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R2, SR_CTAID.X ;\n        /*0020*/                   BSSY B0, `(.L_x_54) ;\n        /*0030*/                   S2R R9, SR_TID.X ;\n        /*0040*/                   IMAD R0, R2, c[0x0][0x0], R9 ;\n        /*0050*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x168], PT ;\n        /*0060*/               @P0 BRA `(.L_x_55) ;\n.L_x_58:\n        /*0070*/                   YIELD ;\n        /*0080*/                   BSSY B1, `(.L_x_56) ;\n.L_x_57:\n        /*0090*/                   LDS.64 R4, [R9.X8+`(_ZZ27BlockRangeAtomicOnSharedMemIdEvPT_iE9smem_data)] ;\n        /*00a0*/                   DADD R6, R4, 1 ;\n        /*00b0*/                   ATOMS.CAST.SPIN.64 R6, [R9.X8+`(_ZZ27BlockRangeAtomicOnSharedMemIdEvPT_iE9smem_data)], R4, R6 ;\n        /*00c0*/                   ISETP.EQ.U32.AND P0, PT, R6, 0x1, PT ;\n        /*00d0*/                   ISETP.EQ.U32.AND.EX P0, PT, R7, RZ, PT, P0 ;\n        /*00e0*/              @!P0 BRA `(.L_x_57) ;\n        /*00f0*/                   BSYNC B1 ;\n.L_x_56:\n        /*0100*/                   MOV R3, c[0x0][0x0] ;\n        /*0110*/                   IMAD R0, R3, c[0x0][0xc], R0 ;\n        /*0120*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x168], PT ;\n        /*0130*/              @!P0 BRA `(.L_x_58) ;\n.L_x_55:\n        /*0140*/                   BSYNC B0 ;\n.L_x_54:\n        /*0150*/                   ISETP.NE.AND P0, PT, R2, c[0x0][0xc], PT ;\n        /*0160*/               @P0 EXIT ;\n        /*0170*/                   LDS.64 R2, [R9.X8+`(_ZZ27BlockRangeAtomicOnSharedMemIdEvPT_iE9smem_data)] ;\n        /*0180*/                   HFMA2.MMA R4, -RZ, RZ, 0, 4.76837158203125e-07 ;\n        /*0190*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*01a0*/                   IMAD.WIDE.U32 R4, R9, R4, c[0x0][0x160] ;\n        /*01b0*/                   STG.E.64 [R4.64], R2 ;\n        /*01c0*/                   EXIT ;\n.L_x_59:\n        /*01d0*/                   BRA `(.L_x_59);\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n        /*0200*/                   NOP;\n        /*0210*/                   NOP;\n        /*0220*/                   NOP;\n        /*0230*/                   NOP;\n        /*0240*/                   NOP;\n        /*0250*/                   NOP;\n        /*0260*/                   NOP;\n        /*0270*/                   NOP;\n.L_x_80:"
+        },
+        "sm_86": {
+          "_Z27BlockRangeAtomicOnSharedMemIdEvPT_i": "//--------------------- .text._Z27BlockRangeAtomicOnSharedMemIdEvPT_i --------------------------\n\t.section\t.text._Z27BlockRangeAtomicOnSharedMemIdEvPT_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=12\"\n\t.align\t128\n.text._Z27BlockRangeAtomicOnSharedMemIdEvPT_i:\n        .weak           _Z27BlockRangeAtomicOnSharedMemIdEvPT_i\n        .type           _Z27BlockRangeAtomicOnSharedMemIdEvPT_i,@function\n        .size           _Z27BlockRangeAtomicOnSharedMemIdEvPT_i,(.L_x_80 - _Z27BlockRangeAtomicOnSharedMemIdEvPT_i)\n        .other          _Z27BlockRangeAtomicOnSharedMemIdEvPT_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z27BlockRangeAtomicOnSharedMemIdEvPT_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R2, SR_CTAID.X ;\n        /*0020*/                   BSSY B0, `(.L_x_54) ;\n        /*0030*/                   S2R R9, SR_TID.X ;\n        /*0040*/                   IMAD R0, R2, c[0x0][0x0], R9 ;\n        /*0050*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x168], PT ;\n        /*0060*/               @P0 BRA `(.L_x_55) ;\n.L_x_58:\n        /*0070*/                   YIELD ;\n        /*0080*/                   BSSY B1, `(.L_x_56) ;\n.L_x_57:\n        /*0090*/                   LDS.64 R4, [R9.X8+`(_ZZ27BlockRangeAtomicOnSharedMemIdEvPT_iE9smem_data)] ;\n        /*00a0*/                   DADD R6, R4, 1 ;\n        /*00b0*/                   ATOMS.CAST.SPIN.64 R6, [R9.X8+`(_ZZ27BlockRangeAtomicOnSharedMemIdEvPT_iE9smem_data)], R4, R6 ;\n        /*00c0*/                   ISETP.EQ.U32.AND P0, PT, R6, 0x1, PT ;\n        /*00d0*/                   ISETP.EQ.U32.AND.EX P0, PT, R7, RZ, PT, P0 ;\n        /*00e0*/              @!P0 BRA `(.L_x_57) ;\n        /*00f0*/                   BSYNC B1 ;\n.L_x_56:\n        /*0100*/                   MOV R3, c[0x0][0x0] ;\n        /*0110*/                   IMAD R0, R3, c[0x0][0xc], R0 ;\n        /*0120*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x168], PT ;\n        /*0130*/              @!P0 BRA `(.L_x_58) ;\n.L_x_55:\n        /*0140*/                   BSYNC B0 ;\n.L_x_54:\n        /*0150*/                   ISETP.NE.AND P0, PT, R2, c[0x0][0xc], PT ;\n        /*0160*/               @P0 EXIT ;\n        /*0170*/                   LDS.64 R2, [R9.X8+`(_ZZ27BlockRangeAtomicOnSharedMemIdEvPT_iE9smem_data)] ;\n        /*0180*/                   MOV R4, 0x8 ;\n        /*0190*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*01a0*/                   IMAD.WIDE.U32 R4, R9, R4, c[0x0][0x160] ;\n        /*01b0*/                   STG.E.64 [R4.64], R2 ;\n        /*01c0*/                   EXIT ;\n.L_x_59:\n        /*01d0*/                   BRA `(.L_x_59);\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n        /*0200*/                   NOP;\n        /*0210*/                   NOP;\n        /*0220*/                   NOP;\n        /*0230*/                   NOP;\n        /*0240*/                   NOP;\n        /*0250*/                   NOP;\n        /*0260*/                   NOP;\n        /*0270*/                   NOP;\n.L_x_80:"
+        },
+        "sm_90": {
+          "_Z27BlockRangeAtomicOnSharedMemIdEvPT_i": "//--------------------- .text._Z27BlockRangeAtomicOnSharedMemIdEvPT_i --------------------------\n\t.section\t.text._Z27BlockRangeAtomicOnSharedMemIdEvPT_i,\"ax\",@progbits\n\t.align\t128\n.text._Z27BlockRangeAtomicOnSharedMemIdEvPT_i:\n        .weak           _Z27BlockRangeAtomicOnSharedMemIdEvPT_i\n        .type           _Z27BlockRangeAtomicOnSharedMemIdEvPT_i,@function\n        .size           _Z27BlockRangeAtomicOnSharedMemIdEvPT_i,(.L_x_80 - _Z27BlockRangeAtomicOnSharedMemIdEvPT_i)\n        .other          _Z27BlockRangeAtomicOnSharedMemIdEvPT_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z27BlockRangeAtomicOnSharedMemIdEvPT_i:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R2, SR_CTAID.X ;\n        /*0020*/                   ULDC UR7, c[0x0][0x0] ;\n        /*0030*/                   ULDC UR4, c[0x0][0x218] ;\n        /*0040*/                   ULDC UR8, c[0x0][0x218] ;\n        /*0050*/                   S2R R11, SR_TID.X ;\n        /*0060*/                   BSSY B0, `(.L_x_54) ;\n        /*0070*/                   IMAD R0, R2, UR7, R11 ;\n        /*0080*/                   ISETP.GE.U32.AND P0, PT, R0, UR4, PT ;\n        /*0090*/               @P0 BRA `(.L_x_55) ;\n        /*00a0*/                   S2UR UR6, SR_CgaCtaId ;\n        /*00b0*/                   UMOV UR4, `(_ZZ27BlockRangeAtomicOnSharedMemIdEvPT_iE9smem_data) ;\n        /*00c0*/                   UMOV UR5, 0x400 ;\n        /*00d0*/                   UIADD3 UR4, UR4, UR5, URZ ;\n        /*00e0*/                   LDC R9, c[0x0][0xc] ;\n        /*00f0*/                   ULEA UR4, UR6, UR4, 0x18 ;\n        /*0100*/                   LEA R3, R11, UR4, 0x3 ;\n        /*0110*/                   IMAD R9, R9, UR7, RZ ;\n.L_x_58:\n        /*0120*/                   LDS.64 R4, [R3] ;\n        /*0130*/                   BSSY B1, `(.L_x_56) ;\n        /*0140*/                   DADD R6, R4, 1 ;\n        /*0150*/                   ATOMS.CAST.SPIN.64 R6, [R3], R4, R6 ;\n        /*0160*/                   ISETP.EQ.U32.AND P0, PT, R6, 0x1, PT ;\n        /*0170*/                   ISETP.EQ.U32.AND.EX P0, PT, R7, RZ, PT, P0 ;\n        /*0180*/              @!P0 BRA `(.L_x_57) ;\n        /*0190*/                   IADD3 R0, R9, R0, RZ ;\n        /*01a0*/                   ISETP.GE.U32.AND P0, PT, R0, UR8, PT ;\n        /*01b0*/               @P0 BREAK B1 ;\n        /*01c0*/               @P0 BRA `(.L_x_55) ;\n.L_x_57:\n        /*01d0*/                   BSYNC B1 ;\n.L_x_56:\n        /*01e0*/                   BRA `(.L_x_58) ;\n.L_x_55:\n        /*01f0*/                   BSYNC B0 ;\n.L_x_54:\n        /*0200*/                   ULDC UR4, c[0x0][0xc] ;\n        /*0210*/                   ISETP.NE.AND P0, PT, R2, UR4, PT ;\n        /*0220*/               @P0 EXIT ;\n        /*0230*/                   S2UR UR6, SR_CgaCtaId ;\n        /*0240*/                   UMOV UR4, `(_ZZ27BlockRangeAtomicOnSharedMemIdEvPT_iE9smem_data) ;\n        /*0250*/                   UMOV UR5, 0x400 ;\n        /*0260*/                   UIADD3 UR4, UR4, UR5, URZ ;\n        /*0270*/                   LDC.64 R4, c[0x0][0x210] ;\n        /*0280*/                   ULEA UR4, UR6, UR4, 0x18 ;\n        /*0290*/                   LEA R2, R11.reuse, UR4, 0x3 ;\n        /*02a0*/                   ULDC.64 UR4, c[0x0][0x208] ;\n        /*02b0*/                   IMAD.WIDE.U32 R4, R11, 0x8, R4 ;\n        /*02c0*/                   LDS.64 R2, [R2] ;\n        /*02d0*/                   STG.E.64 desc[UR4][R4.64], R2 ;\n        /*02e0*/                   EXIT ;\n.L_x_59:\n        /*02f0*/                   BRA `(.L_x_59);\n        /*0300*/                   NOP;\n        /*0310*/                   NOP;\n        /*0320*/                   NOP;\n        /*0330*/                   NOP;\n        /*0340*/                   NOP;\n        /*0350*/                   NOP;\n        /*0360*/                   NOP;\n        /*0370*/                   NOP;\n.L_x_80:"
+        }
+      }
+    },
+    "_Z27BlockRangeAtomicOnSharedMemIfEvPT_i": {
+      "demangledName": "void BlockRangeAtomicOnSharedMem<float>(T1 *, int)",
+      "imix": {
+        "sm_80": {
+          "NOP": 11,
+          "ISETP": 4,
+          "BRA": 4,
+          "IMAD": 3,
+          "MOV": 2,
+          "S2R": 2,
+          "BSSY": 2,
+          "LDS": 2,
+          "BSYNC": 2,
+          "EXIT": 2,
+          "YIELD": 1,
+          "FADD": 1,
+          "ATOMS": 1,
+          "HFMA2": 1,
+          "ULDC": 1,
+          "STG": 1
+        },
+        "sm_86": {
+          "NOP": 11,
+          "ISETP": 4,
+          "BRA": 4,
+          "MOV": 3,
+          "IMAD": 3,
+          "S2R": 2,
+          "BSSY": 2,
+          "LDS": 2,
+          "BSYNC": 2,
+          "EXIT": 2,
+          "YIELD": 1,
+          "FADD": 1,
+          "ATOMS": 1,
+          "ULDC": 1,
+          "STG": 1
+        },
+        "sm_90": {
+          "NOP": 9,
+          "ULDC": 5,
+          "BRA": 5,
+          "ISETP": 4,
+          "UMOV": 4,
+          "LDC": 3,
+          "IMAD": 3,
+          "S2R": 2,
+          "BSSY": 2,
+          "S2UR": 2,
+          "UIADD3": 2,
+          "ULEA": 2,
+          "LEA": 2,
+          "LDS": 2,
+          "BSYNC": 2,
+          "EXIT": 2,
+          "FADD": 1,
+          "ATOMS": 1,
+          "IADD3": 1,
+          "BREAK": 1,
+          "STG": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z27BlockRangeAtomicOnSharedMemIfEvPT_i": "//--------------------- .text._Z27BlockRangeAtomicOnSharedMemIfEvPT_i --------------------------\n\t.section\t.text._Z27BlockRangeAtomicOnSharedMemIfEvPT_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=10\"\n\t.align\t128\n.text._Z27BlockRangeAtomicOnSharedMemIfEvPT_i:\n        .weak           _Z27BlockRangeAtomicOnSharedMemIfEvPT_i\n        .type           _Z27BlockRangeAtomicOnSharedMemIfEvPT_i,@function\n        .size           _Z27BlockRangeAtomicOnSharedMemIfEvPT_i,(.L_x_68 - _Z27BlockRangeAtomicOnSharedMemIfEvPT_i)\n        .other          _Z27BlockRangeAtomicOnSharedMemIfEvPT_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z27BlockRangeAtomicOnSharedMemIfEvPT_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R2, SR_CTAID.X ;\n        /*0020*/                   BSSY B0, `(.L_x_12) ;\n        /*0030*/                   S2R R7, SR_TID.X ;\n        /*0040*/                   IMAD R0, R2, c[0x0][0x0], R7 ;\n        /*0050*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x168], PT ;\n        /*0060*/               @P0 BRA `(.L_x_13) ;\n.L_x_16:\n        /*0070*/                   YIELD ;\n        /*0080*/                   BSSY B1, `(.L_x_14) ;\n.L_x_15:\n        /*0090*/                   LDS R4, [R7.X4+`(_ZZ27BlockRangeAtomicOnSharedMemIfEvPT_iE9smem_data)] ;\n        /*00a0*/                   FADD R5, R4, 1 ;\n        /*00b0*/                   ATOMS.CAST.SPIN R5, [R7.X4+`(_ZZ27BlockRangeAtomicOnSharedMemIfEvPT_iE9smem_data)], R4, R5 ;\n        /*00c0*/                   ISETP.EQ.U32.AND P0, PT, R5, 0x1, PT ;\n        /*00d0*/              @!P0 BRA `(.L_x_15) ;\n        /*00e0*/                   BSYNC B1 ;\n.L_x_14:\n        /*00f0*/                   MOV R3, c[0x0][0x0] ;\n        /*0100*/                   IMAD R0, R3, c[0x0][0xc], R0 ;\n        /*0110*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x168], PT ;\n        /*0120*/              @!P0 BRA `(.L_x_16) ;\n.L_x_13:\n        /*0130*/                   BSYNC B0 ;\n.L_x_12:\n        /*0140*/                   ISETP.NE.AND P0, PT, R2, c[0x0][0xc], PT ;\n        /*0150*/               @P0 EXIT ;\n        /*0160*/                   LDS R5, [R7.X4+`(_ZZ27BlockRangeAtomicOnSharedMemIfEvPT_iE9smem_data)] ;\n        /*0170*/                   HFMA2.MMA R2, -RZ, RZ, 0, 2.384185791015625e-07 ;\n        /*0180*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0190*/                   IMAD.WIDE.U32 R2, R7, R2, c[0x0][0x160] ;\n        /*01a0*/                   STG.E [R2.64], R5 ;\n        /*01b0*/                   EXIT ;\n.L_x_17:\n        /*01c0*/                   BRA `(.L_x_17);\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n        /*0200*/                   NOP;\n        /*0210*/                   NOP;\n        /*0220*/                   NOP;\n        /*0230*/                   NOP;\n        /*0240*/                   NOP;\n        /*0250*/                   NOP;\n        /*0260*/                   NOP;\n        /*0270*/                   NOP;\n.L_x_68:"
+        },
+        "sm_86": {
+          "_Z27BlockRangeAtomicOnSharedMemIfEvPT_i": "//--------------------- .text._Z27BlockRangeAtomicOnSharedMemIfEvPT_i --------------------------\n\t.section\t.text._Z27BlockRangeAtomicOnSharedMemIfEvPT_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=10\"\n\t.align\t128\n.text._Z27BlockRangeAtomicOnSharedMemIfEvPT_i:\n        .weak           _Z27BlockRangeAtomicOnSharedMemIfEvPT_i\n        .type           _Z27BlockRangeAtomicOnSharedMemIfEvPT_i,@function\n        .size           _Z27BlockRangeAtomicOnSharedMemIfEvPT_i,(.L_x_68 - _Z27BlockRangeAtomicOnSharedMemIfEvPT_i)\n        .other          _Z27BlockRangeAtomicOnSharedMemIfEvPT_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z27BlockRangeAtomicOnSharedMemIfEvPT_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R2, SR_CTAID.X ;\n        /*0020*/                   BSSY B0, `(.L_x_12) ;\n        /*0030*/                   S2R R7, SR_TID.X ;\n        /*0040*/                   IMAD R0, R2, c[0x0][0x0], R7 ;\n        /*0050*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x168], PT ;\n        /*0060*/               @P0 BRA `(.L_x_13) ;\n.L_x_16:\n        /*0070*/                   YIELD ;\n        /*0080*/                   BSSY B1, `(.L_x_14) ;\n.L_x_15:\n        /*0090*/                   LDS R4, [R7.X4+`(_ZZ27BlockRangeAtomicOnSharedMemIfEvPT_iE9smem_data)] ;\n        /*00a0*/                   FADD R5, R4, 1 ;\n        /*00b0*/                   ATOMS.CAST.SPIN R5, [R7.X4+`(_ZZ27BlockRangeAtomicOnSharedMemIfEvPT_iE9smem_data)], R4, R5 ;\n        /*00c0*/                   ISETP.EQ.U32.AND P0, PT, R5, 0x1, PT ;\n        /*00d0*/              @!P0 BRA `(.L_x_15) ;\n        /*00e0*/                   BSYNC B1 ;\n.L_x_14:\n        /*00f0*/                   MOV R3, c[0x0][0x0] ;\n        /*0100*/                   IMAD R0, R3, c[0x0][0xc], R0 ;\n        /*0110*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x168], PT ;\n        /*0120*/              @!P0 BRA `(.L_x_16) ;\n.L_x_13:\n        /*0130*/                   BSYNC B0 ;\n.L_x_12:\n        /*0140*/                   ISETP.NE.AND P0, PT, R2, c[0x0][0xc], PT ;\n        /*0150*/               @P0 EXIT ;\n        /*0160*/                   LDS R5, [R7.X4+`(_ZZ27BlockRangeAtomicOnSharedMemIfEvPT_iE9smem_data)] ;\n        /*0170*/                   MOV R2, 0x4 ;\n        /*0180*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0190*/                   IMAD.WIDE.U32 R2, R7, R2, c[0x0][0x160] ;\n        /*01a0*/                   STG.E [R2.64], R5 ;\n        /*01b0*/                   EXIT ;\n.L_x_17:\n        /*01c0*/                   BRA `(.L_x_17);\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n        /*0200*/                   NOP;\n        /*0210*/                   NOP;\n        /*0220*/                   NOP;\n        /*0230*/                   NOP;\n        /*0240*/                   NOP;\n        /*0250*/                   NOP;\n        /*0260*/                   NOP;\n        /*0270*/                   NOP;\n.L_x_68:"
+        },
+        "sm_90": {
+          "_Z27BlockRangeAtomicOnSharedMemIfEvPT_i": "//--------------------- .text._Z27BlockRangeAtomicOnSharedMemIfEvPT_i --------------------------\n\t.section\t.text._Z27BlockRangeAtomicOnSharedMemIfEvPT_i,\"ax\",@progbits\n\t.align\t128\n.text._Z27BlockRangeAtomicOnSharedMemIfEvPT_i:\n        .weak           _Z27BlockRangeAtomicOnSharedMemIfEvPT_i\n        .type           _Z27BlockRangeAtomicOnSharedMemIfEvPT_i,@function\n        .size           _Z27BlockRangeAtomicOnSharedMemIfEvPT_i,(.L_x_68 - _Z27BlockRangeAtomicOnSharedMemIfEvPT_i)\n        .other          _Z27BlockRangeAtomicOnSharedMemIfEvPT_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z27BlockRangeAtomicOnSharedMemIfEvPT_i:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R4, SR_CTAID.X ;\n        /*0020*/                   ULDC UR7, c[0x0][0x0] ;\n        /*0030*/                   ULDC UR4, c[0x0][0x218] ;\n        /*0040*/                   ULDC UR8, c[0x0][0x218] ;\n        /*0050*/                   S2R R7, SR_TID.X ;\n        /*0060*/                   BSSY B0, `(.L_x_12) ;\n        /*0070*/                   IMAD R0, R4, UR7, R7 ;\n        /*0080*/                   ISETP.GE.U32.AND P0, PT, R0, UR4, PT ;\n        /*0090*/               @P0 BRA `(.L_x_13) ;\n        /*00a0*/                   S2UR UR6, SR_CgaCtaId ;\n        /*00b0*/                   UMOV UR4, `(_ZZ27BlockRangeAtomicOnSharedMemIfEvPT_iE9smem_data) ;\n        /*00c0*/                   UMOV UR5, 0x400 ;\n        /*00d0*/                   UIADD3 UR4, UR4, UR5, URZ ;\n        /*00e0*/                   LDC R3, c[0x0][0xc] ;\n        /*00f0*/                   ULEA UR4, UR6, UR4, 0x18 ;\n        /*0100*/                   LEA R2, R7, UR4, 0x2 ;\n        /*0110*/                   IMAD R3, R3, UR7, RZ ;\n.L_x_16:\n        /*0120*/                   LDS R8, [R2] ;\n        /*0130*/                   BSSY B1, `(.L_x_14) ;\n        /*0140*/                   FADD R9, R8, 1 ;\n        /*0150*/                   ATOMS.CAST.SPIN R9, [R2], R8, R9 ;\n        /*0160*/                   ISETP.EQ.U32.AND P0, PT, R9, 0x1, PT ;\n        /*0170*/              @!P0 BRA `(.L_x_15) ;\n        /*0180*/                   IADD3 R0, R3, R0, RZ ;\n        /*0190*/                   ISETP.GE.U32.AND P0, PT, R0, UR8, PT ;\n        /*01a0*/               @P0 BREAK B1 ;\n        /*01b0*/               @P0 BRA `(.L_x_13) ;\n.L_x_15:\n        /*01c0*/                   BSYNC B1 ;\n.L_x_14:\n        /*01d0*/                   BRA `(.L_x_16) ;\n.L_x_13:\n        /*01e0*/                   BSYNC B0 ;\n.L_x_12:\n        /*01f0*/                   ULDC UR4, c[0x0][0xc] ;\n        /*0200*/                   ISETP.NE.AND P0, PT, R4, UR4, PT ;\n        /*0210*/               @P0 EXIT ;\n        /*0220*/                   S2UR UR6, SR_CgaCtaId ;\n        /*0230*/                   UMOV UR4, `(_ZZ27BlockRangeAtomicOnSharedMemIfEvPT_iE9smem_data) ;\n        /*0240*/                   UMOV UR5, 0x400 ;\n        /*0250*/                   UIADD3 UR4, UR4, UR5, URZ ;\n        /*0260*/                   LDC.64 R2, c[0x0][0x210] ;\n        /*0270*/                   ULEA UR4, UR6, UR4, 0x18 ;\n        /*0280*/                   LEA R5, R7.reuse, UR4, 0x2 ;\n        /*0290*/                   ULDC.64 UR4, c[0x0][0x208] ;\n        /*02a0*/                   IMAD.WIDE.U32 R2, R7, 0x4, R2 ;\n        /*02b0*/                   LDS R5, [R5] ;\n        /*02c0*/                   STG.E desc[UR4][R2.64], R5 ;\n        /*02d0*/                   EXIT ;\n.L_x_17:\n        /*02e0*/                   BRA `(.L_x_17);\n        /*02f0*/                   NOP;\n        /*0300*/                   NOP;\n        /*0310*/                   NOP;\n        /*0320*/                   NOP;\n        /*0330*/                   NOP;\n        /*0340*/                   NOP;\n        /*0350*/                   NOP;\n        /*0360*/                   NOP;\n        /*0370*/                   NOP;\n.L_x_68:"
+        }
+      }
+    },
+    "_Z27BlockRangeAtomicOnSharedMemIiEvPT_i": {
+      "demangledName": "void BlockRangeAtomicOnSharedMem<int>(T1 *, int)",
+      "imix": {
+        "sm_80": {
+          "NOP": 9,
+          "ISETP": 3,
+          "IMAD": 3,
+          "BRA": 3,
+          "MOV": 2,
+          "S2R": 2,
+          "EXIT": 2,
+          "BSSY": 1,
+          "YIELD": 1,
+          "ATOMS": 1,
+          "BSYNC": 1,
+          "LDS": 1,
+          "HFMA2": 1,
+          "ULDC": 1,
+          "STG": 1
+        },
+        "sm_86": {
+          "NOP": 9,
+          "MOV": 3,
+          "ISETP": 3,
+          "IMAD": 3,
+          "BRA": 3,
+          "S2R": 2,
+          "EXIT": 2,
+          "BSSY": 1,
+          "YIELD": 1,
+          "ATOMS": 1,
+          "BSYNC": 1,
+          "LDS": 1,
+          "ULDC": 1,
+          "STG": 1
+        },
+        "sm_90": {
+          "NOP": 10,
+          "ULDC": 4,
+          "UMOV": 4,
+          "LDC": 3,
+          "IMAD": 3,
+          "ISETP": 3,
+          "BRA": 3,
+          "S2R": 2,
+          "S2UR": 2,
+          "UIADD3": 2,
+          "ULEA": 2,
+          "LEA": 2,
+          "EXIT": 2,
+          "BSSY": 1,
+          "IADD3": 1,
+          "ATOMS": 1,
+          "BSYNC": 1,
+          "LDS": 1,
+          "STG": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z27BlockRangeAtomicOnSharedMemIiEvPT_i": "//--------------------- .text._Z27BlockRangeAtomicOnSharedMemIiEvPT_i --------------------------\n\t.section\t.text._Z27BlockRangeAtomicOnSharedMemIiEvPT_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=10\"\n\t.align\t128\n.text._Z27BlockRangeAtomicOnSharedMemIiEvPT_i:\n        .weak           _Z27BlockRangeAtomicOnSharedMemIiEvPT_i\n        .type           _Z27BlockRangeAtomicOnSharedMemIiEvPT_i,@function\n        .size           _Z27BlockRangeAtomicOnSharedMemIiEvPT_i,(.L_x_74 - _Z27BlockRangeAtomicOnSharedMemIiEvPT_i)\n        .other          _Z27BlockRangeAtomicOnSharedMemIiEvPT_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z27BlockRangeAtomicOnSharedMemIiEvPT_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R2, SR_CTAID.X ;\n        /*0020*/                   BSSY B0, `(.L_x_32) ;\n        /*0030*/                   S2R R7, SR_TID.X ;\n        /*0040*/                   ISETP.NE.AND P0, PT, R2.reuse, c[0x0][0xc], PT ;\n        /*0050*/                   IMAD R0, R2, c[0x0][0x0], R7 ;\n        /*0060*/                   ISETP.GE.U32.AND P1, PT, R0, c[0x0][0x168], PT ;\n        /*0070*/               @P1 BRA `(.L_x_33) ;\n        /*0080*/                   MOV R3, c[0x0][0x0] ;\n.L_x_34:\n        /*0090*/                   IMAD R0, R3, c[0x0][0xc], R0 ;\n        /*00a0*/                   YIELD ;\n        /*00b0*/                   ATOMS.POPC.INC.32 RZ, [R7.X4+URZ+`(_ZZ27BlockRangeAtomicOnSharedMemIiEvPT_iE9smem_data)] ;\n        /*00c0*/                   ISETP.GE.U32.AND P1, PT, R0, c[0x0][0x168], PT ;\n        /*00d0*/              @!P1 BRA `(.L_x_34) ;\n.L_x_33:\n        /*00e0*/                   BSYNC B0 ;\n.L_x_32:\n        /*00f0*/               @P0 EXIT ;\n        /*0100*/                   LDS R5, [R7.X4+`(_ZZ27BlockRangeAtomicOnSharedMemIiEvPT_iE9smem_data)] ;\n        /*0110*/                   HFMA2.MMA R2, -RZ, RZ, 0, 2.384185791015625e-07 ;\n        /*0120*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0130*/                   IMAD.WIDE.U32 R2, R7, R2, c[0x0][0x160] ;\n        /*0140*/                   STG.E [R2.64], R5 ;\n        /*0150*/                   EXIT ;\n.L_x_35:\n        /*0160*/                   BRA `(.L_x_35);\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_74:"
+        },
+        "sm_86": {
+          "_Z27BlockRangeAtomicOnSharedMemIiEvPT_i": "//--------------------- .text._Z27BlockRangeAtomicOnSharedMemIiEvPT_i --------------------------\n\t.section\t.text._Z27BlockRangeAtomicOnSharedMemIiEvPT_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=10\"\n\t.align\t128\n.text._Z27BlockRangeAtomicOnSharedMemIiEvPT_i:\n        .weak           _Z27BlockRangeAtomicOnSharedMemIiEvPT_i\n        .type           _Z27BlockRangeAtomicOnSharedMemIiEvPT_i,@function\n        .size           _Z27BlockRangeAtomicOnSharedMemIiEvPT_i,(.L_x_74 - _Z27BlockRangeAtomicOnSharedMemIiEvPT_i)\n        .other          _Z27BlockRangeAtomicOnSharedMemIiEvPT_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z27BlockRangeAtomicOnSharedMemIiEvPT_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R2, SR_CTAID.X ;\n        /*0020*/                   BSSY B0, `(.L_x_32) ;\n        /*0030*/                   S2R R7, SR_TID.X ;\n        /*0040*/                   ISETP.NE.AND P0, PT, R2.reuse, c[0x0][0xc], PT ;\n        /*0050*/                   IMAD R0, R2, c[0x0][0x0], R7 ;\n        /*0060*/                   ISETP.GE.U32.AND P1, PT, R0, c[0x0][0x168], PT ;\n        /*0070*/               @P1 BRA `(.L_x_33) ;\n        /*0080*/                   MOV R3, c[0x0][0x0] ;\n.L_x_34:\n        /*0090*/                   IMAD R0, R3, c[0x0][0xc], R0 ;\n        /*00a0*/                   YIELD ;\n        /*00b0*/                   ATOMS.POPC.INC.32 RZ, [R7.X4+URZ+`(_ZZ27BlockRangeAtomicOnSharedMemIiEvPT_iE9smem_data)] ;\n        /*00c0*/                   ISETP.GE.U32.AND P1, PT, R0, c[0x0][0x168], PT ;\n        /*00d0*/              @!P1 BRA `(.L_x_34) ;\n.L_x_33:\n        /*00e0*/                   BSYNC B0 ;\n.L_x_32:\n        /*00f0*/               @P0 EXIT ;\n        /*0100*/                   LDS R5, [R7.X4+`(_ZZ27BlockRangeAtomicOnSharedMemIiEvPT_iE9smem_data)] ;\n        /*0110*/                   MOV R2, 0x4 ;\n        /*0120*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0130*/                   IMAD.WIDE.U32 R2, R7, R2, c[0x0][0x160] ;\n        /*0140*/                   STG.E [R2.64], R5 ;\n        /*0150*/                   EXIT ;\n.L_x_35:\n        /*0160*/                   BRA `(.L_x_35);\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_74:"
+        },
+        "sm_90": {
+          "_Z27BlockRangeAtomicOnSharedMemIiEvPT_i": "//--------------------- .text._Z27BlockRangeAtomicOnSharedMemIiEvPT_i --------------------------\n\t.section\t.text._Z27BlockRangeAtomicOnSharedMemIiEvPT_i,\"ax\",@progbits\n\t.align\t128\n.text._Z27BlockRangeAtomicOnSharedMemIiEvPT_i:\n        .weak           _Z27BlockRangeAtomicOnSharedMemIiEvPT_i\n        .type           _Z27BlockRangeAtomicOnSharedMemIiEvPT_i,@function\n        .size           _Z27BlockRangeAtomicOnSharedMemIiEvPT_i,(.L_x_74 - _Z27BlockRangeAtomicOnSharedMemIiEvPT_i)\n        .other          _Z27BlockRangeAtomicOnSharedMemIiEvPT_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z27BlockRangeAtomicOnSharedMemIiEvPT_i:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R4, SR_CTAID.X ;\n        /*0020*/                   ULDC UR7, c[0x0][0x0] ;\n        /*0030*/                   ULDC UR8, c[0x0][0x218] ;\n        /*0040*/                   BSSY B0, `(.L_x_32) ;\n        /*0050*/                   S2R R7, SR_TID.X ;\n        /*0060*/                   IMAD R0, R4, UR7, R7 ;\n        /*0070*/                   ISETP.GE.U32.AND P0, PT, R0, UR8, PT ;\n        /*0080*/               @P0 BRA `(.L_x_33) ;\n        /*0090*/                   S2UR UR6, SR_CgaCtaId ;\n        /*00a0*/                   UMOV UR4, `(_ZZ27BlockRangeAtomicOnSharedMemIiEvPT_iE9smem_data) ;\n        /*00b0*/                   UMOV UR5, 0x400 ;\n        /*00c0*/                   UIADD3 UR4, UR4, UR5, URZ ;\n        /*00d0*/                   LDC R3, c[0x0][0xc] ;\n        /*00e0*/                   ULEA UR4, UR6, UR4, 0x18 ;\n        /*00f0*/                   LEA R2, R7, UR4, 0x2 ;\n        /*0100*/                   IMAD R3, R3, UR7, RZ ;\n.L_x_34:\n        /*0110*/                   IADD3 R0, R3, R0, RZ ;\n        /*0120*/                   ATOMS.POPC.INC.32 RZ, [R2+URZ] ;\n        /*0130*/                   ISETP.GE.U32.AND P0, PT, R0, UR8, PT ;\n        /*0140*/              @!P0 BRA `(.L_x_34) ;\n.L_x_33:\n        /*0150*/                   BSYNC B0 ;\n.L_x_32:\n        /*0160*/                   ULDC UR4, c[0x0][0xc] ;\n        /*0170*/                   ISETP.NE.AND P0, PT, R4, UR4, PT ;\n        /*0180*/               @P0 EXIT ;\n        /*0190*/                   S2UR UR6, SR_CgaCtaId ;\n        /*01a0*/                   UMOV UR4, `(_ZZ27BlockRangeAtomicOnSharedMemIiEvPT_iE9smem_data) ;\n        /*01b0*/                   UMOV UR5, 0x400 ;\n        /*01c0*/                   UIADD3 UR4, UR4, UR5, URZ ;\n        /*01d0*/                   LDC.64 R2, c[0x0][0x210] ;\n        /*01e0*/                   ULEA UR4, UR6, UR4, 0x18 ;\n        /*01f0*/                   LEA R5, R7.reuse, UR4, 0x2 ;\n        /*0200*/                   ULDC.64 UR4, c[0x0][0x208] ;\n        /*0210*/                   IMAD.WIDE.U32 R2, R7, 0x4, R2 ;\n        /*0220*/                   LDS R5, [R5] ;\n        /*0230*/                   STG.E desc[UR4][R2.64], R5 ;\n        /*0240*/                   EXIT ;\n.L_x_35:\n        /*0250*/                   BRA `(.L_x_35);\n        /*0260*/                   NOP;\n        /*0270*/                   NOP;\n        /*0280*/                   NOP;\n        /*0290*/                   NOP;\n        /*02a0*/                   NOP;\n        /*02b0*/                   NOP;\n        /*02c0*/                   NOP;\n        /*02d0*/                   NOP;\n        /*02e0*/                   NOP;\n        /*02f0*/                   NOP;\n.L_x_74:"
+        }
+      }
+    },
+    "_Z28SingleRangeAtomicOnGlobalMemIdEvPT_ii": {
+      "demangledName": "void SingleRangeAtomicOnGlobalMem<double>(T1 *, int, int)",
+      "imix": {
+        "sm_80": {
+          "NOP": 12,
+          "IMAD": 5,
+          "MOV": 3,
+          "S2R": 2,
+          "ISETP": 2,
+          "EXIT": 2,
+          "BRA": 2,
+          "HFMA2": 1,
+          "ULDC": 1,
+          "YIELD": 1,
+          "ATOMG": 1
+        },
+        "sm_86": {
+          "NOP": 12,
+          "IMAD": 5,
+          "MOV": 4,
+          "S2R": 2,
+          "ISETP": 2,
+          "EXIT": 2,
+          "BRA": 2,
+          "ULDC": 1,
+          "YIELD": 1,
+          "ATOMG": 1
+        },
+        "sm_90": {
+          "NOP": 10,
+          "LDC": 4,
+          "ULDC": 3,
+          "IMAD": 3,
+          "ISETP": 2,
+          "EXIT": 2,
+          "BRA": 2,
+          "S2R": 1,
+          "S2UR": 1,
+          "HFMA2": 1,
+          "MOV": 1,
+          "IADD3": 1,
+          "ATOMG": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z28SingleRangeAtomicOnGlobalMemIdEvPT_ii": "//--------------------- .text._Z28SingleRangeAtomicOnGlobalMemIdEvPT_ii --------------------------\n\t.section\t.text._Z28SingleRangeAtomicOnGlobalMemIdEvPT_ii,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=10\"\n\t.align\t128\n.text._Z28SingleRangeAtomicOnGlobalMemIdEvPT_ii:\n        .weak           _Z28SingleRangeAtomicOnGlobalMemIdEvPT_ii\n        .type           _Z28SingleRangeAtomicOnGlobalMemIdEvPT_ii,@function\n        .size           _Z28SingleRangeAtomicOnGlobalMemIdEvPT_ii,(.L_x_81 - _Z28SingleRangeAtomicOnGlobalMemIdEvPT_ii)\n        .other          _Z28SingleRangeAtomicOnGlobalMemIdEvPT_ii,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z28SingleRangeAtomicOnGlobalMemIdEvPT_ii:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R0, R0, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x16c], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   HFMA2.MMA R3, -RZ, RZ, 0, 4.76837158203125e-07 ;\n        /*0070*/                   MOV R2, c[0x0][0x168] ;\n        /*0080*/                   IMAD.MOV.U32 R7, RZ, RZ, c[0x0][0x0] ;\n        /*0090*/                   MOV R4, 0x0 ;\n        /*00a0*/                   IMAD.MOV.U32 R5, RZ, RZ, 0x3ff00000 ;\n        /*00b0*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*00c0*/                   IMAD.WIDE R2, R2, R3, c[0x0][0x160] ;\n.L_x_60:\n        /*00d0*/                   IMAD R0, R7, c[0x0][0xc], R0 ;\n        /*00e0*/                   YIELD ;\n        /*00f0*/                   ATOMG.E.ADD.F64.RN.STRONG.GPU PT, RZ, [R2.64], R4 ;\n        /*0100*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x16c], PT ;\n        /*0110*/              @!P0 BRA `(.L_x_60) ;\n        /*0120*/                   EXIT ;\n.L_x_61:\n        /*0130*/                   BRA `(.L_x_61);\n        /*0140*/                   NOP;\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_81:"
+        },
+        "sm_86": {
+          "_Z28SingleRangeAtomicOnGlobalMemIdEvPT_ii": "//--------------------- .text._Z28SingleRangeAtomicOnGlobalMemIdEvPT_ii --------------------------\n\t.section\t.text._Z28SingleRangeAtomicOnGlobalMemIdEvPT_ii,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=10\"\n\t.align\t128\n.text._Z28SingleRangeAtomicOnGlobalMemIdEvPT_ii:\n        .weak           _Z28SingleRangeAtomicOnGlobalMemIdEvPT_ii\n        .type           _Z28SingleRangeAtomicOnGlobalMemIdEvPT_ii,@function\n        .size           _Z28SingleRangeAtomicOnGlobalMemIdEvPT_ii,(.L_x_81 - _Z28SingleRangeAtomicOnGlobalMemIdEvPT_ii)\n        .other          _Z28SingleRangeAtomicOnGlobalMemIdEvPT_ii,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z28SingleRangeAtomicOnGlobalMemIdEvPT_ii:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R0, R0, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x16c], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   MOV R2, c[0x0][0x168] ;\n        /*0070*/                   IMAD.MOV.U32 R7, RZ, RZ, c[0x0][0x0] ;\n        /*0080*/                   MOV R3, 0x8 ;\n        /*0090*/                   IMAD.MOV.U32 R5, RZ, RZ, 0x3ff00000 ;\n        /*00a0*/                   MOV R4, 0x0 ;\n        /*00b0*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*00c0*/                   IMAD.WIDE R2, R2, R3, c[0x0][0x160] ;\n.L_x_60:\n        /*00d0*/                   IMAD R0, R7, c[0x0][0xc], R0 ;\n        /*00e0*/                   YIELD ;\n        /*00f0*/                   ATOMG.E.ADD.F64.RN.STRONG.GPU PT, RZ, [R2.64], R4 ;\n        /*0100*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x16c], PT ;\n        /*0110*/              @!P0 BRA `(.L_x_60) ;\n        /*0120*/                   EXIT ;\n.L_x_61:\n        /*0130*/                   BRA `(.L_x_61);\n        /*0140*/                   NOP;\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_81:"
+        },
+        "sm_90": {
+          "_Z28SingleRangeAtomicOnGlobalMemIdEvPT_ii": "//--------------------- .text._Z28SingleRangeAtomicOnGlobalMemIdEvPT_ii --------------------------\n\t.section\t.text._Z28SingleRangeAtomicOnGlobalMemIdEvPT_ii,\"ax\",@progbits\n\t.align\t128\n.text._Z28SingleRangeAtomicOnGlobalMemIdEvPT_ii:\n        .weak           _Z28SingleRangeAtomicOnGlobalMemIdEvPT_ii\n        .type           _Z28SingleRangeAtomicOnGlobalMemIdEvPT_ii,@function\n        .size           _Z28SingleRangeAtomicOnGlobalMemIdEvPT_ii,(.L_x_81 - _Z28SingleRangeAtomicOnGlobalMemIdEvPT_ii)\n        .other          _Z28SingleRangeAtomicOnGlobalMemIdEvPT_ii,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z28SingleRangeAtomicOnGlobalMemIdEvPT_ii:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_TID.X ;\n        /*0020*/                   S2UR UR4, SR_CTAID.X ;\n        /*0030*/                   ULDC UR6, c[0x0][0x21c] ;\n        /*0040*/                   LDC R7, c[0x0][RZ] ;\n        /*0050*/                   IMAD R0, R7, UR4, R0 ;\n        /*0060*/                   ISETP.GE.U32.AND P0, PT, R0, UR6, PT ;\n        /*0070*/               @P0 EXIT ;\n        /*0080*/                   LDC R5, c[0x0][0x218] ;\n        /*0090*/                   HFMA2.MMA R4, -RZ, RZ, 0, 0 ;\n        /*00a0*/                   ULDC UR4, c[0x0][0xc] ;\n        /*00b0*/                   IMAD R7, R7, UR4, RZ ;\n        /*00c0*/                   ULDC.64 UR4, c[0x0][0x208] ;\n        /*00d0*/                   LDC.64 R2, c[0x0][0x210] ;\n        /*00e0*/                   IMAD.WIDE R2, R5, 0x8, R2 ;\n        /*00f0*/                   MOV R5, 0x3ff00000 ;\n.L_x_60:\n        /*0100*/                   IADD3 R0, R7, R0, RZ ;\n        /*0110*/                   ATOMG.E.ADD.F64.RN.STRONG.GPU PT, RZ, desc[UR4][R2.64], R4 ;\n        /*0120*/                   ISETP.GE.U32.AND P0, PT, R0, UR6, PT ;\n        /*0130*/              @!P0 BRA `(.L_x_60) ;\n        /*0140*/                   EXIT ;\n.L_x_61:\n        /*0150*/                   BRA `(.L_x_61);\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_81:"
+        }
+      }
+    },
+    "_Z28SingleRangeAtomicOnGlobalMemIfEvPT_ii": {
+      "demangledName": "void SingleRangeAtomicOnGlobalMem<float>(T1 *, int, int)",
+      "imix": {
+        "sm_80": {
+          "NOP": 13,
+          "MOV": 4,
+          "IMAD": 3,
+          "S2R": 2,
+          "ISETP": 2,
+          "EXIT": 2,
+          "BRA": 2,
+          "HFMA2": 1,
+          "ULDC": 1,
+          "YIELD": 1,
+          "ATOMG": 1
+        },
+        "sm_86": {
+          "NOP": 13,
+          "MOV": 5,
+          "IMAD": 3,
+          "S2R": 2,
+          "ISETP": 2,
+          "EXIT": 2,
+          "BRA": 2,
+          "ULDC": 1,
+          "YIELD": 1,
+          "ATOMG": 1
+        },
+        "sm_90": {
+          "NOP": 11,
+          "LDC": 4,
+          "ULDC": 3,
+          "IMAD": 3,
+          "ISETP": 2,
+          "EXIT": 2,
+          "BRA": 2,
+          "S2R": 1,
+          "S2UR": 1,
+          "HFMA2": 1,
+          "IADD3": 1,
+          "ATOMG": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z28SingleRangeAtomicOnGlobalMemIfEvPT_ii": "//--------------------- .text._Z28SingleRangeAtomicOnGlobalMemIfEvPT_ii --------------------------\n\t.section\t.text._Z28SingleRangeAtomicOnGlobalMemIfEvPT_ii,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=10\"\n\t.align\t128\n.text._Z28SingleRangeAtomicOnGlobalMemIfEvPT_ii:\n        .weak           _Z28SingleRangeAtomicOnGlobalMemIfEvPT_ii\n        .type           _Z28SingleRangeAtomicOnGlobalMemIfEvPT_ii,@function\n        .size           _Z28SingleRangeAtomicOnGlobalMemIfEvPT_ii,(.L_x_69 - _Z28SingleRangeAtomicOnGlobalMemIfEvPT_ii)\n        .other          _Z28SingleRangeAtomicOnGlobalMemIfEvPT_ii,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z28SingleRangeAtomicOnGlobalMemIfEvPT_ii:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R0, R0, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x16c], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   HFMA2.MMA R3, -RZ, RZ, 0, 2.384185791015625e-07 ;\n        /*0070*/                   MOV R2, c[0x0][0x168] ;\n        /*0080*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0090*/                   MOV R5, 0x3f800000 ;\n        /*00a0*/                   MOV R7, c[0x0][0x0] ;\n        /*00b0*/                   IMAD.WIDE R2, R2, R3, c[0x0][0x160] ;\n.L_x_18:\n        /*00c0*/                   IMAD R0, R7, c[0x0][0xc], R0 ;\n        /*00d0*/                   YIELD ;\n        /*00e0*/                   ATOMG.E.ADD.F32.FTZ.RN.STRONG.GPU PT, RZ, [R2.64], R5 ;\n        /*00f0*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x16c], PT ;\n        /*0100*/              @!P0 BRA `(.L_x_18) ;\n        /*0110*/                   EXIT ;\n.L_x_19:\n        /*0120*/                   BRA `(.L_x_19);\n        /*0130*/                   NOP;\n        /*0140*/                   NOP;\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_69:"
+        },
+        "sm_86": {
+          "_Z28SingleRangeAtomicOnGlobalMemIfEvPT_ii": "//--------------------- .text._Z28SingleRangeAtomicOnGlobalMemIfEvPT_ii --------------------------\n\t.section\t.text._Z28SingleRangeAtomicOnGlobalMemIfEvPT_ii,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=10\"\n\t.align\t128\n.text._Z28SingleRangeAtomicOnGlobalMemIfEvPT_ii:\n        .weak           _Z28SingleRangeAtomicOnGlobalMemIfEvPT_ii\n        .type           _Z28SingleRangeAtomicOnGlobalMemIfEvPT_ii,@function\n        .size           _Z28SingleRangeAtomicOnGlobalMemIfEvPT_ii,(.L_x_69 - _Z28SingleRangeAtomicOnGlobalMemIfEvPT_ii)\n        .other          _Z28SingleRangeAtomicOnGlobalMemIfEvPT_ii,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z28SingleRangeAtomicOnGlobalMemIfEvPT_ii:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R0, R0, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x16c], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   MOV R2, c[0x0][0x168] ;\n        /*0070*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0080*/                   MOV R3, 0x4 ;\n        /*0090*/                   MOV R5, 0x3f800000 ;\n        /*00a0*/                   MOV R7, c[0x0][0x0] ;\n        /*00b0*/                   IMAD.WIDE R2, R2, R3, c[0x0][0x160] ;\n.L_x_18:\n        /*00c0*/                   IMAD R0, R7, c[0x0][0xc], R0 ;\n        /*00d0*/                   YIELD ;\n        /*00e0*/                   ATOMG.E.ADD.F32.FTZ.RN.STRONG.GPU PT, RZ, [R2.64], R5 ;\n        /*00f0*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x16c], PT ;\n        /*0100*/              @!P0 BRA `(.L_x_18) ;\n        /*0110*/                   EXIT ;\n.L_x_19:\n        /*0120*/                   BRA `(.L_x_19);\n        /*0130*/                   NOP;\n        /*0140*/                   NOP;\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_69:"
+        },
+        "sm_90": {
+          "_Z28SingleRangeAtomicOnGlobalMemIfEvPT_ii": "//--------------------- .text._Z28SingleRangeAtomicOnGlobalMemIfEvPT_ii --------------------------\n\t.section\t.text._Z28SingleRangeAtomicOnGlobalMemIfEvPT_ii,\"ax\",@progbits\n\t.align\t128\n.text._Z28SingleRangeAtomicOnGlobalMemIfEvPT_ii:\n        .weak           _Z28SingleRangeAtomicOnGlobalMemIfEvPT_ii\n        .type           _Z28SingleRangeAtomicOnGlobalMemIfEvPT_ii,@function\n        .size           _Z28SingleRangeAtomicOnGlobalMemIfEvPT_ii,(.L_x_69 - _Z28SingleRangeAtomicOnGlobalMemIfEvPT_ii)\n        .other          _Z28SingleRangeAtomicOnGlobalMemIfEvPT_ii,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z28SingleRangeAtomicOnGlobalMemIfEvPT_ii:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_TID.X ;\n        /*0020*/                   S2UR UR4, SR_CTAID.X ;\n        /*0030*/                   ULDC UR6, c[0x0][0x21c] ;\n        /*0040*/                   LDC R5, c[0x0][RZ] ;\n        /*0050*/                   IMAD R0, R5, UR4, R0 ;\n        /*0060*/                   ISETP.GE.U32.AND P0, PT, R0, UR6, PT ;\n        /*0070*/               @P0 EXIT ;\n        /*0080*/                   LDC R7, c[0x0][0x218] ;\n        /*0090*/                   ULDC UR4, c[0x0][0xc] ;\n        /*00a0*/                   IMAD R5, R5, UR4, RZ ;\n        /*00b0*/                   ULDC.64 UR4, c[0x0][0x208] ;\n        /*00c0*/                   LDC.64 R2, c[0x0][0x210] ;\n        /*00d0*/                   IMAD.WIDE R2, R7, 0x4, R2 ;\n        /*00e0*/                   HFMA2.MMA R7, -RZ, RZ, 1.875, 0 ;\n.L_x_18:\n        /*00f0*/                   IADD3 R0, R5, R0, RZ ;\n        /*0100*/                   ATOMG.E.ADD.F32.FTZ.RN.STRONG.GPU PT, RZ, desc[UR4][R2.64], R7 ;\n        /*0110*/                   ISETP.GE.U32.AND P0, PT, R0, UR6, PT ;\n        /*0120*/              @!P0 BRA `(.L_x_18) ;\n        /*0130*/                   EXIT ;\n.L_x_19:\n        /*0140*/                   BRA `(.L_x_19);\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_69:"
+        }
+      }
+    },
+    "_Z28SingleRangeAtomicOnGlobalMemIiEvPT_ii": {
+      "demangledName": "void SingleRangeAtomicOnGlobalMem<int>(T1 *, int, int)",
+      "imix": {
+        "sm_80": {
+          "NOP": 9,
+          "MOV": 3,
+          "S2R": 3,
+          "IMAD": 3,
+          "ISETP": 3,
+          "EXIT": 2,
+          "BRA": 2,
+          "HFMA2": 1,
+          "ULDC": 1,
+          "YIELD": 1,
+          "VOTEU": 1,
+          "UFLO": 1,
+          "POPC": 1,
+          "ATOMG": 1
+        },
+        "sm_86": {
+          "NOP": 9,
+          "MOV": 4,
+          "S2R": 3,
+          "IMAD": 3,
+          "ISETP": 3,
+          "EXIT": 2,
+          "BRA": 2,
+          "ULDC": 1,
+          "YIELD": 1,
+          "VOTEU": 1,
+          "UFLO": 1,
+          "POPC": 1,
+          "ATOMG": 1
+        },
+        "sm_90": {
+          "NOP": 15,
+          "LDC": 4,
+          "IMAD": 4,
+          "ULDC": 3,
+          "ISETP": 3,
+          "S2R": 2,
+          "EXIT": 2,
+          "BRA": 2,
+          "S2UR": 1,
+          "VOTEU": 1,
+          "UFLO": 1,
+          "POPC": 1,
+          "ATOMG": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z28SingleRangeAtomicOnGlobalMemIiEvPT_ii": "//--------------------- .text._Z28SingleRangeAtomicOnGlobalMemIiEvPT_ii --------------------------\n\t.section\t.text._Z28SingleRangeAtomicOnGlobalMemIiEvPT_ii,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=10\"\n\t.align\t128\n.text._Z28SingleRangeAtomicOnGlobalMemIiEvPT_ii:\n        .weak           _Z28SingleRangeAtomicOnGlobalMemIiEvPT_ii\n        .type           _Z28SingleRangeAtomicOnGlobalMemIiEvPT_ii,@function\n        .size           _Z28SingleRangeAtomicOnGlobalMemIiEvPT_ii,(.L_x_75 - _Z28SingleRangeAtomicOnGlobalMemIiEvPT_ii)\n        .other          _Z28SingleRangeAtomicOnGlobalMemIiEvPT_ii,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z28SingleRangeAtomicOnGlobalMemIiEvPT_ii:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R0, R0, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x16c], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   S2R R4, SR_LANEID ;\n        /*0070*/                   HFMA2.MMA R3, -RZ, RZ, 0, 2.384185791015625e-07 ;\n        /*0080*/                   MOV R2, c[0x0][0x168] ;\n        /*0090*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*00a0*/                   MOV R7, c[0x0][0x0] ;\n        /*00b0*/                   IMAD.WIDE R2, R2, R3, c[0x0][0x160] ;\n.L_x_36:\n        /*00c0*/                   YIELD ;\n        /*00d0*/                   VOTEU.ANY UR6, UPT, PT ;\n        /*00e0*/                   UFLO.U32 UR7, UR6 ;\n        /*00f0*/                   POPC R5, UR6 ;\n        /*0100*/                   ISETP.EQ.U32.AND P0, PT, R4, UR7, PT ;\n        /*0110*/                   IMAD R0, R7, c[0x0][0xc], R0 ;\n        /*0120*/               @P0 ATOMG.E.ADD.STRONG.GPU PT, RZ, [R2.64], R5 ;\n        /*0130*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x16c], PT ;\n        /*0140*/              @!P0 BRA `(.L_x_36) ;\n        /*0150*/                   EXIT ;\n.L_x_37:\n        /*0160*/                   BRA `(.L_x_37);\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_75:"
+        },
+        "sm_86": {
+          "_Z28SingleRangeAtomicOnGlobalMemIiEvPT_ii": "//--------------------- .text._Z28SingleRangeAtomicOnGlobalMemIiEvPT_ii --------------------------\n\t.section\t.text._Z28SingleRangeAtomicOnGlobalMemIiEvPT_ii,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=10\"\n\t.align\t128\n.text._Z28SingleRangeAtomicOnGlobalMemIiEvPT_ii:\n        .weak           _Z28SingleRangeAtomicOnGlobalMemIiEvPT_ii\n        .type           _Z28SingleRangeAtomicOnGlobalMemIiEvPT_ii,@function\n        .size           _Z28SingleRangeAtomicOnGlobalMemIiEvPT_ii,(.L_x_75 - _Z28SingleRangeAtomicOnGlobalMemIiEvPT_ii)\n        .other          _Z28SingleRangeAtomicOnGlobalMemIiEvPT_ii,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z28SingleRangeAtomicOnGlobalMemIiEvPT_ii:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R0, R0, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x16c], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   S2R R4, SR_LANEID ;\n        /*0070*/                   MOV R2, c[0x0][0x168] ;\n        /*0080*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0090*/                   MOV R3, 0x4 ;\n        /*00a0*/                   MOV R7, c[0x0][0x0] ;\n        /*00b0*/                   IMAD.WIDE R2, R2, R3, c[0x0][0x160] ;\n.L_x_36:\n        /*00c0*/                   YIELD ;\n        /*00d0*/                   VOTEU.ANY UR6, UPT, PT ;\n        /*00e0*/                   UFLO.U32 UR7, UR6 ;\n        /*00f0*/                   POPC R5, UR6 ;\n        /*0100*/                   ISETP.EQ.U32.AND P0, PT, R4, UR7, PT ;\n        /*0110*/                   IMAD R0, R7, c[0x0][0xc], R0 ;\n        /*0120*/               @P0 ATOMG.E.ADD.STRONG.GPU PT, RZ, [R2.64], R5 ;\n        /*0130*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x16c], PT ;\n        /*0140*/              @!P0 BRA `(.L_x_36) ;\n        /*0150*/                   EXIT ;\n.L_x_37:\n        /*0160*/                   BRA `(.L_x_37);\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_75:"
+        },
+        "sm_90": {
+          "_Z28SingleRangeAtomicOnGlobalMemIiEvPT_ii": "//--------------------- .text._Z28SingleRangeAtomicOnGlobalMemIiEvPT_ii --------------------------\n\t.section\t.text._Z28SingleRangeAtomicOnGlobalMemIiEvPT_ii,\"ax\",@progbits\n\t.align\t128\n.text._Z28SingleRangeAtomicOnGlobalMemIiEvPT_ii:\n        .weak           _Z28SingleRangeAtomicOnGlobalMemIiEvPT_ii\n        .type           _Z28SingleRangeAtomicOnGlobalMemIiEvPT_ii,@function\n        .size           _Z28SingleRangeAtomicOnGlobalMemIiEvPT_ii,(.L_x_75 - _Z28SingleRangeAtomicOnGlobalMemIiEvPT_ii)\n        .other          _Z28SingleRangeAtomicOnGlobalMemIiEvPT_ii,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z28SingleRangeAtomicOnGlobalMemIiEvPT_ii:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_TID.X ;\n        /*0020*/                   S2UR UR4, SR_CTAID.X ;\n        /*0030*/                   ULDC UR8, c[0x0][0x21c] ;\n        /*0040*/                   LDC R5, c[0x0][RZ] ;\n        /*0050*/                   IMAD R0, R5, UR4, R0 ;\n        /*0060*/                   ISETP.GE.U32.AND P0, PT, R0, UR8, PT ;\n        /*0070*/               @P0 EXIT ;\n        /*0080*/                   LDC R7, c[0x0][0x218] ;\n        /*0090*/                   S2R R4, SR_LANEID ;\n        /*00a0*/                   ULDC UR4, c[0x0][0xc] ;\n        /*00b0*/                   IMAD R5, R5, UR4, RZ ;\n        /*00c0*/                   ULDC.64 UR4, c[0x0][0x208] ;\n        /*00d0*/                   LDC.64 R2, c[0x0][0x210] ;\n        /*00e0*/                   IMAD.WIDE R2, R7, 0x4, R2 ;\n.L_x_36:\n        /*00f0*/                   VOTEU.ANY UR6, UPT, PT ;\n        /*0100*/                   UFLO.U32 UR7, UR6 ;\n        /*0110*/                   POPC R7, UR6 ;\n        /*0120*/                   ISETP.EQ.U32.AND P0, PT, R4, UR7, PT ;\n        /*0130*/                   IMAD.IADD R0, R5, 0x1, R0 ;\n        /*0140*/               @P0 ATOMG.E.ADD.STRONG.GPU PT, RZ, desc[UR4][R2.64], R7 ;\n        /*0150*/                   ISETP.GE.U32.AND P0, PT, R0, UR8, PT ;\n        /*0160*/              @!P0 BRA `(.L_x_36) ;\n        /*0170*/                   EXIT ;\n.L_x_37:\n        /*0180*/                   BRA `(.L_x_37);\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n        /*0200*/                   NOP;\n        /*0210*/                   NOP;\n        /*0220*/                   NOP;\n        /*0230*/                   NOP;\n        /*0240*/                   NOP;\n        /*0250*/                   NOP;\n        /*0260*/                   NOP;\n        /*0270*/                   NOP;\n.L_x_75:"
+        }
+      }
+    },
+    "_Z28SingleRangeAtomicOnSharedMemIdEvPT_ii": {
+      "demangledName": "void SingleRangeAtomicOnSharedMem<double>(T1 *, int, int)",
+      "imix": {
+        "sm_80": {
+          "NOP": 8,
+          "ISETP": 6,
+          "MOV": 5,
+          "BRA": 4,
+          "S2R": 2,
+          "BSSY": 2,
+          "IMAD": 2,
+          "LDS": 2,
+          "BSYNC": 2,
+          "EXIT": 2,
+          "YIELD": 1,
+          "DADD": 1,
+          "ATOMS": 1,
+          "ULDC": 1,
+          "STG": 1
+        },
+        "sm_86": {
+          "NOP": 8,
+          "ISETP": 6,
+          "MOV": 5,
+          "BRA": 4,
+          "S2R": 2,
+          "BSSY": 2,
+          "IMAD": 2,
+          "LDS": 2,
+          "BSYNC": 2,
+          "EXIT": 2,
+          "YIELD": 1,
+          "DADD": 1,
+          "ATOMS": 1,
+          "ULDC": 1,
+          "STG": 1
+        },
+        "sm_90": {
+          "NOP": 8,
+          "ISETP": 6,
+          "ULDC": 5,
+          "BRA": 5,
+          "LDC": 4,
+          "UMOV": 4,
+          "S2R": 2,
+          "BSSY": 2,
+          "IMAD": 2,
+          "S2UR": 2,
+          "UIADD3": 2,
+          "ULEA": 2,
+          "LDS": 2,
+          "BSYNC": 2,
+          "EXIT": 2,
+          "LEA": 1,
+          "DADD": 1,
+          "ATOMS": 1,
+          "IADD3": 1,
+          "BREAK": 1,
+          "STG": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z28SingleRangeAtomicOnSharedMemIdEvPT_ii": "//--------------------- .text._Z28SingleRangeAtomicOnSharedMemIdEvPT_ii --------------------------\n\t.section\t.text._Z28SingleRangeAtomicOnSharedMemIdEvPT_ii,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=12\"\n\t.align\t128\n.text._Z28SingleRangeAtomicOnSharedMemIdEvPT_ii:\n        .weak           _Z28SingleRangeAtomicOnSharedMemIdEvPT_ii\n        .type           _Z28SingleRangeAtomicOnSharedMemIdEvPT_ii,@function\n        .size           _Z28SingleRangeAtomicOnSharedMemIdEvPT_ii,(.L_x_78 - _Z28SingleRangeAtomicOnSharedMemIdEvPT_ii)\n        .other          _Z28SingleRangeAtomicOnSharedMemIdEvPT_ii,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z28SingleRangeAtomicOnSharedMemIdEvPT_ii:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R2, SR_CTAID.X ;\n        /*0020*/                   BSSY B0, `(.L_x_42) ;\n        /*0030*/                   S2R R3, SR_TID.X ;\n        /*0040*/                   IMAD R0, R2, c[0x0][0x0], R3 ;\n        /*0050*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x16c], PT ;\n        /*0060*/               @P0 BRA `(.L_x_43) ;\n        /*0070*/                   MOV R9, c[0x0][0x168] ;\n.L_x_46:\n        /*0080*/                   YIELD ;\n        /*0090*/                   BSSY B1, `(.L_x_44) ;\n.L_x_45:\n        /*00a0*/                   LDS.64 R4, [R9.X8+`(_ZZ28SingleRangeAtomicOnSharedMemIdEvPT_iiE9smem_data)] ;\n        /*00b0*/                   DADD R6, R4, 1 ;\n        /*00c0*/                   ATOMS.CAST.SPIN.64 R6, [R9.X8+`(_ZZ28SingleRangeAtomicOnSharedMemIdEvPT_iiE9smem_data)], R4, R6 ;\n        /*00d0*/                   ISETP.EQ.U32.AND P0, PT, R6, 0x1, PT ;\n        /*00e0*/                   ISETP.EQ.U32.AND.EX P0, PT, R7, RZ, PT, P0 ;\n        /*00f0*/              @!P0 BRA `(.L_x_45) ;\n        /*0100*/                   BSYNC B1 ;\n.L_x_44:\n        /*0110*/                   MOV R5, c[0x0][0x0] ;\n        /*0120*/                   IMAD R0, R5, c[0x0][0xc], R0 ;\n        /*0130*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x16c], PT ;\n        /*0140*/              @!P0 BRA `(.L_x_46) ;\n.L_x_43:\n        /*0150*/                   BSYNC B0 ;\n.L_x_42:\n        /*0160*/                   ISETP.NE.AND P0, PT, R3, RZ, PT ;\n        /*0170*/                   ISETP.NE.OR P0, PT, R2, c[0x0][0xc], P0 ;\n        /*0180*/               @P0 EXIT ;\n        /*0190*/                   LDS.64 R2, [`(_ZZ28SingleRangeAtomicOnSharedMemIdEvPT_iiE9smem_data)] ;\n        /*01a0*/                   MOV R4, c[0x0][0x160] ;\n        /*01b0*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*01c0*/                   MOV R5, c[0x0][0x164] ;\n        /*01d0*/                   STG.E.64 [R4.64], R2 ;\n        /*01e0*/                   EXIT ;\n.L_x_47:\n        /*01f0*/                   BRA `(.L_x_47);\n        /*0200*/                   NOP;\n        /*0210*/                   NOP;\n        /*0220*/                   NOP;\n        /*0230*/                   NOP;\n        /*0240*/                   NOP;\n        /*0250*/                   NOP;\n        /*0260*/                   NOP;\n        /*0270*/                   NOP;\n.L_x_78:"
+        },
+        "sm_86": {
+          "_Z28SingleRangeAtomicOnSharedMemIdEvPT_ii": "//--------------------- .text._Z28SingleRangeAtomicOnSharedMemIdEvPT_ii --------------------------\n\t.section\t.text._Z28SingleRangeAtomicOnSharedMemIdEvPT_ii,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=12\"\n\t.align\t128\n.text._Z28SingleRangeAtomicOnSharedMemIdEvPT_ii:\n        .weak           _Z28SingleRangeAtomicOnSharedMemIdEvPT_ii\n        .type           _Z28SingleRangeAtomicOnSharedMemIdEvPT_ii,@function\n        .size           _Z28SingleRangeAtomicOnSharedMemIdEvPT_ii,(.L_x_78 - _Z28SingleRangeAtomicOnSharedMemIdEvPT_ii)\n        .other          _Z28SingleRangeAtomicOnSharedMemIdEvPT_ii,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z28SingleRangeAtomicOnSharedMemIdEvPT_ii:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R2, SR_CTAID.X ;\n        /*0020*/                   BSSY B0, `(.L_x_42) ;\n        /*0030*/                   S2R R3, SR_TID.X ;\n        /*0040*/                   IMAD R0, R2, c[0x0][0x0], R3 ;\n        /*0050*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x16c], PT ;\n        /*0060*/               @P0 BRA `(.L_x_43) ;\n        /*0070*/                   MOV R9, c[0x0][0x168] ;\n.L_x_46:\n        /*0080*/                   YIELD ;\n        /*0090*/                   BSSY B1, `(.L_x_44) ;\n.L_x_45:\n        /*00a0*/                   LDS.64 R4, [R9.X8+`(_ZZ28SingleRangeAtomicOnSharedMemIdEvPT_iiE9smem_data)] ;\n        /*00b0*/                   DADD R6, R4, 1 ;\n        /*00c0*/                   ATOMS.CAST.SPIN.64 R6, [R9.X8+`(_ZZ28SingleRangeAtomicOnSharedMemIdEvPT_iiE9smem_data)], R4, R6 ;\n        /*00d0*/                   ISETP.EQ.U32.AND P0, PT, R6, 0x1, PT ;\n        /*00e0*/                   ISETP.EQ.U32.AND.EX P0, PT, R7, RZ, PT, P0 ;\n        /*00f0*/              @!P0 BRA `(.L_x_45) ;\n        /*0100*/                   BSYNC B1 ;\n.L_x_44:\n        /*0110*/                   MOV R5, c[0x0][0x0] ;\n        /*0120*/                   IMAD R0, R5, c[0x0][0xc], R0 ;\n        /*0130*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x16c], PT ;\n        /*0140*/              @!P0 BRA `(.L_x_46) ;\n.L_x_43:\n        /*0150*/                   BSYNC B0 ;\n.L_x_42:\n        /*0160*/                   ISETP.NE.AND P0, PT, R3, RZ, PT ;\n        /*0170*/                   ISETP.NE.OR P0, PT, R2, c[0x0][0xc], P0 ;\n        /*0180*/               @P0 EXIT ;\n        /*0190*/                   LDS.64 R2, [`(_ZZ28SingleRangeAtomicOnSharedMemIdEvPT_iiE9smem_data)] ;\n        /*01a0*/                   MOV R4, c[0x0][0x160] ;\n        /*01b0*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*01c0*/                   MOV R5, c[0x0][0x164] ;\n        /*01d0*/                   STG.E.64 [R4.64], R2 ;\n        /*01e0*/                   EXIT ;\n.L_x_47:\n        /*01f0*/                   BRA `(.L_x_47);\n        /*0200*/                   NOP;\n        /*0210*/                   NOP;\n        /*0220*/                   NOP;\n        /*0230*/                   NOP;\n        /*0240*/                   NOP;\n        /*0250*/                   NOP;\n        /*0260*/                   NOP;\n        /*0270*/                   NOP;\n.L_x_78:"
+        },
+        "sm_90": {
+          "_Z28SingleRangeAtomicOnSharedMemIdEvPT_ii": "//--------------------- .text._Z28SingleRangeAtomicOnSharedMemIdEvPT_ii --------------------------\n\t.section\t.text._Z28SingleRangeAtomicOnSharedMemIdEvPT_ii,\"ax\",@progbits\n\t.align\t128\n.text._Z28SingleRangeAtomicOnSharedMemIdEvPT_ii:\n        .weak           _Z28SingleRangeAtomicOnSharedMemIdEvPT_ii\n        .type           _Z28SingleRangeAtomicOnSharedMemIdEvPT_ii,@function\n        .size           _Z28SingleRangeAtomicOnSharedMemIdEvPT_ii,(.L_x_78 - _Z28SingleRangeAtomicOnSharedMemIdEvPT_ii)\n        .other          _Z28SingleRangeAtomicOnSharedMemIdEvPT_ii,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z28SingleRangeAtomicOnSharedMemIdEvPT_ii:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R2, SR_CTAID.X ;\n        /*0020*/                   ULDC UR7, c[0x0][0x0] ;\n        /*0030*/                   ULDC UR4, c[0x0][0x21c] ;\n        /*0040*/                   ULDC UR8, c[0x0][0x21c] ;\n        /*0050*/                   S2R R11, SR_TID.X ;\n        /*0060*/                   BSSY B0, `(.L_x_42) ;\n        /*0070*/                   IMAD R0, R2, UR7, R11 ;\n        /*0080*/                   ISETP.GE.U32.AND P0, PT, R0, UR4, PT ;\n        /*0090*/               @P0 BRA `(.L_x_43) ;\n        /*00a0*/                   S2UR UR6, SR_CgaCtaId ;\n        /*00b0*/                   UMOV UR4, `(_ZZ28SingleRangeAtomicOnSharedMemIdEvPT_iiE9smem_data) ;\n        /*00c0*/                   UMOV UR5, 0x400 ;\n        /*00d0*/                   UIADD3 UR4, UR4, UR5, URZ ;\n        /*00e0*/                   LDC R9, c[0x0][0xc] ;\n        /*00f0*/                   LDC R3, c[0x0][0x218] ;\n        /*0100*/                   ULEA UR4, UR6, UR4, 0x18 ;\n        /*0110*/                   IMAD R9, R9, UR7, RZ ;\n        /*0120*/                   LEA R3, R3, UR4, 0x3 ;\n.L_x_46:\n        /*0130*/                   LDS.64 R4, [R3] ;\n        /*0140*/                   BSSY B1, `(.L_x_44) ;\n        /*0150*/                   DADD R6, R4, 1 ;\n        /*0160*/                   ATOMS.CAST.SPIN.64 R6, [R3], R4, R6 ;\n        /*0170*/                   ISETP.EQ.U32.AND P0, PT, R6, 0x1, PT ;\n        /*0180*/                   ISETP.EQ.U32.AND.EX P0, PT, R7, RZ, PT, P0 ;\n        /*0190*/              @!P0 BRA `(.L_x_45) ;\n        /*01a0*/                   IADD3 R0, R9, R0, RZ ;\n        /*01b0*/                   ISETP.GE.U32.AND P0, PT, R0, UR8, PT ;\n        /*01c0*/               @P0 BREAK B1 ;\n        /*01d0*/               @P0 BRA `(.L_x_43) ;\n.L_x_45:\n        /*01e0*/                   BSYNC B1 ;\n.L_x_44:\n        /*01f0*/                   BRA `(.L_x_46) ;\n.L_x_43:\n        /*0200*/                   BSYNC B0 ;\n.L_x_42:\n        /*0210*/                   ISETP.NE.AND P0, PT, R11, RZ, PT ;\n        /*0220*/                   ULDC UR4, c[0x0][0xc] ;\n        /*0230*/                   ISETP.NE.OR P0, PT, R2, UR4, P0 ;\n        /*0240*/               @P0 EXIT ;\n        /*0250*/                   S2UR UR6, SR_CgaCtaId ;\n        /*0260*/                   UMOV UR4, `(_ZZ28SingleRangeAtomicOnSharedMemIdEvPT_iiE9smem_data) ;\n        /*0270*/                   UMOV UR5, 0x400 ;\n        /*0280*/                   UIADD3 UR4, UR4, UR5, URZ ;\n        /*0290*/                   LDC.64 R4, c[0x0][0x210] ;\n        /*02a0*/                   ULEA UR4, UR6, UR4, 0x18 ;\n        /*02b0*/                   LDS.64 R2, [UR4] ;\n        /*02c0*/                   ULDC.64 UR4, c[0x0][0x208] ;\n        /*02d0*/                   STG.E.64 desc[UR4][R4.64], R2 ;\n        /*02e0*/                   EXIT ;\n.L_x_47:\n        /*02f0*/                   BRA `(.L_x_47);\n        /*0300*/                   NOP;\n        /*0310*/                   NOP;\n        /*0320*/                   NOP;\n        /*0330*/                   NOP;\n        /*0340*/                   NOP;\n        /*0350*/                   NOP;\n        /*0360*/                   NOP;\n        /*0370*/                   NOP;\n.L_x_78:"
+        }
+      }
+    },
+    "_Z28SingleRangeAtomicOnSharedMemIfEvPT_ii": {
+      "demangledName": "void SingleRangeAtomicOnSharedMem<float>(T1 *, int, int)",
+      "imix": {
+        "sm_80": {
+          "NOP": 9,
+          "MOV": 5,
+          "ISETP": 5,
+          "BRA": 4,
+          "S2R": 2,
+          "BSSY": 2,
+          "IMAD": 2,
+          "LDS": 2,
+          "BSYNC": 2,
+          "EXIT": 2,
+          "YIELD": 1,
+          "FADD": 1,
+          "ATOMS": 1,
+          "ULDC": 1,
+          "STG": 1
+        },
+        "sm_86": {
+          "NOP": 9,
+          "MOV": 5,
+          "ISETP": 5,
+          "BRA": 4,
+          "S2R": 2,
+          "BSSY": 2,
+          "IMAD": 2,
+          "LDS": 2,
+          "BSYNC": 2,
+          "EXIT": 2,
+          "YIELD": 1,
+          "FADD": 1,
+          "ATOMS": 1,
+          "ULDC": 1,
+          "STG": 1
+        },
+        "sm_90": {
+          "NOP": 9,
+          "ULDC": 5,
+          "ISETP": 5,
+          "BRA": 5,
+          "LDC": 4,
+          "UMOV": 4,
+          "S2R": 2,
+          "BSSY": 2,
+          "IMAD": 2,
+          "S2UR": 2,
+          "UIADD3": 2,
+          "ULEA": 2,
+          "LDS": 2,
+          "BSYNC": 2,
+          "EXIT": 2,
+          "LEA": 1,
+          "FADD": 1,
+          "ATOMS": 1,
+          "IADD3": 1,
+          "BREAK": 1,
+          "STG": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z28SingleRangeAtomicOnSharedMemIfEvPT_ii": "//--------------------- .text._Z28SingleRangeAtomicOnSharedMemIfEvPT_ii --------------------------\n\t.section\t.text._Z28SingleRangeAtomicOnSharedMemIfEvPT_ii,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=9\"\n\t.align\t128\n.text._Z28SingleRangeAtomicOnSharedMemIfEvPT_ii:\n        .weak           _Z28SingleRangeAtomicOnSharedMemIfEvPT_ii\n        .type           _Z28SingleRangeAtomicOnSharedMemIfEvPT_ii,@function\n        .size           _Z28SingleRangeAtomicOnSharedMemIfEvPT_ii,(.L_x_66 - _Z28SingleRangeAtomicOnSharedMemIfEvPT_ii)\n        .other          _Z28SingleRangeAtomicOnSharedMemIfEvPT_ii,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z28SingleRangeAtomicOnSharedMemIfEvPT_ii:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R2, SR_CTAID.X ;\n        /*0020*/                   BSSY B0, `(.L_x_0) ;\n        /*0030*/                   S2R R3, SR_TID.X ;\n        /*0040*/                   IMAD R0, R2, c[0x0][0x0], R3 ;\n        /*0050*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x16c], PT ;\n        /*0060*/               @P0 BRA `(.L_x_1) ;\n        /*0070*/                   MOV R6, c[0x0][0x168] ;\n.L_x_4:\n        /*0080*/                   YIELD ;\n        /*0090*/                   BSSY B1, `(.L_x_2) ;\n.L_x_3:\n        /*00a0*/                   LDS R4, [R6.X4+`(_ZZ28SingleRangeAtomicOnSharedMemIfEvPT_iiE9smem_data)] ;\n        /*00b0*/                   FADD R5, R4, 1 ;\n        /*00c0*/                   ATOMS.CAST.SPIN R5, [R6.X4+`(_ZZ28SingleRangeAtomicOnSharedMemIfEvPT_iiE9smem_data)], R4, R5 ;\n        /*00d0*/                   ISETP.EQ.U32.AND P0, PT, R5, 0x1, PT ;\n        /*00e0*/              @!P0 BRA `(.L_x_3) ;\n        /*00f0*/                   BSYNC B1 ;\n.L_x_2:\n        /*0100*/                   MOV R5, c[0x0][0x0] ;\n        /*0110*/                   IMAD R0, R5, c[0x0][0xc], R0 ;\n        /*0120*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x16c], PT ;\n        /*0130*/              @!P0 BRA `(.L_x_4) ;\n.L_x_1:\n        /*0140*/                   BSYNC B0 ;\n.L_x_0:\n        /*0150*/                   ISETP.NE.AND P0, PT, R3, RZ, PT ;\n        /*0160*/                   ISETP.NE.OR P0, PT, R2, c[0x0][0xc], P0 ;\n        /*0170*/               @P0 EXIT ;\n        /*0180*/                   LDS R5, [`(_ZZ28SingleRangeAtomicOnSharedMemIfEvPT_iiE9smem_data)] ;\n        /*0190*/                   MOV R2, c[0x0][0x160] ;\n        /*01a0*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*01b0*/                   MOV R3, c[0x0][0x164] ;\n        /*01c0*/                   STG.E [R2.64], R5 ;\n        /*01d0*/                   EXIT ;\n.L_x_5:\n        /*01e0*/                   BRA `(.L_x_5);\n        /*01f0*/                   NOP;\n        /*0200*/                   NOP;\n        /*0210*/                   NOP;\n        /*0220*/                   NOP;\n        /*0230*/                   NOP;\n        /*0240*/                   NOP;\n        /*0250*/                   NOP;\n        /*0260*/                   NOP;\n        /*0270*/                   NOP;\n.L_x_66:"
+        },
+        "sm_86": {
+          "_Z28SingleRangeAtomicOnSharedMemIfEvPT_ii": "//--------------------- .text._Z28SingleRangeAtomicOnSharedMemIfEvPT_ii --------------------------\n\t.section\t.text._Z28SingleRangeAtomicOnSharedMemIfEvPT_ii,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=9\"\n\t.align\t128\n.text._Z28SingleRangeAtomicOnSharedMemIfEvPT_ii:\n        .weak           _Z28SingleRangeAtomicOnSharedMemIfEvPT_ii\n        .type           _Z28SingleRangeAtomicOnSharedMemIfEvPT_ii,@function\n        .size           _Z28SingleRangeAtomicOnSharedMemIfEvPT_ii,(.L_x_66 - _Z28SingleRangeAtomicOnSharedMemIfEvPT_ii)\n        .other          _Z28SingleRangeAtomicOnSharedMemIfEvPT_ii,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z28SingleRangeAtomicOnSharedMemIfEvPT_ii:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R2, SR_CTAID.X ;\n        /*0020*/                   BSSY B0, `(.L_x_0) ;\n        /*0030*/                   S2R R3, SR_TID.X ;\n        /*0040*/                   IMAD R0, R2, c[0x0][0x0], R3 ;\n        /*0050*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x16c], PT ;\n        /*0060*/               @P0 BRA `(.L_x_1) ;\n        /*0070*/                   MOV R6, c[0x0][0x168] ;\n.L_x_4:\n        /*0080*/                   YIELD ;\n        /*0090*/                   BSSY B1, `(.L_x_2) ;\n.L_x_3:\n        /*00a0*/                   LDS R4, [R6.X4+`(_ZZ28SingleRangeAtomicOnSharedMemIfEvPT_iiE9smem_data)] ;\n        /*00b0*/                   FADD R5, R4, 1 ;\n        /*00c0*/                   ATOMS.CAST.SPIN R5, [R6.X4+`(_ZZ28SingleRangeAtomicOnSharedMemIfEvPT_iiE9smem_data)], R4, R5 ;\n        /*00d0*/                   ISETP.EQ.U32.AND P0, PT, R5, 0x1, PT ;\n        /*00e0*/              @!P0 BRA `(.L_x_3) ;\n        /*00f0*/                   BSYNC B1 ;\n.L_x_2:\n        /*0100*/                   MOV R5, c[0x0][0x0] ;\n        /*0110*/                   IMAD R0, R5, c[0x0][0xc], R0 ;\n        /*0120*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x16c], PT ;\n        /*0130*/              @!P0 BRA `(.L_x_4) ;\n.L_x_1:\n        /*0140*/                   BSYNC B0 ;\n.L_x_0:\n        /*0150*/                   ISETP.NE.AND P0, PT, R3, RZ, PT ;\n        /*0160*/                   ISETP.NE.OR P0, PT, R2, c[0x0][0xc], P0 ;\n        /*0170*/               @P0 EXIT ;\n        /*0180*/                   LDS R5, [`(_ZZ28SingleRangeAtomicOnSharedMemIfEvPT_iiE9smem_data)] ;\n        /*0190*/                   MOV R2, c[0x0][0x160] ;\n        /*01a0*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*01b0*/                   MOV R3, c[0x0][0x164] ;\n        /*01c0*/                   STG.E [R2.64], R5 ;\n        /*01d0*/                   EXIT ;\n.L_x_5:\n        /*01e0*/                   BRA `(.L_x_5);\n        /*01f0*/                   NOP;\n        /*0200*/                   NOP;\n        /*0210*/                   NOP;\n        /*0220*/                   NOP;\n        /*0230*/                   NOP;\n        /*0240*/                   NOP;\n        /*0250*/                   NOP;\n        /*0260*/                   NOP;\n        /*0270*/                   NOP;\n.L_x_66:"
+        },
+        "sm_90": {
+          "_Z28SingleRangeAtomicOnSharedMemIfEvPT_ii": "//--------------------- .text._Z28SingleRangeAtomicOnSharedMemIfEvPT_ii --------------------------\n\t.section\t.text._Z28SingleRangeAtomicOnSharedMemIfEvPT_ii,\"ax\",@progbits\n\t.align\t128\n.text._Z28SingleRangeAtomicOnSharedMemIfEvPT_ii:\n        .weak           _Z28SingleRangeAtomicOnSharedMemIfEvPT_ii\n        .type           _Z28SingleRangeAtomicOnSharedMemIfEvPT_ii,@function\n        .size           _Z28SingleRangeAtomicOnSharedMemIfEvPT_ii,(.L_x_66 - _Z28SingleRangeAtomicOnSharedMemIfEvPT_ii)\n        .other          _Z28SingleRangeAtomicOnSharedMemIfEvPT_ii,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z28SingleRangeAtomicOnSharedMemIfEvPT_ii:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R4, SR_CTAID.X ;\n        /*0020*/                   ULDC UR7, c[0x0][0x0] ;\n        /*0030*/                   ULDC UR4, c[0x0][0x21c] ;\n        /*0040*/                   ULDC UR8, c[0x0][0x21c] ;\n        /*0050*/                   S2R R5, SR_TID.X ;\n        /*0060*/                   BSSY B0, `(.L_x_0) ;\n        /*0070*/                   IMAD R0, R4, UR7, R5 ;\n        /*0080*/                   ISETP.GE.U32.AND P0, PT, R0, UR4, PT ;\n        /*0090*/               @P0 BRA `(.L_x_1) ;\n        /*00a0*/                   S2UR UR6, SR_CgaCtaId ;\n        /*00b0*/                   UMOV UR4, `(_ZZ28SingleRangeAtomicOnSharedMemIfEvPT_iiE9smem_data) ;\n        /*00c0*/                   UMOV UR5, 0x400 ;\n        /*00d0*/                   UIADD3 UR4, UR4, UR5, URZ ;\n        /*00e0*/                   LDC R3, c[0x0][0xc] ;\n        /*00f0*/                   LDC R2, c[0x0][0x218] ;\n        /*0100*/                   ULEA UR4, UR6, UR4, 0x18 ;\n        /*0110*/                   IMAD R3, R3, UR7, RZ ;\n        /*0120*/                   LEA R2, R2, UR4, 0x2 ;\n.L_x_4:\n        /*0130*/                   LDS R6, [R2] ;\n        /*0140*/                   BSSY B1, `(.L_x_2) ;\n        /*0150*/                   FADD R7, R6, 1 ;\n        /*0160*/                   ATOMS.CAST.SPIN R7, [R2], R6, R7 ;\n        /*0170*/                   ISETP.EQ.U32.AND P0, PT, R7, 0x1, PT ;\n        /*0180*/              @!P0 BRA `(.L_x_3) ;\n        /*0190*/                   IADD3 R0, R3, R0, RZ ;\n        /*01a0*/                   ISETP.GE.U32.AND P0, PT, R0, UR8, PT ;\n        /*01b0*/               @P0 BREAK B1 ;\n        /*01c0*/               @P0 BRA `(.L_x_1) ;\n.L_x_3:\n        /*01d0*/                   BSYNC B1 ;\n.L_x_2:\n        /*01e0*/                   BRA `(.L_x_4) ;\n.L_x_1:\n        /*01f0*/                   BSYNC B0 ;\n.L_x_0:\n        /*0200*/                   ISETP.NE.AND P0, PT, R5, RZ, PT ;\n        /*0210*/                   ULDC UR4, c[0x0][0xc] ;\n        /*0220*/                   ISETP.NE.OR P0, PT, R4, UR4, P0 ;\n        /*0230*/               @P0 EXIT ;\n        /*0240*/                   S2UR UR6, SR_CgaCtaId ;\n        /*0250*/                   UMOV UR4, `(_ZZ28SingleRangeAtomicOnSharedMemIfEvPT_iiE9smem_data) ;\n        /*0260*/                   UMOV UR5, 0x400 ;\n        /*0270*/                   UIADD3 UR4, UR4, UR5, URZ ;\n        /*0280*/                   LDC.64 R2, c[0x0][0x210] ;\n        /*0290*/                   ULEA UR4, UR6, UR4, 0x18 ;\n        /*02a0*/                   LDS R5, [UR4] ;\n        /*02b0*/                   ULDC.64 UR4, c[0x0][0x208] ;\n        /*02c0*/                   STG.E desc[UR4][R2.64], R5 ;\n        /*02d0*/                   EXIT ;\n.L_x_5:\n        /*02e0*/                   BRA `(.L_x_5);\n        /*02f0*/                   NOP;\n        /*0300*/                   NOP;\n        /*0310*/                   NOP;\n        /*0320*/                   NOP;\n        /*0330*/                   NOP;\n        /*0340*/                   NOP;\n        /*0350*/                   NOP;\n        /*0360*/                   NOP;\n        /*0370*/                   NOP;\n.L_x_66:"
+        }
+      }
+    },
+    "_Z28SingleRangeAtomicOnSharedMemIiEvPT_ii": {
+      "demangledName": "void SingleRangeAtomicOnSharedMem<int>(T1 *, int, int)",
+      "imix": {
+        "sm_80": {
+          "NOP": 15,
+          "MOV": 5,
+          "ISETP": 4,
+          "BRA": 3,
+          "S2R": 2,
+          "IMAD": 2,
+          "EXIT": 2,
+          "BSSY": 1,
+          "YIELD": 1,
+          "ATOMS": 1,
+          "BSYNC": 1,
+          "LDS": 1,
+          "ULDC": 1,
+          "STG": 1
+        },
+        "sm_86": {
+          "NOP": 15,
+          "MOV": 5,
+          "ISETP": 4,
+          "BRA": 3,
+          "S2R": 2,
+          "IMAD": 2,
+          "EXIT": 2,
+          "BSSY": 1,
+          "YIELD": 1,
+          "ATOMS": 1,
+          "BSYNC": 1,
+          "LDS": 1,
+          "ULDC": 1,
+          "STG": 1
+        },
+        "sm_90": {
+          "NOP": 10,
+          "LDC": 4,
+          "ULDC": 4,
+          "ISETP": 4,
+          "UMOV": 4,
+          "BRA": 3,
+          "S2R": 2,
+          "IMAD": 2,
+          "S2UR": 2,
+          "UIADD3": 2,
+          "ULEA": 2,
+          "EXIT": 2,
+          "BSSY": 1,
+          "LEA": 1,
+          "IADD3": 1,
+          "ATOMS": 1,
+          "BSYNC": 1,
+          "LDS": 1,
+          "STG": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z28SingleRangeAtomicOnSharedMemIiEvPT_ii": "//--------------------- .text._Z28SingleRangeAtomicOnSharedMemIiEvPT_ii --------------------------\n\t.section\t.text._Z28SingleRangeAtomicOnSharedMemIiEvPT_ii,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=8\"\n\t.align\t128\n.text._Z28SingleRangeAtomicOnSharedMemIiEvPT_ii:\n        .weak           _Z28SingleRangeAtomicOnSharedMemIiEvPT_ii\n        .type           _Z28SingleRangeAtomicOnSharedMemIiEvPT_ii,@function\n        .size           _Z28SingleRangeAtomicOnSharedMemIiEvPT_ii,(.L_x_72 - _Z28SingleRangeAtomicOnSharedMemIiEvPT_ii)\n        .other          _Z28SingleRangeAtomicOnSharedMemIiEvPT_ii,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z28SingleRangeAtomicOnSharedMemIiEvPT_ii:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R2, SR_CTAID.X ;\n        /*0020*/                   BSSY B0, `(.L_x_24) ;\n        /*0030*/                   S2R R3, SR_TID.X ;\n        /*0040*/                   IMAD R0, R2, c[0x0][0x0], R3 ;\n        /*0050*/                   ISETP.NE.AND P0, PT, R3, RZ, PT ;\n        /*0060*/                   ISETP.GE.U32.AND P1, PT, R0, c[0x0][0x16c], PT ;\n        /*0070*/                   ISETP.NE.OR P0, PT, R2, c[0x0][0xc], P0 ;\n        /*0080*/               @P1 BRA `(.L_x_25) ;\n        /*0090*/                   MOV R2, c[0x0][0x168] ;\n        /*00a0*/                   MOV R3, c[0x0][0x0] ;\n.L_x_26:\n        /*00b0*/                   IMAD R0, R3, c[0x0][0xc], R0 ;\n        /*00c0*/                   YIELD ;\n        /*00d0*/                   ATOMS.POPC.INC.32 RZ, [R2.X4+URZ+`(_ZZ28SingleRangeAtomicOnSharedMemIiEvPT_iiE9smem_data)] ;\n        /*00e0*/                   ISETP.GE.U32.AND P1, PT, R0, c[0x0][0x16c], PT ;\n        /*00f0*/              @!P1 BRA `(.L_x_26) ;\n.L_x_25:\n        /*0100*/                   BSYNC B0 ;\n.L_x_24:\n        /*0110*/               @P0 EXIT ;\n        /*0120*/                   LDS R5, [`(_ZZ28SingleRangeAtomicOnSharedMemIiEvPT_iiE9smem_data)] ;\n        /*0130*/                   MOV R2, c[0x0][0x160] ;\n        /*0140*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0150*/                   MOV R3, c[0x0][0x164] ;\n        /*0160*/                   STG.E [R2.64], R5 ;\n        /*0170*/                   EXIT ;\n.L_x_27:\n        /*0180*/                   BRA `(.L_x_27);\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n        /*0200*/                   NOP;\n        /*0210*/                   NOP;\n        /*0220*/                   NOP;\n        /*0230*/                   NOP;\n        /*0240*/                   NOP;\n        /*0250*/                   NOP;\n        /*0260*/                   NOP;\n        /*0270*/                   NOP;\n.L_x_72:"
+        },
+        "sm_86": {
+          "_Z28SingleRangeAtomicOnSharedMemIiEvPT_ii": "//--------------------- .text._Z28SingleRangeAtomicOnSharedMemIiEvPT_ii --------------------------\n\t.section\t.text._Z28SingleRangeAtomicOnSharedMemIiEvPT_ii,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=8\"\n\t.align\t128\n.text._Z28SingleRangeAtomicOnSharedMemIiEvPT_ii:\n        .weak           _Z28SingleRangeAtomicOnSharedMemIiEvPT_ii\n        .type           _Z28SingleRangeAtomicOnSharedMemIiEvPT_ii,@function\n        .size           _Z28SingleRangeAtomicOnSharedMemIiEvPT_ii,(.L_x_72 - _Z28SingleRangeAtomicOnSharedMemIiEvPT_ii)\n        .other          _Z28SingleRangeAtomicOnSharedMemIiEvPT_ii,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z28SingleRangeAtomicOnSharedMemIiEvPT_ii:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R2, SR_CTAID.X ;\n        /*0020*/                   BSSY B0, `(.L_x_24) ;\n        /*0030*/                   S2R R3, SR_TID.X ;\n        /*0040*/                   IMAD R0, R2, c[0x0][0x0], R3 ;\n        /*0050*/                   ISETP.NE.AND P0, PT, R3, RZ, PT ;\n        /*0060*/                   ISETP.GE.U32.AND P1, PT, R0, c[0x0][0x16c], PT ;\n        /*0070*/                   ISETP.NE.OR P0, PT, R2, c[0x0][0xc], P0 ;\n        /*0080*/               @P1 BRA `(.L_x_25) ;\n        /*0090*/                   MOV R2, c[0x0][0x168] ;\n        /*00a0*/                   MOV R3, c[0x0][0x0] ;\n.L_x_26:\n        /*00b0*/                   IMAD R0, R3, c[0x0][0xc], R0 ;\n        /*00c0*/                   YIELD ;\n        /*00d0*/                   ATOMS.POPC.INC.32 RZ, [R2.X4+URZ+`(_ZZ28SingleRangeAtomicOnSharedMemIiEvPT_iiE9smem_data)] ;\n        /*00e0*/                   ISETP.GE.U32.AND P1, PT, R0, c[0x0][0x16c], PT ;\n        /*00f0*/              @!P1 BRA `(.L_x_26) ;\n.L_x_25:\n        /*0100*/                   BSYNC B0 ;\n.L_x_24:\n        /*0110*/               @P0 EXIT ;\n        /*0120*/                   LDS R5, [`(_ZZ28SingleRangeAtomicOnSharedMemIiEvPT_iiE9smem_data)] ;\n        /*0130*/                   MOV R2, c[0x0][0x160] ;\n        /*0140*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0150*/                   MOV R3, c[0x0][0x164] ;\n        /*0160*/                   STG.E [R2.64], R5 ;\n        /*0170*/                   EXIT ;\n.L_x_27:\n        /*0180*/                   BRA `(.L_x_27);\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n        /*0200*/                   NOP;\n        /*0210*/                   NOP;\n        /*0220*/                   NOP;\n        /*0230*/                   NOP;\n        /*0240*/                   NOP;\n        /*0250*/                   NOP;\n        /*0260*/                   NOP;\n        /*0270*/                   NOP;\n.L_x_72:"
+        },
+        "sm_90": {
+          "_Z28SingleRangeAtomicOnSharedMemIiEvPT_ii": "//--------------------- .text._Z28SingleRangeAtomicOnSharedMemIiEvPT_ii --------------------------\n\t.section\t.text._Z28SingleRangeAtomicOnSharedMemIiEvPT_ii,\"ax\",@progbits\n\t.align\t128\n.text._Z28SingleRangeAtomicOnSharedMemIiEvPT_ii:\n        .weak           _Z28SingleRangeAtomicOnSharedMemIiEvPT_ii\n        .type           _Z28SingleRangeAtomicOnSharedMemIiEvPT_ii,@function\n        .size           _Z28SingleRangeAtomicOnSharedMemIiEvPT_ii,(.L_x_72 - _Z28SingleRangeAtomicOnSharedMemIiEvPT_ii)\n        .other          _Z28SingleRangeAtomicOnSharedMemIiEvPT_ii,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z28SingleRangeAtomicOnSharedMemIiEvPT_ii:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R4, SR_CTAID.X ;\n        /*0020*/                   ULDC UR7, c[0x0][0x0] ;\n        /*0030*/                   ULDC UR8, c[0x0][0x21c] ;\n        /*0040*/                   BSSY B0, `(.L_x_24) ;\n        /*0050*/                   S2R R3, SR_TID.X ;\n        /*0060*/                   IMAD R0, R4, UR7, R3 ;\n        /*0070*/                   ISETP.NE.AND P0, PT, R3, RZ, PT ;\n        /*0080*/                   ISETP.GE.U32.AND P1, PT, R0, UR8, PT ;\n        /*0090*/               @P1 BRA `(.L_x_25) ;\n        /*00a0*/                   S2UR UR6, SR_CgaCtaId ;\n        /*00b0*/                   UMOV UR4, `(_ZZ28SingleRangeAtomicOnSharedMemIiEvPT_iiE9smem_data) ;\n        /*00c0*/                   UMOV UR5, 0x400 ;\n        /*00d0*/                   UIADD3 UR4, UR4, UR5, URZ ;\n        /*00e0*/                   LDC R3, c[0x0][0xc] ;\n        /*00f0*/                   LDC R2, c[0x0][0x218] ;\n        /*0100*/                   ULEA UR4, UR6, UR4, 0x18 ;\n        /*0110*/                   IMAD R3, R3, UR7, RZ ;\n        /*0120*/                   LEA R2, R2, UR4, 0x2 ;\n.L_x_26:\n        /*0130*/                   IADD3 R0, R3, R0, RZ ;\n        /*0140*/                   ATOMS.POPC.INC.32 RZ, [R2+URZ] ;\n        /*0150*/                   ISETP.GE.U32.AND P1, PT, R0, UR8, PT ;\n        /*0160*/              @!P1 BRA `(.L_x_26) ;\n.L_x_25:\n        /*0170*/                   BSYNC B0 ;\n.L_x_24:\n        /*0180*/                   ULDC UR4, c[0x0][0xc] ;\n        /*0190*/                   ISETP.NE.OR P0, PT, R4, UR4, P0 ;\n        /*01a0*/               @P0 EXIT ;\n        /*01b0*/                   S2UR UR6, SR_CgaCtaId ;\n        /*01c0*/                   UMOV UR4, `(_ZZ28SingleRangeAtomicOnSharedMemIiEvPT_iiE9smem_data) ;\n        /*01d0*/                   UMOV UR5, 0x400 ;\n        /*01e0*/                   UIADD3 UR4, UR4, UR5, URZ ;\n        /*01f0*/                   LDC.64 R2, c[0x0][0x210] ;\n        /*0200*/                   ULEA UR4, UR6, UR4, 0x18 ;\n        /*0210*/                   LDS R5, [UR4] ;\n        /*0220*/                   ULDC.64 UR4, c[0x0][0x208] ;\n        /*0230*/                   STG.E desc[UR4][R2.64], R5 ;\n        /*0240*/                   EXIT ;\n.L_x_27:\n        /*0250*/                   BRA `(.L_x_27);\n        /*0260*/                   NOP;\n        /*0270*/                   NOP;\n        /*0280*/                   NOP;\n        /*0290*/                   NOP;\n        /*02a0*/                   NOP;\n        /*02b0*/                   NOP;\n        /*02c0*/                   NOP;\n        /*02d0*/                   NOP;\n        /*02e0*/                   NOP;\n        /*02f0*/                   NOP;\n.L_x_72:"
+        }
+      }
+    }
+  }
+}

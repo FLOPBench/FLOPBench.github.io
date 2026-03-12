@@ -1,0 +1,100 @@
+{
+  "exeArgs": NaN,
+  "kernels": {
+    "__nv_static_24__44cc3957_7_main_cu_main__Z14timedReductionPKfPfPl": {
+      "demangledName": "timedReduction(const float *, float *, long *)",
+      "imix": {
+        "sm_80": {
+          "NOP": 14,
+          "IMAD": 6,
+          "MOV": 5,
+          "ISETP": 4,
+          "BRA": 4,
+          "STG": 3,
+          "STS": 3,
+          "LDS": 3,
+          "S2R": 2,
+          "CS2R": 2,
+          "HFMA2": 2,
+          "IADD3": 2,
+          "LDG": 2,
+          "SHF": 2,
+          "BAR": 2,
+          "EXIT": 2,
+          "ULDC": 1,
+          "BSSY": 1,
+          "LEA": 1,
+          "FSETP": 1,
+          "BSYNC": 1,
+          "WARPSYNC": 1
+        },
+        "sm_86": {
+          "NOP": 14,
+          "MOV": 7,
+          "IMAD": 6,
+          "ISETP": 4,
+          "BRA": 4,
+          "STG": 3,
+          "STS": 3,
+          "LDS": 3,
+          "S2R": 2,
+          "CS2R": 2,
+          "IADD3": 2,
+          "LDG": 2,
+          "SHF": 2,
+          "BAR": 2,
+          "EXIT": 2,
+          "ULDC": 1,
+          "BSSY": 1,
+          "LEA": 1,
+          "FSETP": 1,
+          "BSYNC": 1,
+          "WARPSYNC": 1
+        },
+        "sm_90": {
+          "NOP": 9,
+          "LDC": 6,
+          "IMAD": 5,
+          "BRA": 5,
+          "ISETP": 4,
+          "UMOV": 4,
+          "STG": 3,
+          "LEA": 3,
+          "STS": 3,
+          "LDS": 3,
+          "S2R": 2,
+          "ULDC": 2,
+          "CS2R": 2,
+          "IADD3": 2,
+          "LDG": 2,
+          "S2UR": 2,
+          "UIADD3": 2,
+          "ULEA": 2,
+          "BAR": 2,
+          "BSSY": 2,
+          "BSYNC": 2,
+          "EXIT": 2,
+          "MOV": 1,
+          "FSETP": 1,
+          "SHF": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "__nv_static_24__44cc3957_7_main_cu_main__Z14timedReductionPKfPfPl": "//--------------------- .text.__nv_static_24__44cc3957_7_main_cu_main__Z14timedReductionPKfPfPl --------------------------\n\t.section\t.text.__nv_static_24__44cc3957_7_main_cu_main__Z14timedReductionPKfPfPl,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=16\"\n\t.align\t128\n.text.__nv_static_24__44cc3957_7_main_cu_main__Z14timedReductionPKfPfPl:\n        .type           __nv_static_24__44cc3957_7_main_cu_main__Z14timedReductionPKfPfPl,@function\n        .size           __nv_static_24__44cc3957_7_main_cu_main__Z14timedReductionPKfPfPl,(.L_x_5 - __nv_static_24__44cc3957_7_main_cu_main__Z14timedReductionPKfPfPl)\n        .other          __nv_static_24__44cc3957_7_main_cu_main__Z14timedReductionPKfPfPl,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n__nv_static_24__44cc3957_7_main_cu_main__Z14timedReductionPKfPfPl:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R12, SR_TID.X ;\n        /*0020*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0030*/                   S2R R10, SR_CTAID.X ;\n        /*0040*/                   ISETP.NE.AND P0, PT, R12, RZ, PT ;\n        /*0050*/              @!P0 CS2R R8, SR_CLOCKLO ;\n        /*0060*/                   HFMA2.MMA R11, -RZ, RZ, 0, 2.384185791015625e-07 ;\n        /*0070*/              @!P0 MOV R3, 0x8 ;\n        /*0080*/                   IADD3 R6, R12, c[0x0][0x0], RZ ;\n        /*0090*/              @!P0 IMAD.WIDE R2, R10, R3, c[0x0][0x170] ;\n        /*00a0*/                   IMAD.WIDE R4, R12, R11.reuse, c[0x0][0x160] ;\n        /*00b0*/              @!P0 STG.E.64 [R2.64], R8 ;\n        /*00c0*/                   IMAD.WIDE.U32 R6, R6, R11, c[0x0][0x160] ;\n        /*00d0*/                   LDG.E R4, [R4.64] ;\n        /*00e0*/                   LDG.E R6, [R6.64] ;\n        /*00f0*/                   SHF.L.U32 R0, R12, 0x2, RZ ;\n        /*0100*/                   MOV R13, c[0x0][0x0] ;\n        /*0110*/                   IMAD R11, R11, c[0x0][0x0], R0 ;\n        /*0120*/                   ISETP.GE.AND P1, PT, R13, 0x1, PT ;\n        /*0130*/                   STS [R12.X4], R4 ;\n        /*0140*/                   STS [R11], R6 ;\n        /*0150*/              @!P1 BRA `(.L_x_0) ;\n        /*0160*/                   MOV R3, c[0x0][0x0] ;\n.L_x_3:\n        /*0170*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*0180*/                   ISETP.GE.AND P1, PT, R12, R3, PT ;\n        /*0190*/                   BSSY B0, `(.L_x_1) ;\n        /*01a0*/               @P1 BRA `(.L_x_2) ;\n        /*01b0*/                   LEA R4, R3, R0, 0x2 ;\n        /*01c0*/                   LDS R2, [R12.X4] ;\n        /*01d0*/                   LDS R5, [R4] ;\n        /*01e0*/                   FSETP.GEU.AND P1, PT, R5, R2, PT ;\n        /*01f0*/              @!P1 STS [R12.X4], R5 ;\n.L_x_2:\n        /*0200*/                   BSYNC B0 ;\n.L_x_1:\n        /*0210*/                   SHF.R.U32.HI R3, RZ, 0x1, R3 ;\n        /*0220*/                   ISETP.NE.AND P1, PT, R3, RZ, PT ;\n        /*0230*/               @P1 BRA `(.L_x_3) ;\n.L_x_0:\n        /*0240*/              @!P0 LDS R5, [RZ] ;\n        /*0250*/              @!P0 MOV R3, 0x4 ;\n        /*0260*/                   WARPSYNC 0xffffffff ;\n        /*0270*/              @!P0 IMAD.WIDE R2, R10, R3, c[0x0][0x168] ;\n        /*0280*/              @!P0 STG.E [R2.64], R5 ;\n        /*0290*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*02a0*/               @P0 EXIT ;\n        /*02b0*/                   CS2R R4, SR_CLOCKLO ;\n        /*02c0*/                   HFMA2.MMA R3, -RZ, RZ, 0, 4.76837158203125e-07 ;\n        /*02d0*/                   IADD3 R2, R10, c[0x0][0xc], RZ ;\n        /*02e0*/                   IMAD.WIDE.U32 R2, R2, R3, c[0x0][0x170] ;\n        /*02f0*/                   STG.E.64 [R2.64], R4 ;\n        /*0300*/                   EXIT ;\n.L_x_4:\n        /*0310*/                   BRA `(.L_x_4);\n        /*0320*/                   NOP;\n        /*0330*/                   NOP;\n        /*0340*/                   NOP;\n        /*0350*/                   NOP;\n        /*0360*/                   NOP;\n        /*0370*/                   NOP;\n        /*0380*/                   NOP;\n        /*0390*/                   NOP;\n        /*03a0*/                   NOP;\n        /*03b0*/                   NOP;\n        /*03c0*/                   NOP;\n        /*03d0*/                   NOP;\n        /*03e0*/                   NOP;\n        /*03f0*/                   NOP;\n.L_x_5:"
+        },
+        "sm_86": {
+          "__nv_static_24__44cc3957_7_main_cu_main__Z14timedReductionPKfPfPl": "//--------------------- .text.__nv_static_24__44cc3957_7_main_cu_main__Z14timedReductionPKfPfPl --------------------------\n\t.section\t.text.__nv_static_24__44cc3957_7_main_cu_main__Z14timedReductionPKfPfPl,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=16\"\n\t.align\t128\n.text.__nv_static_24__44cc3957_7_main_cu_main__Z14timedReductionPKfPfPl:\n        .type           __nv_static_24__44cc3957_7_main_cu_main__Z14timedReductionPKfPfPl,@function\n        .size           __nv_static_24__44cc3957_7_main_cu_main__Z14timedReductionPKfPfPl,(.L_x_5 - __nv_static_24__44cc3957_7_main_cu_main__Z14timedReductionPKfPfPl)\n        .other          __nv_static_24__44cc3957_7_main_cu_main__Z14timedReductionPKfPfPl,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n__nv_static_24__44cc3957_7_main_cu_main__Z14timedReductionPKfPfPl:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R12, SR_TID.X ;\n        /*0020*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0030*/                   S2R R10, SR_CTAID.X ;\n        /*0040*/                   ISETP.NE.AND P0, PT, R12, RZ, PT ;\n        /*0050*/              @!P0 CS2R R8, SR_CLOCKLO ;\n        /*0060*/              @!P0 MOV R3, 0x8 ;\n        /*0070*/                   MOV R11, 0x4 ;\n        /*0080*/                   IADD3 R6, R12, c[0x0][0x0], RZ ;\n        /*0090*/              @!P0 IMAD.WIDE R2, R10, R3, c[0x0][0x170] ;\n        /*00a0*/                   IMAD.WIDE R4, R12, R11.reuse, c[0x0][0x160] ;\n        /*00b0*/              @!P0 STG.E.64 [R2.64], R8 ;\n        /*00c0*/                   IMAD.WIDE.U32 R6, R6, R11, c[0x0][0x160] ;\n        /*00d0*/                   LDG.E R4, [R4.64] ;\n        /*00e0*/                   LDG.E R6, [R6.64] ;\n        /*00f0*/                   SHF.L.U32 R0, R12, 0x2, RZ ;\n        /*0100*/                   MOV R13, c[0x0][0x0] ;\n        /*0110*/                   IMAD R11, R11, c[0x0][0x0], R0 ;\n        /*0120*/                   ISETP.GE.AND P1, PT, R13, 0x1, PT ;\n        /*0130*/                   STS [R12.X4], R4 ;\n        /*0140*/                   STS [R11], R6 ;\n        /*0150*/              @!P1 BRA `(.L_x_0) ;\n        /*0160*/                   MOV R3, c[0x0][0x0] ;\n.L_x_3:\n        /*0170*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*0180*/                   ISETP.GE.AND P1, PT, R12, R3, PT ;\n        /*0190*/                   BSSY B0, `(.L_x_1) ;\n        /*01a0*/               @P1 BRA `(.L_x_2) ;\n        /*01b0*/                   LEA R4, R3, R0, 0x2 ;\n        /*01c0*/                   LDS R2, [R12.X4] ;\n        /*01d0*/                   LDS R5, [R4] ;\n        /*01e0*/                   FSETP.GEU.AND P1, PT, R5, R2, PT ;\n        /*01f0*/              @!P1 STS [R12.X4], R5 ;\n.L_x_2:\n        /*0200*/                   BSYNC B0 ;\n.L_x_1:\n        /*0210*/                   SHF.R.U32.HI R3, RZ, 0x1, R3 ;\n        /*0220*/                   ISETP.NE.AND P1, PT, R3, RZ, PT ;\n        /*0230*/               @P1 BRA `(.L_x_3) ;\n.L_x_0:\n        /*0240*/              @!P0 LDS R5, [RZ] ;\n        /*0250*/              @!P0 MOV R3, 0x4 ;\n        /*0260*/                   WARPSYNC 0xffffffff ;\n        /*0270*/              @!P0 IMAD.WIDE R2, R10, R3, c[0x0][0x168] ;\n        /*0280*/              @!P0 STG.E [R2.64], R5 ;\n        /*0290*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*02a0*/               @P0 EXIT ;\n        /*02b0*/                   CS2R R4, SR_CLOCKLO ;\n        /*02c0*/                   IADD3 R2, R10, c[0x0][0xc], RZ ;\n        /*02d0*/                   MOV R3, 0x8 ;\n        /*02e0*/                   IMAD.WIDE.U32 R2, R2, R3, c[0x0][0x170] ;\n        /*02f0*/                   STG.E.64 [R2.64], R4 ;\n        /*0300*/                   EXIT ;\n.L_x_4:\n        /*0310*/                   BRA `(.L_x_4);\n        /*0320*/                   NOP;\n        /*0330*/                   NOP;\n        /*0340*/                   NOP;\n        /*0350*/                   NOP;\n        /*0360*/                   NOP;\n        /*0370*/                   NOP;\n        /*0380*/                   NOP;\n        /*0390*/                   NOP;\n        /*03a0*/                   NOP;\n        /*03b0*/                   NOP;\n        /*03c0*/                   NOP;\n        /*03d0*/                   NOP;\n        /*03e0*/                   NOP;\n        /*03f0*/                   NOP;\n.L_x_5:"
+        },
+        "sm_90": {
+          "__nv_static_24__44cc3957_7_main_cu_main__Z14timedReductionPKfPfPl": "//--------------------- .text.__nv_static_24__44cc3957_7_main_cu_main__Z14timedReductionPKfPfPl --------------------------\n\t.section\t.text.__nv_static_24__44cc3957_7_main_cu_main__Z14timedReductionPKfPfPl,\"ax\",@progbits\n\t.align\t128\n.text.__nv_static_24__44cc3957_7_main_cu_main__Z14timedReductionPKfPfPl:\n        .type           __nv_static_24__44cc3957_7_main_cu_main__Z14timedReductionPKfPfPl,@function\n        .size           __nv_static_24__44cc3957_7_main_cu_main__Z14timedReductionPKfPfPl,(.L_x_7 - __nv_static_24__44cc3957_7_main_cu_main__Z14timedReductionPKfPfPl)\n        .other          __nv_static_24__44cc3957_7_main_cu_main__Z14timedReductionPKfPfPl,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n__nv_static_24__44cc3957_7_main_cu_main__Z14timedReductionPKfPfPl:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R15, SR_TID.X ;\n        /*0020*/                   ULDC.64 UR8, c[0x0][0x208] ;\n        /*0030*/                   S2R R0, SR_CTAID.X ;\n        /*0040*/                   ISETP.NE.AND P0, PT, R15, RZ, PT ;\n        /*0050*/              @!P0 CS2R R8, SR_CLOCKLO ;\n        /*0060*/                   LDC R10, c[0x0][RZ] ;\n        /*0070*/              @!P0 LDC.64 R2, c[0x0][0x220] ;\n        /*0080*/                   LDC.64 R6, c[0x0][0x210] ;\n        /*0090*/                   IADD3 R11, R15, R10, RZ ;\n        /*00a0*/              @!P0 IMAD.WIDE R2, R0, 0x8, R2 ;\n        /*00b0*/              @!P0 STG.E.64 desc[UR8][R2.64], R8 ;\n        /*00c0*/                   IMAD.WIDE R4, R15, 0x4, R6 ;\n        /*00d0*/                   IMAD.WIDE.U32 R6, R11, 0x4, R6 ;\n        /*00e0*/                   LDG.E R4, desc[UR8][R4.64] ;\n        /*00f0*/                   LDG.E R6, desc[UR8][R6.64] ;\n        /*0100*/                   S2UR UR6, SR_CgaCtaId ;\n        /*0110*/                   UMOV UR4, 0x0 ;\n        /*0120*/                   UMOV UR5, 0x400 ;\n        /*0130*/                   ISETP.GE.AND P1, PT, R10, 0x1, PT ;\n        /*0140*/                   UIADD3 UR4, UR4, UR5, URZ ;\n        /*0150*/                   ULEA UR4, UR6, UR4, 0x18 ;\n        /*0160*/                   LEA R11, R15, UR4, 0x2 ;\n        /*0170*/                   LEA R13, R10, R11, 0x2 ;\n        /*0180*/                   STS [R11], R4 ;\n        /*0190*/                   STS [R13], R6 ;\n        /*01a0*/              @!P1 BRA `(.L_x_0) ;\n        /*01b0*/                   MOV R2, R10 ;\n.L_x_3:\n        /*01c0*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*01d0*/                   ISETP.GE.AND P1, PT, R15, R2, PT ;\n        /*01e0*/                   BSSY B0, `(.L_x_1) ;\n        /*01f0*/               @P1 BRA `(.L_x_2) ;\n        /*0200*/                   LEA R4, R2, R11, 0x2 ;\n        /*0210*/                   LDS R3, [R11] ;\n        /*0220*/                   LDS R4, [R4] ;\n        /*0230*/                   FSETP.GEU.AND P1, PT, R4, R3, PT ;\n        /*0240*/              @!P1 STS [R11], R4 ;\n.L_x_2:\n        /*0250*/                   BSYNC B0 ;\n.L_x_1:\n        /*0260*/                   SHF.R.U32.HI R2, RZ, 0x1, R2 ;\n        /*0270*/                   ISETP.NE.AND P1, PT, R2, RZ, PT ;\n        /*0280*/               @P1 BRA `(.L_x_3) ;\n.L_x_0:\n        /*0290*/                   BSSY B0, `(.L_x_4) ;\n        /*02a0*/               @P0 BRA `(.L_x_5) ;\n        /*02b0*/                   S2UR UR6, SR_CgaCtaId ;\n        /*02c0*/                   UMOV UR4, 0x0 ;\n        /*02d0*/                   UMOV UR5, 0x400 ;\n        /*02e0*/                   UIADD3 UR4, UR4, UR5, URZ ;\n        /*02f0*/                   LDC.64 R2, c[0x0][0x218] ;\n        /*0300*/                   ULEA UR4, UR6, UR4, 0x18 ;\n        /*0310*/                   IMAD.WIDE R2, R0, 0x4, R2 ;\n        /*0320*/                   LDS R5, [UR4] ;\n        /*0330*/                   STG.E desc[UR8][R2.64], R5 ;\n.L_x_5:\n        /*0340*/                   BSYNC B0 ;\n.L_x_4:\n        /*0350*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*0360*/               @P0 EXIT ;\n        /*0370*/                   CS2R R4, SR_CLOCKLO ;\n        /*0380*/                   LDC.64 R2, c[0x0][0x220] ;\n        /*0390*/                   ULDC UR4, c[0x0][0xc] ;\n        /*03a0*/                   IADD3 R7, R0, UR4, RZ ;\n        /*03b0*/                   IMAD.WIDE.U32 R2, R7, 0x8, R2 ;\n        /*03c0*/                   STG.E.64 desc[UR8][R2.64], R4 ;\n        /*03d0*/                   EXIT ;\n.L_x_6:\n        /*03e0*/                   BRA `(.L_x_6);\n        /*03f0*/                   NOP;\n        /*0400*/                   NOP;\n        /*0410*/                   NOP;\n        /*0420*/                   NOP;\n        /*0430*/                   NOP;\n        /*0440*/                   NOP;\n        /*0450*/                   NOP;\n        /*0460*/                   NOP;\n        /*0470*/                   NOP;\n.L_x_7:"
+        }
+      }
+    },
+    "__nv_static_24__44da63c2_7_main_cu_main__Z14timedReductionPKfPfPl": {
+      "demangledName": "timedReduction(const float *, float *, long *)",
+      "imix": {},
+      "sass_code": {}
+    }
+  }
+}

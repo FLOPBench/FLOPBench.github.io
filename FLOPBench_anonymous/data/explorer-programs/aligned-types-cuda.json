@@ -1,0 +1,704 @@
+{
+  "exeArgs": NaN,
+  "kernels": {
+    "_Z10testKernelI13uint2_alignedEvPT_PKS1_i": {
+      "demangledName": "void testKernel<uint2_aligned>(T1 *, const T1 *, int)",
+      "imix": {
+        "sm_80": {
+          "NOP": 10,
+          "IMAD": 3,
+          "S2R": 2,
+          "EXIT": 2,
+          "MOV": 1,
+          "ISETP": 1,
+          "HFMA2": 1,
+          "ULDC": 1,
+          "LDG": 1,
+          "STG": 1,
+          "BRA": 1
+        },
+        "sm_86": {
+          "NOP": 10,
+          "IMAD": 3,
+          "MOV": 2,
+          "S2R": 2,
+          "EXIT": 2,
+          "ISETP": 1,
+          "ULDC": 1,
+          "LDG": 1,
+          "STG": 1,
+          "BRA": 1
+        },
+        "sm_90": {
+          "NOP": 15,
+          "LDC": 3,
+          "ULDC": 3,
+          "IMAD": 3,
+          "S2R": 2,
+          "EXIT": 2,
+          "ISETP": 1,
+          "LDG": 1,
+          "STG": 1,
+          "BRA": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z10testKernelI13uint2_alignedEvPT_PKS1_i": "//--------------------- .text._Z10testKernelI13uint2_alignedEvPT_PKS1_i --------------------------\n\t.section\t.text._Z10testKernelI13uint2_alignedEvPT_PKS1_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=8\"\n\t.align\t128\n.text._Z10testKernelI13uint2_alignedEvPT_PKS1_i:\n        .weak           _Z10testKernelI13uint2_alignedEvPT_PKS1_i\n        .type           _Z10testKernelI13uint2_alignedEvPT_PKS1_i,@function\n        .size           _Z10testKernelI13uint2_alignedEvPT_PKS1_i,(.L_x_19 - _Z10testKernelI13uint2_alignedEvPT_PKS1_i)\n        .other          _Z10testKernelI13uint2_alignedEvPT_PKS1_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z10testKernelI13uint2_alignedEvPT_PKS1_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R4, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R4, R4, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.AND P0, PT, R4, c[0x0][0x170], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   HFMA2.MMA R5, -RZ, RZ, 0, 4.76837158203125e-07 ;\n        /*0070*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0080*/                   IMAD.WIDE R2, R4, R5, c[0x0][0x168] ;\n        /*0090*/                   LDG.E.64.CONSTANT R2, [R2.64] ;\n        /*00a0*/                   IMAD.WIDE R4, R4, R5, c[0x0][0x160] ;\n        /*00b0*/                   STG.E.64 [R4.64], R2 ;\n        /*00c0*/                   EXIT ;\n.L_x_6:\n        /*00d0*/                   BRA `(.L_x_6);\n        /*00e0*/                   NOP;\n        /*00f0*/                   NOP;\n        /*0100*/                   NOP;\n        /*0110*/                   NOP;\n        /*0120*/                   NOP;\n        /*0130*/                   NOP;\n        /*0140*/                   NOP;\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n.L_x_19:"
+        },
+        "sm_86": {
+          "_Z10testKernelI13uint2_alignedEvPT_PKS1_i": "//--------------------- .text._Z10testKernelI13uint2_alignedEvPT_PKS1_i --------------------------\n\t.section\t.text._Z10testKernelI13uint2_alignedEvPT_PKS1_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=8\"\n\t.align\t128\n.text._Z10testKernelI13uint2_alignedEvPT_PKS1_i:\n        .weak           _Z10testKernelI13uint2_alignedEvPT_PKS1_i\n        .type           _Z10testKernelI13uint2_alignedEvPT_PKS1_i,@function\n        .size           _Z10testKernelI13uint2_alignedEvPT_PKS1_i,(.L_x_19 - _Z10testKernelI13uint2_alignedEvPT_PKS1_i)\n        .other          _Z10testKernelI13uint2_alignedEvPT_PKS1_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z10testKernelI13uint2_alignedEvPT_PKS1_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R4, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R4, R4, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.AND P0, PT, R4, c[0x0][0x170], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   MOV R5, 0x8 ;\n        /*0070*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0080*/                   IMAD.WIDE R2, R4, R5, c[0x0][0x168] ;\n        /*0090*/                   LDG.E.64.CONSTANT R2, [R2.64] ;\n        /*00a0*/                   IMAD.WIDE R4, R4, R5, c[0x0][0x160] ;\n        /*00b0*/                   STG.E.64 [R4.64], R2 ;\n        /*00c0*/                   EXIT ;\n.L_x_6:\n        /*00d0*/                   BRA `(.L_x_6);\n        /*00e0*/                   NOP;\n        /*00f0*/                   NOP;\n        /*0100*/                   NOP;\n        /*0110*/                   NOP;\n        /*0120*/                   NOP;\n        /*0130*/                   NOP;\n        /*0140*/                   NOP;\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n.L_x_19:"
+        },
+        "sm_90": {
+          "_Z10testKernelI13uint2_alignedEvPT_PKS1_i": "//--------------------- .text._Z10testKernelI13uint2_alignedEvPT_PKS1_i --------------------------\n\t.section\t.text._Z10testKernelI13uint2_alignedEvPT_PKS1_i,\"ax\",@progbits\n\t.align\t128\n.text._Z10testKernelI13uint2_alignedEvPT_PKS1_i:\n        .weak           _Z10testKernelI13uint2_alignedEvPT_PKS1_i\n        .type           _Z10testKernelI13uint2_alignedEvPT_PKS1_i,@function\n        .size           _Z10testKernelI13uint2_alignedEvPT_PKS1_i,(.L_x_19 - _Z10testKernelI13uint2_alignedEvPT_PKS1_i)\n        .other          _Z10testKernelI13uint2_alignedEvPT_PKS1_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z10testKernelI13uint2_alignedEvPT_PKS1_i:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R7, SR_CTAID.X ;\n        /*0020*/                   ULDC UR4, c[0x0][0x0] ;\n        /*0030*/                   S2R R0, SR_TID.X ;\n        /*0040*/                   IMAD R7, R7, UR4, R0 ;\n        /*0050*/                   ULDC UR4, c[0x0][0x220] ;\n        /*0060*/                   ISETP.GE.AND P0, PT, R7, UR4, PT ;\n        /*0070*/               @P0 EXIT ;\n        /*0080*/                   LDC.64 R2, c[0x0][0x218] ;\n        /*0090*/                   ULDC.64 UR4, c[0x0][0x208] ;\n        /*00a0*/                   LDC.64 R4, c[0x0][0x210] ;\n        /*00b0*/                   IMAD.WIDE R2, R7, 0x8, R2 ;\n        /*00c0*/                   LDG.E.64.CONSTANT R2, desc[UR4][R2.64] ;\n        /*00d0*/                   IMAD.WIDE R4, R7, 0x8, R4 ;\n        /*00e0*/                   STG.E.64 desc[UR4][R4.64], R2 ;\n        /*00f0*/                   EXIT ;\n.L_x_6:\n        /*0100*/                   BRA `(.L_x_6);\n        /*0110*/                   NOP;\n        /*0120*/                   NOP;\n        /*0130*/                   NOP;\n        /*0140*/                   NOP;\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_19:"
+        }
+      }
+    },
+    "_Z10testKernelI13uint3_alignedEvPT_PKS1_i": {
+      "demangledName": "void testKernel<uint3_aligned>(T1 *, const T1 *, int)",
+      "imix": {
+        "sm_80": {
+          "NOP": 10,
+          "IMAD": 3,
+          "S2R": 2,
+          "EXIT": 2,
+          "MOV": 1,
+          "ISETP": 1,
+          "HFMA2": 1,
+          "ULDC": 1,
+          "LDG": 1,
+          "STG": 1,
+          "BRA": 1
+        },
+        "sm_86": {
+          "NOP": 10,
+          "IMAD": 3,
+          "MOV": 2,
+          "S2R": 2,
+          "EXIT": 2,
+          "ISETP": 1,
+          "ULDC": 1,
+          "LDG": 1,
+          "STG": 1,
+          "BRA": 1
+        },
+        "sm_90": {
+          "NOP": 15,
+          "LDC": 3,
+          "ULDC": 3,
+          "IMAD": 3,
+          "S2R": 2,
+          "EXIT": 2,
+          "ISETP": 1,
+          "LDG": 1,
+          "STG": 1,
+          "BRA": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z10testKernelI13uint3_alignedEvPT_PKS1_i": "//--------------------- .text._Z10testKernelI13uint3_alignedEvPT_PKS1_i --------------------------\n\t.section\t.text._Z10testKernelI13uint3_alignedEvPT_PKS1_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=10\"\n\t.align\t128\n.text._Z10testKernelI13uint3_alignedEvPT_PKS1_i:\n        .weak           _Z10testKernelI13uint3_alignedEvPT_PKS1_i\n        .type           _Z10testKernelI13uint3_alignedEvPT_PKS1_i,@function\n        .size           _Z10testKernelI13uint3_alignedEvPT_PKS1_i,(.L_x_17 - _Z10testKernelI13uint3_alignedEvPT_PKS1_i)\n        .other          _Z10testKernelI13uint3_alignedEvPT_PKS1_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z10testKernelI13uint3_alignedEvPT_PKS1_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R2, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R2, R2, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.AND P0, PT, R2, c[0x0][0x170], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   HFMA2.MMA R3, -RZ, RZ, 0, 9.5367431640625e-07 ;\n        /*0070*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0080*/                   IMAD.WIDE R4, R2, R3, c[0x0][0x168] ;\n        /*0090*/                   LDG.E.128.CONSTANT R4, [R4.64] ;\n        /*00a0*/                   IMAD.WIDE R2, R2, R3, c[0x0][0x160] ;\n        /*00b0*/                   STG.E.128 [R2.64], R4 ;\n        /*00c0*/                   EXIT ;\n.L_x_4:\n        /*00d0*/                   BRA `(.L_x_4);\n        /*00e0*/                   NOP;\n        /*00f0*/                   NOP;\n        /*0100*/                   NOP;\n        /*0110*/                   NOP;\n        /*0120*/                   NOP;\n        /*0130*/                   NOP;\n        /*0140*/                   NOP;\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n.L_x_17:"
+        },
+        "sm_86": {
+          "_Z10testKernelI13uint3_alignedEvPT_PKS1_i": "//--------------------- .text._Z10testKernelI13uint3_alignedEvPT_PKS1_i --------------------------\n\t.section\t.text._Z10testKernelI13uint3_alignedEvPT_PKS1_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=10\"\n\t.align\t128\n.text._Z10testKernelI13uint3_alignedEvPT_PKS1_i:\n        .weak           _Z10testKernelI13uint3_alignedEvPT_PKS1_i\n        .type           _Z10testKernelI13uint3_alignedEvPT_PKS1_i,@function\n        .size           _Z10testKernelI13uint3_alignedEvPT_PKS1_i,(.L_x_17 - _Z10testKernelI13uint3_alignedEvPT_PKS1_i)\n        .other          _Z10testKernelI13uint3_alignedEvPT_PKS1_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z10testKernelI13uint3_alignedEvPT_PKS1_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R2, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R2, R2, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.AND P0, PT, R2, c[0x0][0x170], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   MOV R3, 0x10 ;\n        /*0070*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0080*/                   IMAD.WIDE R4, R2, R3, c[0x0][0x168] ;\n        /*0090*/                   LDG.E.128.CONSTANT R4, [R4.64] ;\n        /*00a0*/                   IMAD.WIDE R2, R2, R3, c[0x0][0x160] ;\n        /*00b0*/                   STG.E.128 [R2.64], R4 ;\n        /*00c0*/                   EXIT ;\n.L_x_4:\n        /*00d0*/                   BRA `(.L_x_4);\n        /*00e0*/                   NOP;\n        /*00f0*/                   NOP;\n        /*0100*/                   NOP;\n        /*0110*/                   NOP;\n        /*0120*/                   NOP;\n        /*0130*/                   NOP;\n        /*0140*/                   NOP;\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n.L_x_17:"
+        },
+        "sm_90": {
+          "_Z10testKernelI13uint3_alignedEvPT_PKS1_i": "//--------------------- .text._Z10testKernelI13uint3_alignedEvPT_PKS1_i --------------------------\n\t.section\t.text._Z10testKernelI13uint3_alignedEvPT_PKS1_i,\"ax\",@progbits\n\t.align\t128\n.text._Z10testKernelI13uint3_alignedEvPT_PKS1_i:\n        .weak           _Z10testKernelI13uint3_alignedEvPT_PKS1_i\n        .type           _Z10testKernelI13uint3_alignedEvPT_PKS1_i,@function\n        .size           _Z10testKernelI13uint3_alignedEvPT_PKS1_i,(.L_x_17 - _Z10testKernelI13uint3_alignedEvPT_PKS1_i)\n        .other          _Z10testKernelI13uint3_alignedEvPT_PKS1_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z10testKernelI13uint3_alignedEvPT_PKS1_i:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R7, SR_CTAID.X ;\n        /*0020*/                   ULDC UR4, c[0x0][0x0] ;\n        /*0030*/                   S2R R0, SR_TID.X ;\n        /*0040*/                   IMAD R7, R7, UR4, R0 ;\n        /*0050*/                   ULDC UR4, c[0x0][0x220] ;\n        /*0060*/                   ISETP.GE.AND P0, PT, R7, UR4, PT ;\n        /*0070*/               @P0 EXIT ;\n        /*0080*/                   LDC.64 R4, c[0x0][0x218] ;\n        /*0090*/                   ULDC.64 UR4, c[0x0][0x208] ;\n        /*00a0*/                   LDC.64 R2, c[0x0][0x210] ;\n        /*00b0*/                   IMAD.WIDE R4, R7, 0x10, R4 ;\n        /*00c0*/                   LDG.E.128.CONSTANT R8, desc[UR4][R4.64] ;\n        /*00d0*/                   IMAD.WIDE R2, R7, 0x10, R2 ;\n        /*00e0*/                   STG.E.128 desc[UR4][R2.64], R8 ;\n        /*00f0*/                   EXIT ;\n.L_x_4:\n        /*0100*/                   BRA `(.L_x_4);\n        /*0110*/                   NOP;\n        /*0120*/                   NOP;\n        /*0130*/                   NOP;\n        /*0140*/                   NOP;\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_17:"
+        }
+      }
+    },
+    "_Z10testKernelI13uint4_alignedEvPT_PKS1_i": {
+      "demangledName": "void testKernel<uint4_aligned>(T1 *, const T1 *, int)",
+      "imix": {
+        "sm_80": {
+          "NOP": 10,
+          "IMAD": 3,
+          "S2R": 2,
+          "EXIT": 2,
+          "MOV": 1,
+          "ISETP": 1,
+          "HFMA2": 1,
+          "ULDC": 1,
+          "LDG": 1,
+          "STG": 1,
+          "BRA": 1
+        },
+        "sm_86": {
+          "NOP": 10,
+          "IMAD": 3,
+          "MOV": 2,
+          "S2R": 2,
+          "EXIT": 2,
+          "ISETP": 1,
+          "ULDC": 1,
+          "LDG": 1,
+          "STG": 1,
+          "BRA": 1
+        },
+        "sm_90": {
+          "NOP": 15,
+          "LDC": 3,
+          "ULDC": 3,
+          "IMAD": 3,
+          "S2R": 2,
+          "EXIT": 2,
+          "ISETP": 1,
+          "LDG": 1,
+          "STG": 1,
+          "BRA": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z10testKernelI13uint4_alignedEvPT_PKS1_i": "//--------------------- .text._Z10testKernelI13uint4_alignedEvPT_PKS1_i --------------------------\n\t.section\t.text._Z10testKernelI13uint4_alignedEvPT_PKS1_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=10\"\n\t.align\t128\n.text._Z10testKernelI13uint4_alignedEvPT_PKS1_i:\n        .weak           _Z10testKernelI13uint4_alignedEvPT_PKS1_i\n        .type           _Z10testKernelI13uint4_alignedEvPT_PKS1_i,@function\n        .size           _Z10testKernelI13uint4_alignedEvPT_PKS1_i,(.L_x_15 - _Z10testKernelI13uint4_alignedEvPT_PKS1_i)\n        .other          _Z10testKernelI13uint4_alignedEvPT_PKS1_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z10testKernelI13uint4_alignedEvPT_PKS1_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R2, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R2, R2, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.AND P0, PT, R2, c[0x0][0x170], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   HFMA2.MMA R3, -RZ, RZ, 0, 9.5367431640625e-07 ;\n        /*0070*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0080*/                   IMAD.WIDE R4, R2, R3, c[0x0][0x168] ;\n        /*0090*/                   LDG.E.128.CONSTANT R4, [R4.64] ;\n        /*00a0*/                   IMAD.WIDE R2, R2, R3, c[0x0][0x160] ;\n        /*00b0*/                   STG.E.128 [R2.64], R4 ;\n        /*00c0*/                   EXIT ;\n.L_x_2:\n        /*00d0*/                   BRA `(.L_x_2);\n        /*00e0*/                   NOP;\n        /*00f0*/                   NOP;\n        /*0100*/                   NOP;\n        /*0110*/                   NOP;\n        /*0120*/                   NOP;\n        /*0130*/                   NOP;\n        /*0140*/                   NOP;\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n.L_x_15:"
+        },
+        "sm_86": {
+          "_Z10testKernelI13uint4_alignedEvPT_PKS1_i": "//--------------------- .text._Z10testKernelI13uint4_alignedEvPT_PKS1_i --------------------------\n\t.section\t.text._Z10testKernelI13uint4_alignedEvPT_PKS1_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=10\"\n\t.align\t128\n.text._Z10testKernelI13uint4_alignedEvPT_PKS1_i:\n        .weak           _Z10testKernelI13uint4_alignedEvPT_PKS1_i\n        .type           _Z10testKernelI13uint4_alignedEvPT_PKS1_i,@function\n        .size           _Z10testKernelI13uint4_alignedEvPT_PKS1_i,(.L_x_15 - _Z10testKernelI13uint4_alignedEvPT_PKS1_i)\n        .other          _Z10testKernelI13uint4_alignedEvPT_PKS1_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z10testKernelI13uint4_alignedEvPT_PKS1_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R2, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R2, R2, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.AND P0, PT, R2, c[0x0][0x170], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   MOV R3, 0x10 ;\n        /*0070*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0080*/                   IMAD.WIDE R4, R2, R3, c[0x0][0x168] ;\n        /*0090*/                   LDG.E.128.CONSTANT R4, [R4.64] ;\n        /*00a0*/                   IMAD.WIDE R2, R2, R3, c[0x0][0x160] ;\n        /*00b0*/                   STG.E.128 [R2.64], R4 ;\n        /*00c0*/                   EXIT ;\n.L_x_2:\n        /*00d0*/                   BRA `(.L_x_2);\n        /*00e0*/                   NOP;\n        /*00f0*/                   NOP;\n        /*0100*/                   NOP;\n        /*0110*/                   NOP;\n        /*0120*/                   NOP;\n        /*0130*/                   NOP;\n        /*0140*/                   NOP;\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n.L_x_15:"
+        },
+        "sm_90": {
+          "_Z10testKernelI13uint4_alignedEvPT_PKS1_i": "//--------------------- .text._Z10testKernelI13uint4_alignedEvPT_PKS1_i --------------------------\n\t.section\t.text._Z10testKernelI13uint4_alignedEvPT_PKS1_i,\"ax\",@progbits\n\t.align\t128\n.text._Z10testKernelI13uint4_alignedEvPT_PKS1_i:\n        .weak           _Z10testKernelI13uint4_alignedEvPT_PKS1_i\n        .type           _Z10testKernelI13uint4_alignedEvPT_PKS1_i,@function\n        .size           _Z10testKernelI13uint4_alignedEvPT_PKS1_i,(.L_x_15 - _Z10testKernelI13uint4_alignedEvPT_PKS1_i)\n        .other          _Z10testKernelI13uint4_alignedEvPT_PKS1_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z10testKernelI13uint4_alignedEvPT_PKS1_i:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R7, SR_CTAID.X ;\n        /*0020*/                   ULDC UR4, c[0x0][0x0] ;\n        /*0030*/                   S2R R0, SR_TID.X ;\n        /*0040*/                   IMAD R7, R7, UR4, R0 ;\n        /*0050*/                   ULDC UR4, c[0x0][0x220] ;\n        /*0060*/                   ISETP.GE.AND P0, PT, R7, UR4, PT ;\n        /*0070*/               @P0 EXIT ;\n        /*0080*/                   LDC.64 R4, c[0x0][0x218] ;\n        /*0090*/                   ULDC.64 UR4, c[0x0][0x208] ;\n        /*00a0*/                   LDC.64 R2, c[0x0][0x210] ;\n        /*00b0*/                   IMAD.WIDE R4, R7, 0x10, R4 ;\n        /*00c0*/                   LDG.E.128.CONSTANT R8, desc[UR4][R4.64] ;\n        /*00d0*/                   IMAD.WIDE R2, R7, 0x10, R2 ;\n        /*00e0*/                   STG.E.128 desc[UR4][R2.64], R8 ;\n        /*00f0*/                   EXIT ;\n.L_x_2:\n        /*0100*/                   BRA `(.L_x_2);\n        /*0110*/                   NOP;\n        /*0120*/                   NOP;\n        /*0130*/                   NOP;\n        /*0140*/                   NOP;\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_15:"
+        }
+      }
+    },
+    "_Z10testKernelI13uint8_alignedEvPT_PKS1_i": {
+      "demangledName": "void testKernel<uint8_aligned>(T1 *, const T1 *, int)",
+      "imix": {
+        "sm_80": {
+          "NOP": 8,
+          "IMAD": 3,
+          "S2R": 2,
+          "EXIT": 2,
+          "LDG": 2,
+          "STG": 2,
+          "MOV": 1,
+          "ISETP": 1,
+          "HFMA2": 1,
+          "ULDC": 1,
+          "BRA": 1
+        },
+        "sm_86": {
+          "NOP": 8,
+          "IMAD": 3,
+          "MOV": 2,
+          "S2R": 2,
+          "EXIT": 2,
+          "LDG": 2,
+          "STG": 2,
+          "ISETP": 1,
+          "ULDC": 1,
+          "BRA": 1
+        },
+        "sm_90": {
+          "NOP": 13,
+          "LDC": 3,
+          "ULDC": 3,
+          "IMAD": 3,
+          "S2R": 2,
+          "EXIT": 2,
+          "LDG": 2,
+          "STG": 2,
+          "ISETP": 1,
+          "BRA": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z10testKernelI13uint8_alignedEvPT_PKS1_i": "//--------------------- .text._Z10testKernelI13uint8_alignedEvPT_PKS1_i --------------------------\n\t.section\t.text._Z10testKernelI13uint8_alignedEvPT_PKS1_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=18\"\n\t.align\t128\n.text._Z10testKernelI13uint8_alignedEvPT_PKS1_i:\n        .weak           _Z10testKernelI13uint8_alignedEvPT_PKS1_i\n        .type           _Z10testKernelI13uint8_alignedEvPT_PKS1_i,@function\n        .size           _Z10testKernelI13uint8_alignedEvPT_PKS1_i,(.L_x_13 - _Z10testKernelI13uint8_alignedEvPT_PKS1_i)\n        .other          _Z10testKernelI13uint8_alignedEvPT_PKS1_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z10testKernelI13uint8_alignedEvPT_PKS1_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R2, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R2, R2, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.AND P0, PT, R2, c[0x0][0x170], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   HFMA2.MMA R3, -RZ, RZ, 0, 1.9073486328125e-06 ;\n        /*0070*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0080*/                   IMAD.WIDE R4, R2, R3, c[0x0][0x168] ;\n        /*0090*/                   LDG.E.128.CONSTANT R8, [R4.64] ;\n        /*00a0*/                   LDG.E.128.CONSTANT R12, [R4.64+0x10] ;\n        /*00b0*/                   IMAD.WIDE R2, R2, R3, c[0x0][0x160] ;\n        /*00c0*/                   STG.E.128 [R2.64], R8 ;\n        /*00d0*/                   STG.E.128 [R2.64+0x10], R12 ;\n        /*00e0*/                   EXIT ;\n.L_x_0:\n        /*00f0*/                   BRA `(.L_x_0);\n        /*0100*/                   NOP;\n        /*0110*/                   NOP;\n        /*0120*/                   NOP;\n        /*0130*/                   NOP;\n        /*0140*/                   NOP;\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n.L_x_13:"
+        },
+        "sm_86": {
+          "_Z10testKernelI13uint8_alignedEvPT_PKS1_i": "//--------------------- .text._Z10testKernelI13uint8_alignedEvPT_PKS1_i --------------------------\n\t.section\t.text._Z10testKernelI13uint8_alignedEvPT_PKS1_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=18\"\n\t.align\t128\n.text._Z10testKernelI13uint8_alignedEvPT_PKS1_i:\n        .weak           _Z10testKernelI13uint8_alignedEvPT_PKS1_i\n        .type           _Z10testKernelI13uint8_alignedEvPT_PKS1_i,@function\n        .size           _Z10testKernelI13uint8_alignedEvPT_PKS1_i,(.L_x_13 - _Z10testKernelI13uint8_alignedEvPT_PKS1_i)\n        .other          _Z10testKernelI13uint8_alignedEvPT_PKS1_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z10testKernelI13uint8_alignedEvPT_PKS1_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R2, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R2, R2, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.AND P0, PT, R2, c[0x0][0x170], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   MOV R3, 0x20 ;\n        /*0070*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0080*/                   IMAD.WIDE R4, R2, R3, c[0x0][0x168] ;\n        /*0090*/                   LDG.E.128.CONSTANT R8, [R4.64] ;\n        /*00a0*/                   LDG.E.128.CONSTANT R12, [R4.64+0x10] ;\n        /*00b0*/                   IMAD.WIDE R2, R2, R3, c[0x0][0x160] ;\n        /*00c0*/                   STG.E.128 [R2.64], R8 ;\n        /*00d0*/                   STG.E.128 [R2.64+0x10], R12 ;\n        /*00e0*/                   EXIT ;\n.L_x_0:\n        /*00f0*/                   BRA `(.L_x_0);\n        /*0100*/                   NOP;\n        /*0110*/                   NOP;\n        /*0120*/                   NOP;\n        /*0130*/                   NOP;\n        /*0140*/                   NOP;\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n.L_x_13:"
+        },
+        "sm_90": {
+          "_Z10testKernelI13uint8_alignedEvPT_PKS1_i": "//--------------------- .text._Z10testKernelI13uint8_alignedEvPT_PKS1_i --------------------------\n\t.section\t.text._Z10testKernelI13uint8_alignedEvPT_PKS1_i,\"ax\",@progbits\n\t.align\t128\n.text._Z10testKernelI13uint8_alignedEvPT_PKS1_i:\n        .weak           _Z10testKernelI13uint8_alignedEvPT_PKS1_i\n        .type           _Z10testKernelI13uint8_alignedEvPT_PKS1_i,@function\n        .size           _Z10testKernelI13uint8_alignedEvPT_PKS1_i,(.L_x_13 - _Z10testKernelI13uint8_alignedEvPT_PKS1_i)\n        .other          _Z10testKernelI13uint8_alignedEvPT_PKS1_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z10testKernelI13uint8_alignedEvPT_PKS1_i:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R7, SR_CTAID.X ;\n        /*0020*/                   ULDC UR4, c[0x0][0x0] ;\n        /*0030*/                   S2R R0, SR_TID.X ;\n        /*0040*/                   IMAD R7, R7, UR4, R0 ;\n        /*0050*/                   ULDC UR4, c[0x0][0x220] ;\n        /*0060*/                   ISETP.GE.AND P0, PT, R7, UR4, PT ;\n        /*0070*/               @P0 EXIT ;\n        /*0080*/                   LDC.64 R4, c[0x0][0x218] ;\n        /*0090*/                   ULDC.64 UR4, c[0x0][0x208] ;\n        /*00a0*/                   LDC.64 R2, c[0x0][0x210] ;\n        /*00b0*/                   IMAD.WIDE R4, R7, 0x20, R4 ;\n        /*00c0*/                   LDG.E.128.CONSTANT R8, desc[UR4][R4.64] ;\n        /*00d0*/                   LDG.E.128.CONSTANT R12, desc[UR4][R4.64+0x10] ;\n        /*00e0*/                   IMAD.WIDE R2, R7, 0x20, R2 ;\n        /*00f0*/                   STG.E.128 desc[UR4][R2.64], R8 ;\n        /*0100*/                   STG.E.128 desc[UR4][R2.64+0x10], R12 ;\n        /*0110*/                   EXIT ;\n.L_x_0:\n        /*0120*/                   BRA `(.L_x_0);\n        /*0130*/                   NOP;\n        /*0140*/                   NOP;\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_13:"
+        }
+      }
+    },
+    "_Z10testKernelI14uchar4_alignedEvPT_PKS1_i": {
+      "demangledName": "void testKernel<uchar4_aligned>(T1 *, const T1 *, int)",
+      "imix": {
+        "sm_80": {
+          "NOP": 10,
+          "IMAD": 3,
+          "S2R": 2,
+          "EXIT": 2,
+          "MOV": 1,
+          "ISETP": 1,
+          "HFMA2": 1,
+          "ULDC": 1,
+          "LDG": 1,
+          "STG": 1,
+          "BRA": 1
+        },
+        "sm_86": {
+          "NOP": 10,
+          "IMAD": 3,
+          "MOV": 2,
+          "S2R": 2,
+          "EXIT": 2,
+          "ISETP": 1,
+          "ULDC": 1,
+          "LDG": 1,
+          "STG": 1,
+          "BRA": 1
+        },
+        "sm_90": {
+          "NOP": 15,
+          "LDC": 3,
+          "ULDC": 3,
+          "IMAD": 3,
+          "S2R": 2,
+          "EXIT": 2,
+          "ISETP": 1,
+          "LDG": 1,
+          "STG": 1,
+          "BRA": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z10testKernelI14uchar4_alignedEvPT_PKS1_i": "//--------------------- .text._Z10testKernelI14uchar4_alignedEvPT_PKS1_i --------------------------\n\t.section\t.text._Z10testKernelI14uchar4_alignedEvPT_PKS1_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=8\"\n\t.align\t128\n.text._Z10testKernelI14uchar4_alignedEvPT_PKS1_i:\n        .weak           _Z10testKernelI14uchar4_alignedEvPT_PKS1_i\n        .type           _Z10testKernelI14uchar4_alignedEvPT_PKS1_i,@function\n        .size           _Z10testKernelI14uchar4_alignedEvPT_PKS1_i,(.L_x_23 - _Z10testKernelI14uchar4_alignedEvPT_PKS1_i)\n        .other          _Z10testKernelI14uchar4_alignedEvPT_PKS1_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z10testKernelI14uchar4_alignedEvPT_PKS1_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R2, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R2, R2, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.AND P0, PT, R2, c[0x0][0x170], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   HFMA2.MMA R3, -RZ, RZ, 0, 2.384185791015625e-07 ;\n        /*0070*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0080*/                   IMAD.WIDE R4, R2, R3, c[0x0][0x168] ;\n        /*0090*/                   LDG.E.CONSTANT R5, [R4.64] ;\n        /*00a0*/                   IMAD.WIDE R2, R2, R3, c[0x0][0x160] ;\n        /*00b0*/                   STG.E [R2.64], R5 ;\n        /*00c0*/                   EXIT ;\n.L_x_10:\n        /*00d0*/                   BRA `(.L_x_10);\n        /*00e0*/                   NOP;\n        /*00f0*/                   NOP;\n        /*0100*/                   NOP;\n        /*0110*/                   NOP;\n        /*0120*/                   NOP;\n        /*0130*/                   NOP;\n        /*0140*/                   NOP;\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n.L_x_23:"
+        },
+        "sm_86": {
+          "_Z10testKernelI14uchar4_alignedEvPT_PKS1_i": "//--------------------- .text._Z10testKernelI14uchar4_alignedEvPT_PKS1_i --------------------------\n\t.section\t.text._Z10testKernelI14uchar4_alignedEvPT_PKS1_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=8\"\n\t.align\t128\n.text._Z10testKernelI14uchar4_alignedEvPT_PKS1_i:\n        .weak           _Z10testKernelI14uchar4_alignedEvPT_PKS1_i\n        .type           _Z10testKernelI14uchar4_alignedEvPT_PKS1_i,@function\n        .size           _Z10testKernelI14uchar4_alignedEvPT_PKS1_i,(.L_x_23 - _Z10testKernelI14uchar4_alignedEvPT_PKS1_i)\n        .other          _Z10testKernelI14uchar4_alignedEvPT_PKS1_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z10testKernelI14uchar4_alignedEvPT_PKS1_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R2, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R2, R2, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.AND P0, PT, R2, c[0x0][0x170], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   MOV R3, 0x4 ;\n        /*0070*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0080*/                   IMAD.WIDE R4, R2, R3, c[0x0][0x168] ;\n        /*0090*/                   LDG.E.CONSTANT R5, [R4.64] ;\n        /*00a0*/                   IMAD.WIDE R2, R2, R3, c[0x0][0x160] ;\n        /*00b0*/                   STG.E [R2.64], R5 ;\n        /*00c0*/                   EXIT ;\n.L_x_10:\n        /*00d0*/                   BRA `(.L_x_10);\n        /*00e0*/                   NOP;\n        /*00f0*/                   NOP;\n        /*0100*/                   NOP;\n        /*0110*/                   NOP;\n        /*0120*/                   NOP;\n        /*0130*/                   NOP;\n        /*0140*/                   NOP;\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n.L_x_23:"
+        },
+        "sm_90": {
+          "_Z10testKernelI14uchar4_alignedEvPT_PKS1_i": "//--------------------- .text._Z10testKernelI14uchar4_alignedEvPT_PKS1_i --------------------------\n\t.section\t.text._Z10testKernelI14uchar4_alignedEvPT_PKS1_i,\"ax\",@progbits\n\t.align\t128\n.text._Z10testKernelI14uchar4_alignedEvPT_PKS1_i:\n        .weak           _Z10testKernelI14uchar4_alignedEvPT_PKS1_i\n        .type           _Z10testKernelI14uchar4_alignedEvPT_PKS1_i,@function\n        .size           _Z10testKernelI14uchar4_alignedEvPT_PKS1_i,(.L_x_23 - _Z10testKernelI14uchar4_alignedEvPT_PKS1_i)\n        .other          _Z10testKernelI14uchar4_alignedEvPT_PKS1_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z10testKernelI14uchar4_alignedEvPT_PKS1_i:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R7, SR_CTAID.X ;\n        /*0020*/                   ULDC UR4, c[0x0][0x0] ;\n        /*0030*/                   S2R R0, SR_TID.X ;\n        /*0040*/                   IMAD R7, R7, UR4, R0 ;\n        /*0050*/                   ULDC UR4, c[0x0][0x220] ;\n        /*0060*/                   ISETP.GE.AND P0, PT, R7, UR4, PT ;\n        /*0070*/               @P0 EXIT ;\n        /*0080*/                   LDC.64 R4, c[0x0][0x218] ;\n        /*0090*/                   ULDC.64 UR4, c[0x0][0x208] ;\n        /*00a0*/                   LDC.64 R2, c[0x0][0x210] ;\n        /*00b0*/                   IMAD.WIDE R4, R7, 0x4, R4 ;\n        /*00c0*/                   LDG.E.CONSTANT R5, desc[UR4][R4.64] ;\n        /*00d0*/                   IMAD.WIDE R2, R7, 0x4, R2 ;\n        /*00e0*/                   STG.E desc[UR4][R2.64], R5 ;\n        /*00f0*/                   EXIT ;\n.L_x_10:\n        /*0100*/                   BRA `(.L_x_10);\n        /*0110*/                   NOP;\n        /*0120*/                   NOP;\n        /*0130*/                   NOP;\n        /*0140*/                   NOP;\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_23:"
+        }
+      }
+    },
+    "_Z10testKernelI16uint2_misalignedEvPT_PKS1_i": {
+      "demangledName": "void testKernel<uint2_misaligned>(T1 *, const T1 *, int)",
+      "imix": {
+        "sm_80": {
+          "NOP": 8,
+          "IMAD": 3,
+          "S2R": 2,
+          "EXIT": 2,
+          "LDG": 2,
+          "STG": 2,
+          "MOV": 1,
+          "ISETP": 1,
+          "HFMA2": 1,
+          "ULDC": 1,
+          "BRA": 1
+        },
+        "sm_86": {
+          "NOP": 8,
+          "IMAD": 3,
+          "MOV": 2,
+          "S2R": 2,
+          "EXIT": 2,
+          "LDG": 2,
+          "STG": 2,
+          "ISETP": 1,
+          "ULDC": 1,
+          "BRA": 1
+        },
+        "sm_90": {
+          "NOP": 13,
+          "LDC": 4,
+          "IMAD": 3,
+          "ULDC": 2,
+          "EXIT": 2,
+          "LDG": 2,
+          "STG": 2,
+          "S2R": 1,
+          "S2UR": 1,
+          "ISETP": 1,
+          "BRA": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z10testKernelI16uint2_misalignedEvPT_PKS1_i": "//--------------------- .text._Z10testKernelI16uint2_misalignedEvPT_PKS1_i --------------------------\n\t.section\t.text._Z10testKernelI16uint2_misalignedEvPT_PKS1_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=12\"\n\t.align\t128\n.text._Z10testKernelI16uint2_misalignedEvPT_PKS1_i:\n        .weak           _Z10testKernelI16uint2_misalignedEvPT_PKS1_i\n        .type           _Z10testKernelI16uint2_misalignedEvPT_PKS1_i,@function\n        .size           _Z10testKernelI16uint2_misalignedEvPT_PKS1_i,(.L_x_20 - _Z10testKernelI16uint2_misalignedEvPT_PKS1_i)\n        .other          _Z10testKernelI16uint2_misalignedEvPT_PKS1_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z10testKernelI16uint2_misalignedEvPT_PKS1_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R4, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R4, R4, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.AND P0, PT, R4, c[0x0][0x170], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   HFMA2.MMA R5, -RZ, RZ, 0, 4.76837158203125e-07 ;\n        /*0070*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0080*/                   IMAD.WIDE R2, R4, R5, c[0x0][0x168] ;\n        /*0090*/                   LDG.E.CONSTANT R7, [R2.64] ;\n        /*00a0*/                   LDG.E.CONSTANT R9, [R2.64+0x4] ;\n        /*00b0*/                   IMAD.WIDE R4, R4, R5, c[0x0][0x160] ;\n        /*00c0*/                   STG.E [R4.64], R7 ;\n        /*00d0*/                   STG.E [R4.64+0x4], R9 ;\n        /*00e0*/                   EXIT ;\n.L_x_7:\n        /*00f0*/                   BRA `(.L_x_7);\n        /*0100*/                   NOP;\n        /*0110*/                   NOP;\n        /*0120*/                   NOP;\n        /*0130*/                   NOP;\n        /*0140*/                   NOP;\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n.L_x_20:"
+        },
+        "sm_86": {
+          "_Z10testKernelI16uint2_misalignedEvPT_PKS1_i": "//--------------------- .text._Z10testKernelI16uint2_misalignedEvPT_PKS1_i --------------------------\n\t.section\t.text._Z10testKernelI16uint2_misalignedEvPT_PKS1_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=12\"\n\t.align\t128\n.text._Z10testKernelI16uint2_misalignedEvPT_PKS1_i:\n        .weak           _Z10testKernelI16uint2_misalignedEvPT_PKS1_i\n        .type           _Z10testKernelI16uint2_misalignedEvPT_PKS1_i,@function\n        .size           _Z10testKernelI16uint2_misalignedEvPT_PKS1_i,(.L_x_20 - _Z10testKernelI16uint2_misalignedEvPT_PKS1_i)\n        .other          _Z10testKernelI16uint2_misalignedEvPT_PKS1_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z10testKernelI16uint2_misalignedEvPT_PKS1_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R4, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R4, R4, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.AND P0, PT, R4, c[0x0][0x170], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   MOV R5, 0x8 ;\n        /*0070*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0080*/                   IMAD.WIDE R2, R4, R5, c[0x0][0x168] ;\n        /*0090*/                   LDG.E.CONSTANT R7, [R2.64] ;\n        /*00a0*/                   LDG.E.CONSTANT R9, [R2.64+0x4] ;\n        /*00b0*/                   IMAD.WIDE R4, R4, R5, c[0x0][0x160] ;\n        /*00c0*/                   STG.E [R4.64], R7 ;\n        /*00d0*/                   STG.E [R4.64+0x4], R9 ;\n        /*00e0*/                   EXIT ;\n.L_x_7:\n        /*00f0*/                   BRA `(.L_x_7);\n        /*0100*/                   NOP;\n        /*0110*/                   NOP;\n        /*0120*/                   NOP;\n        /*0130*/                   NOP;\n        /*0140*/                   NOP;\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n.L_x_20:"
+        },
+        "sm_90": {
+          "_Z10testKernelI16uint2_misalignedEvPT_PKS1_i": "//--------------------- .text._Z10testKernelI16uint2_misalignedEvPT_PKS1_i --------------------------\n\t.section\t.text._Z10testKernelI16uint2_misalignedEvPT_PKS1_i,\"ax\",@progbits\n\t.align\t128\n.text._Z10testKernelI16uint2_misalignedEvPT_PKS1_i:\n        .weak           _Z10testKernelI16uint2_misalignedEvPT_PKS1_i\n        .type           _Z10testKernelI16uint2_misalignedEvPT_PKS1_i,@function\n        .size           _Z10testKernelI16uint2_misalignedEvPT_PKS1_i,(.L_x_20 - _Z10testKernelI16uint2_misalignedEvPT_PKS1_i)\n        .other          _Z10testKernelI16uint2_misalignedEvPT_PKS1_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z10testKernelI16uint2_misalignedEvPT_PKS1_i:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_TID.X ;\n        /*0020*/                   S2UR UR4, SR_CTAID.X ;\n        /*0030*/                   LDC R7, c[0x0][RZ] ;\n        /*0040*/                   IMAD R7, R7, UR4, R0 ;\n        /*0050*/                   ULDC UR4, c[0x0][0x220] ;\n        /*0060*/                   ISETP.GE.AND P0, PT, R7, UR4, PT ;\n        /*0070*/               @P0 EXIT ;\n        /*0080*/                   LDC.64 R2, c[0x0][0x218] ;\n        /*0090*/                   ULDC.64 UR4, c[0x0][0x208] ;\n        /*00a0*/                   LDC.64 R4, c[0x0][0x210] ;\n        /*00b0*/                   IMAD.WIDE R2, R7, 0x8, R2 ;\n        /*00c0*/                   LDG.E.CONSTANT R9, desc[UR4][R2.64] ;\n        /*00d0*/                   LDG.E.CONSTANT R11, desc[UR4][R2.64+0x4] ;\n        /*00e0*/                   IMAD.WIDE R4, R7, 0x8, R4 ;\n        /*00f0*/                   STG.E desc[UR4][R4.64], R9 ;\n        /*0100*/                   STG.E desc[UR4][R4.64+0x4], R11 ;\n        /*0110*/                   EXIT ;\n.L_x_7:\n        /*0120*/                   BRA `(.L_x_7);\n        /*0130*/                   NOP;\n        /*0140*/                   NOP;\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_20:"
+        }
+      }
+    },
+    "_Z10testKernelI16uint3_misalignedEvPT_PKS1_i": {
+      "demangledName": "void testKernel<uint3_misaligned>(T1 *, const T1 *, int)",
+      "imix": {
+        "sm_80": {
+          "NOP": 14,
+          "IMAD": 3,
+          "LDG": 3,
+          "STG": 3,
+          "S2R": 2,
+          "EXIT": 2,
+          "MOV": 1,
+          "ISETP": 1,
+          "HFMA2": 1,
+          "ULDC": 1,
+          "BRA": 1
+        },
+        "sm_86": {
+          "NOP": 14,
+          "IMAD": 3,
+          "LDG": 3,
+          "STG": 3,
+          "MOV": 2,
+          "S2R": 2,
+          "EXIT": 2,
+          "ISETP": 1,
+          "ULDC": 1,
+          "BRA": 1
+        },
+        "sm_90": {
+          "NOP": 11,
+          "LDC": 4,
+          "IMAD": 3,
+          "LDG": 3,
+          "STG": 3,
+          "ULDC": 2,
+          "EXIT": 2,
+          "S2R": 1,
+          "S2UR": 1,
+          "ISETP": 1,
+          "BRA": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z10testKernelI16uint3_misalignedEvPT_PKS1_i": "//--------------------- .text._Z10testKernelI16uint3_misalignedEvPT_PKS1_i --------------------------\n\t.section\t.text._Z10testKernelI16uint3_misalignedEvPT_PKS1_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=14\"\n\t.align\t128\n.text._Z10testKernelI16uint3_misalignedEvPT_PKS1_i:\n        .weak           _Z10testKernelI16uint3_misalignedEvPT_PKS1_i\n        .type           _Z10testKernelI16uint3_misalignedEvPT_PKS1_i,@function\n        .size           _Z10testKernelI16uint3_misalignedEvPT_PKS1_i,(.L_x_18 - _Z10testKernelI16uint3_misalignedEvPT_PKS1_i)\n        .other          _Z10testKernelI16uint3_misalignedEvPT_PKS1_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z10testKernelI16uint3_misalignedEvPT_PKS1_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R4, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R4, R4, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.AND P0, PT, R4, c[0x0][0x170], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   HFMA2.MMA R5, -RZ, RZ, 0, 7.152557373046875e-07 ;\n        /*0070*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0080*/                   IMAD.WIDE R2, R4, R5, c[0x0][0x168] ;\n        /*0090*/                   LDG.E.CONSTANT R7, [R2.64] ;\n        /*00a0*/                   LDG.E.CONSTANT R9, [R2.64+0x4] ;\n        /*00b0*/                   LDG.E.CONSTANT R11, [R2.64+0x8] ;\n        /*00c0*/                   IMAD.WIDE R4, R4, R5, c[0x0][0x160] ;\n        /*00d0*/                   STG.E [R4.64], R7 ;\n        /*00e0*/                   STG.E [R4.64+0x4], R9 ;\n        /*00f0*/                   STG.E [R4.64+0x8], R11 ;\n        /*0100*/                   EXIT ;\n.L_x_5:\n        /*0110*/                   BRA `(.L_x_5);\n        /*0120*/                   NOP;\n        /*0130*/                   NOP;\n        /*0140*/                   NOP;\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_18:"
+        },
+        "sm_86": {
+          "_Z10testKernelI16uint3_misalignedEvPT_PKS1_i": "//--------------------- .text._Z10testKernelI16uint3_misalignedEvPT_PKS1_i --------------------------\n\t.section\t.text._Z10testKernelI16uint3_misalignedEvPT_PKS1_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=14\"\n\t.align\t128\n.text._Z10testKernelI16uint3_misalignedEvPT_PKS1_i:\n        .weak           _Z10testKernelI16uint3_misalignedEvPT_PKS1_i\n        .type           _Z10testKernelI16uint3_misalignedEvPT_PKS1_i,@function\n        .size           _Z10testKernelI16uint3_misalignedEvPT_PKS1_i,(.L_x_18 - _Z10testKernelI16uint3_misalignedEvPT_PKS1_i)\n        .other          _Z10testKernelI16uint3_misalignedEvPT_PKS1_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z10testKernelI16uint3_misalignedEvPT_PKS1_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R4, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R4, R4, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.AND P0, PT, R4, c[0x0][0x170], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   MOV R5, 0xc ;\n        /*0070*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0080*/                   IMAD.WIDE R2, R4, R5, c[0x0][0x168] ;\n        /*0090*/                   LDG.E.CONSTANT R7, [R2.64] ;\n        /*00a0*/                   LDG.E.CONSTANT R9, [R2.64+0x4] ;\n        /*00b0*/                   LDG.E.CONSTANT R11, [R2.64+0x8] ;\n        /*00c0*/                   IMAD.WIDE R4, R4, R5, c[0x0][0x160] ;\n        /*00d0*/                   STG.E [R4.64], R7 ;\n        /*00e0*/                   STG.E [R4.64+0x4], R9 ;\n        /*00f0*/                   STG.E [R4.64+0x8], R11 ;\n        /*0100*/                   EXIT ;\n.L_x_5:\n        /*0110*/                   BRA `(.L_x_5);\n        /*0120*/                   NOP;\n        /*0130*/                   NOP;\n        /*0140*/                   NOP;\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_18:"
+        },
+        "sm_90": {
+          "_Z10testKernelI16uint3_misalignedEvPT_PKS1_i": "//--------------------- .text._Z10testKernelI16uint3_misalignedEvPT_PKS1_i --------------------------\n\t.section\t.text._Z10testKernelI16uint3_misalignedEvPT_PKS1_i,\"ax\",@progbits\n\t.align\t128\n.text._Z10testKernelI16uint3_misalignedEvPT_PKS1_i:\n        .weak           _Z10testKernelI16uint3_misalignedEvPT_PKS1_i\n        .type           _Z10testKernelI16uint3_misalignedEvPT_PKS1_i,@function\n        .size           _Z10testKernelI16uint3_misalignedEvPT_PKS1_i,(.L_x_18 - _Z10testKernelI16uint3_misalignedEvPT_PKS1_i)\n        .other          _Z10testKernelI16uint3_misalignedEvPT_PKS1_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z10testKernelI16uint3_misalignedEvPT_PKS1_i:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_TID.X ;\n        /*0020*/                   S2UR UR4, SR_CTAID.X ;\n        /*0030*/                   LDC R7, c[0x0][RZ] ;\n        /*0040*/                   IMAD R7, R7, UR4, R0 ;\n        /*0050*/                   ULDC UR4, c[0x0][0x220] ;\n        /*0060*/                   ISETP.GE.AND P0, PT, R7, UR4, PT ;\n        /*0070*/               @P0 EXIT ;\n        /*0080*/                   LDC.64 R2, c[0x0][0x218] ;\n        /*0090*/                   ULDC.64 UR4, c[0x0][0x208] ;\n        /*00a0*/                   LDC.64 R4, c[0x0][0x210] ;\n        /*00b0*/                   IMAD.WIDE R2, R7, 0xc, R2 ;\n        /*00c0*/                   LDG.E.CONSTANT R9, desc[UR4][R2.64] ;\n        /*00d0*/                   LDG.E.CONSTANT R11, desc[UR4][R2.64+0x4] ;\n        /*00e0*/                   LDG.E.CONSTANT R13, desc[UR4][R2.64+0x8] ;\n        /*00f0*/                   IMAD.WIDE R4, R7, 0xc, R4 ;\n        /*0100*/                   STG.E desc[UR4][R4.64], R9 ;\n        /*0110*/                   STG.E desc[UR4][R4.64+0x4], R11 ;\n        /*0120*/                   STG.E desc[UR4][R4.64+0x8], R13 ;\n        /*0130*/                   EXIT ;\n.L_x_5:\n        /*0140*/                   BRA `(.L_x_5);\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_18:"
+        }
+      }
+    },
+    "_Z10testKernelI16uint4_misalignedEvPT_PKS1_i": {
+      "demangledName": "void testKernel<uint4_misaligned>(T1 *, const T1 *, int)",
+      "imix": {
+        "sm_80": {
+          "NOP": 12,
+          "LDG": 4,
+          "STG": 4,
+          "IMAD": 3,
+          "S2R": 2,
+          "EXIT": 2,
+          "MOV": 1,
+          "ISETP": 1,
+          "HFMA2": 1,
+          "ULDC": 1,
+          "BRA": 1
+        },
+        "sm_86": {
+          "NOP": 12,
+          "LDG": 4,
+          "STG": 4,
+          "IMAD": 3,
+          "MOV": 2,
+          "S2R": 2,
+          "EXIT": 2,
+          "ISETP": 1,
+          "ULDC": 1,
+          "BRA": 1
+        },
+        "sm_90": {
+          "NOP": 9,
+          "LDC": 4,
+          "LDG": 4,
+          "STG": 4,
+          "IMAD": 3,
+          "ULDC": 2,
+          "EXIT": 2,
+          "S2R": 1,
+          "S2UR": 1,
+          "ISETP": 1,
+          "BRA": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z10testKernelI16uint4_misalignedEvPT_PKS1_i": "//--------------------- .text._Z10testKernelI16uint4_misalignedEvPT_PKS1_i --------------------------\n\t.section\t.text._Z10testKernelI16uint4_misalignedEvPT_PKS1_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=16\"\n\t.align\t128\n.text._Z10testKernelI16uint4_misalignedEvPT_PKS1_i:\n        .weak           _Z10testKernelI16uint4_misalignedEvPT_PKS1_i\n        .type           _Z10testKernelI16uint4_misalignedEvPT_PKS1_i,@function\n        .size           _Z10testKernelI16uint4_misalignedEvPT_PKS1_i,(.L_x_16 - _Z10testKernelI16uint4_misalignedEvPT_PKS1_i)\n        .other          _Z10testKernelI16uint4_misalignedEvPT_PKS1_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z10testKernelI16uint4_misalignedEvPT_PKS1_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R4, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R4, R4, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.AND P0, PT, R4, c[0x0][0x170], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   HFMA2.MMA R5, -RZ, RZ, 0, 9.5367431640625e-07 ;\n        /*0070*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0080*/                   IMAD.WIDE R2, R4, R5, c[0x0][0x168] ;\n        /*0090*/                   LDG.E.CONSTANT R7, [R2.64] ;\n        /*00a0*/                   LDG.E.CONSTANT R9, [R2.64+0x4] ;\n        /*00b0*/                   LDG.E.CONSTANT R11, [R2.64+0x8] ;\n        /*00c0*/                   LDG.E.CONSTANT R13, [R2.64+0xc] ;\n        /*00d0*/                   IMAD.WIDE R4, R4, R5, c[0x0][0x160] ;\n        /*00e0*/                   STG.E [R4.64], R7 ;\n        /*00f0*/                   STG.E [R4.64+0x4], R9 ;\n        /*0100*/                   STG.E [R4.64+0x8], R11 ;\n        /*0110*/                   STG.E [R4.64+0xc], R13 ;\n        /*0120*/                   EXIT ;\n.L_x_3:\n        /*0130*/                   BRA `(.L_x_3);\n        /*0140*/                   NOP;\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_16:"
+        },
+        "sm_86": {
+          "_Z10testKernelI16uint4_misalignedEvPT_PKS1_i": "//--------------------- .text._Z10testKernelI16uint4_misalignedEvPT_PKS1_i --------------------------\n\t.section\t.text._Z10testKernelI16uint4_misalignedEvPT_PKS1_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=16\"\n\t.align\t128\n.text._Z10testKernelI16uint4_misalignedEvPT_PKS1_i:\n        .weak           _Z10testKernelI16uint4_misalignedEvPT_PKS1_i\n        .type           _Z10testKernelI16uint4_misalignedEvPT_PKS1_i,@function\n        .size           _Z10testKernelI16uint4_misalignedEvPT_PKS1_i,(.L_x_16 - _Z10testKernelI16uint4_misalignedEvPT_PKS1_i)\n        .other          _Z10testKernelI16uint4_misalignedEvPT_PKS1_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z10testKernelI16uint4_misalignedEvPT_PKS1_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R4, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R4, R4, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.AND P0, PT, R4, c[0x0][0x170], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   MOV R5, 0x10 ;\n        /*0070*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0080*/                   IMAD.WIDE R2, R4, R5, c[0x0][0x168] ;\n        /*0090*/                   LDG.E.CONSTANT R7, [R2.64] ;\n        /*00a0*/                   LDG.E.CONSTANT R9, [R2.64+0x4] ;\n        /*00b0*/                   LDG.E.CONSTANT R11, [R2.64+0x8] ;\n        /*00c0*/                   LDG.E.CONSTANT R13, [R2.64+0xc] ;\n        /*00d0*/                   IMAD.WIDE R4, R4, R5, c[0x0][0x160] ;\n        /*00e0*/                   STG.E [R4.64], R7 ;\n        /*00f0*/                   STG.E [R4.64+0x4], R9 ;\n        /*0100*/                   STG.E [R4.64+0x8], R11 ;\n        /*0110*/                   STG.E [R4.64+0xc], R13 ;\n        /*0120*/                   EXIT ;\n.L_x_3:\n        /*0130*/                   BRA `(.L_x_3);\n        /*0140*/                   NOP;\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_16:"
+        },
+        "sm_90": {
+          "_Z10testKernelI16uint4_misalignedEvPT_PKS1_i": "//--------------------- .text._Z10testKernelI16uint4_misalignedEvPT_PKS1_i --------------------------\n\t.section\t.text._Z10testKernelI16uint4_misalignedEvPT_PKS1_i,\"ax\",@progbits\n\t.align\t128\n.text._Z10testKernelI16uint4_misalignedEvPT_PKS1_i:\n        .weak           _Z10testKernelI16uint4_misalignedEvPT_PKS1_i\n        .type           _Z10testKernelI16uint4_misalignedEvPT_PKS1_i,@function\n        .size           _Z10testKernelI16uint4_misalignedEvPT_PKS1_i,(.L_x_16 - _Z10testKernelI16uint4_misalignedEvPT_PKS1_i)\n        .other          _Z10testKernelI16uint4_misalignedEvPT_PKS1_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z10testKernelI16uint4_misalignedEvPT_PKS1_i:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_TID.X ;\n        /*0020*/                   S2UR UR4, SR_CTAID.X ;\n        /*0030*/                   LDC R7, c[0x0][RZ] ;\n        /*0040*/                   IMAD R7, R7, UR4, R0 ;\n        /*0050*/                   ULDC UR4, c[0x0][0x220] ;\n        /*0060*/                   ISETP.GE.AND P0, PT, R7, UR4, PT ;\n        /*0070*/               @P0 EXIT ;\n        /*0080*/                   LDC.64 R2, c[0x0][0x218] ;\n        /*0090*/                   ULDC.64 UR4, c[0x0][0x208] ;\n        /*00a0*/                   LDC.64 R4, c[0x0][0x210] ;\n        /*00b0*/                   IMAD.WIDE R2, R7, 0x10, R2 ;\n        /*00c0*/                   LDG.E.CONSTANT R9, desc[UR4][R2.64] ;\n        /*00d0*/                   LDG.E.CONSTANT R11, desc[UR4][R2.64+0x4] ;\n        /*00e0*/                   LDG.E.CONSTANT R13, desc[UR4][R2.64+0x8] ;\n        /*00f0*/                   LDG.E.CONSTANT R15, desc[UR4][R2.64+0xc] ;\n        /*0100*/                   IMAD.WIDE R4, R7, 0x10, R4 ;\n        /*0110*/                   STG.E desc[UR4][R4.64], R9 ;\n        /*0120*/                   STG.E desc[UR4][R4.64+0x4], R11 ;\n        /*0130*/                   STG.E desc[UR4][R4.64+0x8], R13 ;\n        /*0140*/                   STG.E desc[UR4][R4.64+0xc], R15 ;\n        /*0150*/                   EXIT ;\n.L_x_3:\n        /*0160*/                   BRA `(.L_x_3);\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_16:"
+        }
+      }
+    },
+    "_Z10testKernelI16uint8_misalignedEvPT_PKS1_i": {
+      "demangledName": "void testKernel<uint8_misaligned>(T1 *, const T1 *, int)",
+      "imix": {
+        "sm_80": {
+          "NOP": 12,
+          "LDG": 8,
+          "STG": 8,
+          "IMAD": 3,
+          "S2R": 2,
+          "EXIT": 2,
+          "MOV": 1,
+          "ISETP": 1,
+          "HFMA2": 1,
+          "ULDC": 1,
+          "BRA": 1
+        },
+        "sm_86": {
+          "NOP": 12,
+          "LDG": 8,
+          "STG": 8,
+          "IMAD": 3,
+          "MOV": 2,
+          "S2R": 2,
+          "EXIT": 2,
+          "ISETP": 1,
+          "ULDC": 1,
+          "BRA": 1
+        },
+        "sm_90": {
+          "NOP": 9,
+          "LDG": 8,
+          "STG": 8,
+          "LDC": 4,
+          "IMAD": 3,
+          "ULDC": 2,
+          "EXIT": 2,
+          "S2R": 1,
+          "S2UR": 1,
+          "ISETP": 1,
+          "BRA": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z10testKernelI16uint8_misalignedEvPT_PKS1_i": "//--------------------- .text._Z10testKernelI16uint8_misalignedEvPT_PKS1_i --------------------------\n\t.section\t.text._Z10testKernelI16uint8_misalignedEvPT_PKS1_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=24\"\n\t.align\t128\n.text._Z10testKernelI16uint8_misalignedEvPT_PKS1_i:\n        .weak           _Z10testKernelI16uint8_misalignedEvPT_PKS1_i\n        .type           _Z10testKernelI16uint8_misalignedEvPT_PKS1_i,@function\n        .size           _Z10testKernelI16uint8_misalignedEvPT_PKS1_i,(.L_x_14 - _Z10testKernelI16uint8_misalignedEvPT_PKS1_i)\n        .other          _Z10testKernelI16uint8_misalignedEvPT_PKS1_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z10testKernelI16uint8_misalignedEvPT_PKS1_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R4, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R4, R4, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.AND P0, PT, R4, c[0x0][0x170], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   HFMA2.MMA R5, -RZ, RZ, 0, 1.9073486328125e-06 ;\n        /*0070*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0080*/                   IMAD.WIDE R2, R4, R5, c[0x0][0x168] ;\n        /*0090*/                   LDG.E.CONSTANT R7, [R2.64] ;\n        /*00a0*/                   LDG.E.CONSTANT R9, [R2.64+0x4] ;\n        /*00b0*/                   LDG.E.CONSTANT R11, [R2.64+0x8] ;\n        /*00c0*/                   LDG.E.CONSTANT R13, [R2.64+0xc] ;\n        /*00d0*/                   LDG.E.CONSTANT R15, [R2.64+0x10] ;\n        /*00e0*/                   LDG.E.CONSTANT R17, [R2.64+0x14] ;\n        /*00f0*/                   LDG.E.CONSTANT R19, [R2.64+0x18] ;\n        /*0100*/                   LDG.E.CONSTANT R21, [R2.64+0x1c] ;\n        /*0110*/                   IMAD.WIDE R4, R4, R5, c[0x0][0x160] ;\n        /*0120*/                   STG.E [R4.64], R7 ;\n        /*0130*/                   STG.E [R4.64+0x4], R9 ;\n        /*0140*/                   STG.E [R4.64+0x8], R11 ;\n        /*0150*/                   STG.E [R4.64+0xc], R13 ;\n        /*0160*/                   STG.E [R4.64+0x10], R15 ;\n        /*0170*/                   STG.E [R4.64+0x14], R17 ;\n        /*0180*/                   STG.E [R4.64+0x18], R19 ;\n        /*0190*/                   STG.E [R4.64+0x1c], R21 ;\n        /*01a0*/                   EXIT ;\n.L_x_1:\n        /*01b0*/                   BRA `(.L_x_1);\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n        /*0200*/                   NOP;\n        /*0210*/                   NOP;\n        /*0220*/                   NOP;\n        /*0230*/                   NOP;\n        /*0240*/                   NOP;\n        /*0250*/                   NOP;\n        /*0260*/                   NOP;\n        /*0270*/                   NOP;\n.L_x_14:"
+        },
+        "sm_86": {
+          "_Z10testKernelI16uint8_misalignedEvPT_PKS1_i": "//--------------------- .text._Z10testKernelI16uint8_misalignedEvPT_PKS1_i --------------------------\n\t.section\t.text._Z10testKernelI16uint8_misalignedEvPT_PKS1_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=24\"\n\t.align\t128\n.text._Z10testKernelI16uint8_misalignedEvPT_PKS1_i:\n        .weak           _Z10testKernelI16uint8_misalignedEvPT_PKS1_i\n        .type           _Z10testKernelI16uint8_misalignedEvPT_PKS1_i,@function\n        .size           _Z10testKernelI16uint8_misalignedEvPT_PKS1_i,(.L_x_14 - _Z10testKernelI16uint8_misalignedEvPT_PKS1_i)\n        .other          _Z10testKernelI16uint8_misalignedEvPT_PKS1_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z10testKernelI16uint8_misalignedEvPT_PKS1_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R4, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R4, R4, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.AND P0, PT, R4, c[0x0][0x170], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   MOV R5, 0x20 ;\n        /*0070*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0080*/                   IMAD.WIDE R2, R4, R5, c[0x0][0x168] ;\n        /*0090*/                   LDG.E.CONSTANT R7, [R2.64] ;\n        /*00a0*/                   LDG.E.CONSTANT R9, [R2.64+0x4] ;\n        /*00b0*/                   LDG.E.CONSTANT R11, [R2.64+0x8] ;\n        /*00c0*/                   LDG.E.CONSTANT R13, [R2.64+0xc] ;\n        /*00d0*/                   LDG.E.CONSTANT R15, [R2.64+0x10] ;\n        /*00e0*/                   LDG.E.CONSTANT R17, [R2.64+0x14] ;\n        /*00f0*/                   LDG.E.CONSTANT R19, [R2.64+0x18] ;\n        /*0100*/                   LDG.E.CONSTANT R21, [R2.64+0x1c] ;\n        /*0110*/                   IMAD.WIDE R4, R4, R5, c[0x0][0x160] ;\n        /*0120*/                   STG.E [R4.64], R7 ;\n        /*0130*/                   STG.E [R4.64+0x4], R9 ;\n        /*0140*/                   STG.E [R4.64+0x8], R11 ;\n        /*0150*/                   STG.E [R4.64+0xc], R13 ;\n        /*0160*/                   STG.E [R4.64+0x10], R15 ;\n        /*0170*/                   STG.E [R4.64+0x14], R17 ;\n        /*0180*/                   STG.E [R4.64+0x18], R19 ;\n        /*0190*/                   STG.E [R4.64+0x1c], R21 ;\n        /*01a0*/                   EXIT ;\n.L_x_1:\n        /*01b0*/                   BRA `(.L_x_1);\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n        /*0200*/                   NOP;\n        /*0210*/                   NOP;\n        /*0220*/                   NOP;\n        /*0230*/                   NOP;\n        /*0240*/                   NOP;\n        /*0250*/                   NOP;\n        /*0260*/                   NOP;\n        /*0270*/                   NOP;\n.L_x_14:"
+        },
+        "sm_90": {
+          "_Z10testKernelI16uint8_misalignedEvPT_PKS1_i": "//--------------------- .text._Z10testKernelI16uint8_misalignedEvPT_PKS1_i --------------------------\n\t.section\t.text._Z10testKernelI16uint8_misalignedEvPT_PKS1_i,\"ax\",@progbits\n\t.align\t128\n.text._Z10testKernelI16uint8_misalignedEvPT_PKS1_i:\n        .weak           _Z10testKernelI16uint8_misalignedEvPT_PKS1_i\n        .type           _Z10testKernelI16uint8_misalignedEvPT_PKS1_i,@function\n        .size           _Z10testKernelI16uint8_misalignedEvPT_PKS1_i,(.L_x_14 - _Z10testKernelI16uint8_misalignedEvPT_PKS1_i)\n        .other          _Z10testKernelI16uint8_misalignedEvPT_PKS1_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z10testKernelI16uint8_misalignedEvPT_PKS1_i:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_TID.X ;\n        /*0020*/                   S2UR UR4, SR_CTAID.X ;\n        /*0030*/                   LDC R7, c[0x0][RZ] ;\n        /*0040*/                   IMAD R7, R7, UR4, R0 ;\n        /*0050*/                   ULDC UR4, c[0x0][0x220] ;\n        /*0060*/                   ISETP.GE.AND P0, PT, R7, UR4, PT ;\n        /*0070*/               @P0 EXIT ;\n        /*0080*/                   LDC.64 R2, c[0x0][0x218] ;\n        /*0090*/                   ULDC.64 UR4, c[0x0][0x208] ;\n        /*00a0*/                   LDC.64 R4, c[0x0][0x210] ;\n        /*00b0*/                   IMAD.WIDE R2, R7, 0x20, R2 ;\n        /*00c0*/                   LDG.E.CONSTANT R9, desc[UR4][R2.64] ;\n        /*00d0*/                   LDG.E.CONSTANT R11, desc[UR4][R2.64+0x4] ;\n        /*00e0*/                   LDG.E.CONSTANT R13, desc[UR4][R2.64+0x8] ;\n        /*00f0*/                   LDG.E.CONSTANT R15, desc[UR4][R2.64+0xc] ;\n        /*0100*/                   LDG.E.CONSTANT R17, desc[UR4][R2.64+0x10] ;\n        /*0110*/                   LDG.E.CONSTANT R19, desc[UR4][R2.64+0x14] ;\n        /*0120*/                   LDG.E.CONSTANT R21, desc[UR4][R2.64+0x18] ;\n        /*0130*/                   LDG.E.CONSTANT R23, desc[UR4][R2.64+0x1c] ;\n        /*0140*/                   IMAD.WIDE R4, R7, 0x20, R4 ;\n        /*0150*/                   STG.E desc[UR4][R4.64], R9 ;\n        /*0160*/                   STG.E desc[UR4][R4.64+0x4], R11 ;\n        /*0170*/                   STG.E desc[UR4][R4.64+0x8], R13 ;\n        /*0180*/                   STG.E desc[UR4][R4.64+0xc], R15 ;\n        /*0190*/                   STG.E desc[UR4][R4.64+0x10], R17 ;\n        /*01a0*/                   STG.E desc[UR4][R4.64+0x14], R19 ;\n        /*01b0*/                   STG.E desc[UR4][R4.64+0x18], R21 ;\n        /*01c0*/                   STG.E desc[UR4][R4.64+0x1c], R23 ;\n        /*01d0*/                   EXIT ;\n.L_x_1:\n        /*01e0*/                   BRA `(.L_x_1);\n        /*01f0*/                   NOP;\n        /*0200*/                   NOP;\n        /*0210*/                   NOP;\n        /*0220*/                   NOP;\n        /*0230*/                   NOP;\n        /*0240*/                   NOP;\n        /*0250*/                   NOP;\n        /*0260*/                   NOP;\n        /*0270*/                   NOP;\n.L_x_14:"
+        }
+      }
+    },
+    "_Z10testKernelI17uchar4_misalignedEvPT_PKS1_i": {
+      "demangledName": "void testKernel<uchar4_misaligned>(T1 *, const T1 *, int)",
+      "imix": {
+        "sm_80": {
+          "NOP": 12,
+          "LDG": 4,
+          "STG": 4,
+          "IMAD": 3,
+          "S2R": 2,
+          "EXIT": 2,
+          "MOV": 1,
+          "ISETP": 1,
+          "HFMA2": 1,
+          "ULDC": 1,
+          "BRA": 1
+        },
+        "sm_86": {
+          "NOP": 12,
+          "LDG": 4,
+          "STG": 4,
+          "IMAD": 3,
+          "MOV": 2,
+          "S2R": 2,
+          "EXIT": 2,
+          "ISETP": 1,
+          "ULDC": 1,
+          "BRA": 1
+        },
+        "sm_90": {
+          "NOP": 9,
+          "LDC": 4,
+          "LDG": 4,
+          "STG": 4,
+          "IMAD": 3,
+          "ULDC": 2,
+          "EXIT": 2,
+          "S2R": 1,
+          "S2UR": 1,
+          "ISETP": 1,
+          "BRA": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z10testKernelI17uchar4_misalignedEvPT_PKS1_i": "//--------------------- .text._Z10testKernelI17uchar4_misalignedEvPT_PKS1_i --------------------------\n\t.section\t.text._Z10testKernelI17uchar4_misalignedEvPT_PKS1_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=16\"\n\t.align\t128\n.text._Z10testKernelI17uchar4_misalignedEvPT_PKS1_i:\n        .weak           _Z10testKernelI17uchar4_misalignedEvPT_PKS1_i\n        .type           _Z10testKernelI17uchar4_misalignedEvPT_PKS1_i,@function\n        .size           _Z10testKernelI17uchar4_misalignedEvPT_PKS1_i,(.L_x_24 - _Z10testKernelI17uchar4_misalignedEvPT_PKS1_i)\n        .other          _Z10testKernelI17uchar4_misalignedEvPT_PKS1_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z10testKernelI17uchar4_misalignedEvPT_PKS1_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R4, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R4, R4, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.AND P0, PT, R4, c[0x0][0x170], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   HFMA2.MMA R5, -RZ, RZ, 0, 2.384185791015625e-07 ;\n        /*0070*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0080*/                   IMAD.WIDE R2, R4, R5, c[0x0][0x168] ;\n        /*0090*/                   LDG.E.U8.CONSTANT R7, [R2.64] ;\n        /*00a0*/                   LDG.E.U8.CONSTANT R9, [R2.64+0x1] ;\n        /*00b0*/                   LDG.E.U8.CONSTANT R11, [R2.64+0x2] ;\n        /*00c0*/                   LDG.E.U8.CONSTANT R13, [R2.64+0x3] ;\n        /*00d0*/                   IMAD.WIDE R4, R4, R5, c[0x0][0x160] ;\n        /*00e0*/                   STG.E.U8 [R4.64], R7 ;\n        /*00f0*/                   STG.E.U8 [R4.64+0x1], R9 ;\n        /*0100*/                   STG.E.U8 [R4.64+0x2], R11 ;\n        /*0110*/                   STG.E.U8 [R4.64+0x3], R13 ;\n        /*0120*/                   EXIT ;\n.L_x_11:\n        /*0130*/                   BRA `(.L_x_11);\n        /*0140*/                   NOP;\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_24:"
+        },
+        "sm_86": {
+          "_Z10testKernelI17uchar4_misalignedEvPT_PKS1_i": "//--------------------- .text._Z10testKernelI17uchar4_misalignedEvPT_PKS1_i --------------------------\n\t.section\t.text._Z10testKernelI17uchar4_misalignedEvPT_PKS1_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=16\"\n\t.align\t128\n.text._Z10testKernelI17uchar4_misalignedEvPT_PKS1_i:\n        .weak           _Z10testKernelI17uchar4_misalignedEvPT_PKS1_i\n        .type           _Z10testKernelI17uchar4_misalignedEvPT_PKS1_i,@function\n        .size           _Z10testKernelI17uchar4_misalignedEvPT_PKS1_i,(.L_x_24 - _Z10testKernelI17uchar4_misalignedEvPT_PKS1_i)\n        .other          _Z10testKernelI17uchar4_misalignedEvPT_PKS1_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z10testKernelI17uchar4_misalignedEvPT_PKS1_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R4, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R4, R4, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.AND P0, PT, R4, c[0x0][0x170], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   MOV R5, 0x4 ;\n        /*0070*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0080*/                   IMAD.WIDE R2, R4, R5, c[0x0][0x168] ;\n        /*0090*/                   LDG.E.U8.CONSTANT R7, [R2.64] ;\n        /*00a0*/                   LDG.E.U8.CONSTANT R9, [R2.64+0x1] ;\n        /*00b0*/                   LDG.E.U8.CONSTANT R11, [R2.64+0x2] ;\n        /*00c0*/                   LDG.E.U8.CONSTANT R13, [R2.64+0x3] ;\n        /*00d0*/                   IMAD.WIDE R4, R4, R5, c[0x0][0x160] ;\n        /*00e0*/                   STG.E.U8 [R4.64], R7 ;\n        /*00f0*/                   STG.E.U8 [R4.64+0x1], R9 ;\n        /*0100*/                   STG.E.U8 [R4.64+0x2], R11 ;\n        /*0110*/                   STG.E.U8 [R4.64+0x3], R13 ;\n        /*0120*/                   EXIT ;\n.L_x_11:\n        /*0130*/                   BRA `(.L_x_11);\n        /*0140*/                   NOP;\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_24:"
+        },
+        "sm_90": {
+          "_Z10testKernelI17uchar4_misalignedEvPT_PKS1_i": "//--------------------- .text._Z10testKernelI17uchar4_misalignedEvPT_PKS1_i --------------------------\n\t.section\t.text._Z10testKernelI17uchar4_misalignedEvPT_PKS1_i,\"ax\",@progbits\n\t.align\t128\n.text._Z10testKernelI17uchar4_misalignedEvPT_PKS1_i:\n        .weak           _Z10testKernelI17uchar4_misalignedEvPT_PKS1_i\n        .type           _Z10testKernelI17uchar4_misalignedEvPT_PKS1_i,@function\n        .size           _Z10testKernelI17uchar4_misalignedEvPT_PKS1_i,(.L_x_24 - _Z10testKernelI17uchar4_misalignedEvPT_PKS1_i)\n        .other          _Z10testKernelI17uchar4_misalignedEvPT_PKS1_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z10testKernelI17uchar4_misalignedEvPT_PKS1_i:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_TID.X ;\n        /*0020*/                   S2UR UR4, SR_CTAID.X ;\n        /*0030*/                   LDC R7, c[0x0][RZ] ;\n        /*0040*/                   IMAD R7, R7, UR4, R0 ;\n        /*0050*/                   ULDC UR4, c[0x0][0x220] ;\n        /*0060*/                   ISETP.GE.AND P0, PT, R7, UR4, PT ;\n        /*0070*/               @P0 EXIT ;\n        /*0080*/                   LDC.64 R2, c[0x0][0x218] ;\n        /*0090*/                   ULDC.64 UR4, c[0x0][0x208] ;\n        /*00a0*/                   LDC.64 R4, c[0x0][0x210] ;\n        /*00b0*/                   IMAD.WIDE R2, R7, 0x4, R2 ;\n        /*00c0*/                   LDG.E.U8.CONSTANT R9, desc[UR4][R2.64] ;\n        /*00d0*/                   LDG.E.U8.CONSTANT R11, desc[UR4][R2.64+0x1] ;\n        /*00e0*/                   LDG.E.U8.CONSTANT R13, desc[UR4][R2.64+0x2] ;\n        /*00f0*/                   LDG.E.U8.CONSTANT R15, desc[UR4][R2.64+0x3] ;\n        /*0100*/                   IMAD.WIDE R4, R7, 0x4, R4 ;\n        /*0110*/                   STG.E.U8 desc[UR4][R4.64], R9 ;\n        /*0120*/                   STG.E.U8 desc[UR4][R4.64+0x1], R11 ;\n        /*0130*/                   STG.E.U8 desc[UR4][R4.64+0x2], R13 ;\n        /*0140*/                   STG.E.U8 desc[UR4][R4.64+0x3], R15 ;\n        /*0150*/                   EXIT ;\n.L_x_11:\n        /*0160*/                   BRA `(.L_x_11);\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_24:"
+        }
+      }
+    },
+    "_Z10testKernelIhEvPT_PKS0_i": {
+      "demangledName": "void testKernel<unsigned char>(T1 *, const T1 *, int)",
+      "imix": {
+        "sm_80": {
+          "NOP": 8,
+          "IADD3": 4,
+          "S2R": 2,
+          "EXIT": 2,
+          "MOV": 1,
+          "IMAD": 1,
+          "ISETP": 1,
+          "SHF": 1,
+          "ULDC": 1,
+          "LDG": 1,
+          "STG": 1,
+          "BRA": 1
+        },
+        "sm_86": {
+          "NOP": 8,
+          "IADD3": 4,
+          "S2R": 2,
+          "EXIT": 2,
+          "MOV": 1,
+          "IMAD": 1,
+          "ISETP": 1,
+          "SHF": 1,
+          "ULDC": 1,
+          "LDG": 1,
+          "STG": 1,
+          "BRA": 1
+        },
+        "sm_90": {
+          "NOP": 12,
+          "ULDC": 5,
+          "IADD3": 4,
+          "S2R": 2,
+          "EXIT": 2,
+          "LDC": 1,
+          "IMAD": 1,
+          "ISETP": 1,
+          "SHF": 1,
+          "LDG": 1,
+          "STG": 1,
+          "BRA": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z10testKernelIhEvPT_PKS0_i": "//--------------------- .text._Z10testKernelIhEvPT_PKS0_i --------------------------\n\t.section\t.text._Z10testKernelIhEvPT_PKS0_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=8\"\n\t.align\t128\n.text._Z10testKernelIhEvPT_PKS0_i:\n        .weak           _Z10testKernelIhEvPT_PKS0_i\n        .type           _Z10testKernelIhEvPT_PKS0_i,@function\n        .size           _Z10testKernelIhEvPT_PKS0_i,(.L_x_25 - _Z10testKernelIhEvPT_PKS0_i)\n        .other          _Z10testKernelIhEvPT_PKS0_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z10testKernelIhEvPT_PKS0_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R4, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R4, R4, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.AND P0, PT, R4, c[0x0][0x170], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   SHF.R.S32.HI R0, RZ, 0x1f, R4 ;\n        /*0070*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0080*/                   IADD3 R2, P0, R4, c[0x0][0x168], RZ ;\n        /*0090*/                   IADD3.X R3, R0, c[0x0][0x16c], RZ, P0, !PT ;\n        /*00a0*/                   LDG.E.U8.CONSTANT R3, [R2.64] ;\n        /*00b0*/                   IADD3 R4, P0, R4, c[0x0][0x160], RZ ;\n        /*00c0*/                   IADD3.X R5, R0, c[0x0][0x164], RZ, P0, !PT ;\n        /*00d0*/                   STG.E.U8 [R4.64], R3 ;\n        /*00e0*/                   EXIT ;\n.L_x_12:\n        /*00f0*/                   BRA `(.L_x_12);\n        /*0100*/                   NOP;\n        /*0110*/                   NOP;\n        /*0120*/                   NOP;\n        /*0130*/                   NOP;\n        /*0140*/                   NOP;\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n.L_x_25:\n// Disassembly for aligned-types-cuda-aligned-types.1.sm_80.cubin"
+        },
+        "sm_86": {
+          "_Z10testKernelIhEvPT_PKS0_i": "//--------------------- .text._Z10testKernelIhEvPT_PKS0_i --------------------------\n\t.section\t.text._Z10testKernelIhEvPT_PKS0_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=8\"\n\t.align\t128\n.text._Z10testKernelIhEvPT_PKS0_i:\n        .weak           _Z10testKernelIhEvPT_PKS0_i\n        .type           _Z10testKernelIhEvPT_PKS0_i,@function\n        .size           _Z10testKernelIhEvPT_PKS0_i,(.L_x_25 - _Z10testKernelIhEvPT_PKS0_i)\n        .other          _Z10testKernelIhEvPT_PKS0_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z10testKernelIhEvPT_PKS0_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R4, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R4, R4, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.AND P0, PT, R4, c[0x0][0x170], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   SHF.R.S32.HI R0, RZ, 0x1f, R4 ;\n        /*0070*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0080*/                   IADD3 R2, P0, R4, c[0x0][0x168], RZ ;\n        /*0090*/                   IADD3.X R3, R0, c[0x0][0x16c], RZ, P0, !PT ;\n        /*00a0*/                   LDG.E.U8.CONSTANT R3, [R2.64] ;\n        /*00b0*/                   IADD3 R4, P0, R4, c[0x0][0x160], RZ ;\n        /*00c0*/                   IADD3.X R5, R0, c[0x0][0x164], RZ, P0, !PT ;\n        /*00d0*/                   STG.E.U8 [R4.64], R3 ;\n        /*00e0*/                   EXIT ;\n.L_x_12:\n        /*00f0*/                   BRA `(.L_x_12);\n        /*0100*/                   NOP;\n        /*0110*/                   NOP;\n        /*0120*/                   NOP;\n        /*0130*/                   NOP;\n        /*0140*/                   NOP;\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n.L_x_25:\n// Disassembly for aligned-types-cuda-aligned-types.1.sm_86.cubin"
+        },
+        "sm_90": {
+          "_Z10testKernelIhEvPT_PKS0_i": "//--------------------- .text._Z10testKernelIhEvPT_PKS0_i --------------------------\n\t.section\t.text._Z10testKernelIhEvPT_PKS0_i,\"ax\",@progbits\n\t.align\t128\n.text._Z10testKernelIhEvPT_PKS0_i:\n        .weak           _Z10testKernelIhEvPT_PKS0_i\n        .type           _Z10testKernelIhEvPT_PKS0_i,@function\n        .size           _Z10testKernelIhEvPT_PKS0_i,(.L_x_25 - _Z10testKernelIhEvPT_PKS0_i)\n        .other          _Z10testKernelIhEvPT_PKS0_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z10testKernelIhEvPT_PKS0_i:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R4, SR_CTAID.X ;\n        /*0020*/                   ULDC UR4, c[0x0][0x0] ;\n        /*0030*/                   S2R R3, SR_TID.X ;\n        /*0040*/                   IMAD R4, R4, UR4, R3 ;\n        /*0050*/                   ULDC UR4, c[0x0][0x220] ;\n        /*0060*/                   ISETP.GE.AND P0, PT, R4, UR4, PT ;\n        /*0070*/               @P0 EXIT ;\n        /*0080*/                   ULDC.64 UR4, c[0x0][0x218] ;\n        /*0090*/                   SHF.R.S32.HI R0, RZ, 0x1f, R4 ;\n        /*00a0*/                   ULDC.64 UR6, c[0x0][0x210] ;\n        /*00b0*/                   IADD3 R2, P0, R4, UR4, RZ ;\n        /*00c0*/                   IADD3.X R3, R0, UR5, RZ, P0, !PT ;\n        /*00d0*/                   ULDC.64 UR4, c[0x0][0x208] ;\n        /*00e0*/                   LDG.E.U8.CONSTANT R3, desc[UR4][R2.64] ;\n        /*00f0*/                   IADD3 R4, P0, R4, UR6, RZ ;\n        /*0100*/                   IADD3.X R5, R0, UR7, RZ, P0, !PT ;\n        /*0110*/                   STG.E.U8 desc[UR4][R4.64], R3 ;\n        /*0120*/                   EXIT ;\n.L_x_12:\n        /*0130*/                   BRA `(.L_x_12);\n        /*0140*/                   NOP;\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_25:"
+        }
+      }
+    },
+    "_Z10testKernelIjEvPT_PKS0_i": {
+      "demangledName": "void testKernel<unsigned int>(T1 *, const T1 *, int)",
+      "imix": {
+        "sm_80": {
+          "NOP": 10,
+          "IMAD": 3,
+          "S2R": 2,
+          "EXIT": 2,
+          "MOV": 1,
+          "ISETP": 1,
+          "HFMA2": 1,
+          "ULDC": 1,
+          "LDG": 1,
+          "STG": 1,
+          "BRA": 1
+        },
+        "sm_86": {
+          "NOP": 10,
+          "IMAD": 3,
+          "MOV": 2,
+          "S2R": 2,
+          "EXIT": 2,
+          "ISETP": 1,
+          "ULDC": 1,
+          "LDG": 1,
+          "STG": 1,
+          "BRA": 1
+        },
+        "sm_90": {
+          "NOP": 15,
+          "LDC": 3,
+          "ULDC": 3,
+          "IMAD": 3,
+          "S2R": 2,
+          "EXIT": 2,
+          "ISETP": 1,
+          "LDG": 1,
+          "STG": 1,
+          "BRA": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z10testKernelIjEvPT_PKS0_i": "//--------------------- .text._Z10testKernelIjEvPT_PKS0_i --------------------------\n\t.section\t.text._Z10testKernelIjEvPT_PKS0_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=8\"\n\t.align\t128\n.text._Z10testKernelIjEvPT_PKS0_i:\n        .weak           _Z10testKernelIjEvPT_PKS0_i\n        .type           _Z10testKernelIjEvPT_PKS0_i,@function\n        .size           _Z10testKernelIjEvPT_PKS0_i,(.L_x_21 - _Z10testKernelIjEvPT_PKS0_i)\n        .other          _Z10testKernelIjEvPT_PKS0_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z10testKernelIjEvPT_PKS0_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R4, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R4, R4, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.AND P0, PT, R4, c[0x0][0x170], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   HFMA2.MMA R5, -RZ, RZ, 0, 2.384185791015625e-07 ;\n        /*0070*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0080*/                   IMAD.WIDE R2, R4, R5, c[0x0][0x168] ;\n        /*0090*/                   LDG.E.CONSTANT R3, [R2.64] ;\n        /*00a0*/                   IMAD.WIDE R4, R4, R5, c[0x0][0x160] ;\n        /*00b0*/                   STG.E [R4.64], R3 ;\n        /*00c0*/                   EXIT ;\n.L_x_8:\n        /*00d0*/                   BRA `(.L_x_8);\n        /*00e0*/                   NOP;\n        /*00f0*/                   NOP;\n        /*0100*/                   NOP;\n        /*0110*/                   NOP;\n        /*0120*/                   NOP;\n        /*0130*/                   NOP;\n        /*0140*/                   NOP;\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n.L_x_21:"
+        },
+        "sm_86": {
+          "_Z10testKernelIjEvPT_PKS0_i": "//--------------------- .text._Z10testKernelIjEvPT_PKS0_i --------------------------\n\t.section\t.text._Z10testKernelIjEvPT_PKS0_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=8\"\n\t.align\t128\n.text._Z10testKernelIjEvPT_PKS0_i:\n        .weak           _Z10testKernelIjEvPT_PKS0_i\n        .type           _Z10testKernelIjEvPT_PKS0_i,@function\n        .size           _Z10testKernelIjEvPT_PKS0_i,(.L_x_21 - _Z10testKernelIjEvPT_PKS0_i)\n        .other          _Z10testKernelIjEvPT_PKS0_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z10testKernelIjEvPT_PKS0_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R4, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R4, R4, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.AND P0, PT, R4, c[0x0][0x170], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   MOV R5, 0x4 ;\n        /*0070*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0080*/                   IMAD.WIDE R2, R4, R5, c[0x0][0x168] ;\n        /*0090*/                   LDG.E.CONSTANT R3, [R2.64] ;\n        /*00a0*/                   IMAD.WIDE R4, R4, R5, c[0x0][0x160] ;\n        /*00b0*/                   STG.E [R4.64], R3 ;\n        /*00c0*/                   EXIT ;\n.L_x_8:\n        /*00d0*/                   BRA `(.L_x_8);\n        /*00e0*/                   NOP;\n        /*00f0*/                   NOP;\n        /*0100*/                   NOP;\n        /*0110*/                   NOP;\n        /*0120*/                   NOP;\n        /*0130*/                   NOP;\n        /*0140*/                   NOP;\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n.L_x_21:"
+        },
+        "sm_90": {
+          "_Z10testKernelIjEvPT_PKS0_i": "//--------------------- .text._Z10testKernelIjEvPT_PKS0_i --------------------------\n\t.section\t.text._Z10testKernelIjEvPT_PKS0_i,\"ax\",@progbits\n\t.align\t128\n.text._Z10testKernelIjEvPT_PKS0_i:\n        .weak           _Z10testKernelIjEvPT_PKS0_i\n        .type           _Z10testKernelIjEvPT_PKS0_i,@function\n        .size           _Z10testKernelIjEvPT_PKS0_i,(.L_x_21 - _Z10testKernelIjEvPT_PKS0_i)\n        .other          _Z10testKernelIjEvPT_PKS0_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z10testKernelIjEvPT_PKS0_i:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R7, SR_CTAID.X ;\n        /*0020*/                   ULDC UR4, c[0x0][0x0] ;\n        /*0030*/                   S2R R0, SR_TID.X ;\n        /*0040*/                   IMAD R7, R7, UR4, R0 ;\n        /*0050*/                   ULDC UR4, c[0x0][0x220] ;\n        /*0060*/                   ISETP.GE.AND P0, PT, R7, UR4, PT ;\n        /*0070*/               @P0 EXIT ;\n        /*0080*/                   LDC.64 R2, c[0x0][0x218] ;\n        /*0090*/                   ULDC.64 UR4, c[0x0][0x208] ;\n        /*00a0*/                   LDC.64 R4, c[0x0][0x210] ;\n        /*00b0*/                   IMAD.WIDE R2, R7, 0x4, R2 ;\n        /*00c0*/                   LDG.E.CONSTANT R3, desc[UR4][R2.64] ;\n        /*00d0*/                   IMAD.WIDE R4, R7, 0x4, R4 ;\n        /*00e0*/                   STG.E desc[UR4][R4.64], R3 ;\n        /*00f0*/                   EXIT ;\n.L_x_8:\n        /*0100*/                   BRA `(.L_x_8);\n        /*0110*/                   NOP;\n        /*0120*/                   NOP;\n        /*0130*/                   NOP;\n        /*0140*/                   NOP;\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_21:"
+        }
+      }
+    },
+    "_Z10testKernelItEvPT_PKS0_i": {
+      "demangledName": "void testKernel<unsigned short>(T1 *, const T1 *, int)",
+      "imix": {
+        "sm_80": {
+          "NOP": 10,
+          "IMAD": 3,
+          "S2R": 2,
+          "EXIT": 2,
+          "MOV": 1,
+          "ISETP": 1,
+          "HFMA2": 1,
+          "ULDC": 1,
+          "LDG": 1,
+          "STG": 1,
+          "BRA": 1
+        },
+        "sm_86": {
+          "NOP": 10,
+          "IMAD": 3,
+          "MOV": 2,
+          "S2R": 2,
+          "EXIT": 2,
+          "ISETP": 1,
+          "ULDC": 1,
+          "LDG": 1,
+          "STG": 1,
+          "BRA": 1
+        },
+        "sm_90": {
+          "NOP": 15,
+          "LDC": 3,
+          "ULDC": 3,
+          "IMAD": 3,
+          "S2R": 2,
+          "EXIT": 2,
+          "ISETP": 1,
+          "LDG": 1,
+          "STG": 1,
+          "BRA": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z10testKernelItEvPT_PKS0_i": "//--------------------- .text._Z10testKernelItEvPT_PKS0_i --------------------------\n\t.section\t.text._Z10testKernelItEvPT_PKS0_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=8\"\n\t.align\t128\n.text._Z10testKernelItEvPT_PKS0_i:\n        .weak           _Z10testKernelItEvPT_PKS0_i\n        .type           _Z10testKernelItEvPT_PKS0_i,@function\n        .size           _Z10testKernelItEvPT_PKS0_i,(.L_x_22 - _Z10testKernelItEvPT_PKS0_i)\n        .other          _Z10testKernelItEvPT_PKS0_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z10testKernelItEvPT_PKS0_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R4, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R4, R4, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.AND P0, PT, R4, c[0x0][0x170], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   HFMA2.MMA R5, -RZ, RZ, 0, 1.1920928955078125e-07 ;\n        /*0070*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0080*/                   IMAD.WIDE R2, R4, R5, c[0x0][0x168] ;\n        /*0090*/                   LDG.E.U16.CONSTANT R3, [R2.64] ;\n        /*00a0*/                   IMAD.WIDE R4, R4, R5, c[0x0][0x160] ;\n        /*00b0*/                   STG.E.U16 [R4.64], R3 ;\n        /*00c0*/                   EXIT ;\n.L_x_9:\n        /*00d0*/                   BRA `(.L_x_9);\n        /*00e0*/                   NOP;\n        /*00f0*/                   NOP;\n        /*0100*/                   NOP;\n        /*0110*/                   NOP;\n        /*0120*/                   NOP;\n        /*0130*/                   NOP;\n        /*0140*/                   NOP;\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n.L_x_22:"
+        },
+        "sm_86": {
+          "_Z10testKernelItEvPT_PKS0_i": "//--------------------- .text._Z10testKernelItEvPT_PKS0_i --------------------------\n\t.section\t.text._Z10testKernelItEvPT_PKS0_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=8\"\n\t.align\t128\n.text._Z10testKernelItEvPT_PKS0_i:\n        .weak           _Z10testKernelItEvPT_PKS0_i\n        .type           _Z10testKernelItEvPT_PKS0_i,@function\n        .size           _Z10testKernelItEvPT_PKS0_i,(.L_x_22 - _Z10testKernelItEvPT_PKS0_i)\n        .other          _Z10testKernelItEvPT_PKS0_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z10testKernelItEvPT_PKS0_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R4, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R4, R4, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.AND P0, PT, R4, c[0x0][0x170], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   MOV R5, 0x2 ;\n        /*0070*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0080*/                   IMAD.WIDE R2, R4, R5, c[0x0][0x168] ;\n        /*0090*/                   LDG.E.U16.CONSTANT R3, [R2.64] ;\n        /*00a0*/                   IMAD.WIDE R4, R4, R5, c[0x0][0x160] ;\n        /*00b0*/                   STG.E.U16 [R4.64], R3 ;\n        /*00c0*/                   EXIT ;\n.L_x_9:\n        /*00d0*/                   BRA `(.L_x_9);\n        /*00e0*/                   NOP;\n        /*00f0*/                   NOP;\n        /*0100*/                   NOP;\n        /*0110*/                   NOP;\n        /*0120*/                   NOP;\n        /*0130*/                   NOP;\n        /*0140*/                   NOP;\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n.L_x_22:"
+        },
+        "sm_90": {
+          "_Z10testKernelItEvPT_PKS0_i": "//--------------------- .text._Z10testKernelItEvPT_PKS0_i --------------------------\n\t.section\t.text._Z10testKernelItEvPT_PKS0_i,\"ax\",@progbits\n\t.align\t128\n.text._Z10testKernelItEvPT_PKS0_i:\n        .weak           _Z10testKernelItEvPT_PKS0_i\n        .type           _Z10testKernelItEvPT_PKS0_i,@function\n        .size           _Z10testKernelItEvPT_PKS0_i,(.L_x_22 - _Z10testKernelItEvPT_PKS0_i)\n        .other          _Z10testKernelItEvPT_PKS0_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z10testKernelItEvPT_PKS0_i:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R7, SR_CTAID.X ;\n        /*0020*/                   ULDC UR4, c[0x0][0x0] ;\n        /*0030*/                   S2R R0, SR_TID.X ;\n        /*0040*/                   IMAD R7, R7, UR4, R0 ;\n        /*0050*/                   ULDC UR4, c[0x0][0x220] ;\n        /*0060*/                   ISETP.GE.AND P0, PT, R7, UR4, PT ;\n        /*0070*/               @P0 EXIT ;\n        /*0080*/                   LDC.64 R2, c[0x0][0x218] ;\n        /*0090*/                   ULDC.64 UR4, c[0x0][0x208] ;\n        /*00a0*/                   LDC.64 R4, c[0x0][0x210] ;\n        /*00b0*/                   IMAD.WIDE R2, R7, 0x2, R2 ;\n        /*00c0*/                   LDG.E.U16.CONSTANT R3, desc[UR4][R2.64] ;\n        /*00d0*/                   IMAD.WIDE R4, R7, 0x2, R4 ;\n        /*00e0*/                   STG.E.U16 desc[UR4][R4.64], R3 ;\n        /*00f0*/                   EXIT ;\n.L_x_9:\n        /*0100*/                   BRA `(.L_x_9);\n        /*0110*/                   NOP;\n        /*0120*/                   NOP;\n        /*0130*/                   NOP;\n        /*0140*/                   NOP;\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_22:"
+        }
+      }
+    }
+  }
+}

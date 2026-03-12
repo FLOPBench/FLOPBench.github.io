@@ -1,0 +1,226 @@
+{
+  "exeArgs": "16 8",
+  "kernels": {
+    "_Z18k_hashtable_deleteP8KeyValuePKS_j": {
+      "demangledName": "k_hashtable_delete(KeyValue *, const KeyValue *, unsigned int)",
+      "imix": {
+        "sm_80": {
+          "IMAD": 11,
+          "NOP": 11,
+          "LOP3": 5,
+          "ISETP": 4,
+          "EXIT": 3,
+          "LDG": 3,
+          "SHF": 3,
+          "BRA": 3,
+          "S2R": 2,
+          "BSSY": 2,
+          "IADD3": 2,
+          "BSYNC": 2,
+          "LEA": 2,
+          "MOV": 1,
+          "ULDC": 1,
+          "STG": 1
+        },
+        "sm_86": {
+          "IMAD": 11,
+          "NOP": 11,
+          "LOP3": 5,
+          "ISETP": 4,
+          "EXIT": 3,
+          "LDG": 3,
+          "SHF": 3,
+          "BRA": 3,
+          "S2R": 2,
+          "BSSY": 2,
+          "IADD3": 2,
+          "BSYNC": 2,
+          "LEA": 2,
+          "MOV": 1,
+          "ULDC": 1,
+          "STG": 1
+        },
+        "sm_90": {
+          "NOP": 12,
+          "IMAD": 10,
+          "ULDC": 5,
+          "LOP3": 5,
+          "ISETP": 4,
+          "LDC": 3,
+          "EXIT": 3,
+          "LDG": 3,
+          "SHF": 3,
+          "BRA": 3,
+          "S2R": 2,
+          "BSSY": 2,
+          "IADD3": 2,
+          "BSYNC": 2,
+          "LEA": 2,
+          "VIADD": 1,
+          "HFMA2": 1,
+          "STG": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z18k_hashtable_deleteP8KeyValuePKS_j": "//--------------------- .text._Z18k_hashtable_deleteP8KeyValuePKS_j --------------------------\n\t.section\t.text._Z18k_hashtable_deleteP8KeyValuePKS_j,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=10\"\n\t.align\t128\n        .global         _Z18k_hashtable_deleteP8KeyValuePKS_j\n        .type           _Z18k_hashtable_deleteP8KeyValuePKS_j,@function\n        .size           _Z18k_hashtable_deleteP8KeyValuePKS_j,(.L_x_11 - _Z18k_hashtable_deleteP8KeyValuePKS_j)\n        .other          _Z18k_hashtable_deleteP8KeyValuePKS_j,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z18k_hashtable_deleteP8KeyValuePKS_j:\n.text._Z18k_hashtable_deleteP8KeyValuePKS_j:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R2, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R2, R2, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.U32.AND P0, PT, R2, c[0x0][0x170], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   IMAD.MOV.U32 R7, RZ, RZ, 0x8 ;\n        /*0070*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0080*/                   IMAD.WIDE.U32 R2, R2, R7, c[0x0][0x168] ;\n        /*0090*/                   LDG.E.CONSTANT R0, [R2.64] ;\n        /*00a0*/                   SHF.R.U32.HI R5, RZ, 0x10, R0 ;\n        /*00b0*/                   LOP3.LUT R5, R5, R0, RZ, 0x3c, !PT ;\n        /*00c0*/                   IMAD R5, R5, -0x7a143595, RZ ;\n        /*00d0*/                   SHF.R.U32.HI R4, RZ, 0xd, R5 ;\n        /*00e0*/                   LOP3.LUT R4, R4, R5, RZ, 0x3c, !PT ;\n        /*00f0*/                   IMAD R4, R4, -0x3d4d51cb, RZ ;\n        /*0100*/                   SHF.R.U32.HI R5, RZ, 0x10, R4 ;\n        /*0110*/                   LOP3.LUT R2, R5, 0x3ffffff, R4, 0x78, !PT ;\n        /*0120*/                   IMAD.WIDE.U32 R4, R2, R7, c[0x0][0x160] ;\n        /*0130*/                   LDG.E R5, [R4.64] ;\n        /*0140*/                   BSSY B0, `(.L_x_1) ;\n        /*0150*/                   IMAD.MOV.U32 R3, RZ, RZ, RZ ;\n        /*0160*/                   ISETP.NE.AND P0, PT, R5, R0, PT ;\n        /*0170*/              @!P0 BRA `(.L_x_2) ;\n        /*0180*/                   BSSY B1, `(.L_x_2) ;\n.L_x_3:\n        /*0190*/                   ISETP.NE.AND P0, PT, R5, -0x1, PT ;\n        /*01a0*/              @!P0 EXIT ;\n        /*01b0*/                   IADD3 R4, R2, 0x1, RZ ;\n        /*01c0*/                   IMAD.SHL.U32 R2, R4, 0x8, RZ ;\n        /*01d0*/                   LOP3.LUT R2, R2, 0x1ffffff8, RZ, 0xc0, !PT ;\n        /*01e0*/                   IADD3 R2, P0, R2, c[0x0][0x160], RZ ;\n        /*01f0*/                   IMAD.X R3, RZ, RZ, c[0x0][0x164], P0 ;\n        /*0200*/                   LDG.E R5, [R2.64] ;\n        /*0210*/                   LOP3.LUT R2, R4, 0x3ffffff, RZ, 0xc0, !PT ;\n        /*0220*/                   IMAD.MOV.U32 R3, RZ, RZ, RZ ;\n        /*0230*/                   ISETP.NE.AND P0, PT, R5, R0, PT ;\n        /*0240*/               @P0 BRA `(.L_x_3) ;\n        /*0250*/                   BSYNC B1 ;\n.L_x_2:\n        /*0260*/                   BSYNC B0 ;\n.L_x_1:\n        /*0270*/                   LEA R4, P0, R2, c[0x0][0x160], 0x3 ;\n        /*0280*/                   LEA.HI.X R5, R2, c[0x0][0x164], R3, 0x3, P0 ;\n        /*0290*/                   IMAD.MOV.U32 R3, RZ, RZ, -0x1 ;\n        /*02a0*/                   STG.E [R4.64+0x4], R3 ;\n        /*02b0*/                   EXIT ;\n.L_x_4:\n        /*02c0*/                   BRA `(.L_x_4);\n        /*02d0*/                   NOP;\n        /*02e0*/                   NOP;\n        /*02f0*/                   NOP;\n        /*0300*/                   NOP;\n        /*0310*/                   NOP;\n        /*0320*/                   NOP;\n        /*0330*/                   NOP;\n        /*0340*/                   NOP;\n        /*0350*/                   NOP;\n        /*0360*/                   NOP;\n        /*0370*/                   NOP;\n.L_x_11:"
+        },
+        "sm_86": {
+          "_Z18k_hashtable_deleteP8KeyValuePKS_j": "//--------------------- .text._Z18k_hashtable_deleteP8KeyValuePKS_j --------------------------\n\t.section\t.text._Z18k_hashtable_deleteP8KeyValuePKS_j,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=10\"\n\t.align\t128\n        .global         _Z18k_hashtable_deleteP8KeyValuePKS_j\n        .type           _Z18k_hashtable_deleteP8KeyValuePKS_j,@function\n        .size           _Z18k_hashtable_deleteP8KeyValuePKS_j,(.L_x_11 - _Z18k_hashtable_deleteP8KeyValuePKS_j)\n        .other          _Z18k_hashtable_deleteP8KeyValuePKS_j,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z18k_hashtable_deleteP8KeyValuePKS_j:\n.text._Z18k_hashtable_deleteP8KeyValuePKS_j:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R2, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R2, R2, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.U32.AND P0, PT, R2, c[0x0][0x170], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   IMAD.MOV.U32 R7, RZ, RZ, 0x8 ;\n        /*0070*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0080*/                   IMAD.WIDE.U32 R2, R2, R7, c[0x0][0x168] ;\n        /*0090*/                   LDG.E.CONSTANT R0, [R2.64] ;\n        /*00a0*/                   SHF.R.U32.HI R5, RZ, 0x10, R0 ;\n        /*00b0*/                   LOP3.LUT R5, R5, R0, RZ, 0x3c, !PT ;\n        /*00c0*/                   IMAD R5, R5, -0x7a143595, RZ ;\n        /*00d0*/                   SHF.R.U32.HI R4, RZ, 0xd, R5 ;\n        /*00e0*/                   LOP3.LUT R4, R4, R5, RZ, 0x3c, !PT ;\n        /*00f0*/                   IMAD R4, R4, -0x3d4d51cb, RZ ;\n        /*0100*/                   SHF.R.U32.HI R5, RZ, 0x10, R4 ;\n        /*0110*/                   LOP3.LUT R2, R5, 0x3ffffff, R4, 0x78, !PT ;\n        /*0120*/                   IMAD.WIDE.U32 R4, R2, R7, c[0x0][0x160] ;\n        /*0130*/                   LDG.E R5, [R4.64] ;\n        /*0140*/                   BSSY B0, `(.L_x_1) ;\n        /*0150*/                   IMAD.MOV.U32 R3, RZ, RZ, RZ ;\n        /*0160*/                   ISETP.NE.AND P0, PT, R5, R0, PT ;\n        /*0170*/              @!P0 BRA `(.L_x_2) ;\n        /*0180*/                   BSSY B1, `(.L_x_2) ;\n.L_x_3:\n        /*0190*/                   ISETP.NE.AND P0, PT, R5, -0x1, PT ;\n        /*01a0*/              @!P0 EXIT ;\n        /*01b0*/                   IADD3 R4, R2, 0x1, RZ ;\n        /*01c0*/                   IMAD.SHL.U32 R2, R4, 0x8, RZ ;\n        /*01d0*/                   LOP3.LUT R2, R2, 0x1ffffff8, RZ, 0xc0, !PT ;\n        /*01e0*/                   IADD3 R2, P0, R2, c[0x0][0x160], RZ ;\n        /*01f0*/                   IMAD.X R3, RZ, RZ, c[0x0][0x164], P0 ;\n        /*0200*/                   LDG.E R5, [R2.64] ;\n        /*0210*/                   LOP3.LUT R2, R4, 0x3ffffff, RZ, 0xc0, !PT ;\n        /*0220*/                   IMAD.MOV.U32 R3, RZ, RZ, RZ ;\n        /*0230*/                   ISETP.NE.AND P0, PT, R5, R0, PT ;\n        /*0240*/               @P0 BRA `(.L_x_3) ;\n        /*0250*/                   BSYNC B1 ;\n.L_x_2:\n        /*0260*/                   BSYNC B0 ;\n.L_x_1:\n        /*0270*/                   LEA R4, P0, R2, c[0x0][0x160], 0x3 ;\n        /*0280*/                   LEA.HI.X R5, R2, c[0x0][0x164], R3, 0x3, P0 ;\n        /*0290*/                   IMAD.MOV.U32 R3, RZ, RZ, -0x1 ;\n        /*02a0*/                   STG.E [R4.64+0x4], R3 ;\n        /*02b0*/                   EXIT ;\n.L_x_4:\n        /*02c0*/                   BRA `(.L_x_4);\n        /*02d0*/                   NOP;\n        /*02e0*/                   NOP;\n        /*02f0*/                   NOP;\n        /*0300*/                   NOP;\n        /*0310*/                   NOP;\n        /*0320*/                   NOP;\n        /*0330*/                   NOP;\n        /*0340*/                   NOP;\n        /*0350*/                   NOP;\n        /*0360*/                   NOP;\n        /*0370*/                   NOP;\n.L_x_11:"
+        },
+        "sm_90": {
+          "_Z18k_hashtable_deleteP8KeyValuePKS_j": "//--------------------- .text._Z18k_hashtable_deleteP8KeyValuePKS_j --------------------------\n\t.section\t.text._Z18k_hashtable_deleteP8KeyValuePKS_j,\"ax\",@progbits\n\t.align\t128\n        .global         _Z18k_hashtable_deleteP8KeyValuePKS_j\n        .type           _Z18k_hashtable_deleteP8KeyValuePKS_j,@function\n        .size           _Z18k_hashtable_deleteP8KeyValuePKS_j,(.L_x_11 - _Z18k_hashtable_deleteP8KeyValuePKS_j)\n        .other          _Z18k_hashtable_deleteP8KeyValuePKS_j,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z18k_hashtable_deleteP8KeyValuePKS_j:\n.text._Z18k_hashtable_deleteP8KeyValuePKS_j:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R5, SR_CTAID.X ;\n        /*0020*/                   ULDC UR4, c[0x0][0x0] ;\n        /*0030*/                   S2R R0, SR_TID.X ;\n        /*0040*/                   IMAD R5, R5, UR4, R0 ;\n        /*0050*/                   ULDC UR4, c[0x0][0x220] ;\n        /*0060*/                   ISETP.GE.U32.AND P0, PT, R5, UR4, PT ;\n        /*0070*/               @P0 EXIT ;\n        /*0080*/                   LDC.64 R2, c[0x0][0x218] ;\n        /*0090*/                   ULDC.64 UR4, c[0x0][0x208] ;\n        /*00a0*/                   ULDC.64 UR6, c[0x0][0x210] ;\n        /*00b0*/                   IMAD.WIDE.U32 R2, R5, 0x8, R2 ;\n        /*00c0*/                   LDG.E.CONSTANT R0, desc[UR4][R2.64] ;\n        /*00d0*/                   SHF.R.U32.HI R5, RZ, 0x10, R0 ;\n        /*00e0*/                   LOP3.LUT R5, R5, R0, RZ, 0x3c, !PT ;\n        /*00f0*/                   IMAD R6, R5, -0x7a143595, RZ ;\n        /*0100*/                   LDC.64 R4, c[0x0][0x210] ;\n        /*0110*/                   SHF.R.U32.HI R7, RZ, 0xd, R6 ;\n        /*0120*/                   LOP3.LUT R7, R7, R6, RZ, 0x3c, !PT ;\n        /*0130*/                   IMAD R7, R7, -0x3d4d51cb, RZ ;\n        /*0140*/                   SHF.R.U32.HI R6, RZ, 0x10, R7 ;\n        /*0150*/                   LOP3.LUT R7, R6, 0x3ffffff, R7, 0x78, !PT ;\n        /*0160*/                   IMAD.WIDE.U32 R4, R7, 0x8, R4 ;\n        /*0170*/                   LDG.E R5, desc[UR4][R4.64] ;\n        /*0180*/                   BSSY B0, `(.L_x_1) ;\n        /*0190*/                   IMAD.MOV.U32 R2, RZ, RZ, R7 ;\n        /*01a0*/                   IMAD.MOV.U32 R3, RZ, RZ, RZ ;\n        /*01b0*/                   ISETP.NE.AND P0, PT, R5, R0, PT ;\n        /*01c0*/              @!P0 BRA `(.L_x_2) ;\n        /*01d0*/                   BSSY B1, `(.L_x_2) ;\n.L_x_3:\n        /*01e0*/                   ISETP.NE.AND P0, PT, R5, -0x1, PT ;\n        /*01f0*/              @!P0 EXIT ;\n        /*0200*/                   VIADD R7, R7, 0x1 ;\n        /*0210*/                   IMAD.SHL.U32 R2, R7, 0x8, RZ ;\n        /*0220*/                   LOP3.LUT R2, R2, 0x1ffffff8, RZ, 0xc0, !PT ;\n        /*0230*/                   IADD3 R2, P0, R2, UR6, RZ ;\n        /*0240*/                   IADD3.X R3, RZ, UR7, RZ, P0, !PT ;\n        /*0250*/                   LDG.E R5, desc[UR4][R2.64] ;\n        /*0260*/                   LOP3.LUT R7, R7, 0x3ffffff, RZ, 0xc0, !PT ;\n        /*0270*/                   HFMA2.MMA R3, -RZ, RZ, 0, 0 ;\n        /*0280*/                   IMAD.MOV.U32 R2, RZ, RZ, R7 ;\n        /*0290*/                   ISETP.NE.AND P0, PT, R5, R0, PT ;\n        /*02a0*/               @P0 BRA `(.L_x_3) ;\n        /*02b0*/                   BSYNC B1 ;\n.L_x_2:\n        /*02c0*/                   BSYNC B0 ;\n.L_x_1:\n        /*02d0*/                   ULDC.64 UR8, c[0x0][0x210] ;\n        /*02e0*/                   LEA R4, P0, R2, UR8, 0x3 ;\n        /*02f0*/                   LEA.HI.X R5, R2, UR9, R3, 0x3, P0 ;\n        /*0300*/                   IMAD.MOV.U32 R3, RZ, RZ, -0x1 ;\n        /*0310*/                   STG.E desc[UR4][R4.64+0x4], R3 ;\n        /*0320*/                   EXIT ;\n.L_x_4:\n        /*0330*/                   BRA `(.L_x_4);\n        /*0340*/                   NOP;\n        /*0350*/                   NOP;\n        /*0360*/                   NOP;\n        /*0370*/                   NOP;\n        /*0380*/                   NOP;\n        /*0390*/                   NOP;\n        /*03a0*/                   NOP;\n        /*03b0*/                   NOP;\n        /*03c0*/                   NOP;\n        /*03d0*/                   NOP;\n        /*03e0*/                   NOP;\n        /*03f0*/                   NOP;\n.L_x_11:"
+        }
+      }
+    },
+    "_Z18k_hashtable_insertP8KeyValuePKS_j": {
+      "demangledName": "k_hashtable_insert(KeyValue *, const KeyValue *, unsigned int)",
+      "imix": {
+        "sm_80": {
+          "IMAD": 13,
+          "NOP": 9,
+          "ISETP": 5,
+          "LOP3": 5,
+          "SHF": 3,
+          "BRA": 3,
+          "S2R": 2,
+          "EXIT": 2,
+          "LDG": 2,
+          "ATOMG": 2,
+          "IADD3": 2,
+          "LEA": 2,
+          "MOV": 1,
+          "ULDC": 1,
+          "BSSY": 1,
+          "YIELD": 1,
+          "BSYNC": 1,
+          "STG": 1
+        },
+        "sm_86": {
+          "IMAD": 13,
+          "NOP": 9,
+          "ISETP": 5,
+          "LOP3": 5,
+          "SHF": 3,
+          "BRA": 3,
+          "S2R": 2,
+          "EXIT": 2,
+          "LDG": 2,
+          "ATOMG": 2,
+          "IADD3": 2,
+          "LEA": 2,
+          "MOV": 1,
+          "ULDC": 1,
+          "BSSY": 1,
+          "YIELD": 1,
+          "BSYNC": 1,
+          "STG": 1
+        },
+        "sm_90": {
+          "IMAD": 12,
+          "NOP": 12,
+          "ULDC": 5,
+          "ISETP": 5,
+          "LOP3": 5,
+          "LDC": 3,
+          "SHF": 3,
+          "BRA": 3,
+          "S2R": 2,
+          "EXIT": 2,
+          "LDG": 2,
+          "ATOMG": 2,
+          "LEA": 2,
+          "BSSY": 1,
+          "VIADD": 1,
+          "YIELD": 1,
+          "IADD3": 1,
+          "BSYNC": 1,
+          "STG": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z18k_hashtable_insertP8KeyValuePKS_j": "//--------------------- .text._Z18k_hashtable_insertP8KeyValuePKS_j --------------------------\n\t.section\t.text._Z18k_hashtable_insertP8KeyValuePKS_j,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=12\"\n\t.align\t128\n        .global         _Z18k_hashtable_insertP8KeyValuePKS_j\n        .type           _Z18k_hashtable_insertP8KeyValuePKS_j,@function\n        .size           _Z18k_hashtable_insertP8KeyValuePKS_j,(.L_x_12 - _Z18k_hashtable_insertP8KeyValuePKS_j)\n        .other          _Z18k_hashtable_insertP8KeyValuePKS_j,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z18k_hashtable_insertP8KeyValuePKS_j:\n.text._Z18k_hashtable_insertP8KeyValuePKS_j:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R4, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R4, R4, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.U32.AND P0, PT, R4, c[0x0][0x170], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   IMAD.MOV.U32 R9, RZ, RZ, 0x8 ;\n        /*0070*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0080*/                   IMAD.WIDE.U32 R4, R4, R9, c[0x0][0x168] ;\n        /*0090*/                   LDG.E.CONSTANT R3, [R4.64] ;\n        /*00a0*/                   IMAD.MOV.U32 R2, RZ, RZ, -0x1 ;\n        /*00b0*/                   SHF.R.U32.HI R0, RZ, 0x10, R3 ;\n        /*00c0*/                   LOP3.LUT R0, R0, R3, RZ, 0x3c, !PT ;\n        /*00d0*/                   IMAD R0, R0, -0x7a143595, RZ ;\n        /*00e0*/                   SHF.R.U32.HI R7, RZ, 0xd, R0 ;\n        /*00f0*/                   LOP3.LUT R7, R7, R0, RZ, 0x3c, !PT ;\n        /*0100*/                   IMAD R7, R7, -0x3d4d51cb, RZ ;\n        /*0110*/                   SHF.R.U32.HI R0, RZ, 0x10, R7 ;\n        /*0120*/                   LOP3.LUT R0, R0, 0x3ffffff, R7, 0x78, !PT ;\n        /*0130*/                   IMAD.WIDE.U32 R6, R0, R9, c[0x0][0x160] ;\n        /*0140*/                   BSSY B0, `(.L_x_5) ;\n        /*0150*/                   LDG.E.CONSTANT R9, [R4.64+0x4] ;\n        /*0160*/                   ATOMG.E.CAS.STRONG.GPU PT, R6, [R6], R2, R3 ;\n        /*0170*/                   IMAD.MOV.U32 R4, RZ, RZ, R0 ;\n        /*0180*/                   IMAD.MOV.U32 R5, RZ, RZ, RZ ;\n        /*0190*/                   ISETP.NE.AND P0, PT, R6, R3, PT ;\n        /*01a0*/                   ISETP.EQ.OR P0, PT, R6, -0x1, !P0 ;\n        /*01b0*/               @P0 BRA `(.L_x_6) ;\n.L_x_7:\n        /*01c0*/                   IADD3 R0, R0, 0x1, RZ ;\n        /*01d0*/                   YIELD ;\n        /*01e0*/                   IMAD.SHL.U32 R4, R0, 0x8, RZ ;\n        /*01f0*/                   LOP3.LUT R4, R4, 0x1ffffff8, RZ, 0xc0, !PT ;\n        /*0200*/                   IADD3 R4, P0, R4, c[0x0][0x160], RZ ;\n        /*0210*/                   IMAD.X R5, RZ, RZ, c[0x0][0x164], P0 ;\n        /*0220*/                   ATOMG.E.CAS.STRONG.GPU PT, R4, [R4], R2, R3 ;\n        /*0230*/                   LOP3.LUT R0, R0, 0x3ffffff, RZ, 0xc0, !PT ;\n        /*0240*/                   IMAD.MOV.U32 R5, RZ, RZ, RZ ;\n        /*0250*/                   ISETP.NE.AND P0, PT, R4.reuse, R3, PT ;\n        /*0260*/                   ISETP.NE.AND P1, PT, R4, -0x1, PT ;\n        /*0270*/                   IMAD.MOV.U32 R4, RZ, RZ, R0 ;\n        /*0280*/               @P0 BRA P1, `(.L_x_7) ;\n.L_x_6:\n        /*0290*/                   BSYNC B0 ;\n.L_x_5:\n        /*02a0*/                   LEA R2, P0, R4, c[0x0][0x160], 0x3 ;\n        /*02b0*/                   LEA.HI.X R3, R4, c[0x0][0x164], R5, 0x3, P0 ;\n        /*02c0*/                   STG.E [R2.64+0x4], R9 ;\n        /*02d0*/                   EXIT ;\n.L_x_8:\n        /*02e0*/                   BRA `(.L_x_8);\n        /*02f0*/                   NOP;\n        /*0300*/                   NOP;\n        /*0310*/                   NOP;\n        /*0320*/                   NOP;\n        /*0330*/                   NOP;\n        /*0340*/                   NOP;\n        /*0350*/                   NOP;\n        /*0360*/                   NOP;\n        /*0370*/                   NOP;\n.L_x_12:"
+        },
+        "sm_86": {
+          "_Z18k_hashtable_insertP8KeyValuePKS_j": "//--------------------- .text._Z18k_hashtable_insertP8KeyValuePKS_j --------------------------\n\t.section\t.text._Z18k_hashtable_insertP8KeyValuePKS_j,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=12\"\n\t.align\t128\n        .global         _Z18k_hashtable_insertP8KeyValuePKS_j\n        .type           _Z18k_hashtable_insertP8KeyValuePKS_j,@function\n        .size           _Z18k_hashtable_insertP8KeyValuePKS_j,(.L_x_12 - _Z18k_hashtable_insertP8KeyValuePKS_j)\n        .other          _Z18k_hashtable_insertP8KeyValuePKS_j,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z18k_hashtable_insertP8KeyValuePKS_j:\n.text._Z18k_hashtable_insertP8KeyValuePKS_j:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R4, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R4, R4, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.U32.AND P0, PT, R4, c[0x0][0x170], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   IMAD.MOV.U32 R9, RZ, RZ, 0x8 ;\n        /*0070*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0080*/                   IMAD.WIDE.U32 R4, R4, R9, c[0x0][0x168] ;\n        /*0090*/                   LDG.E.CONSTANT R3, [R4.64] ;\n        /*00a0*/                   IMAD.MOV.U32 R2, RZ, RZ, -0x1 ;\n        /*00b0*/                   SHF.R.U32.HI R0, RZ, 0x10, R3 ;\n        /*00c0*/                   LOP3.LUT R0, R0, R3, RZ, 0x3c, !PT ;\n        /*00d0*/                   IMAD R0, R0, -0x7a143595, RZ ;\n        /*00e0*/                   SHF.R.U32.HI R7, RZ, 0xd, R0 ;\n        /*00f0*/                   LOP3.LUT R7, R7, R0, RZ, 0x3c, !PT ;\n        /*0100*/                   IMAD R7, R7, -0x3d4d51cb, RZ ;\n        /*0110*/                   SHF.R.U32.HI R0, RZ, 0x10, R7 ;\n        /*0120*/                   LOP3.LUT R0, R0, 0x3ffffff, R7, 0x78, !PT ;\n        /*0130*/                   IMAD.WIDE.U32 R6, R0, R9, c[0x0][0x160] ;\n        /*0140*/                   BSSY B0, `(.L_x_5) ;\n        /*0150*/                   LDG.E.CONSTANT R9, [R4.64+0x4] ;\n        /*0160*/                   ATOMG.E.CAS.STRONG.GPU PT, R6, [R6], R2, R3 ;\n        /*0170*/                   IMAD.MOV.U32 R4, RZ, RZ, R0 ;\n        /*0180*/                   IMAD.MOV.U32 R5, RZ, RZ, RZ ;\n        /*0190*/                   ISETP.NE.AND P0, PT, R6, R3, PT ;\n        /*01a0*/                   ISETP.EQ.OR P0, PT, R6, -0x1, !P0 ;\n        /*01b0*/               @P0 BRA `(.L_x_6) ;\n.L_x_7:\n        /*01c0*/                   IADD3 R0, R0, 0x1, RZ ;\n        /*01d0*/                   YIELD ;\n        /*01e0*/                   IMAD.SHL.U32 R4, R0, 0x8, RZ ;\n        /*01f0*/                   LOP3.LUT R4, R4, 0x1ffffff8, RZ, 0xc0, !PT ;\n        /*0200*/                   IADD3 R4, P0, R4, c[0x0][0x160], RZ ;\n        /*0210*/                   IMAD.X R5, RZ, RZ, c[0x0][0x164], P0 ;\n        /*0220*/                   ATOMG.E.CAS.STRONG.GPU PT, R4, [R4], R2, R3 ;\n        /*0230*/                   LOP3.LUT R0, R0, 0x3ffffff, RZ, 0xc0, !PT ;\n        /*0240*/                   IMAD.MOV.U32 R5, RZ, RZ, RZ ;\n        /*0250*/                   ISETP.NE.AND P0, PT, R4.reuse, R3, PT ;\n        /*0260*/                   ISETP.NE.AND P1, PT, R4, -0x1, PT ;\n        /*0270*/                   IMAD.MOV.U32 R4, RZ, RZ, R0 ;\n        /*0280*/               @P0 BRA P1, `(.L_x_7) ;\n.L_x_6:\n        /*0290*/                   BSYNC B0 ;\n.L_x_5:\n        /*02a0*/                   LEA R2, P0, R4, c[0x0][0x160], 0x3 ;\n        /*02b0*/                   LEA.HI.X R3, R4, c[0x0][0x164], R5, 0x3, P0 ;\n        /*02c0*/                   STG.E [R2.64+0x4], R9 ;\n        /*02d0*/                   EXIT ;\n.L_x_8:\n        /*02e0*/                   BRA `(.L_x_8);\n        /*02f0*/                   NOP;\n        /*0300*/                   NOP;\n        /*0310*/                   NOP;\n        /*0320*/                   NOP;\n        /*0330*/                   NOP;\n        /*0340*/                   NOP;\n        /*0350*/                   NOP;\n        /*0360*/                   NOP;\n        /*0370*/                   NOP;\n.L_x_12:"
+        },
+        "sm_90": {
+          "_Z18k_hashtable_insertP8KeyValuePKS_j": "//--------------------- .text._Z18k_hashtable_insertP8KeyValuePKS_j --------------------------\n\t.section\t.text._Z18k_hashtable_insertP8KeyValuePKS_j,\"ax\",@progbits\n\t.align\t128\n        .global         _Z18k_hashtable_insertP8KeyValuePKS_j\n        .type           _Z18k_hashtable_insertP8KeyValuePKS_j,@function\n        .size           _Z18k_hashtable_insertP8KeyValuePKS_j,(.L_x_12 - _Z18k_hashtable_insertP8KeyValuePKS_j)\n        .other          _Z18k_hashtable_insertP8KeyValuePKS_j,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z18k_hashtable_insertP8KeyValuePKS_j:\n.text._Z18k_hashtable_insertP8KeyValuePKS_j:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R3, SR_CTAID.X ;\n        /*0020*/                   ULDC UR4, c[0x0][0x0] ;\n        /*0030*/                   S2R R0, SR_TID.X ;\n        /*0040*/                   IMAD R3, R3, UR4, R0 ;\n        /*0050*/                   ULDC UR4, c[0x0][0x220] ;\n        /*0060*/                   ISETP.GE.U32.AND P0, PT, R3, UR4, PT ;\n        /*0070*/               @P0 EXIT ;\n        /*0080*/                   LDC.64 R4, c[0x0][0x218] ;\n        /*0090*/                   ULDC.64 UR4, c[0x0][0x208] ;\n        /*00a0*/                   LDC.64 R6, c[0x0][0x210] ;\n        /*00b0*/                   IMAD.MOV.U32 R2, RZ, RZ, -0x1 ;\n        /*00c0*/                   ULDC.64 UR6, c[0x0][0x210] ;\n        /*00d0*/                   IMAD.WIDE.U32 R4, R3, 0x8, R4 ;\n        /*00e0*/                   LDG.E.CONSTANT R3, desc[UR4][R4.64] ;\n        /*00f0*/                   SHF.R.U32.HI R0, RZ, 0x10, R3 ;\n        /*0100*/                   LOP3.LUT R0, R0, R3, RZ, 0x3c, !PT ;\n        /*0110*/                   IMAD R0, R0, -0x7a143595, RZ ;\n        /*0120*/                   SHF.R.U32.HI R9, RZ, 0xd, R0 ;\n        /*0130*/                   LOP3.LUT R9, R9, R0, RZ, 0x3c, !PT ;\n        /*0140*/                   IMAD R9, R9, -0x3d4d51cb, RZ ;\n        /*0150*/                   SHF.R.U32.HI R0, RZ, 0x10, R9 ;\n        /*0160*/                   LOP3.LUT R11, R0, 0x3ffffff, R9, 0x78, !PT ;\n        /*0170*/                   BSSY B0, `(.L_x_5) ;\n        /*0180*/                   LDG.E.CONSTANT R9, desc[UR4][R4.64+0x4] ;\n        /*0190*/                   IMAD.WIDE.U32 R6, R11, 0x8, R6 ;\n        /*01a0*/                   ATOMG.E.CAS.STRONG.GPU PT, R6, [R6], R2, R3 ;\n        /*01b0*/                   IMAD.MOV.U32 R4, RZ, RZ, R11 ;\n        /*01c0*/                   IMAD.MOV.U32 R5, RZ, RZ, RZ ;\n        /*01d0*/                   ISETP.NE.AND P0, PT, R6, R3, PT ;\n        /*01e0*/                   ISETP.EQ.OR P0, PT, R6, -0x1, !P0 ;\n        /*01f0*/               @P0 BRA `(.L_x_6) ;\n.L_x_7:\n        /*0200*/                   VIADD R11, R11, 0x1 ;\n        /*0210*/                   YIELD ;\n        /*0220*/                   IMAD.SHL.U32 R0, R11, 0x8, RZ ;\n        /*0230*/                   LOP3.LUT R0, R0, 0x1ffffff8, RZ, 0xc0, !PT ;\n        /*0240*/                   IADD3 R4, P0, R0, UR6, RZ ;\n        /*0250*/                   IMAD.X R5, RZ, RZ, UR7, P0 ;\n        /*0260*/                   ATOMG.E.CAS.STRONG.GPU PT, R4, [R4], R2, R3 ;\n        /*0270*/                   LOP3.LUT R11, R11, 0x3ffffff, RZ, 0xc0, !PT ;\n        /*0280*/                   IMAD.MOV.U32 R5, RZ, RZ, RZ ;\n        /*0290*/                   ISETP.NE.AND P0, PT, R4.reuse, R3, PT ;\n        /*02a0*/                   ISETP.NE.AND P1, PT, R4, -0x1, PT ;\n        /*02b0*/                   IMAD.MOV.U32 R4, RZ, RZ, R11 ;\n        /*02c0*/               @P0 BRA P1, `(.L_x_7) ;\n.L_x_6:\n        /*02d0*/                   BSYNC B0 ;\n.L_x_5:\n        /*02e0*/                   ULDC.64 UR8, c[0x0][0x210] ;\n        /*02f0*/                   LEA R2, P0, R4, UR8, 0x3 ;\n        /*0300*/                   LEA.HI.X R3, R4, UR9, R5, 0x3, P0 ;\n        /*0310*/                   STG.E desc[UR4][R2.64+0x4], R9 ;\n        /*0320*/                   EXIT ;\n.L_x_8:\n        /*0330*/                   BRA `(.L_x_8);\n        /*0340*/                   NOP;\n        /*0350*/                   NOP;\n        /*0360*/                   NOP;\n        /*0370*/                   NOP;\n        /*0380*/                   NOP;\n        /*0390*/                   NOP;\n        /*03a0*/                   NOP;\n        /*03b0*/                   NOP;\n        /*03c0*/                   NOP;\n        /*03d0*/                   NOP;\n        /*03e0*/                   NOP;\n        /*03f0*/                   NOP;\n.L_x_12:"
+        }
+      }
+    },
+    "_Z19k_iterate_hashtableP8KeyValueS0_Pj": {
+      "demangledName": "k_iterate_hashtable(KeyValue *, KeyValue *, unsigned int *)",
+      "imix": {
+        "sm_80": {
+          "NOP": 15,
+          "IMAD": 5,
+          "S2R": 4,
+          "ISETP": 4,
+          "EXIT": 4,
+          "MOV": 2,
+          "LDG": 2,
+          "POPC": 2,
+          "STG": 2,
+          "HFMA2": 1,
+          "ULDC": 1,
+          "VOTEU": 1,
+          "FLO": 1,
+          "ATOMG": 1,
+          "LOP3": 1,
+          "SHFL": 1,
+          "BRA": 1
+        },
+        "sm_86": {
+          "NOP": 15,
+          "IMAD": 5,
+          "S2R": 4,
+          "ISETP": 4,
+          "EXIT": 4,
+          "MOV": 3,
+          "LDG": 2,
+          "POPC": 2,
+          "STG": 2,
+          "ULDC": 1,
+          "VOTEU": 1,
+          "FLO": 1,
+          "ATOMG": 1,
+          "LOP3": 1,
+          "SHFL": 1,
+          "BRA": 1
+        },
+        "sm_90": {
+          "NOP": 14,
+          "LDC": 4,
+          "S2R": 4,
+          "ISETP": 4,
+          "EXIT": 4,
+          "IMAD": 3,
+          "ULDC": 2,
+          "LDG": 2,
+          "POPC": 2,
+          "STG": 2,
+          "VOTEU": 1,
+          "FLO": 1,
+          "ATOMG": 1,
+          "LOP3": 1,
+          "SHFL": 1,
+          "IADD3": 1,
+          "BRA": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z19k_iterate_hashtableP8KeyValueS0_Pj": "//--------------------- .text._Z19k_iterate_hashtableP8KeyValueS0_Pj --------------------------\n\t.section\t.text._Z19k_iterate_hashtableP8KeyValueS0_Pj,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=16\"\n\t.align\t128\n        .global         _Z19k_iterate_hashtableP8KeyValueS0_Pj\n        .type           _Z19k_iterate_hashtableP8KeyValueS0_Pj,@function\n        .size           _Z19k_iterate_hashtableP8KeyValueS0_Pj,(.L_x_10 - _Z19k_iterate_hashtableP8KeyValueS0_Pj)\n        .other          _Z19k_iterate_hashtableP8KeyValueS0_Pj,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z19k_iterate_hashtableP8KeyValueS0_Pj:\n.text._Z19k_iterate_hashtableP8KeyValueS0_Pj:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R2, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R2, R2, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GT.U32.AND P0, PT, R2, 0x3ffffff, PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   HFMA2.MMA R13, -RZ, RZ, 0, 4.76837158203125e-07 ;\n        /*0070*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0080*/                   IMAD.WIDE.U32 R2, R2, R13, c[0x0][0x160] ;\n        /*0090*/                   LDG.E.CONSTANT R7, [R2.64] ;\n        /*00a0*/                   ISETP.NE.AND P0, PT, R7, -0x1, PT ;\n        /*00b0*/              @!P0 EXIT ;\n        /*00c0*/                   LDG.E.CONSTANT R9, [R2.64+0x4] ;\n        /*00d0*/                   ISETP.NE.AND P0, PT, R9, -0x1, PT ;\n        /*00e0*/              @!P0 EXIT ;\n        /*00f0*/                   S2R R3, SR_LANEID ;\n        /*0100*/                   VOTEU.ANY UR6, UPT, PT ;\n        /*0110*/                   IMAD.MOV.U32 R2, RZ, RZ, c[0x0][0x170] ;\n        /*0120*/                   FLO.U32 R0, UR6 ;\n        /*0130*/                   POPC R11, UR6 ;\n        /*0140*/                   ISETP.EQ.U32.AND P0, PT, R0, R3, PT ;\n        /*0150*/                   MOV R3, c[0x0][0x174] ;\n        /*0160*/               @P0 ATOMG.E.ADD.STRONG.GPU PT, R3, [R2.64], R11 ;\n        /*0170*/                   S2R R5, SR_LTMASK ;\n        /*0180*/                   LOP3.LUT R6, R5, UR6, RZ, 0xc0, !PT ;\n        /*0190*/                   POPC R5, R6 ;\n        /*01a0*/                   SHFL.IDX PT, R4, R3, R0, 0x1f ;\n        /*01b0*/                   IMAD.IADD R4, R4, 0x1, R5 ;\n        /*01c0*/                   IMAD.WIDE.U32 R4, R4, R13, c[0x0][0x168] ;\n        /*01d0*/                   STG.E [R4.64], R7 ;\n        /*01e0*/                   STG.E [R4.64+0x4], R9 ;\n        /*01f0*/                   EXIT ;\n.L_x_0:\n        /*0200*/                   BRA `(.L_x_0);\n        /*0210*/                   NOP;\n        /*0220*/                   NOP;\n        /*0230*/                   NOP;\n        /*0240*/                   NOP;\n        /*0250*/                   NOP;\n        /*0260*/                   NOP;\n        /*0270*/                   NOP;\n        /*0280*/                   NOP;\n        /*0290*/                   NOP;\n        /*02a0*/                   NOP;\n        /*02b0*/                   NOP;\n        /*02c0*/                   NOP;\n        /*02d0*/                   NOP;\n        /*02e0*/                   NOP;\n        /*02f0*/                   NOP;\n.L_x_10:"
+        },
+        "sm_86": {
+          "_Z19k_iterate_hashtableP8KeyValueS0_Pj": "//--------------------- .text._Z19k_iterate_hashtableP8KeyValueS0_Pj --------------------------\n\t.section\t.text._Z19k_iterate_hashtableP8KeyValueS0_Pj,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=16\"\n\t.align\t128\n        .global         _Z19k_iterate_hashtableP8KeyValueS0_Pj\n        .type           _Z19k_iterate_hashtableP8KeyValueS0_Pj,@function\n        .size           _Z19k_iterate_hashtableP8KeyValueS0_Pj,(.L_x_10 - _Z19k_iterate_hashtableP8KeyValueS0_Pj)\n        .other          _Z19k_iterate_hashtableP8KeyValueS0_Pj,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z19k_iterate_hashtableP8KeyValueS0_Pj:\n.text._Z19k_iterate_hashtableP8KeyValueS0_Pj:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R2, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R2, R2, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GT.U32.AND P0, PT, R2, 0x3ffffff, PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   MOV R13, 0x8 ;\n        /*0070*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0080*/                   IMAD.WIDE.U32 R2, R2, R13, c[0x0][0x160] ;\n        /*0090*/                   LDG.E.CONSTANT R7, [R2.64] ;\n        /*00a0*/                   ISETP.NE.AND P0, PT, R7, -0x1, PT ;\n        /*00b0*/              @!P0 EXIT ;\n        /*00c0*/                   LDG.E.CONSTANT R9, [R2.64+0x4] ;\n        /*00d0*/                   ISETP.NE.AND P0, PT, R9, -0x1, PT ;\n        /*00e0*/              @!P0 EXIT ;\n        /*00f0*/                   S2R R3, SR_LANEID ;\n        /*0100*/                   VOTEU.ANY UR6, UPT, PT ;\n        /*0110*/                   IMAD.MOV.U32 R2, RZ, RZ, c[0x0][0x170] ;\n        /*0120*/                   FLO.U32 R0, UR6 ;\n        /*0130*/                   POPC R11, UR6 ;\n        /*0140*/                   ISETP.EQ.U32.AND P0, PT, R0, R3, PT ;\n        /*0150*/                   MOV R3, c[0x0][0x174] ;\n        /*0160*/               @P0 ATOMG.E.ADD.STRONG.GPU PT, R3, [R2.64], R11 ;\n        /*0170*/                   S2R R5, SR_LTMASK ;\n        /*0180*/                   LOP3.LUT R6, R5, UR6, RZ, 0xc0, !PT ;\n        /*0190*/                   POPC R5, R6 ;\n        /*01a0*/                   SHFL.IDX PT, R4, R3, R0, 0x1f ;\n        /*01b0*/                   IMAD.IADD R4, R4, 0x1, R5 ;\n        /*01c0*/                   IMAD.WIDE.U32 R4, R4, R13, c[0x0][0x168] ;\n        /*01d0*/                   STG.E [R4.64], R7 ;\n        /*01e0*/                   STG.E [R4.64+0x4], R9 ;\n        /*01f0*/                   EXIT ;\n.L_x_0:\n        /*0200*/                   BRA `(.L_x_0);\n        /*0210*/                   NOP;\n        /*0220*/                   NOP;\n        /*0230*/                   NOP;\n        /*0240*/                   NOP;\n        /*0250*/                   NOP;\n        /*0260*/                   NOP;\n        /*0270*/                   NOP;\n        /*0280*/                   NOP;\n        /*0290*/                   NOP;\n        /*02a0*/                   NOP;\n        /*02b0*/                   NOP;\n        /*02c0*/                   NOP;\n        /*02d0*/                   NOP;\n        /*02e0*/                   NOP;\n        /*02f0*/                   NOP;\n.L_x_10:"
+        },
+        "sm_90": {
+          "_Z19k_iterate_hashtableP8KeyValueS0_Pj": "//--------------------- .text._Z19k_iterate_hashtableP8KeyValueS0_Pj --------------------------\n\t.section\t.text._Z19k_iterate_hashtableP8KeyValueS0_Pj,\"ax\",@progbits\n\t.align\t128\n        .global         _Z19k_iterate_hashtableP8KeyValueS0_Pj\n        .type           _Z19k_iterate_hashtableP8KeyValueS0_Pj,@function\n        .size           _Z19k_iterate_hashtableP8KeyValueS0_Pj,(.L_x_10 - _Z19k_iterate_hashtableP8KeyValueS0_Pj)\n        .other          _Z19k_iterate_hashtableP8KeyValueS0_Pj,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z19k_iterate_hashtableP8KeyValueS0_Pj:\n.text._Z19k_iterate_hashtableP8KeyValueS0_Pj:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R5, SR_CTAID.X ;\n        /*0020*/                   ULDC UR4, c[0x0][0x0] ;\n        /*0030*/                   S2R R0, SR_TID.X ;\n        /*0040*/                   IMAD R5, R5, UR4, R0 ;\n        /*0050*/                   ISETP.GT.U32.AND P0, PT, R5, 0x3ffffff, PT ;\n        /*0060*/               @P0 EXIT ;\n        /*0070*/                   LDC.64 R2, c[0x0][0x210] ;\n        /*0080*/                   ULDC.64 UR4, c[0x0][0x208] ;\n        /*0090*/                   IMAD.WIDE.U32 R2, R5, 0x8, R2 ;\n        /*00a0*/                   LDG.E.CONSTANT R7, desc[UR4][R2.64] ;\n        /*00b0*/                   ISETP.NE.AND P0, PT, R7, -0x1, PT ;\n        /*00c0*/              @!P0 EXIT ;\n        /*00d0*/                   LDG.E.CONSTANT R9, desc[UR4][R2.64+0x4] ;\n        /*00e0*/                   ISETP.NE.AND P0, PT, R9, -0x1, PT ;\n        /*00f0*/              @!P0 EXIT ;\n        /*0100*/                   S2R R5, SR_LANEID ;\n        /*0110*/                   VOTEU.ANY UR6, UPT, PT ;\n        /*0120*/                   LDC.64 R2, c[0x0][0x220] ;\n        /*0130*/                   FLO.U32 R0, UR6 ;\n        /*0140*/                   POPC R13, UR6 ;\n        /*0150*/                   ISETP.EQ.U32.AND P0, PT, R0, R5, PT ;\n        /*0160*/                   S2R R6, SR_LTMASK ;\n        /*0170*/                   LDC.64 R4, c[0x0][0x218] ;\n        /*0180*/               @P0 ATOMG.E.ADD.STRONG.GPU PT, R3, desc[UR4][R2.64], R13 ;\n        /*0190*/                   LOP3.LUT R6, R6, UR6, RZ, 0xc0, !PT ;\n        /*01a0*/                   POPC R6, R6 ;\n        /*01b0*/                   SHFL.IDX PT, R11, R3, R0, 0x1f ;\n        /*01c0*/                   IADD3 R11, R11, R6, RZ ;\n        /*01d0*/                   IMAD.WIDE.U32 R4, R11, 0x8, R4 ;\n        /*01e0*/                   STG.E desc[UR4][R4.64], R7 ;\n        /*01f0*/                   STG.E desc[UR4][R4.64+0x4], R9 ;\n        /*0200*/                   EXIT ;\n.L_x_0:\n        /*0210*/                   BRA `(.L_x_0);\n        /*0220*/                   NOP;\n        /*0230*/                   NOP;\n        /*0240*/                   NOP;\n        /*0250*/                   NOP;\n        /*0260*/                   NOP;\n        /*0270*/                   NOP;\n        /*0280*/                   NOP;\n        /*0290*/                   NOP;\n        /*02a0*/                   NOP;\n        /*02b0*/                   NOP;\n        /*02c0*/                   NOP;\n        /*02d0*/                   NOP;\n        /*02e0*/                   NOP;\n        /*02f0*/                   NOP;\n.L_x_10:"
+        }
+      }
+    }
+  }
+}

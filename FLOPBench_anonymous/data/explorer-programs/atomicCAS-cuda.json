@@ -1,0 +1,381 @@
+{
+  "exeArgs": "10000",
+  "kernels": {
+    "_Z16atomicMaxDerivedIdEvPT_": {
+      "demangledName": "void atomicMaxDerived<double>(T1 *)",
+      "imix": {
+        "sm_80": {
+          "NOP": 11,
+          "MOV": 3,
+          "IMAD": 3,
+          "S2R": 2,
+          "EXIT": 2,
+          "ISETP": 2,
+          "BRA": 2,
+          "ULDC": 1,
+          "LDG": 1,
+          "IADD3": 1,
+          "I2F": 1,
+          "DSETP": 1,
+          "YIELD": 1,
+          "ATOMG": 1
+        },
+        "sm_86": {
+          "NOP": 11,
+          "MOV": 3,
+          "IMAD": 3,
+          "S2R": 2,
+          "EXIT": 2,
+          "ISETP": 2,
+          "BRA": 2,
+          "ULDC": 1,
+          "LDG": 1,
+          "IADD3": 1,
+          "I2F": 1,
+          "DSETP": 1,
+          "YIELD": 1,
+          "ATOMG": 1
+        },
+        "sm_90": {
+          "NOP": 11,
+          "IMAD": 3,
+          "LDC": 2,
+          "S2R": 2,
+          "ULDC": 2,
+          "EXIT": 2,
+          "ISETP": 2,
+          "BRA": 2,
+          "LDG": 1,
+          "IADD3": 1,
+          "I2F": 1,
+          "DSETP": 1,
+          "YIELD": 1,
+          "ATOMG": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z16atomicMaxDerivedIdEvPT_": "//--------------------- .text._Z16atomicMaxDerivedIdEvPT_ --------------------------\n\t.section\t.text._Z16atomicMaxDerivedIdEvPT_,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=12\"\n\t.align\t128\n.text._Z16atomicMaxDerivedIdEvPT_:\n        .weak           _Z16atomicMaxDerivedIdEvPT_\n        .type           _Z16atomicMaxDerivedIdEvPT_,@function\n        .size           _Z16atomicMaxDerivedIdEvPT_,(.L_x_21 - _Z16atomicMaxDerivedIdEvPT_)\n        .other          _Z16atomicMaxDerivedIdEvPT_,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z16atomicMaxDerivedIdEvPT_:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   MOV R2, c[0x0][0x160] ;\n        /*0020*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0030*/                   MOV R3, c[0x0][0x164] ;\n        /*0040*/                   LDG.E.64 R4, [R2.64] ;\n        /*0050*/                   S2R R0, SR_CTAID.X ;\n        /*0060*/                   S2R R7, SR_TID.X ;\n        /*0070*/                   IMAD R0, R0, c[0x0][0x0], R7 ;\n        /*0080*/                   IADD3 R0, R0, 0x1, RZ ;\n        /*0090*/                   I2F.F64 R6, R0 ;\n.L_x_6:\n        /*00a0*/                   DSETP.GEU.AND P0, PT, R4, R6, PT ;\n        /*00b0*/                   YIELD ;\n        /*00c0*/               @P0 EXIT ;\n        /*00d0*/                   ATOMG.E.CAS.64.STRONG.GPU PT, R8, [R2], R4, R6 ;\n        /*00e0*/                   ISETP.NE.U32.AND P0, PT, R8, R4, PT ;\n        /*00f0*/                   IMAD.MOV.U32 R4, RZ, RZ, R8 ;\n        /*0100*/                   ISETP.NE.AND.EX P0, PT, R9, R5, PT, P0 ;\n        /*0110*/                   IMAD.MOV.U32 R5, RZ, RZ, R9 ;\n        /*0120*/               @P0 BRA `(.L_x_6) ;\n        /*0130*/                   EXIT ;\n.L_x_7:\n        /*0140*/                   BRA `(.L_x_7);\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_21:"
+        },
+        "sm_86": {
+          "_Z16atomicMaxDerivedIdEvPT_": "//--------------------- .text._Z16atomicMaxDerivedIdEvPT_ --------------------------\n\t.section\t.text._Z16atomicMaxDerivedIdEvPT_,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=12\"\n\t.align\t128\n.text._Z16atomicMaxDerivedIdEvPT_:\n        .weak           _Z16atomicMaxDerivedIdEvPT_\n        .type           _Z16atomicMaxDerivedIdEvPT_,@function\n        .size           _Z16atomicMaxDerivedIdEvPT_,(.L_x_21 - _Z16atomicMaxDerivedIdEvPT_)\n        .other          _Z16atomicMaxDerivedIdEvPT_,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z16atomicMaxDerivedIdEvPT_:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   MOV R2, c[0x0][0x160] ;\n        /*0020*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0030*/                   MOV R3, c[0x0][0x164] ;\n        /*0040*/                   LDG.E.64 R4, [R2.64] ;\n        /*0050*/                   S2R R0, SR_CTAID.X ;\n        /*0060*/                   S2R R7, SR_TID.X ;\n        /*0070*/                   IMAD R0, R0, c[0x0][0x0], R7 ;\n        /*0080*/                   IADD3 R0, R0, 0x1, RZ ;\n        /*0090*/                   I2F.F64 R6, R0 ;\n.L_x_6:\n        /*00a0*/                   DSETP.GEU.AND P0, PT, R4, R6, PT ;\n        /*00b0*/                   YIELD ;\n        /*00c0*/               @P0 EXIT ;\n        /*00d0*/                   ATOMG.E.CAS.64.STRONG.GPU PT, R8, [R2], R4, R6 ;\n        /*00e0*/                   ISETP.NE.U32.AND P0, PT, R8, R4, PT ;\n        /*00f0*/                   IMAD.MOV.U32 R4, RZ, RZ, R8 ;\n        /*0100*/                   ISETP.NE.AND.EX P0, PT, R9, R5, PT, P0 ;\n        /*0110*/                   IMAD.MOV.U32 R5, RZ, RZ, R9 ;\n        /*0120*/               @P0 BRA `(.L_x_6) ;\n        /*0130*/                   EXIT ;\n.L_x_7:\n        /*0140*/                   BRA `(.L_x_7);\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_21:"
+        },
+        "sm_90": {
+          "_Z16atomicMaxDerivedIdEvPT_": "//--------------------- .text._Z16atomicMaxDerivedIdEvPT_ --------------------------\n\t.section\t.text._Z16atomicMaxDerivedIdEvPT_,\"ax\",@progbits\n\t.align\t128\n.text._Z16atomicMaxDerivedIdEvPT_:\n        .weak           _Z16atomicMaxDerivedIdEvPT_\n        .type           _Z16atomicMaxDerivedIdEvPT_,@function\n        .size           _Z16atomicMaxDerivedIdEvPT_,(.L_x_21 - _Z16atomicMaxDerivedIdEvPT_)\n        .other          _Z16atomicMaxDerivedIdEvPT_,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z16atomicMaxDerivedIdEvPT_:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_CTAID.X ;\n        /*0020*/                   LDC.64 R2, c[0x0][0x210] ;\n        /*0030*/                   ULDC.64 UR4, c[0x0][0x208] ;\n        /*0040*/                   S2R R7, SR_TID.X ;\n        /*0050*/                   LDG.E.64 R4, desc[UR4][R2.64] ;\n        /*0060*/                   ULDC UR4, c[0x0][0x0] ;\n        /*0070*/                   IMAD R0, R0, UR4, R7 ;\n        /*0080*/                   IADD3 R0, R0, 0x1, RZ ;\n        /*0090*/                   I2F.F64 R6, R0 ;\n.L_x_6:\n        /*00a0*/                   DSETP.GEU.AND P0, PT, R4, R6, PT ;\n        /*00b0*/                   YIELD ;\n        /*00c0*/               @P0 EXIT ;\n        /*00d0*/                   ATOMG.E.CAS.64.STRONG.GPU PT, R8, [R2], R4, R6 ;\n        /*00e0*/                   ISETP.NE.U32.AND P0, PT, R8, R4, PT ;\n        /*00f0*/                   IMAD.MOV.U32 R4, RZ, RZ, R8 ;\n        /*0100*/                   ISETP.NE.AND.EX P0, PT, R9, R5, PT, P0 ;\n        /*0110*/                   IMAD.MOV.U32 R5, RZ, RZ, R9 ;\n        /*0120*/               @P0 BRA `(.L_x_6) ;\n        /*0130*/                   EXIT ;\n.L_x_7:\n        /*0140*/                   BRA `(.L_x_7);\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_21:"
+        }
+      }
+    },
+    "_Z16atomicMaxDerivedIxEvPT_": {
+      "demangledName": "void atomicMaxDerived<long long>(T1 *)",
+      "imix": {
+        "sm_80": {
+          "NOP": 8,
+          "IMAD": 5,
+          "ISETP": 4,
+          "MOV": 3,
+          "S2R": 2,
+          "EXIT": 2,
+          "BRA": 2,
+          "ULDC": 1,
+          "LDG": 1,
+          "IADD3": 1,
+          "SHF": 1,
+          "YIELD": 1,
+          "ATOMG": 1
+        },
+        "sm_86": {
+          "NOP": 8,
+          "IMAD": 5,
+          "ISETP": 4,
+          "MOV": 3,
+          "S2R": 2,
+          "EXIT": 2,
+          "BRA": 2,
+          "ULDC": 1,
+          "LDG": 1,
+          "IADD3": 1,
+          "SHF": 1,
+          "YIELD": 1,
+          "ATOMG": 1
+        },
+        "sm_90": {
+          "NOP": 8,
+          "IMAD": 4,
+          "ISETP": 4,
+          "LDC": 2,
+          "S2R": 2,
+          "ULDC": 2,
+          "EXIT": 2,
+          "BRA": 2,
+          "LDG": 1,
+          "IADD3": 1,
+          "SHF": 1,
+          "YIELD": 1,
+          "ATOMG": 1,
+          "MOV": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z16atomicMaxDerivedIxEvPT_": "//--------------------- .text._Z16atomicMaxDerivedIxEvPT_ --------------------------\n\t.section\t.text._Z16atomicMaxDerivedIxEvPT_,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=14\"\n\t.align\t128\n.text._Z16atomicMaxDerivedIxEvPT_:\n        .weak           _Z16atomicMaxDerivedIxEvPT_\n        .type           _Z16atomicMaxDerivedIxEvPT_,@function\n        .size           _Z16atomicMaxDerivedIxEvPT_,(.L_x_22 - _Z16atomicMaxDerivedIxEvPT_)\n        .other          _Z16atomicMaxDerivedIxEvPT_,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z16atomicMaxDerivedIxEvPT_:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   IMAD.MOV.U32 R2, RZ, RZ, c[0x0][0x160] ;\n        /*0020*/                   MOV R3, c[0x0][0x164] ;\n        /*0030*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0040*/                   LDG.E.64 R4, [R2.64] ;\n        /*0050*/                   S2R R0, SR_CTAID.X ;\n        /*0060*/                   S2R R7, SR_TID.X ;\n        /*0070*/                   IMAD R0, R0, c[0x0][0x0], R7 ;\n        /*0080*/                   IADD3 R10, R0, 0x1, RZ ;\n        /*0090*/                   SHF.R.S32.HI R11, RZ, 0x1f, R10 ;\n.L_x_8:\n        /*00a0*/                   ISETP.GE.U32.AND P0, PT, R4, R10, PT ;\n        /*00b0*/                   YIELD ;\n        /*00c0*/                   ISETP.GE.AND.EX P0, PT, R5, R11, PT, P0 ;\n        /*00d0*/               @P0 EXIT ;\n        /*00e0*/                   IMAD.MOV.U32 R8, RZ, RZ, R4 ;\n        /*00f0*/                   IMAD.MOV.U32 R9, RZ, RZ, R5 ;\n        /*0100*/                   ATOMG.E.CAS.64.STRONG.GPU PT, R6, [R2], R8, R10 ;\n        /*0110*/                   ISETP.NE.U32.AND P0, PT, R6, R4, PT ;\n        /*0120*/                   MOV R4, R6 ;\n        /*0130*/                   ISETP.NE.AND.EX P0, PT, R7, R5, PT, P0 ;\n        /*0140*/                   IMAD.MOV.U32 R5, RZ, RZ, R7 ;\n        /*0150*/               @P0 BRA `(.L_x_8) ;\n        /*0160*/                   EXIT ;\n.L_x_9:\n        /*0170*/                   BRA `(.L_x_9);\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_22:"
+        },
+        "sm_86": {
+          "_Z16atomicMaxDerivedIxEvPT_": "//--------------------- .text._Z16atomicMaxDerivedIxEvPT_ --------------------------\n\t.section\t.text._Z16atomicMaxDerivedIxEvPT_,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=14\"\n\t.align\t128\n.text._Z16atomicMaxDerivedIxEvPT_:\n        .weak           _Z16atomicMaxDerivedIxEvPT_\n        .type           _Z16atomicMaxDerivedIxEvPT_,@function\n        .size           _Z16atomicMaxDerivedIxEvPT_,(.L_x_22 - _Z16atomicMaxDerivedIxEvPT_)\n        .other          _Z16atomicMaxDerivedIxEvPT_,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z16atomicMaxDerivedIxEvPT_:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   IMAD.MOV.U32 R2, RZ, RZ, c[0x0][0x160] ;\n        /*0020*/                   MOV R3, c[0x0][0x164] ;\n        /*0030*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0040*/                   LDG.E.64 R4, [R2.64] ;\n        /*0050*/                   S2R R0, SR_CTAID.X ;\n        /*0060*/                   S2R R7, SR_TID.X ;\n        /*0070*/                   IMAD R0, R0, c[0x0][0x0], R7 ;\n        /*0080*/                   IADD3 R10, R0, 0x1, RZ ;\n        /*0090*/                   SHF.R.S32.HI R11, RZ, 0x1f, R10 ;\n.L_x_8:\n        /*00a0*/                   ISETP.GE.U32.AND P0, PT, R4, R10, PT ;\n        /*00b0*/                   YIELD ;\n        /*00c0*/                   ISETP.GE.AND.EX P0, PT, R5, R11, PT, P0 ;\n        /*00d0*/               @P0 EXIT ;\n        /*00e0*/                   IMAD.MOV.U32 R8, RZ, RZ, R4 ;\n        /*00f0*/                   IMAD.MOV.U32 R9, RZ, RZ, R5 ;\n        /*0100*/                   ATOMG.E.CAS.64.STRONG.GPU PT, R6, [R2], R8, R10 ;\n        /*0110*/                   ISETP.NE.U32.AND P0, PT, R6, R4, PT ;\n        /*0120*/                   MOV R4, R6 ;\n        /*0130*/                   ISETP.NE.AND.EX P0, PT, R7, R5, PT, P0 ;\n        /*0140*/                   IMAD.MOV.U32 R5, RZ, RZ, R7 ;\n        /*0150*/               @P0 BRA `(.L_x_8) ;\n        /*0160*/                   EXIT ;\n.L_x_9:\n        /*0170*/                   BRA `(.L_x_9);\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_22:"
+        },
+        "sm_90": {
+          "_Z16atomicMaxDerivedIxEvPT_": "//--------------------- .text._Z16atomicMaxDerivedIxEvPT_ --------------------------\n\t.section\t.text._Z16atomicMaxDerivedIxEvPT_,\"ax\",@progbits\n\t.align\t128\n.text._Z16atomicMaxDerivedIxEvPT_:\n        .weak           _Z16atomicMaxDerivedIxEvPT_\n        .type           _Z16atomicMaxDerivedIxEvPT_,@function\n        .size           _Z16atomicMaxDerivedIxEvPT_,(.L_x_22 - _Z16atomicMaxDerivedIxEvPT_)\n        .other          _Z16atomicMaxDerivedIxEvPT_,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z16atomicMaxDerivedIxEvPT_:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_CTAID.X ;\n        /*0020*/                   LDC.64 R2, c[0x0][0x210] ;\n        /*0030*/                   ULDC.64 UR4, c[0x0][0x208] ;\n        /*0040*/                   S2R R7, SR_TID.X ;\n        /*0050*/                   LDG.E.64 R4, desc[UR4][R2.64] ;\n        /*0060*/                   ULDC UR4, c[0x0][0x0] ;\n        /*0070*/                   IMAD R0, R0, UR4, R7 ;\n        /*0080*/                   IADD3 R10, R0, 0x1, RZ ;\n        /*0090*/                   SHF.R.S32.HI R11, RZ, 0x1f, R10 ;\n.L_x_8:\n        /*00a0*/                   ISETP.GE.U32.AND P0, PT, R4, R10, PT ;\n        /*00b0*/                   YIELD ;\n        /*00c0*/                   ISETP.GE.AND.EX P0, PT, R5, R11, PT, P0 ;\n        /*00d0*/               @P0 EXIT ;\n        /*00e0*/                   IMAD.MOV.U32 R8, RZ, RZ, R4 ;\n        /*00f0*/                   IMAD.MOV.U32 R9, RZ, RZ, R5 ;\n        /*0100*/                   ATOMG.E.CAS.64.STRONG.GPU PT, R6, [R2], R8, R10 ;\n        /*0110*/                   ISETP.NE.U32.AND P0, PT, R6, R4, PT ;\n        /*0120*/                   MOV R4, R6 ;\n        /*0130*/                   ISETP.NE.AND.EX P0, PT, R7, R5, PT, P0 ;\n        /*0140*/                   IMAD.MOV.U32 R5, RZ, RZ, R7 ;\n        /*0150*/               @P0 BRA `(.L_x_8) ;\n        /*0160*/                   EXIT ;\n.L_x_9:\n        /*0170*/                   BRA `(.L_x_9);\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_22:"
+        }
+      }
+    },
+    "_Z16atomicMaxDerivedIyEvPT_": {
+      "demangledName": "void atomicMaxDerived<unsigned long long>(T1 *)",
+      "imix": {
+        "sm_80": {
+          "NOP": 8,
+          "IMAD": 5,
+          "ISETP": 4,
+          "MOV": 3,
+          "S2R": 2,
+          "EXIT": 2,
+          "BRA": 2,
+          "ULDC": 1,
+          "LDG": 1,
+          "IADD3": 1,
+          "SHF": 1,
+          "YIELD": 1,
+          "ATOMG": 1
+        },
+        "sm_86": {
+          "NOP": 8,
+          "IMAD": 5,
+          "ISETP": 4,
+          "MOV": 3,
+          "S2R": 2,
+          "EXIT": 2,
+          "BRA": 2,
+          "ULDC": 1,
+          "LDG": 1,
+          "IADD3": 1,
+          "SHF": 1,
+          "YIELD": 1,
+          "ATOMG": 1
+        },
+        "sm_90": {
+          "NOP": 8,
+          "IMAD": 4,
+          "ISETP": 4,
+          "LDC": 2,
+          "S2R": 2,
+          "ULDC": 2,
+          "EXIT": 2,
+          "BRA": 2,
+          "LDG": 1,
+          "IADD3": 1,
+          "SHF": 1,
+          "YIELD": 1,
+          "ATOMG": 1,
+          "MOV": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z16atomicMaxDerivedIyEvPT_": "//--------------------- .text._Z16atomicMaxDerivedIyEvPT_ --------------------------\n\t.section\t.text._Z16atomicMaxDerivedIyEvPT_,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=14\"\n\t.align\t128\n.text._Z16atomicMaxDerivedIyEvPT_:\n        .weak           _Z16atomicMaxDerivedIyEvPT_\n        .type           _Z16atomicMaxDerivedIyEvPT_,@function\n        .size           _Z16atomicMaxDerivedIyEvPT_,(.L_x_23 - _Z16atomicMaxDerivedIyEvPT_)\n        .other          _Z16atomicMaxDerivedIyEvPT_,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z16atomicMaxDerivedIyEvPT_:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   IMAD.MOV.U32 R2, RZ, RZ, c[0x0][0x160] ;\n        /*0020*/                   MOV R3, c[0x0][0x164] ;\n        /*0030*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0040*/                   LDG.E.64 R4, [R2.64] ;\n        /*0050*/                   S2R R0, SR_CTAID.X ;\n        /*0060*/                   S2R R7, SR_TID.X ;\n        /*0070*/                   IMAD R0, R0, c[0x0][0x0], R7 ;\n        /*0080*/                   IADD3 R10, R0, 0x1, RZ ;\n        /*0090*/                   SHF.R.S32.HI R11, RZ, 0x1f, R10 ;\n.L_x_10:\n        /*00a0*/                   ISETP.GE.U32.AND P0, PT, R4, R10, PT ;\n        /*00b0*/                   YIELD ;\n        /*00c0*/                   ISETP.GE.U32.AND.EX P0, PT, R5, R11, PT, P0 ;\n        /*00d0*/               @P0 EXIT ;\n        /*00e0*/                   IMAD.MOV.U32 R8, RZ, RZ, R4 ;\n        /*00f0*/                   IMAD.MOV.U32 R9, RZ, RZ, R5 ;\n        /*0100*/                   ATOMG.E.CAS.64.STRONG.GPU PT, R6, [R2], R8, R10 ;\n        /*0110*/                   ISETP.NE.U32.AND P0, PT, R6, R4, PT ;\n        /*0120*/                   MOV R4, R6 ;\n        /*0130*/                   ISETP.NE.AND.EX P0, PT, R7, R5, PT, P0 ;\n        /*0140*/                   IMAD.MOV.U32 R5, RZ, RZ, R7 ;\n        /*0150*/               @P0 BRA `(.L_x_10) ;\n        /*0160*/                   EXIT ;\n.L_x_11:\n        /*0170*/                   BRA `(.L_x_11);\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_23:"
+        },
+        "sm_86": {
+          "_Z16atomicMaxDerivedIyEvPT_": "//--------------------- .text._Z16atomicMaxDerivedIyEvPT_ --------------------------\n\t.section\t.text._Z16atomicMaxDerivedIyEvPT_,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=14\"\n\t.align\t128\n.text._Z16atomicMaxDerivedIyEvPT_:\n        .weak           _Z16atomicMaxDerivedIyEvPT_\n        .type           _Z16atomicMaxDerivedIyEvPT_,@function\n        .size           _Z16atomicMaxDerivedIyEvPT_,(.L_x_23 - _Z16atomicMaxDerivedIyEvPT_)\n        .other          _Z16atomicMaxDerivedIyEvPT_,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z16atomicMaxDerivedIyEvPT_:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   IMAD.MOV.U32 R2, RZ, RZ, c[0x0][0x160] ;\n        /*0020*/                   MOV R3, c[0x0][0x164] ;\n        /*0030*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0040*/                   LDG.E.64 R4, [R2.64] ;\n        /*0050*/                   S2R R0, SR_CTAID.X ;\n        /*0060*/                   S2R R7, SR_TID.X ;\n        /*0070*/                   IMAD R0, R0, c[0x0][0x0], R7 ;\n        /*0080*/                   IADD3 R10, R0, 0x1, RZ ;\n        /*0090*/                   SHF.R.S32.HI R11, RZ, 0x1f, R10 ;\n.L_x_10:\n        /*00a0*/                   ISETP.GE.U32.AND P0, PT, R4, R10, PT ;\n        /*00b0*/                   YIELD ;\n        /*00c0*/                   ISETP.GE.U32.AND.EX P0, PT, R5, R11, PT, P0 ;\n        /*00d0*/               @P0 EXIT ;\n        /*00e0*/                   IMAD.MOV.U32 R8, RZ, RZ, R4 ;\n        /*00f0*/                   IMAD.MOV.U32 R9, RZ, RZ, R5 ;\n        /*0100*/                   ATOMG.E.CAS.64.STRONG.GPU PT, R6, [R2], R8, R10 ;\n        /*0110*/                   ISETP.NE.U32.AND P0, PT, R6, R4, PT ;\n        /*0120*/                   MOV R4, R6 ;\n        /*0130*/                   ISETP.NE.AND.EX P0, PT, R7, R5, PT, P0 ;\n        /*0140*/                   IMAD.MOV.U32 R5, RZ, RZ, R7 ;\n        /*0150*/               @P0 BRA `(.L_x_10) ;\n        /*0160*/                   EXIT ;\n.L_x_11:\n        /*0170*/                   BRA `(.L_x_11);\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_23:"
+        },
+        "sm_90": {
+          "_Z16atomicMaxDerivedIyEvPT_": "//--------------------- .text._Z16atomicMaxDerivedIyEvPT_ --------------------------\n\t.section\t.text._Z16atomicMaxDerivedIyEvPT_,\"ax\",@progbits\n\t.align\t128\n.text._Z16atomicMaxDerivedIyEvPT_:\n        .weak           _Z16atomicMaxDerivedIyEvPT_\n        .type           _Z16atomicMaxDerivedIyEvPT_,@function\n        .size           _Z16atomicMaxDerivedIyEvPT_,(.L_x_23 - _Z16atomicMaxDerivedIyEvPT_)\n        .other          _Z16atomicMaxDerivedIyEvPT_,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z16atomicMaxDerivedIyEvPT_:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_CTAID.X ;\n        /*0020*/                   LDC.64 R2, c[0x0][0x210] ;\n        /*0030*/                   ULDC.64 UR4, c[0x0][0x208] ;\n        /*0040*/                   S2R R7, SR_TID.X ;\n        /*0050*/                   LDG.E.64 R4, desc[UR4][R2.64] ;\n        /*0060*/                   ULDC UR4, c[0x0][0x0] ;\n        /*0070*/                   IMAD R0, R0, UR4, R7 ;\n        /*0080*/                   IADD3 R10, R0, 0x1, RZ ;\n        /*0090*/                   SHF.R.S32.HI R11, RZ, 0x1f, R10 ;\n.L_x_10:\n        /*00a0*/                   ISETP.GE.U32.AND P0, PT, R4, R10, PT ;\n        /*00b0*/                   YIELD ;\n        /*00c0*/                   ISETP.GE.U32.AND.EX P0, PT, R5, R11, PT, P0 ;\n        /*00d0*/               @P0 EXIT ;\n        /*00e0*/                   IMAD.MOV.U32 R8, RZ, RZ, R4 ;\n        /*00f0*/                   IMAD.MOV.U32 R9, RZ, RZ, R5 ;\n        /*0100*/                   ATOMG.E.CAS.64.STRONG.GPU PT, R6, [R2], R8, R10 ;\n        /*0110*/                   ISETP.NE.U32.AND P0, PT, R6, R4, PT ;\n        /*0120*/                   MOV R4, R6 ;\n        /*0130*/                   ISETP.NE.AND.EX P0, PT, R7, R5, PT, P0 ;\n        /*0140*/                   IMAD.MOV.U32 R5, RZ, RZ, R7 ;\n        /*0150*/               @P0 BRA `(.L_x_10) ;\n        /*0160*/                   EXIT ;\n.L_x_11:\n        /*0170*/                   BRA `(.L_x_11);\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_23:"
+        }
+      }
+    },
+    "_Z16atomicMinDerivedIdEvPT_": {
+      "demangledName": "void atomicMinDerived<double>(T1 *)",
+      "imix": {
+        "sm_80": {
+          "NOP": 11,
+          "MOV": 3,
+          "IMAD": 3,
+          "S2R": 2,
+          "EXIT": 2,
+          "ISETP": 2,
+          "BRA": 2,
+          "ULDC": 1,
+          "LDG": 1,
+          "IADD3": 1,
+          "I2F": 1,
+          "DSETP": 1,
+          "YIELD": 1,
+          "ATOMG": 1
+        },
+        "sm_86": {
+          "NOP": 11,
+          "MOV": 3,
+          "IMAD": 3,
+          "S2R": 2,
+          "EXIT": 2,
+          "ISETP": 2,
+          "BRA": 2,
+          "ULDC": 1,
+          "LDG": 1,
+          "IADD3": 1,
+          "I2F": 1,
+          "DSETP": 1,
+          "YIELD": 1,
+          "ATOMG": 1
+        },
+        "sm_90": {
+          "NOP": 11,
+          "IMAD": 3,
+          "LDC": 2,
+          "S2R": 2,
+          "ULDC": 2,
+          "EXIT": 2,
+          "ISETP": 2,
+          "BRA": 2,
+          "LDG": 1,
+          "IADD3": 1,
+          "I2F": 1,
+          "DSETP": 1,
+          "YIELD": 1,
+          "ATOMG": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z16atomicMinDerivedIdEvPT_": "//--------------------- .text._Z16atomicMinDerivedIdEvPT_ --------------------------\n\t.section\t.text._Z16atomicMinDerivedIdEvPT_,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=12\"\n\t.align\t128\n.text._Z16atomicMinDerivedIdEvPT_:\n        .weak           _Z16atomicMinDerivedIdEvPT_\n        .type           _Z16atomicMinDerivedIdEvPT_,@function\n        .size           _Z16atomicMinDerivedIdEvPT_,(.L_x_24 - _Z16atomicMinDerivedIdEvPT_)\n        .other          _Z16atomicMinDerivedIdEvPT_,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z16atomicMinDerivedIdEvPT_:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   MOV R2, c[0x0][0x160] ;\n        /*0020*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0030*/                   MOV R3, c[0x0][0x164] ;\n        /*0040*/                   LDG.E.64 R4, [R2.64] ;\n        /*0050*/                   S2R R0, SR_CTAID.X ;\n        /*0060*/                   S2R R7, SR_TID.X ;\n        /*0070*/                   IMAD R0, R0, c[0x0][0x0], R7 ;\n        /*0080*/                   IADD3 R0, R0, 0x1, RZ ;\n        /*0090*/                   I2F.F64 R6, R0 ;\n.L_x_12:\n        /*00a0*/                   DSETP.GT.AND P0, PT, R4, R6, PT ;\n        /*00b0*/                   YIELD ;\n        /*00c0*/              @!P0 EXIT ;\n        /*00d0*/                   ATOMG.E.CAS.64.STRONG.GPU PT, R8, [R2], R4, R6 ;\n        /*00e0*/                   ISETP.NE.U32.AND P0, PT, R8, R4, PT ;\n        /*00f0*/                   IMAD.MOV.U32 R4, RZ, RZ, R8 ;\n        /*0100*/                   ISETP.NE.AND.EX P0, PT, R9, R5, PT, P0 ;\n        /*0110*/                   IMAD.MOV.U32 R5, RZ, RZ, R9 ;\n        /*0120*/               @P0 BRA `(.L_x_12) ;\n        /*0130*/                   EXIT ;\n.L_x_13:\n        /*0140*/                   BRA `(.L_x_13);\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_24:"
+        },
+        "sm_86": {
+          "_Z16atomicMinDerivedIdEvPT_": "//--------------------- .text._Z16atomicMinDerivedIdEvPT_ --------------------------\n\t.section\t.text._Z16atomicMinDerivedIdEvPT_,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=12\"\n\t.align\t128\n.text._Z16atomicMinDerivedIdEvPT_:\n        .weak           _Z16atomicMinDerivedIdEvPT_\n        .type           _Z16atomicMinDerivedIdEvPT_,@function\n        .size           _Z16atomicMinDerivedIdEvPT_,(.L_x_24 - _Z16atomicMinDerivedIdEvPT_)\n        .other          _Z16atomicMinDerivedIdEvPT_,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z16atomicMinDerivedIdEvPT_:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   MOV R2, c[0x0][0x160] ;\n        /*0020*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0030*/                   MOV R3, c[0x0][0x164] ;\n        /*0040*/                   LDG.E.64 R4, [R2.64] ;\n        /*0050*/                   S2R R0, SR_CTAID.X ;\n        /*0060*/                   S2R R7, SR_TID.X ;\n        /*0070*/                   IMAD R0, R0, c[0x0][0x0], R7 ;\n        /*0080*/                   IADD3 R0, R0, 0x1, RZ ;\n        /*0090*/                   I2F.F64 R6, R0 ;\n.L_x_12:\n        /*00a0*/                   DSETP.GT.AND P0, PT, R4, R6, PT ;\n        /*00b0*/                   YIELD ;\n        /*00c0*/              @!P0 EXIT ;\n        /*00d0*/                   ATOMG.E.CAS.64.STRONG.GPU PT, R8, [R2], R4, R6 ;\n        /*00e0*/                   ISETP.NE.U32.AND P0, PT, R8, R4, PT ;\n        /*00f0*/                   IMAD.MOV.U32 R4, RZ, RZ, R8 ;\n        /*0100*/                   ISETP.NE.AND.EX P0, PT, R9, R5, PT, P0 ;\n        /*0110*/                   IMAD.MOV.U32 R5, RZ, RZ, R9 ;\n        /*0120*/               @P0 BRA `(.L_x_12) ;\n        /*0130*/                   EXIT ;\n.L_x_13:\n        /*0140*/                   BRA `(.L_x_13);\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_24:"
+        },
+        "sm_90": {
+          "_Z16atomicMinDerivedIdEvPT_": "//--------------------- .text._Z16atomicMinDerivedIdEvPT_ --------------------------\n\t.section\t.text._Z16atomicMinDerivedIdEvPT_,\"ax\",@progbits\n\t.align\t128\n.text._Z16atomicMinDerivedIdEvPT_:\n        .weak           _Z16atomicMinDerivedIdEvPT_\n        .type           _Z16atomicMinDerivedIdEvPT_,@function\n        .size           _Z16atomicMinDerivedIdEvPT_,(.L_x_24 - _Z16atomicMinDerivedIdEvPT_)\n        .other          _Z16atomicMinDerivedIdEvPT_,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z16atomicMinDerivedIdEvPT_:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_CTAID.X ;\n        /*0020*/                   LDC.64 R2, c[0x0][0x210] ;\n        /*0030*/                   ULDC.64 UR4, c[0x0][0x208] ;\n        /*0040*/                   S2R R7, SR_TID.X ;\n        /*0050*/                   LDG.E.64 R4, desc[UR4][R2.64] ;\n        /*0060*/                   ULDC UR4, c[0x0][0x0] ;\n        /*0070*/                   IMAD R0, R0, UR4, R7 ;\n        /*0080*/                   IADD3 R0, R0, 0x1, RZ ;\n        /*0090*/                   I2F.F64 R6, R0 ;\n.L_x_12:\n        /*00a0*/                   DSETP.GT.AND P0, PT, R4, R6, PT ;\n        /*00b0*/                   YIELD ;\n        /*00c0*/              @!P0 EXIT ;\n        /*00d0*/                   ATOMG.E.CAS.64.STRONG.GPU PT, R8, [R2], R4, R6 ;\n        /*00e0*/                   ISETP.NE.U32.AND P0, PT, R8, R4, PT ;\n        /*00f0*/                   IMAD.MOV.U32 R4, RZ, RZ, R8 ;\n        /*0100*/                   ISETP.NE.AND.EX P0, PT, R9, R5, PT, P0 ;\n        /*0110*/                   IMAD.MOV.U32 R5, RZ, RZ, R9 ;\n        /*0120*/               @P0 BRA `(.L_x_12) ;\n        /*0130*/                   EXIT ;\n.L_x_13:\n        /*0140*/                   BRA `(.L_x_13);\n        /*0150*/                   NOP;\n        /*0160*/                   NOP;\n        /*0170*/                   NOP;\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_24:"
+        }
+      }
+    },
+    "_Z16atomicMinDerivedIxEvPT_": {
+      "demangledName": "void atomicMinDerived<long long>(T1 *)",
+      "imix": {
+        "sm_80": {
+          "NOP": 8,
+          "IMAD": 5,
+          "ISETP": 4,
+          "MOV": 3,
+          "S2R": 2,
+          "EXIT": 2,
+          "BRA": 2,
+          "ULDC": 1,
+          "LDG": 1,
+          "IADD3": 1,
+          "SHF": 1,
+          "YIELD": 1,
+          "ATOMG": 1
+        },
+        "sm_86": {
+          "NOP": 8,
+          "IMAD": 5,
+          "ISETP": 4,
+          "MOV": 3,
+          "S2R": 2,
+          "EXIT": 2,
+          "BRA": 2,
+          "ULDC": 1,
+          "LDG": 1,
+          "IADD3": 1,
+          "SHF": 1,
+          "YIELD": 1,
+          "ATOMG": 1
+        },
+        "sm_90": {
+          "NOP": 8,
+          "IMAD": 4,
+          "ISETP": 4,
+          "LDC": 2,
+          "S2R": 2,
+          "ULDC": 2,
+          "EXIT": 2,
+          "BRA": 2,
+          "LDG": 1,
+          "IADD3": 1,
+          "SHF": 1,
+          "YIELD": 1,
+          "ATOMG": 1,
+          "MOV": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z16atomicMinDerivedIxEvPT_": "//--------------------- .text._Z16atomicMinDerivedIxEvPT_ --------------------------\n\t.section\t.text._Z16atomicMinDerivedIxEvPT_,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=14\"\n\t.align\t128\n.text._Z16atomicMinDerivedIxEvPT_:\n        .weak           _Z16atomicMinDerivedIxEvPT_\n        .type           _Z16atomicMinDerivedIxEvPT_,@function\n        .size           _Z16atomicMinDerivedIxEvPT_,(.L_x_25 - _Z16atomicMinDerivedIxEvPT_)\n        .other          _Z16atomicMinDerivedIxEvPT_,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z16atomicMinDerivedIxEvPT_:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   IMAD.MOV.U32 R2, RZ, RZ, c[0x0][0x160] ;\n        /*0020*/                   MOV R3, c[0x0][0x164] ;\n        /*0030*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0040*/                   LDG.E.64 R4, [R2.64] ;\n        /*0050*/                   S2R R0, SR_CTAID.X ;\n        /*0060*/                   S2R R7, SR_TID.X ;\n        /*0070*/                   IMAD R0, R0, c[0x0][0x0], R7 ;\n        /*0080*/                   IADD3 R10, R0, 0x1, RZ ;\n        /*0090*/                   SHF.R.S32.HI R11, RZ, 0x1f, R10 ;\n.L_x_14:\n        /*00a0*/                   ISETP.GT.U32.AND P0, PT, R4, R10, PT ;\n        /*00b0*/                   YIELD ;\n        /*00c0*/                   ISETP.GT.AND.EX P0, PT, R5, R11, PT, P0 ;\n        /*00d0*/              @!P0 EXIT ;\n        /*00e0*/                   IMAD.MOV.U32 R8, RZ, RZ, R4 ;\n        /*00f0*/                   IMAD.MOV.U32 R9, RZ, RZ, R5 ;\n        /*0100*/                   ATOMG.E.CAS.64.STRONG.GPU PT, R6, [R2], R8, R10 ;\n        /*0110*/                   ISETP.NE.U32.AND P0, PT, R6, R4, PT ;\n        /*0120*/                   MOV R4, R6 ;\n        /*0130*/                   ISETP.NE.AND.EX P0, PT, R7, R5, PT, P0 ;\n        /*0140*/                   IMAD.MOV.U32 R5, RZ, RZ, R7 ;\n        /*0150*/               @P0 BRA `(.L_x_14) ;\n        /*0160*/                   EXIT ;\n.L_x_15:\n        /*0170*/                   BRA `(.L_x_15);\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_25:"
+        },
+        "sm_86": {
+          "_Z16atomicMinDerivedIxEvPT_": "//--------------------- .text._Z16atomicMinDerivedIxEvPT_ --------------------------\n\t.section\t.text._Z16atomicMinDerivedIxEvPT_,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=14\"\n\t.align\t128\n.text._Z16atomicMinDerivedIxEvPT_:\n        .weak           _Z16atomicMinDerivedIxEvPT_\n        .type           _Z16atomicMinDerivedIxEvPT_,@function\n        .size           _Z16atomicMinDerivedIxEvPT_,(.L_x_25 - _Z16atomicMinDerivedIxEvPT_)\n        .other          _Z16atomicMinDerivedIxEvPT_,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z16atomicMinDerivedIxEvPT_:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   IMAD.MOV.U32 R2, RZ, RZ, c[0x0][0x160] ;\n        /*0020*/                   MOV R3, c[0x0][0x164] ;\n        /*0030*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0040*/                   LDG.E.64 R4, [R2.64] ;\n        /*0050*/                   S2R R0, SR_CTAID.X ;\n        /*0060*/                   S2R R7, SR_TID.X ;\n        /*0070*/                   IMAD R0, R0, c[0x0][0x0], R7 ;\n        /*0080*/                   IADD3 R10, R0, 0x1, RZ ;\n        /*0090*/                   SHF.R.S32.HI R11, RZ, 0x1f, R10 ;\n.L_x_14:\n        /*00a0*/                   ISETP.GT.U32.AND P0, PT, R4, R10, PT ;\n        /*00b0*/                   YIELD ;\n        /*00c0*/                   ISETP.GT.AND.EX P0, PT, R5, R11, PT, P0 ;\n        /*00d0*/              @!P0 EXIT ;\n        /*00e0*/                   IMAD.MOV.U32 R8, RZ, RZ, R4 ;\n        /*00f0*/                   IMAD.MOV.U32 R9, RZ, RZ, R5 ;\n        /*0100*/                   ATOMG.E.CAS.64.STRONG.GPU PT, R6, [R2], R8, R10 ;\n        /*0110*/                   ISETP.NE.U32.AND P0, PT, R6, R4, PT ;\n        /*0120*/                   MOV R4, R6 ;\n        /*0130*/                   ISETP.NE.AND.EX P0, PT, R7, R5, PT, P0 ;\n        /*0140*/                   IMAD.MOV.U32 R5, RZ, RZ, R7 ;\n        /*0150*/               @P0 BRA `(.L_x_14) ;\n        /*0160*/                   EXIT ;\n.L_x_15:\n        /*0170*/                   BRA `(.L_x_15);\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_25:"
+        },
+        "sm_90": {
+          "_Z16atomicMinDerivedIxEvPT_": "//--------------------- .text._Z16atomicMinDerivedIxEvPT_ --------------------------\n\t.section\t.text._Z16atomicMinDerivedIxEvPT_,\"ax\",@progbits\n\t.align\t128\n.text._Z16atomicMinDerivedIxEvPT_:\n        .weak           _Z16atomicMinDerivedIxEvPT_\n        .type           _Z16atomicMinDerivedIxEvPT_,@function\n        .size           _Z16atomicMinDerivedIxEvPT_,(.L_x_25 - _Z16atomicMinDerivedIxEvPT_)\n        .other          _Z16atomicMinDerivedIxEvPT_,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z16atomicMinDerivedIxEvPT_:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_CTAID.X ;\n        /*0020*/                   LDC.64 R2, c[0x0][0x210] ;\n        /*0030*/                   ULDC.64 UR4, c[0x0][0x208] ;\n        /*0040*/                   S2R R7, SR_TID.X ;\n        /*0050*/                   LDG.E.64 R4, desc[UR4][R2.64] ;\n        /*0060*/                   ULDC UR4, c[0x0][0x0] ;\n        /*0070*/                   IMAD R0, R0, UR4, R7 ;\n        /*0080*/                   IADD3 R10, R0, 0x1, RZ ;\n        /*0090*/                   SHF.R.S32.HI R11, RZ, 0x1f, R10 ;\n.L_x_14:\n        /*00a0*/                   ISETP.GT.U32.AND P0, PT, R4, R10, PT ;\n        /*00b0*/                   YIELD ;\n        /*00c0*/                   ISETP.GT.AND.EX P0, PT, R5, R11, PT, P0 ;\n        /*00d0*/              @!P0 EXIT ;\n        /*00e0*/                   IMAD.MOV.U32 R8, RZ, RZ, R4 ;\n        /*00f0*/                   IMAD.MOV.U32 R9, RZ, RZ, R5 ;\n        /*0100*/                   ATOMG.E.CAS.64.STRONG.GPU PT, R6, [R2], R8, R10 ;\n        /*0110*/                   ISETP.NE.U32.AND P0, PT, R6, R4, PT ;\n        /*0120*/                   MOV R4, R6 ;\n        /*0130*/                   ISETP.NE.AND.EX P0, PT, R7, R5, PT, P0 ;\n        /*0140*/                   IMAD.MOV.U32 R5, RZ, RZ, R7 ;\n        /*0150*/               @P0 BRA `(.L_x_14) ;\n        /*0160*/                   EXIT ;\n.L_x_15:\n        /*0170*/                   BRA `(.L_x_15);\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_25:"
+        }
+      }
+    },
+    "_Z16atomicMinDerivedIyEvPT_": {
+      "demangledName": "void atomicMinDerived<unsigned long long>(T1 *)",
+      "imix": {
+        "sm_80": {
+          "NOP": 8,
+          "IMAD": 5,
+          "ISETP": 4,
+          "MOV": 3,
+          "S2R": 2,
+          "EXIT": 2,
+          "BRA": 2,
+          "ULDC": 1,
+          "LDG": 1,
+          "IADD3": 1,
+          "SHF": 1,
+          "YIELD": 1,
+          "ATOMG": 1
+        },
+        "sm_86": {
+          "NOP": 8,
+          "IMAD": 5,
+          "ISETP": 4,
+          "MOV": 3,
+          "S2R": 2,
+          "EXIT": 2,
+          "BRA": 2,
+          "ULDC": 1,
+          "LDG": 1,
+          "IADD3": 1,
+          "SHF": 1,
+          "YIELD": 1,
+          "ATOMG": 1
+        },
+        "sm_90": {
+          "NOP": 8,
+          "IMAD": 4,
+          "ISETP": 4,
+          "LDC": 2,
+          "S2R": 2,
+          "ULDC": 2,
+          "EXIT": 2,
+          "BRA": 2,
+          "LDG": 1,
+          "IADD3": 1,
+          "SHF": 1,
+          "YIELD": 1,
+          "ATOMG": 1,
+          "MOV": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z16atomicMinDerivedIyEvPT_": "//--------------------- .text._Z16atomicMinDerivedIyEvPT_ --------------------------\n\t.section\t.text._Z16atomicMinDerivedIyEvPT_,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=14\"\n\t.align\t128\n.text._Z16atomicMinDerivedIyEvPT_:\n        .weak           _Z16atomicMinDerivedIyEvPT_\n        .type           _Z16atomicMinDerivedIyEvPT_,@function\n        .size           _Z16atomicMinDerivedIyEvPT_,(.L_x_26 - _Z16atomicMinDerivedIyEvPT_)\n        .other          _Z16atomicMinDerivedIyEvPT_,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z16atomicMinDerivedIyEvPT_:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   IMAD.MOV.U32 R2, RZ, RZ, c[0x0][0x160] ;\n        /*0020*/                   MOV R3, c[0x0][0x164] ;\n        /*0030*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0040*/                   LDG.E.64 R4, [R2.64] ;\n        /*0050*/                   S2R R0, SR_CTAID.X ;\n        /*0060*/                   S2R R7, SR_TID.X ;\n        /*0070*/                   IMAD R0, R0, c[0x0][0x0], R7 ;\n        /*0080*/                   IADD3 R10, R0, 0x1, RZ ;\n        /*0090*/                   SHF.R.S32.HI R11, RZ, 0x1f, R10 ;\n.L_x_16:\n        /*00a0*/                   ISETP.GT.U32.AND P0, PT, R4, R10, PT ;\n        /*00b0*/                   YIELD ;\n        /*00c0*/                   ISETP.GT.U32.AND.EX P0, PT, R5, R11, PT, P0 ;\n        /*00d0*/              @!P0 EXIT ;\n        /*00e0*/                   IMAD.MOV.U32 R8, RZ, RZ, R4 ;\n        /*00f0*/                   IMAD.MOV.U32 R9, RZ, RZ, R5 ;\n        /*0100*/                   ATOMG.E.CAS.64.STRONG.GPU PT, R6, [R2], R8, R10 ;\n        /*0110*/                   ISETP.NE.U32.AND P0, PT, R6, R4, PT ;\n        /*0120*/                   MOV R4, R6 ;\n        /*0130*/                   ISETP.NE.AND.EX P0, PT, R7, R5, PT, P0 ;\n        /*0140*/                   IMAD.MOV.U32 R5, RZ, RZ, R7 ;\n        /*0150*/               @P0 BRA `(.L_x_16) ;\n        /*0160*/                   EXIT ;\n.L_x_17:\n        /*0170*/                   BRA `(.L_x_17);\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_26:\n// Disassembly for atomicCAS-cuda-atomicCAS.1.sm_80.cubin"
+        },
+        "sm_86": {
+          "_Z16atomicMinDerivedIyEvPT_": "//--------------------- .text._Z16atomicMinDerivedIyEvPT_ --------------------------\n\t.section\t.text._Z16atomicMinDerivedIyEvPT_,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=14\"\n\t.align\t128\n.text._Z16atomicMinDerivedIyEvPT_:\n        .weak           _Z16atomicMinDerivedIyEvPT_\n        .type           _Z16atomicMinDerivedIyEvPT_,@function\n        .size           _Z16atomicMinDerivedIyEvPT_,(.L_x_26 - _Z16atomicMinDerivedIyEvPT_)\n        .other          _Z16atomicMinDerivedIyEvPT_,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z16atomicMinDerivedIyEvPT_:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   IMAD.MOV.U32 R2, RZ, RZ, c[0x0][0x160] ;\n        /*0020*/                   MOV R3, c[0x0][0x164] ;\n        /*0030*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0040*/                   LDG.E.64 R4, [R2.64] ;\n        /*0050*/                   S2R R0, SR_CTAID.X ;\n        /*0060*/                   S2R R7, SR_TID.X ;\n        /*0070*/                   IMAD R0, R0, c[0x0][0x0], R7 ;\n        /*0080*/                   IADD3 R10, R0, 0x1, RZ ;\n        /*0090*/                   SHF.R.S32.HI R11, RZ, 0x1f, R10 ;\n.L_x_16:\n        /*00a0*/                   ISETP.GT.U32.AND P0, PT, R4, R10, PT ;\n        /*00b0*/                   YIELD ;\n        /*00c0*/                   ISETP.GT.U32.AND.EX P0, PT, R5, R11, PT, P0 ;\n        /*00d0*/              @!P0 EXIT ;\n        /*00e0*/                   IMAD.MOV.U32 R8, RZ, RZ, R4 ;\n        /*00f0*/                   IMAD.MOV.U32 R9, RZ, RZ, R5 ;\n        /*0100*/                   ATOMG.E.CAS.64.STRONG.GPU PT, R6, [R2], R8, R10 ;\n        /*0110*/                   ISETP.NE.U32.AND P0, PT, R6, R4, PT ;\n        /*0120*/                   MOV R4, R6 ;\n        /*0130*/                   ISETP.NE.AND.EX P0, PT, R7, R5, PT, P0 ;\n        /*0140*/                   IMAD.MOV.U32 R5, RZ, RZ, R7 ;\n        /*0150*/               @P0 BRA `(.L_x_16) ;\n        /*0160*/                   EXIT ;\n.L_x_17:\n        /*0170*/                   BRA `(.L_x_17);\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_26:\n// Disassembly for atomicCAS-cuda-atomicCAS.1.sm_86.cubin"
+        },
+        "sm_90": {
+          "_Z16atomicMinDerivedIyEvPT_": "//--------------------- .text._Z16atomicMinDerivedIyEvPT_ --------------------------\n\t.section\t.text._Z16atomicMinDerivedIyEvPT_,\"ax\",@progbits\n\t.align\t128\n.text._Z16atomicMinDerivedIyEvPT_:\n        .weak           _Z16atomicMinDerivedIyEvPT_\n        .type           _Z16atomicMinDerivedIyEvPT_,@function\n        .size           _Z16atomicMinDerivedIyEvPT_,(.L_x_26 - _Z16atomicMinDerivedIyEvPT_)\n        .other          _Z16atomicMinDerivedIyEvPT_,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z16atomicMinDerivedIyEvPT_:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_CTAID.X ;\n        /*0020*/                   LDC.64 R2, c[0x0][0x210] ;\n        /*0030*/                   ULDC.64 UR4, c[0x0][0x208] ;\n        /*0040*/                   S2R R7, SR_TID.X ;\n        /*0050*/                   LDG.E.64 R4, desc[UR4][R2.64] ;\n        /*0060*/                   ULDC UR4, c[0x0][0x0] ;\n        /*0070*/                   IMAD R0, R0, UR4, R7 ;\n        /*0080*/                   IADD3 R10, R0, 0x1, RZ ;\n        /*0090*/                   SHF.R.S32.HI R11, RZ, 0x1f, R10 ;\n.L_x_16:\n        /*00a0*/                   ISETP.GT.U32.AND P0, PT, R4, R10, PT ;\n        /*00b0*/                   YIELD ;\n        /*00c0*/                   ISETP.GT.U32.AND.EX P0, PT, R5, R11, PT, P0 ;\n        /*00d0*/              @!P0 EXIT ;\n        /*00e0*/                   IMAD.MOV.U32 R8, RZ, RZ, R4 ;\n        /*00f0*/                   IMAD.MOV.U32 R9, RZ, RZ, R5 ;\n        /*0100*/                   ATOMG.E.CAS.64.STRONG.GPU PT, R6, [R2], R8, R10 ;\n        /*0110*/                   ISETP.NE.U32.AND P0, PT, R6, R4, PT ;\n        /*0120*/                   MOV R4, R6 ;\n        /*0130*/                   ISETP.NE.AND.EX P0, PT, R7, R5, PT, P0 ;\n        /*0140*/                   IMAD.MOV.U32 R5, RZ, RZ, R7 ;\n        /*0150*/               @P0 BRA `(.L_x_16) ;\n        /*0160*/                   EXIT ;\n.L_x_17:\n        /*0170*/                   BRA `(.L_x_17);\n        /*0180*/                   NOP;\n        /*0190*/                   NOP;\n        /*01a0*/                   NOP;\n        /*01b0*/                   NOP;\n        /*01c0*/                   NOP;\n        /*01d0*/                   NOP;\n        /*01e0*/                   NOP;\n        /*01f0*/                   NOP;\n.L_x_26:"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "exeArgs": "100",
+  "kernels": {
+    "main_l52": {
+      "demangledName": "main:l52",
+      "imix": {
+        "sm_80": {
+          "NOP": 11,
+          "BAR": 9,
+          "STS": 7,
+          "IMAD": 4,
+          "ISETP": 3,
+          "LDS": 3,
+          "SEL": 2,
+          "IADD3": 2,
+          "MOV": 1,
+          "S2R": 1,
+          "ULDC": 1,
+          "LDG": 1,
+          "STG": 1,
+          "EXIT": 1,
+          "BRA": 1
+        },
+        "sm_86": {
+          "NOP": 11,
+          "BAR": 9,
+          "STS": 7,
+          "IMAD": 4,
+          "ISETP": 3,
+          "LDS": 3,
+          "SEL": 2,
+          "IADD3": 2,
+          "MOV": 1,
+          "S2R": 1,
+          "ULDC": 1,
+          "LDG": 1,
+          "STG": 1,
+          "EXIT": 1,
+          "BRA": 1
+        },
+        "sm_90": {
+          "UMOV": 10,
+          "BAR": 9,
+          "NOP": 9,
+          "UIADD3": 7,
+          "ULEA": 7,
+          "STS": 7,
+          "ISETP": 3,
+          "BRA": 3,
+          "S2UR": 3,
+          "LDS": 3,
+          "IADD3": 3,
+          "BSSY": 2,
+          "BSYNC": 2,
+          "ULDC": 2,
+          "SEL": 2,
+          "LDC": 1,
+          "S2R": 1,
+          "HFMA2": 1,
+          "IMAD": 1,
+          "LDG": 1,
+          "VIADD": 1,
+          "STG": 1,
+          "EXIT": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "__omp_offloading_fd01_183707_main_l52": "//--------------------- .text.__omp_offloading_fd01_183707_main_l52 --------------------------\n\t.section\t.text.__omp_offloading_fd01_183707_main_l52,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=10\"\n\t.align\t128\n.text.__omp_offloading_fd01_183707_main_l52:\n        .weak           __omp_offloading_fd01_183707_main_l52\n        .type           __omp_offloading_fd01_183707_main_l52,@function\n        .size           __omp_offloading_fd01_183707_main_l52,(.L_x_1 - __omp_offloading_fd01_183707_main_l52)\n        .other          __omp_offloading_fd01_183707_main_l52,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n__omp_offloading_fd01_183707_main_l52:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R2, SR_TID.X ;\n        /*0020*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0030*/                   ISETP.NE.U32.AND P0, PT, R2, RZ, PT ;\n        /*0040*/              @!P0 STS [0x404], RZ ;\n        /*0050*/              @!P0 IMAD.MOV.U32 R6, RZ, RZ, 0x1 ;\n        /*0060*/              @!P0 STS [0x400], RZ ;\n        /*0070*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*0080*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*0090*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*00a0*/              @!P0 STS [0x400], R6 ;\n        /*00b0*/              @!P0 STS [0x404], R6 ;\n        /*00c0*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*00d0*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*00e0*/                   LDS R0, [0x404] ;\n        /*00f0*/                   LDS R3, [0x400] ;\n        /*0100*/                   ISETP.NE.U32.AND P1, PT, R0, RZ, PT ;\n        /*0110*/                   ISETP.NE.U32.AND P2, PT, R0, R3, PT ;\n        /*0120*/                   SEL R0, R2, RZ, !P2 ;\n        /*0130*/                   SEL R0, R0, RZ, P1 ;\n        /*0140*/                   IMAD.WIDE.U32 R2, R0, 0x4, RZ ;\n        /*0150*/                   IADD3 R4, P1, R2, c[0x0][0x168], RZ ;\n        /*0160*/                   IADD3.X R5, R3, c[0x0][0x16c], RZ, P1, !PT ;\n        /*0170*/                   LDG.E R0, [R4.64] ;\n        /*0180*/                   IMAD.MOV.U32 R7, RZ, RZ, R2.reuse ;\n        /*0190*/                   IMAD.MOV R3, RZ, RZ, -R2 ;\n        /*01a0*/                   STS [R7], R0 ;\n        /*01b0*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*01c0*/                   LDS R3, [R3+0x3fc] ;\n        /*01d0*/                   STG.E [R4.64], R3 ;\n        /*01e0*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*01f0*/              @!P0 STS [0x404], RZ ;\n        /*0200*/              @!P0 STS [0x400], RZ ;\n        /*0210*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*0220*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*0230*/                   EXIT ;\n.L_x_0:\n        /*0240*/                   BRA `(.L_x_0);\n        /*0250*/                   NOP;\n        /*0260*/                   NOP;\n        /*0270*/                   NOP;\n        /*0280*/                   NOP;\n        /*0290*/                   NOP;\n        /*02a0*/                   NOP;\n        /*02b0*/                   NOP;\n        /*02c0*/                   NOP;\n        /*02d0*/                   NOP;\n        /*02e0*/                   NOP;\n        /*02f0*/                   NOP;\n.L_x_1:"
+        },
+        "sm_86": {
+          "__omp_offloading_fd01_183707_main_l52": "//--------------------- .text.__omp_offloading_fd01_183707_main_l52 --------------------------\n\t.section\t.text.__omp_offloading_fd01_183707_main_l52,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=10\"\n\t.align\t128\n.text.__omp_offloading_fd01_183707_main_l52:\n        .weak           __omp_offloading_fd01_183707_main_l52\n        .type           __omp_offloading_fd01_183707_main_l52,@function\n        .size           __omp_offloading_fd01_183707_main_l52,(.L_x_1 - __omp_offloading_fd01_183707_main_l52)\n        .other          __omp_offloading_fd01_183707_main_l52,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n__omp_offloading_fd01_183707_main_l52:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R2, SR_TID.X ;\n        /*0020*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0030*/                   ISETP.NE.U32.AND P0, PT, R2, RZ, PT ;\n        /*0040*/              @!P0 STS [0x404], RZ ;\n        /*0050*/              @!P0 IMAD.MOV.U32 R6, RZ, RZ, 0x1 ;\n        /*0060*/              @!P0 STS [0x400], RZ ;\n        /*0070*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*0080*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*0090*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*00a0*/              @!P0 STS [0x400], R6 ;\n        /*00b0*/              @!P0 STS [0x404], R6 ;\n        /*00c0*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*00d0*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*00e0*/                   LDS R0, [0x404] ;\n        /*00f0*/                   LDS R3, [0x400] ;\n        /*0100*/                   ISETP.NE.U32.AND P1, PT, R0, RZ, PT ;\n        /*0110*/                   ISETP.NE.U32.AND P2, PT, R0, R3, PT ;\n        /*0120*/                   SEL R0, R2, RZ, !P2 ;\n        /*0130*/                   SEL R0, R0, RZ, P1 ;\n        /*0140*/                   IMAD.WIDE.U32 R2, R0, 0x4, RZ ;\n        /*0150*/                   IADD3 R4, P1, R2, c[0x0][0x168], RZ ;\n        /*0160*/                   IADD3.X R5, R3, c[0x0][0x16c], RZ, P1, !PT ;\n        /*0170*/                   LDG.E R0, [R4.64] ;\n        /*0180*/                   IMAD.MOV.U32 R7, RZ, RZ, R2.reuse ;\n        /*0190*/                   IMAD.MOV R3, RZ, RZ, -R2 ;\n        /*01a0*/                   STS [R7], R0 ;\n        /*01b0*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*01c0*/                   LDS R3, [R3+0x3fc] ;\n        /*01d0*/                   STG.E [R4.64], R3 ;\n        /*01e0*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*01f0*/              @!P0 STS [0x404], RZ ;\n        /*0200*/              @!P0 STS [0x400], RZ ;\n        /*0210*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*0220*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*0230*/                   EXIT ;\n.L_x_0:\n        /*0240*/                   BRA `(.L_x_0);\n        /*0250*/                   NOP;\n        /*0260*/                   NOP;\n        /*0270*/                   NOP;\n        /*0280*/                   NOP;\n        /*0290*/                   NOP;\n        /*02a0*/                   NOP;\n        /*02b0*/                   NOP;\n        /*02c0*/                   NOP;\n        /*02d0*/                   NOP;\n        /*02e0*/                   NOP;\n        /*02f0*/                   NOP;\n.L_x_1:"
+        },
+        "sm_90": {
+          "__omp_offloading_fd01_183707_main_l52": "//--------------------- .text.__omp_offloading_fd01_183707_main_l52 --------------------------\n\t.section\t.text.__omp_offloading_fd01_183707_main_l52,\"ax\",@progbits\n\t.align\t128\n.text.__omp_offloading_fd01_183707_main_l52:\n        .weak           __omp_offloading_fd01_183707_main_l52\n        .type           __omp_offloading_fd01_183707_main_l52,@function\n        .size           __omp_offloading_fd01_183707_main_l52,(.L_x_5 - __omp_offloading_fd01_183707_main_l52)\n        .other          __omp_offloading_fd01_183707_main_l52,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n__omp_offloading_fd01_183707_main_l52:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R2, SR_TID.X ;\n        /*0020*/                   BSSY B0, `(.L_x_0) ;\n        /*0030*/                   ISETP.NE.U32.AND P0, PT, R2, RZ, PT ;\n        /*0040*/               @P0 BRA `(.L_x_1) ;\n        /*0050*/                   S2UR UR6, SR_CgaCtaId ;\n        /*0060*/                   UMOV UR4, 0x404 ;\n        /*0070*/                   UMOV UR5, 0x400 ;\n        /*0080*/                   UIADD3 UR4, UR4, UR5, URZ ;\n        /*0090*/                   ULEA UR4, UR6, UR4, 0x18 ;\n        /*00a0*/                   STS [UR4], RZ ;\n        /*00b0*/                   UMOV UR4, 0x400 ;\n        /*00c0*/                   UIADD3 UR4, UR5, UR4, URZ ;\n        /*00d0*/                   ULEA UR4, UR6, UR4, 0x18 ;\n        /*00e0*/                   STS [UR4], RZ ;\n.L_x_1:\n        /*00f0*/                   BSYNC B0 ;\n.L_x_0:\n        /*0100*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*0110*/                   BSSY B0, `(.L_x_2) ;\n        /*0120*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*0130*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*0140*/               @P0 BRA `(.L_x_3) ;\n        /*0150*/                   S2UR UR6, SR_CgaCtaId ;\n        /*0160*/                   UMOV UR4, 0x400 ;\n        /*0170*/                   UMOV UR5, 0x400 ;\n        /*0180*/                   HFMA2.MMA R0, -RZ, RZ, 0, 5.9604644775390625e-08 ;\n        /*0190*/                   UIADD3 UR4, UR5, UR4, URZ ;\n        /*01a0*/                   ULEA UR4, UR6, UR4, 0x18 ;\n        /*01b0*/                   STS [UR4], R0 ;\n        /*01c0*/                   UMOV UR4, 0x404 ;\n        /*01d0*/                   UIADD3 UR4, UR4, UR5, URZ ;\n        /*01e0*/                   ULEA UR4, UR6, UR4, 0x18 ;\n        /*01f0*/                   STS [UR4], R0 ;\n.L_x_3:\n        /*0200*/                   BSYNC B0 ;\n.L_x_2:\n        /*0210*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*0220*/                   S2UR UR6, SR_CgaCtaId ;\n        /*0230*/                   UMOV UR5, 0x400 ;\n        /*0240*/                   ULDC.64 UR10, c[0x0][0x218] ;\n        /*0250*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*0260*/                   UMOV UR4, 0x404 ;\n        /*0270*/                   UMOV UR7, 0x400 ;\n        /*0280*/                   UIADD3 UR4, UR4, UR5, URZ ;\n        /*0290*/                   UIADD3 UR8, UR5, UR7, URZ ;\n        /*02a0*/                   ULEA UR7, UR6, UR4, 0x18 ;\n        /*02b0*/                   ULEA UR8, UR6, UR8, 0x18 ;\n        /*02c0*/                   LDS R0, [UR7] ;\n        /*02d0*/                   LDS R3, [UR8] ;\n        /*02e0*/                   ISETP.NE.U32.AND P1, PT, R0.reuse, RZ, PT ;\n        /*02f0*/                   ISETP.NE.U32.AND P2, PT, R0, R3, PT ;\n        /*0300*/                   SEL R0, R2, RZ, !P2 ;\n        /*0310*/                   SEL R0, R0, RZ, P1 ;\n        /*0320*/                   IMAD.WIDE.U32 R2, R0, 0x4, RZ ;\n        /*0330*/                   IADD3 R4, P1, R2, UR10, RZ ;\n        /*0340*/                   IADD3.X R5, R3, UR11, RZ, P1, !PT ;\n        /*0350*/                   ULDC.64 UR10, c[0x0][0x208] ;\n        /*0360*/                   LDG.E R0, desc[UR10][R4.64] ;\n        /*0370*/                   UMOV UR4, 0x0 ;\n        /*0380*/                   UIADD3 UR4, UR5, UR4, URZ ;\n        /*0390*/                   ULEA UR4, UR6, UR4, 0x18 ;\n        /*03a0*/                   VIADD R7, R2.reuse, UR4 ;\n        /*03b0*/                   IADD3 R3, -R2, UR4, RZ ;\n        /*03c0*/                   STS [R7], R0 ;\n        /*03d0*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*03e0*/                   LDS R3, [R3+0x3fc] ;\n        /*03f0*/                   STG.E desc[UR10][R4.64], R3 ;\n        /*0400*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*0410*/              @!P0 STS [UR7], RZ ;\n        /*0420*/              @!P0 STS [UR8], RZ ;\n        /*0430*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*0440*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*0450*/                   EXIT ;\n.L_x_4:\n        /*0460*/                   BRA `(.L_x_4);\n        /*0470*/                   NOP;\n        /*0480*/                   NOP;\n        /*0490*/                   NOP;\n        /*04a0*/                   NOP;\n        /*04b0*/                   NOP;\n        /*04c0*/                   NOP;\n        /*04d0*/                   NOP;\n        /*04e0*/                   NOP;\n        /*04f0*/                   NOP;\n.L_x_5:"
+        }
+      }
+    }
+  }
+}

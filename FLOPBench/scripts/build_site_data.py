@@ -20,6 +20,7 @@ SITE_DIR = Path(__file__).resolve().parents[1]
 REPO_DIR = SITE_DIR.parent
 DATA_DIR = SITE_DIR / "data"
 DOWNLOADS_DIR = SITE_DIR / "downloads"
+EXPLORER_PROGRAMS_DIR = DATA_DIR / "explorer-programs"
 SOURCE_DATA_DIR = SITE_DIR / "source-data"
 VENDORED_DATASET_GZ = SOURCE_DATA_DIR / "gpuFLOPBench.json.gz"
 BENCHMARKS_YAML = SOURCE_DATA_DIR / "HeCBench" / "benchmarks.yaml"
@@ -577,6 +578,29 @@ def reset_directory(path: Path) -> None:
     path.mkdir(parents=True, exist_ok=True)
 
 
+def write_explorer_program_payloads(dataset: dict) -> dict[str, str]:
+    reset_directory(EXPLORER_PROGRAMS_DIR)
+    program_files: dict[str, str] = {}
+
+    for program, payload in dataset.items():
+        program_payload = {
+            "exeArgs": payload.get("exeArgs", ""),
+            "kernels": {},
+        }
+        for kernel_symbol, kernel_payload in payload.get("kernels", {}).items():
+            program_payload["kernels"][kernel_symbol] = {
+                "demangledName": kernel_payload.get("demangledName"),
+                "imix": kernel_payload.get("imix", {}),
+                "sass_code": kernel_payload.get("sass_code", {}),
+            }
+
+        out_path = EXPLORER_PROGRAMS_DIR / f"{program}.json"
+        write_json(out_path, program_payload)
+        program_files[program] = f"data/explorer-programs/{program}.json"
+
+    return program_files
+
+
 def main() -> None:
     if not VENDORED_DATASET_GZ.exists():
         raise FileNotFoundError(f"Vendored dataset is missing: {VENDORED_DATASET_GZ}")
@@ -592,6 +616,7 @@ def main() -> None:
     category_map, category_order = parse_hecbench_categories()
     dataset = load_dataset()
     kernel_rows, source_rows = build_perf_data(dataset, metadata, category_map)
+    explorer_program_files = write_explorer_program_payloads(dataset)
 
     inventory = build_inventory(metadata, set(dataset.keys()), category_map)
     audit = build_audit(category_map)
@@ -747,6 +772,7 @@ def main() -> None:
             "meta": metadata_payload,
             "kernelRows": kernel_rows,
             "sourceRows": source_rows,
+            "explorerProgramFiles": explorer_program_files,
         },
     )
 

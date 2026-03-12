@@ -1,0 +1,192 @@
+{
+  "exeArgs": "100000000 256 100",
+  "kernels": {
+    "_Z6filterPiS_PKii": {
+      "demangledName": "filter(int *, int *, const int *, int)",
+      "imix": {
+        "sm_80": {
+          "NOP": 9,
+          "ISETP": 6,
+          "S2R": 4,
+          "IMAD": 4,
+          "BAR": 4,
+          "BRA": 4,
+          "MOV": 3,
+          "BSSY": 2,
+          "STS": 2,
+          "POPC": 2,
+          "BSYNC": 2,
+          "LDS": 2,
+          "ULDC": 1,
+          "HFMA2": 1,
+          "LDG": 1,
+          "VOTEU": 1,
+          "FLO": 1,
+          "ATOMS": 1,
+          "LOP3": 1,
+          "SHFL": 1,
+          "ATOMG": 1,
+          "IADD3": 1,
+          "STG": 1,
+          "EXIT": 1
+        },
+        "sm_86": {
+          "NOP": 9,
+          "ISETP": 6,
+          "MOV": 4,
+          "S2R": 4,
+          "IMAD": 4,
+          "BAR": 4,
+          "BRA": 4,
+          "BSSY": 2,
+          "STS": 2,
+          "POPC": 2,
+          "BSYNC": 2,
+          "LDS": 2,
+          "ULDC": 1,
+          "LDG": 1,
+          "VOTEU": 1,
+          "FLO": 1,
+          "ATOMS": 1,
+          "LOP3": 1,
+          "SHFL": 1,
+          "ATOMG": 1,
+          "IADD3": 1,
+          "STG": 1,
+          "EXIT": 1
+        },
+        "sm_90": {
+          "NOP": 9,
+          "ISETP": 6,
+          "UMOV": 6,
+          "S2R": 5,
+          "BRA": 5,
+          "LDC": 4,
+          "IMAD": 4,
+          "BAR": 4,
+          "ULDC": 3,
+          "BSSY": 3,
+          "S2UR": 3,
+          "UIADD3": 3,
+          "ULEA": 3,
+          "BSYNC": 3,
+          "MOV": 2,
+          "STS": 2,
+          "POPC": 2,
+          "LDS": 2,
+          "LEA": 1,
+          "LDG": 1,
+          "VOTEU": 1,
+          "FLO": 1,
+          "LOP3": 1,
+          "ATOMS": 1,
+          "SHFL": 1,
+          "ATOMG": 1,
+          "IADD3": 1,
+          "STG": 1,
+          "EXIT": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z6filterPiS_PKii": "//--------------------- .text._Z6filterPiS_PKii   --------------------------\n\t.section\t.text._Z6filterPiS_PKii,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=12\"\n\t.align\t128\n        .global         _Z6filterPiS_PKii\n        .type           _Z6filterPiS_PKii,@function\n        .size           _Z6filterPiS_PKii,(.L_x_17 - _Z6filterPiS_PKii)\n        .other          _Z6filterPiS_PKii,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z6filterPiS_PKii:\n.text._Z6filterPiS_PKii:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R3, SR_TID.X ;\n        /*0020*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0030*/                   BSSY B0, `(.L_x_5) ;\n        /*0040*/                   S2R R0, SR_CTAID.X ;\n        /*0050*/                   ISETP.NE.AND P0, PT, R3, RZ, PT ;\n        /*0060*/                   IMAD R0, R0, c[0x0][0x0], R3 ;\n        /*0070*/                   ISETP.GE.AND P1, PT, R0, c[0x0][0x178], PT ;\n        /*0080*/              @!P0 STS [`($___ZZ6filterPiS_PKiiE3l_n__67)], RZ ;\n        /*0090*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*00a0*/               @P1 BRA `(.L_x_6) ;\n        /*00b0*/                   HFMA2.MMA R3, -RZ, RZ, 0, 2.384185791015625e-07 ;\n        /*00c0*/                   IMAD.WIDE R2, R0, R3, c[0x0][0x170] ;\n        /*00d0*/                   LDG.E.CONSTANT R5, [R2.64] ;\n        /*00e0*/                   ISETP.GE.AND P1, PT, R5, 0x1, PT ;\n        /*00f0*/              @!P1 BRA `(.L_x_6) ;\n        /*0100*/                   S2R R4, SR_LANEID ;\n        /*0110*/                   VOTEU.ANY UR6, UPT, PT ;\n        /*0120*/                   FLO.U32 R3, UR6 ;\n        /*0130*/                   POPC R2, UR6 ;\n        /*0140*/                   ISETP.EQ.U32.AND P1, PT, R3, R4, PT ;\n        /*0150*/                   S2R R4, SR_LTMASK ;\n        /*0160*/               @P1 ATOMS.ADD R2, [`($___ZZ6filterPiS_PKiiE3l_n__67)], R2 ;\n        /*0170*/                   LOP3.LUT R4, R4, UR6, RZ, 0xc0, !PT ;\n        /*0180*/                   POPC R4, R4 ;\n        /*0190*/                   SHFL.IDX PT, R9, R2, R3, 0x1f ;\n.L_x_6:\n        /*01a0*/                   BSYNC B0 ;\n.L_x_5:\n        /*01b0*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*01c0*/                   BSSY B0, `(.L_x_7) ;\n        /*01d0*/               @P0 BRA `(.L_x_8) ;\n        /*01e0*/                   LDS R7, [`($___ZZ6filterPiS_PKiiE3l_n__67)] ;\n        /*01f0*/                   MOV R2, c[0x0][0x168] ;\n        /*0200*/                   MOV R3, c[0x0][0x16c] ;\n        /*0210*/                   ATOMG.E.ADD.STRONG.GPU PT, R2, [R2.64], R7 ;\n        /*0220*/                   STS [`($___ZZ6filterPiS_PKiiE3l_n__67)], R2 ;\n.L_x_8:\n        /*0230*/                   BSYNC B0 ;\n.L_x_7:\n        /*0240*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*0250*/                   ISETP.GE.AND P0, PT, R5, 0x1, PT ;\n        /*0260*/                   ISETP.GE.OR P0, PT, R0, c[0x0][0x178], !P0 ;\n        /*0270*/              @!P0 IMAD.MOV.U32 R3, RZ, RZ, 0x4 ;\n        /*0280*/              @!P0 LDS R0, [`($___ZZ6filterPiS_PKiiE3l_n__67)] ;\n        /*0290*/              @!P0 IADD3 R0, R0, R9, R4 ;\n        /*02a0*/              @!P0 IMAD.WIDE R2, R0, R3, c[0x0][0x160] ;\n        /*02b0*/              @!P0 STG.E [R2.64], R5 ;\n        /*02c0*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*02d0*/                   EXIT ;\n.L_x_9:\n        /*02e0*/                   BRA `(.L_x_9);\n        /*02f0*/                   NOP;\n        /*0300*/                   NOP;\n        /*0310*/                   NOP;\n        /*0320*/                   NOP;\n        /*0330*/                   NOP;\n        /*0340*/                   NOP;\n        /*0350*/                   NOP;\n        /*0360*/                   NOP;\n        /*0370*/                   NOP;\n.L_x_17:"
+        },
+        "sm_86": {
+          "_Z6filterPiS_PKii": "//--------------------- .text._Z6filterPiS_PKii   --------------------------\n\t.section\t.text._Z6filterPiS_PKii,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=12\"\n\t.align\t128\n        .global         _Z6filterPiS_PKii\n        .type           _Z6filterPiS_PKii,@function\n        .size           _Z6filterPiS_PKii,(.L_x_17 - _Z6filterPiS_PKii)\n        .other          _Z6filterPiS_PKii,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z6filterPiS_PKii:\n.text._Z6filterPiS_PKii:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R3, SR_TID.X ;\n        /*0020*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0030*/                   BSSY B0, `(.L_x_5) ;\n        /*0040*/                   S2R R0, SR_CTAID.X ;\n        /*0050*/                   ISETP.NE.AND P0, PT, R3, RZ, PT ;\n        /*0060*/                   IMAD R0, R0, c[0x0][0x0], R3 ;\n        /*0070*/                   ISETP.GE.AND P1, PT, R0, c[0x0][0x178], PT ;\n        /*0080*/              @!P0 STS [`($___ZZ6filterPiS_PKiiE3l_n__67)], RZ ;\n        /*0090*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*00a0*/               @P1 BRA `(.L_x_6) ;\n        /*00b0*/                   MOV R3, 0x4 ;\n        /*00c0*/                   IMAD.WIDE R2, R0, R3, c[0x0][0x170] ;\n        /*00d0*/                   LDG.E.CONSTANT R5, [R2.64] ;\n        /*00e0*/                   ISETP.GE.AND P1, PT, R5, 0x1, PT ;\n        /*00f0*/              @!P1 BRA `(.L_x_6) ;\n        /*0100*/                   S2R R4, SR_LANEID ;\n        /*0110*/                   VOTEU.ANY UR6, UPT, PT ;\n        /*0120*/                   FLO.U32 R3, UR6 ;\n        /*0130*/                   POPC R2, UR6 ;\n        /*0140*/                   ISETP.EQ.U32.AND P1, PT, R3, R4, PT ;\n        /*0150*/                   S2R R4, SR_LTMASK ;\n        /*0160*/               @P1 ATOMS.ADD R2, [`($___ZZ6filterPiS_PKiiE3l_n__67)], R2 ;\n        /*0170*/                   LOP3.LUT R4, R4, UR6, RZ, 0xc0, !PT ;\n        /*0180*/                   POPC R4, R4 ;\n        /*0190*/                   SHFL.IDX PT, R9, R2, R3, 0x1f ;\n.L_x_6:\n        /*01a0*/                   BSYNC B0 ;\n.L_x_5:\n        /*01b0*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*01c0*/                   BSSY B0, `(.L_x_7) ;\n        /*01d0*/               @P0 BRA `(.L_x_8) ;\n        /*01e0*/                   LDS R7, [`($___ZZ6filterPiS_PKiiE3l_n__67)] ;\n        /*01f0*/                   MOV R2, c[0x0][0x168] ;\n        /*0200*/                   MOV R3, c[0x0][0x16c] ;\n        /*0210*/                   ATOMG.E.ADD.STRONG.GPU PT, R2, [R2.64], R7 ;\n        /*0220*/                   STS [`($___ZZ6filterPiS_PKiiE3l_n__67)], R2 ;\n.L_x_8:\n        /*0230*/                   BSYNC B0 ;\n.L_x_7:\n        /*0240*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*0250*/                   ISETP.GE.AND P0, PT, R5, 0x1, PT ;\n        /*0260*/                   ISETP.GE.OR P0, PT, R0, c[0x0][0x178], !P0 ;\n        /*0270*/              @!P0 IMAD.MOV.U32 R3, RZ, RZ, 0x4 ;\n        /*0280*/              @!P0 LDS R0, [`($___ZZ6filterPiS_PKiiE3l_n__67)] ;\n        /*0290*/              @!P0 IADD3 R0, R0, R9, R4 ;\n        /*02a0*/              @!P0 IMAD.WIDE R2, R0, R3, c[0x0][0x160] ;\n        /*02b0*/              @!P0 STG.E [R2.64], R5 ;\n        /*02c0*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*02d0*/                   EXIT ;\n.L_x_9:\n        /*02e0*/                   BRA `(.L_x_9);\n        /*02f0*/                   NOP;\n        /*0300*/                   NOP;\n        /*0310*/                   NOP;\n        /*0320*/                   NOP;\n        /*0330*/                   NOP;\n        /*0340*/                   NOP;\n        /*0350*/                   NOP;\n        /*0360*/                   NOP;\n        /*0370*/                   NOP;\n.L_x_17:"
+        },
+        "sm_90": {
+          "_Z6filterPiS_PKii": "//--------------------- .text._Z6filterPiS_PKii   --------------------------\n\t.section\t.text._Z6filterPiS_PKii,\"ax\",@progbits\n\t.align\t128\n        .global         _Z6filterPiS_PKii\n        .type           _Z6filterPiS_PKii,@function\n        .size           _Z6filterPiS_PKii,(.L_x_18 - _Z6filterPiS_PKii)\n        .other          _Z6filterPiS_PKii,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z6filterPiS_PKii:\n.text._Z6filterPiS_PKii:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R2, SR_TID.X ;\n        /*0020*/                   ULDC UR4, c[0x0][0x0] ;\n        /*0030*/                   ULDC UR10, c[0x0][0x228] ;\n        /*0040*/                   ULDC.64 UR8, c[0x0][0x208] ;\n        /*0050*/                   S2R R5, SR_CTAID.X ;\n        /*0060*/                   BSSY B0, `(.L_x_3) ;\n        /*0070*/                   ISETP.NE.AND P0, PT, R2, RZ, PT ;\n        /*0080*/                   IMAD R5, R5, UR4, R2 ;\n        /*0090*/                   ISETP.GE.AND P1, PT, R5, UR10, PT ;\n        /*00a0*/              @!P0 S2R R7, SR_CgaCtaId ;\n        /*00b0*/              @!P0 MOV R0, `($___ZZ6filterPiS_PKiiE3l_n__67) ;\n        /*00c0*/              @!P0 MOV R3, 0x400 ;\n        /*00d0*/              @!P0 IMAD.IADD R0, R0, 0x1, R3 ;\n        /*00e0*/              @!P0 LEA R0, R7, R0, 0x18 ;\n        /*00f0*/              @!P0 STS [R0], RZ ;\n        /*0100*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*0110*/               @P1 BRA `(.L_x_4) ;\n        /*0120*/                   LDC.64 R2, c[0x0][0x220] ;\n        /*0130*/                   IMAD.WIDE R2, R5, 0x4, R2 ;\n        /*0140*/                   LDG.E.CONSTANT R7, desc[UR8][R2.64] ;\n        /*0150*/                   ISETP.GE.AND P1, PT, R7, 0x1, PT ;\n        /*0160*/              @!P1 BRA `(.L_x_4) ;\n        /*0170*/                   S2R R3, SR_LANEID ;\n        /*0180*/                   S2UR UR6, SR_CgaCtaId ;\n        /*0190*/                   VOTEU.ANY UR7, UPT, PT ;\n        /*01a0*/                   UMOV UR4, `($___ZZ6filterPiS_PKiiE3l_n__67) ;\n        /*01b0*/                   FLO.U32 R2, UR7 ;\n        /*01c0*/                   UMOV UR5, 0x400 ;\n        /*01d0*/                   S2R R4, SR_LTMASK ;\n        /*01e0*/                   UIADD3 UR4, UR4, UR5, URZ ;\n        /*01f0*/                   POPC R0, UR7 ;\n        /*0200*/                   ULEA UR4, UR6, UR4, 0x18 ;\n        /*0210*/                   ISETP.EQ.U32.AND P1, PT, R2, R3, PT ;\n        /*0220*/                   LOP3.LUT R4, R4, UR7, RZ, 0xc0, !PT ;\n        /*0230*/                   POPC R4, R4 ;\n        /*0240*/               @P1 ATOMS.ADD R3, [UR4], R0 ;\n        /*0250*/                   SHFL.IDX PT, R11, R3, R2, 0x1f ;\n.L_x_4:\n        /*0260*/                   BSYNC B0 ;\n.L_x_3:\n        /*0270*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*0280*/                   BSSY B0, `(.L_x_5) ;\n        /*0290*/               @P0 BRA `(.L_x_6) ;\n        /*02a0*/                   S2UR UR6, SR_CgaCtaId ;\n        /*02b0*/                   UMOV UR4, `($___ZZ6filterPiS_PKiiE3l_n__67) ;\n        /*02c0*/                   UMOV UR5, 0x400 ;\n        /*02d0*/                   UIADD3 UR4, UR4, UR5, URZ ;\n        /*02e0*/                   LDC.64 R2, c[0x0][0x218] ;\n        /*02f0*/                   ULEA UR4, UR6, UR4, 0x18 ;\n        /*0300*/                   LDS R9, [UR4] ;\n        /*0310*/                   ATOMG.E.ADD.STRONG.GPU PT, R2, desc[UR8][R2.64], R9 ;\n        /*0320*/                   STS [UR4], R2 ;\n.L_x_6:\n        /*0330*/                   BSYNC B0 ;\n.L_x_5:\n        /*0340*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*0350*/                   ISETP.GE.AND P0, PT, R7, 0x1, PT ;\n        /*0360*/                   ISETP.GE.OR P0, PT, R5, UR10, !P0 ;\n        /*0370*/                   BSSY B0, `(.L_x_7) ;\n        /*0380*/               @P0 BRA `(.L_x_8) ;\n        /*0390*/                   S2UR UR6, SR_CgaCtaId ;\n        /*03a0*/                   UMOV UR4, `($___ZZ6filterPiS_PKiiE3l_n__67) ;\n        /*03b0*/                   UMOV UR5, 0x400 ;\n        /*03c0*/                   UIADD3 UR4, UR4, UR5, URZ ;\n        /*03d0*/                   LDC.64 R2, c[0x0][0x210] ;\n        /*03e0*/                   ULEA UR4, UR6, UR4, 0x18 ;\n        /*03f0*/                   LDS R0, [UR4] ;\n        /*0400*/                   IADD3 R5, R0, R11, R4 ;\n        /*0410*/                   IMAD.WIDE R2, R5, 0x4, R2 ;\n        /*0420*/                   STG.E desc[UR8][R2.64], R7 ;\n.L_x_8:\n        /*0430*/                   BSYNC B0 ;\n.L_x_7:\n        /*0440*/                   BAR.SYNC.DEFER_BLOCKING 0x0 ;\n        /*0450*/                   EXIT ;\n.L_x_9:\n        /*0460*/                   BRA `(.L_x_9);\n        /*0470*/                   NOP;\n        /*0480*/                   NOP;\n        /*0490*/                   NOP;\n        /*04a0*/                   NOP;\n        /*04b0*/                   NOP;\n        /*04c0*/                   NOP;\n        /*04d0*/                   NOP;\n        /*04e0*/                   NOP;\n        /*04f0*/                   NOP;\n.L_x_18:"
+        }
+      }
+    },
+    "_Z7filter2PiS_PKii": {
+      "demangledName": "filter2(int *, int *, const int *, int)",
+      "imix": {
+        "sm_80": {
+          "NOP": 13,
+          "IMAD": 6,
+          "S2R": 4,
+          "MOV": 3,
+          "ISETP": 3,
+          "EXIT": 3,
+          "LOP3": 3,
+          "POPC": 3,
+          "FLO": 2,
+          "BRA": 2,
+          "SHFL": 2,
+          "HFMA2": 1,
+          "ULDC": 1,
+          "LDG": 1,
+          "VOTE": 1,
+          "BSSY": 1,
+          "BREV": 1,
+          "VOTEU": 1,
+          "UPOPC": 1,
+          "ATOMG": 1,
+          "BSYNC": 1,
+          "IADD3": 1,
+          "STG": 1
+        },
+        "sm_86": {
+          "NOP": 13,
+          "IMAD": 6,
+          "MOV": 4,
+          "S2R": 4,
+          "ISETP": 3,
+          "EXIT": 3,
+          "LOP3": 3,
+          "POPC": 3,
+          "FLO": 2,
+          "BRA": 2,
+          "SHFL": 2,
+          "ULDC": 1,
+          "LDG": 1,
+          "VOTE": 1,
+          "BSSY": 1,
+          "BREV": 1,
+          "VOTEU": 1,
+          "UPOPC": 1,
+          "ATOMG": 1,
+          "BSYNC": 1,
+          "IADD3": 1,
+          "STG": 1
+        },
+        "sm_90": {
+          "NOP": 11,
+          "IMAD": 6,
+          "LDC": 4,
+          "S2R": 4,
+          "ULDC": 3,
+          "ISETP": 3,
+          "EXIT": 3,
+          "LOP3": 3,
+          "POPC": 3,
+          "FLO": 2,
+          "BRA": 2,
+          "SHFL": 2,
+          "LDG": 1,
+          "VOTE": 1,
+          "BSSY": 1,
+          "BREV": 1,
+          "VOTEU": 1,
+          "UPOPC": 1,
+          "ATOMG": 1,
+          "BSYNC": 1,
+          "IADD3": 1,
+          "STG": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z7filter2PiS_PKii": "//--------------------- .text._Z7filter2PiS_PKii  --------------------------\n\t.section\t.text._Z7filter2PiS_PKii,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=24\"\n\t.align\t128\n        .global         _Z7filter2PiS_PKii\n        .type           _Z7filter2PiS_PKii,@function\n        .size           _Z7filter2PiS_PKii,(.L_x_16 - _Z7filter2PiS_PKii)\n        .other          _Z7filter2PiS_PKii,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z7filter2PiS_PKii:\n.text._Z7filter2PiS_PKii:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R2, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R2, R2, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.AND P0, PT, R2, c[0x0][0x178], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   HFMA2.MMA R10, -RZ, RZ, 0, 2.384185791015625e-07 ;\n        /*0070*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0080*/                   IMAD.WIDE R2, R2, R10, c[0x0][0x170] ;\n        /*0090*/                   LDG.E.CONSTANT R5, [R2.64] ;\n        /*00a0*/                   ISETP.GE.AND P0, PT, R5, 0x1, PT ;\n        /*00b0*/              @!P0 EXIT ;\n        /*00c0*/                   S2R R9, SR_LTMASK ;\n        /*00d0*/                   VOTE.ANY R0, PT, PT ;\n        /*00e0*/                   BSSY B0, `(.L_x_2) ;\n        /*00f0*/                   IMAD.MOV.U32 R7, RZ, RZ, RZ ;\n        /*0100*/                   BREV R2, R0 ;\n        /*0110*/                   FLO.U32.SH R4, R2 ;\n        /*0120*/                   LOP3.LUT P0, RZ, R9, R0, RZ, 0xc0, !PT ;\n        /*0130*/               @P0 BRA `(.L_x_3) ;\n        /*0140*/                   S2R R3, SR_LANEID ;\n        /*0150*/                   VOTEU.ANY UR6, UPT, PT ;\n        /*0160*/                   POPC R7, R0 ;\n        /*0170*/                   UPOPC UR7, UR6 ;\n        /*0180*/                   MOV R2, c[0x0][0x168] ;\n        /*0190*/                   FLO.U32 R6, UR6 ;\n        /*01a0*/                   IMAD R11, R7, UR7, RZ ;\n        /*01b0*/                   ISETP.EQ.U32.AND P0, PT, R6, R3, PT ;\n        /*01c0*/                   MOV R3, c[0x0][0x16c] ;\n        /*01d0*/               @P0 ATOMG.E.ADD.STRONG.GPU PT, R3, [R2.64], R11 ;\n        /*01e0*/                   LOP3.LUT R8, R9, UR6, RZ, 0xc0, !PT ;\n        /*01f0*/                   POPC R8, R8 ;\n        /*0200*/                   SHFL.IDX PT, R6, R3, R6, 0x1f ;\n        /*0210*/                   IMAD R7, R7, R8, R6 ;\n.L_x_3:\n        /*0220*/                   BSYNC B0 ;\n.L_x_2:\n        /*0230*/                   SHFL.IDX PT, R4, R7, R4, 0x1f ;\n        /*0240*/                   LOP3.LUT R6, R9, R0, RZ, 0xc0, !PT ;\n        /*0250*/                   POPC R3, R6 ;\n        /*0260*/                   IADD3 R3, R4, R3, RZ ;\n        /*0270*/                   IMAD.WIDE R2, R3, R10, c[0x0][0x160] ;\n        /*0280*/                   STG.E [R2.64], R5 ;\n        /*0290*/                   EXIT ;\n.L_x_4:\n        /*02a0*/                   BRA `(.L_x_4);\n        /*02b0*/                   NOP;\n        /*02c0*/                   NOP;\n        /*02d0*/                   NOP;\n        /*02e0*/                   NOP;\n        /*02f0*/                   NOP;\n        /*0300*/                   NOP;\n        /*0310*/                   NOP;\n        /*0320*/                   NOP;\n        /*0330*/                   NOP;\n        /*0340*/                   NOP;\n        /*0350*/                   NOP;\n        /*0360*/                   NOP;\n        /*0370*/                   NOP;\n.L_x_16:"
+        },
+        "sm_86": {
+          "_Z7filter2PiS_PKii": "//--------------------- .text._Z7filter2PiS_PKii  --------------------------\n\t.section\t.text._Z7filter2PiS_PKii,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=24\"\n\t.align\t128\n        .global         _Z7filter2PiS_PKii\n        .type           _Z7filter2PiS_PKii,@function\n        .size           _Z7filter2PiS_PKii,(.L_x_16 - _Z7filter2PiS_PKii)\n        .other          _Z7filter2PiS_PKii,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z7filter2PiS_PKii:\n.text._Z7filter2PiS_PKii:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R2, SR_CTAID.X ;\n        /*0020*/                   S2R R3, SR_TID.X ;\n        /*0030*/                   IMAD R2, R2, c[0x0][0x0], R3 ;\n        /*0040*/                   ISETP.GE.AND P0, PT, R2, c[0x0][0x178], PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   MOV R10, 0x4 ;\n        /*0070*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*0080*/                   IMAD.WIDE R2, R2, R10, c[0x0][0x170] ;\n        /*0090*/                   LDG.E.CONSTANT R5, [R2.64] ;\n        /*00a0*/                   ISETP.GE.AND P0, PT, R5, 0x1, PT ;\n        /*00b0*/              @!P0 EXIT ;\n        /*00c0*/                   S2R R9, SR_LTMASK ;\n        /*00d0*/                   VOTE.ANY R0, PT, PT ;\n        /*00e0*/                   BSSY B0, `(.L_x_2) ;\n        /*00f0*/                   IMAD.MOV.U32 R7, RZ, RZ, RZ ;\n        /*0100*/                   BREV R2, R0 ;\n        /*0110*/                   FLO.U32.SH R4, R2 ;\n        /*0120*/                   LOP3.LUT P0, RZ, R9, R0, RZ, 0xc0, !PT ;\n        /*0130*/               @P0 BRA `(.L_x_3) ;\n        /*0140*/                   S2R R3, SR_LANEID ;\n        /*0150*/                   VOTEU.ANY UR6, UPT, PT ;\n        /*0160*/                   POPC R7, R0 ;\n        /*0170*/                   UPOPC UR7, UR6 ;\n        /*0180*/                   MOV R2, c[0x0][0x168] ;\n        /*0190*/                   FLO.U32 R6, UR6 ;\n        /*01a0*/                   IMAD R11, R7, UR7, RZ ;\n        /*01b0*/                   ISETP.EQ.U32.AND P0, PT, R6, R3, PT ;\n        /*01c0*/                   MOV R3, c[0x0][0x16c] ;\n        /*01d0*/               @P0 ATOMG.E.ADD.STRONG.GPU PT, R3, [R2.64], R11 ;\n        /*01e0*/                   LOP3.LUT R8, R9, UR6, RZ, 0xc0, !PT ;\n        /*01f0*/                   POPC R8, R8 ;\n        /*0200*/                   SHFL.IDX PT, R6, R3, R6, 0x1f ;\n        /*0210*/                   IMAD R7, R7, R8, R6 ;\n.L_x_3:\n        /*0220*/                   BSYNC B0 ;\n.L_x_2:\n        /*0230*/                   SHFL.IDX PT, R4, R7, R4, 0x1f ;\n        /*0240*/                   LOP3.LUT R6, R9, R0, RZ, 0xc0, !PT ;\n        /*0250*/                   POPC R3, R6 ;\n        /*0260*/                   IADD3 R3, R4, R3, RZ ;\n        /*0270*/                   IMAD.WIDE R2, R3, R10, c[0x0][0x160] ;\n        /*0280*/                   STG.E [R2.64], R5 ;\n        /*0290*/                   EXIT ;\n.L_x_4:\n        /*02a0*/                   BRA `(.L_x_4);\n        /*02b0*/                   NOP;\n        /*02c0*/                   NOP;\n        /*02d0*/                   NOP;\n        /*02e0*/                   NOP;\n        /*02f0*/                   NOP;\n        /*0300*/                   NOP;\n        /*0310*/                   NOP;\n        /*0320*/                   NOP;\n        /*0330*/                   NOP;\n        /*0340*/                   NOP;\n        /*0350*/                   NOP;\n        /*0360*/                   NOP;\n        /*0370*/                   NOP;\n.L_x_16:"
+        },
+        "sm_90": {
+          "_Z7filter2PiS_PKii": "//--------------------- .text._Z7filter2PiS_PKii  --------------------------\n\t.section\t.text._Z7filter2PiS_PKii,\"ax\",@progbits\n\t.align\t128\n        .global         _Z7filter2PiS_PKii\n        .type           _Z7filter2PiS_PKii,@function\n        .size           _Z7filter2PiS_PKii,(.L_x_17 - _Z7filter2PiS_PKii)\n        .other          _Z7filter2PiS_PKii,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z7filter2PiS_PKii:\n.text._Z7filter2PiS_PKii:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R5, SR_CTAID.X ;\n        /*0020*/                   ULDC UR4, c[0x0][0x0] ;\n        /*0030*/                   S2R R0, SR_TID.X ;\n        /*0040*/                   IMAD R5, R5, UR4, R0 ;\n        /*0050*/                   ULDC UR4, c[0x0][0x228] ;\n        /*0060*/                   ISETP.GE.AND P0, PT, R5, UR4, PT ;\n        /*0070*/               @P0 EXIT ;\n        /*0080*/                   LDC.64 R2, c[0x0][0x220] ;\n        /*0090*/                   ULDC.64 UR4, c[0x0][0x208] ;\n        /*00a0*/                   IMAD.WIDE R2, R5, 0x4, R2 ;\n        /*00b0*/                   LDG.E.CONSTANT R5, desc[UR4][R2.64] ;\n        /*00c0*/                   ISETP.GE.AND P0, PT, R5, 0x1, PT ;\n        /*00d0*/              @!P0 EXIT ;\n        /*00e0*/                   S2R R9, SR_LTMASK ;\n        /*00f0*/                   VOTE.ANY R0, PT, PT ;\n        /*0100*/                   BSSY B0, `(.L_x_0) ;\n        /*0110*/                   IMAD.MOV.U32 R7, RZ, RZ, RZ ;\n        /*0120*/                   BREV R2, R0 ;\n        /*0130*/                   FLO.U32.SH R4, R2 ;\n        /*0140*/                   LOP3.LUT P0, RZ, R9, R0, RZ, 0xc0, !PT ;\n        /*0150*/               @P0 BRA `(.L_x_1) ;\n        /*0160*/                   S2R R11, SR_LANEID ;\n        /*0170*/                   VOTEU.ANY UR6, UPT, PT ;\n        /*0180*/                   LDC.64 R2, c[0x0][0x218] ;\n        /*0190*/                   FLO.U32 R6, UR6 ;\n        /*01a0*/                   UPOPC UR7, UR6 ;\n        /*01b0*/                   POPC R7, R0 ;\n        /*01c0*/                   ISETP.EQ.U32.AND P0, PT, R6, R11, PT ;\n        /*01d0*/                   IMAD R11, R7, UR7, RZ ;\n        /*01e0*/               @P0 ATOMG.E.ADD.STRONG.GPU PT, R3, desc[UR4][R2.64], R11 ;\n        /*01f0*/                   LOP3.LUT R8, R9, UR6, RZ, 0xc0, !PT ;\n        /*0200*/                   POPC R8, R8 ;\n        /*0210*/                   SHFL.IDX PT, R6, R3, R6, 0x1f ;\n        /*0220*/                   IMAD R7, R7, R8, R6 ;\n.L_x_1:\n        /*0230*/                   BSYNC B0 ;\n.L_x_0:\n        /*0240*/                   SHFL.IDX PT, R4, R7, R4, 0x1f ;\n        /*0250*/                   LDC.64 R2, c[0x0][0x210] ;\n        /*0260*/                   LOP3.LUT R6, R9, R0, RZ, 0xc0, !PT ;\n        /*0270*/                   POPC R9, R6 ;\n        /*0280*/                   IADD3 R9, R4, R9, RZ ;\n        /*0290*/                   IMAD.WIDE R2, R9, 0x4, R2 ;\n        /*02a0*/                   STG.E desc[UR4][R2.64], R5 ;\n        /*02b0*/                   EXIT ;\n.L_x_2:\n        /*02c0*/                   BRA `(.L_x_2);\n        /*02d0*/                   NOP;\n        /*02e0*/                   NOP;\n        /*02f0*/                   NOP;\n        /*0300*/                   NOP;\n        /*0310*/                   NOP;\n        /*0320*/                   NOP;\n        /*0330*/                   NOP;\n        /*0340*/                   NOP;\n        /*0350*/                   NOP;\n        /*0360*/                   NOP;\n        /*0370*/                   NOP;\n.L_x_17:"
+        }
+      }
+    }
+  }
+}

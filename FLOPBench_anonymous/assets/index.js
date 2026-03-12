@@ -17,6 +17,7 @@
   const meta = data.meta;
   const kernelRows = data.kernelRows;
   const sourceRows = data.sourceRows;
+  const explorerProgramFiles = data.explorerProgramFiles || {};
   const hasPlotly = Boolean(window.Plotly);
 
   const heroMetricsNode = document.getElementById("heroMetrics");
@@ -129,7 +130,7 @@
       `sm_${String(spec.compute_capability).replace(/[^0-9]/g, "")}`,
     ])
   );
-  let explorerDatasetPromise = null;
+  const explorerProgramCache = new Map();
   let explorerRenderToken = 0;
 
   function buildRooflineRange(rows) {
@@ -657,22 +658,33 @@
     });
   }
 
-  async function loadExplorerDataset() {
-    if (!explorerDatasetPromise) {
-      explorerDatasetPromise = fetch("./downloads/gpuFLOPBench.json.gz")
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error(`Failed to fetch gpuFLOPBench.json.gz (${response.status}).`);
-          }
-          if (!response.body || typeof window.DecompressionStream !== "function") {
-            throw new Error("This browser cannot decompress the bundled gpuFLOPBench.json.gz dataset.");
-          }
-          const decompressed = response.body.pipeThrough(new window.DecompressionStream("gzip"));
-          return new Response(decompressed).text();
-        })
-        .then((text) => JSON.parse(text));
+  async function loadExplorerProgram(program) {
+    if (!program) {
+      throw new Error("No program was selected for the Source Explorer.");
     }
-    return explorerDatasetPromise;
+    if (explorerProgramCache.has(program)) {
+      return explorerProgramCache.get(program);
+    }
+
+    const relativePath = explorerProgramFiles[program];
+    if (!relativePath) {
+      throw new Error(`No explorer payload is registered for program ${program}.`);
+    }
+
+    const promise = fetch(`./${relativePath}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Failed to fetch ${relativePath} (${response.status}).`);
+        }
+        return response.json();
+      })
+      .catch((error) => {
+        explorerProgramCache.delete(program);
+        throw error;
+      });
+
+    explorerProgramCache.set(program, promise);
+    return promise;
   }
 
   function renderExplorerGpuTable(rows, selectedArch) {
@@ -756,20 +768,20 @@
   }
 
   async function renderExplorerCodePane(selectedPair, selectedRows, selectedArch, renderToken) {
-    explorerCodeSummaryNode.textContent = "Loading SASS and IMIX from the structured gpuFLOPBench.json.gz dataset.";
+    explorerCodeSummaryNode.textContent = "Loading SASS and IMIX for the selected program.";
     emptyState(explorerSassCodeNode, "Loading kernel SASS...");
     renderExplorerImix(null, "Loading kernel IMIX...");
 
     try {
-      const dataset = await loadExplorerDataset();
+      const programPayload = await loadExplorerProgram(selectedPair.program);
       if (renderToken !== explorerRenderToken) {
         return;
       }
 
-      const rawKernel = dataset?.[selectedPair.program]?.kernels?.[selectedPair.kernel_symbol];
+      const rawKernel = programPayload?.kernels?.[selectedPair.kernel_symbol];
       if (!rawKernel) {
-        explorerCodeSummaryNode.textContent = "The selected kernel was not found in gpuFLOPBench.json.gz.";
-        emptyState(explorerSassCodeNode, "The selected kernel was not found in the bundled dataset.");
+        explorerCodeSummaryNode.textContent = "The selected kernel was not found in the generated explorer payload.";
+        emptyState(explorerSassCodeNode, "The selected kernel was not found in the per-program explorer data.");
         renderExplorerImix(null);
         return;
       }
@@ -802,9 +814,9 @@
         return;
       }
       console.error(error);
-      explorerCodeSummaryNode.textContent = "The structured gpuFLOPBench.json.gz dataset could not be loaded in this browser.";
-      emptyState(explorerSassCodeNode, "Could not load kernel SASS from gpuFLOPBench.json.gz.");
-      renderExplorerImix(null, "Could not load kernel IMIX from gpuFLOPBench.json.gz.");
+      explorerCodeSummaryNode.textContent = "The per-program explorer payload could not be loaded.";
+      emptyState(explorerSassCodeNode, "Could not load kernel SASS for the selected program.");
+      renderExplorerImix(null, "Could not load kernel IMIX for the selected program.");
     }
   }
 

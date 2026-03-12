@@ -1,0 +1,411 @@
+{
+  "exeArgs": "16384 12288 100",
+  "kernels": {
+    "_Z14moe_sum_kernelIfLi2EEvPT_PKS0_i": {
+      "demangledName": "void moe_sum_kernel<float, (int)2>(T1 *, const T1 *, int)",
+      "imix": {
+        "sm_80": {
+          "NOP": 13,
+          "LEA": 7,
+          "IMAD": 5,
+          "ISETP": 4,
+          "MOV": 2,
+          "S2R": 2,
+          "SHF": 2,
+          "EXIT": 2,
+          "LDG": 2,
+          "IADD3": 2,
+          "FADD": 2,
+          "BRA": 2,
+          "HFMA2": 1,
+          "ULDC": 1,
+          "STG": 1
+        },
+        "sm_86": {
+          "NOP": 13,
+          "LEA": 7,
+          "IMAD": 5,
+          "ISETP": 4,
+          "MOV": 3,
+          "S2R": 2,
+          "SHF": 2,
+          "EXIT": 2,
+          "LDG": 2,
+          "IADD3": 2,
+          "FADD": 2,
+          "BRA": 2,
+          "ULDC": 1,
+          "STG": 1
+        },
+        "sm_90": {
+          "NOP": 10,
+          "LEA": 7,
+          "ISETP": 4,
+          "ULDC": 4,
+          "IMAD": 4,
+          "LDC": 2,
+          "SHF": 2,
+          "EXIT": 2,
+          "LDG": 2,
+          "IADD3": 2,
+          "FADD": 2,
+          "BRA": 2,
+          "S2R": 1,
+          "S2UR": 1,
+          "HFMA2": 1,
+          "MOV": 1,
+          "STG": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z14moe_sum_kernelIfLi2EEvPT_PKS0_i": "//--------------------- .text._Z14moe_sum_kernelIfLi2EEvPT_PKS0_i --------------------------\n\t.section\t.text._Z14moe_sum_kernelIfLi2EEvPT_PKS0_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=20\"\n\t.align\t128\n.text._Z14moe_sum_kernelIfLi2EEvPT_PKS0_i:\n        .weak           _Z14moe_sum_kernelIfLi2EEvPT_PKS0_i\n        .type           _Z14moe_sum_kernelIfLi2EEvPT_PKS0_i,@function\n        .size           _Z14moe_sum_kernelIfLi2EEvPT_PKS0_i,(.L_x_14 - _Z14moe_sum_kernelIfLi2EEvPT_PKS0_i)\n        .other          _Z14moe_sum_kernelIfLi2EEvPT_PKS0_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z14moe_sum_kernelIfLi2EEvPT_PKS0_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R2, SR_TID.X ;\n        /*0020*/                   IMAD.MOV.U32 R17, RZ, RZ, c[0x0][0x170] ;\n        /*0030*/                   SHF.R.S32.HI R10, RZ, 0x1f, R17 ;\n        /*0040*/                   ISETP.GE.U32.AND P0, PT, R2, c[0x0][0x170], PT ;\n        /*0050*/                   ISETP.GE.AND.EX P0, PT, RZ, R10, PT, P0 ;\n        /*0060*/               @P0 EXIT ;\n        /*0070*/                   S2R R0, SR_CTAID.X ;\n        /*0080*/                   HFMA2.MMA R15, -RZ, RZ, 0, 0 ;\n        /*0090*/                   MOV R13, R2 ;\n        /*00a0*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*00b0*/                   SHF.L.U64.HI R11, R17, 0x2, R10 ;\n        /*00c0*/                   IMAD R0, R0, c[0x0][0x170], RZ ;\n.L_x_4:\n        /*00d0*/                   LEA R3, P0, R0, R13, 0x1 ;\n        /*00e0*/                   LEA.HI.X R4, R0, R15, RZ, 0x1, P0 ;\n        /*00f0*/                   LEA R2, P0, R3, c[0x0][0x168], 0x2 ;\n        /*0100*/                   LEA.HI.X R3, R3, c[0x0][0x16c], R4, 0x2, P0 ;\n        /*0110*/                   LEA R4, P0, R17, R2, 0x2 ;\n        /*0120*/                   LDG.E.CONSTANT R2, [R2.64] ;\n        /*0130*/                   IMAD.X R5, R11, 0x1, R3, P0 ;\n        /*0140*/                   LDG.E.CONSTANT R5, [R4.64] ;\n        /*0150*/                   IADD3 R7, P0, R0, R13, RZ ;\n        /*0160*/                   IMAD.X R12, RZ, RZ, R15, P0 ;\n        /*0170*/                   LEA R6, P0, R7, c[0x0][0x160], 0x2 ;\n        /*0180*/                   LEA.HI.X R7, R7, c[0x0][0x164], R12, 0x2, P0 ;\n        /*0190*/                   IADD3 R13, P0, R13, c[0x0][0x0], RZ ;\n        /*01a0*/                   IMAD.X R15, RZ, RZ, R15, P0 ;\n        /*01b0*/                   ISETP.GE.U32.AND P0, PT, R13, c[0x0][0x170], PT ;\n        /*01c0*/                   ISETP.GE.AND.EX P0, PT, R15, R10, PT, P0 ;\n        /*01d0*/                   FADD R8, RZ, R2 ;\n        /*01e0*/                   FADD R9, R8, R5 ;\n        /*01f0*/                   STG.E [R6.64], R9 ;\n        /*0200*/              @!P0 BRA `(.L_x_4) ;\n        /*0210*/                   EXIT ;\n.L_x_5:\n        /*0220*/                   BRA `(.L_x_5);\n        /*0230*/                   NOP;\n        /*0240*/                   NOP;\n        /*0250*/                   NOP;\n        /*0260*/                   NOP;\n        /*0270*/                   NOP;\n        /*0280*/                   NOP;\n        /*0290*/                   NOP;\n        /*02a0*/                   NOP;\n        /*02b0*/                   NOP;\n        /*02c0*/                   NOP;\n        /*02d0*/                   NOP;\n        /*02e0*/                   NOP;\n        /*02f0*/                   NOP;\n.L_x_14:"
+        },
+        "sm_86": {
+          "_Z14moe_sum_kernelIfLi2EEvPT_PKS0_i": "//--------------------- .text._Z14moe_sum_kernelIfLi2EEvPT_PKS0_i --------------------------\n\t.section\t.text._Z14moe_sum_kernelIfLi2EEvPT_PKS0_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=20\"\n\t.align\t128\n.text._Z14moe_sum_kernelIfLi2EEvPT_PKS0_i:\n        .weak           _Z14moe_sum_kernelIfLi2EEvPT_PKS0_i\n        .type           _Z14moe_sum_kernelIfLi2EEvPT_PKS0_i,@function\n        .size           _Z14moe_sum_kernelIfLi2EEvPT_PKS0_i,(.L_x_14 - _Z14moe_sum_kernelIfLi2EEvPT_PKS0_i)\n        .other          _Z14moe_sum_kernelIfLi2EEvPT_PKS0_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z14moe_sum_kernelIfLi2EEvPT_PKS0_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R2, SR_TID.X ;\n        /*0020*/                   IMAD.MOV.U32 R17, RZ, RZ, c[0x0][0x170] ;\n        /*0030*/                   SHF.R.S32.HI R10, RZ, 0x1f, R17 ;\n        /*0040*/                   ISETP.GE.U32.AND P0, PT, R2, c[0x0][0x170], PT ;\n        /*0050*/                   ISETP.GE.AND.EX P0, PT, RZ, R10, PT, P0 ;\n        /*0060*/               @P0 EXIT ;\n        /*0070*/                   S2R R0, SR_CTAID.X ;\n        /*0080*/                   MOV R13, R2 ;\n        /*0090*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*00a0*/                   MOV R15, RZ ;\n        /*00b0*/                   SHF.L.U64.HI R11, R17, 0x2, R10 ;\n        /*00c0*/                   IMAD R0, R0, c[0x0][0x170], RZ ;\n.L_x_4:\n        /*00d0*/                   LEA R3, P0, R0, R13, 0x1 ;\n        /*00e0*/                   LEA.HI.X R4, R0, R15, RZ, 0x1, P0 ;\n        /*00f0*/                   LEA R2, P0, R3, c[0x0][0x168], 0x2 ;\n        /*0100*/                   LEA.HI.X R3, R3, c[0x0][0x16c], R4, 0x2, P0 ;\n        /*0110*/                   LEA R4, P0, R17, R2, 0x2 ;\n        /*0120*/                   LDG.E.CONSTANT R2, [R2.64] ;\n        /*0130*/                   IMAD.X R5, R11, 0x1, R3, P0 ;\n        /*0140*/                   LDG.E.CONSTANT R5, [R4.64] ;\n        /*0150*/                   IADD3 R7, P0, R0, R13, RZ ;\n        /*0160*/                   IMAD.X R12, RZ, RZ, R15, P0 ;\n        /*0170*/                   LEA R6, P0, R7, c[0x0][0x160], 0x2 ;\n        /*0180*/                   LEA.HI.X R7, R7, c[0x0][0x164], R12, 0x2, P0 ;\n        /*0190*/                   IADD3 R13, P0, R13, c[0x0][0x0], RZ ;\n        /*01a0*/                   IMAD.X R15, RZ, RZ, R15, P0 ;\n        /*01b0*/                   ISETP.GE.U32.AND P0, PT, R13, c[0x0][0x170], PT ;\n        /*01c0*/                   ISETP.GE.AND.EX P0, PT, R15, R10, PT, P0 ;\n        /*01d0*/                   FADD R8, RZ, R2 ;\n        /*01e0*/                   FADD R9, R8, R5 ;\n        /*01f0*/                   STG.E [R6.64], R9 ;\n        /*0200*/              @!P0 BRA `(.L_x_4) ;\n        /*0210*/                   EXIT ;\n.L_x_5:\n        /*0220*/                   BRA `(.L_x_5);\n        /*0230*/                   NOP;\n        /*0240*/                   NOP;\n        /*0250*/                   NOP;\n        /*0260*/                   NOP;\n        /*0270*/                   NOP;\n        /*0280*/                   NOP;\n        /*0290*/                   NOP;\n        /*02a0*/                   NOP;\n        /*02b0*/                   NOP;\n        /*02c0*/                   NOP;\n        /*02d0*/                   NOP;\n        /*02e0*/                   NOP;\n        /*02f0*/                   NOP;\n.L_x_14:"
+        },
+        "sm_90": {
+          "_Z14moe_sum_kernelIfLi2EEvPT_PKS0_i": "//--------------------- .text._Z14moe_sum_kernelIfLi2EEvPT_PKS0_i --------------------------\n\t.section\t.text._Z14moe_sum_kernelIfLi2EEvPT_PKS0_i,\"ax\",@progbits\n\t.align\t128\n.text._Z14moe_sum_kernelIfLi2EEvPT_PKS0_i:\n        .weak           _Z14moe_sum_kernelIfLi2EEvPT_PKS0_i\n        .type           _Z14moe_sum_kernelIfLi2EEvPT_PKS0_i,@function\n        .size           _Z14moe_sum_kernelIfLi2EEvPT_PKS0_i,(.L_x_14 - _Z14moe_sum_kernelIfLi2EEvPT_PKS0_i)\n        .other          _Z14moe_sum_kernelIfLi2EEvPT_PKS0_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z14moe_sum_kernelIfLi2EEvPT_PKS0_i:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_TID.X ;\n        /*0020*/                   LDC R17, c[0x0][0x220] ;\n        /*0030*/                   SHF.R.S32.HI R10, RZ, 0x1f, R17 ;\n        /*0040*/                   ISETP.GE.U32.AND P0, PT, R0, R17, PT ;\n        /*0050*/                   ISETP.GE.AND.EX P0, PT, RZ, R10, PT, P0 ;\n        /*0060*/               @P0 EXIT ;\n        /*0070*/                   S2UR UR4, SR_CTAID.X ;\n        /*0080*/                   HFMA2.MMA R15, -RZ, RZ, 0, 0 ;\n        /*0090*/                   MOV R13, R0 ;\n        /*00a0*/                   ULDC UR5, c[0x0][0x0] ;\n        /*00b0*/                   SHF.L.U64.HI R11, R17.reuse, 0x2, R10 ;\n        /*00c0*/                   ULDC.64 UR6, c[0x0][0x208] ;\n        /*00d0*/                   ULDC.64 UR8, c[0x0][0x218] ;\n        /*00e0*/                   ULDC.64 UR10, c[0x0][0x210] ;\n        /*00f0*/                   IMAD R0, R17, UR4, RZ ;\n.L_x_4:\n        /*0100*/                   LEA R3, P0, R0, R13, 0x1 ;\n        /*0110*/                   LEA.HI.X R4, R0, R15, RZ, 0x1, P0 ;\n        /*0120*/                   LEA R2, P0, R3, UR8, 0x2 ;\n        /*0130*/                   LEA.HI.X R3, R3, UR9, R4, 0x2, P0 ;\n        /*0140*/                   LEA R4, P0, R17, R2, 0x2 ;\n        /*0150*/                   LDG.E.CONSTANT R2, desc[UR6][R2.64] ;\n        /*0160*/                   IMAD.X R5, R11, 0x1, R3, P0 ;\n        /*0170*/                   LDG.E.CONSTANT R5, desc[UR6][R4.64] ;\n        /*0180*/                   IADD3 R7, P0, R0, R13, RZ ;\n        /*0190*/                   IMAD.X R12, RZ, RZ, R15, P0 ;\n        /*01a0*/                   LEA R6, P0, R7, UR10, 0x2 ;\n        /*01b0*/                   LEA.HI.X R7, R7, UR11, R12, 0x2, P0 ;\n        /*01c0*/                   IADD3 R13, P0, R13, UR5, RZ ;\n        /*01d0*/                   IMAD.X R15, RZ, RZ, R15, P0 ;\n        /*01e0*/                   ISETP.GE.U32.AND P0, PT, R13, R17, PT ;\n        /*01f0*/                   ISETP.GE.AND.EX P0, PT, R15, R10, PT, P0 ;\n        /*0200*/                   FADD R8, RZ, R2 ;\n        /*0210*/                   FADD R9, R8, R5 ;\n        /*0220*/                   STG.E desc[UR6][R6.64], R9 ;\n        /*0230*/              @!P0 BRA `(.L_x_4) ;\n        /*0240*/                   EXIT ;\n.L_x_5:\n        /*0250*/                   BRA `(.L_x_5);\n        /*0260*/                   NOP;\n        /*0270*/                   NOP;\n        /*0280*/                   NOP;\n        /*0290*/                   NOP;\n        /*02a0*/                   NOP;\n        /*02b0*/                   NOP;\n        /*02c0*/                   NOP;\n        /*02d0*/                   NOP;\n        /*02e0*/                   NOP;\n        /*02f0*/                   NOP;\n.L_x_14:"
+        }
+      }
+    },
+    "_Z14moe_sum_kernelIfLi3EEvPT_PKS0_i": {
+      "demangledName": "void moe_sum_kernel<float, (int)3>(T1 *, const T1 *, int)",
+      "imix": {
+        "sm_80": {
+          "NOP": 12,
+          "IMAD": 11,
+          "LEA": 6,
+          "SHF": 4,
+          "ISETP": 4,
+          "IADD3": 3,
+          "LDG": 3,
+          "FADD": 3,
+          "S2R": 2,
+          "EXIT": 2,
+          "BRA": 2,
+          "MOV": 1,
+          "ULDC": 1,
+          "UMOV": 1,
+          "STG": 1
+        },
+        "sm_86": {
+          "IMAD": 11,
+          "NOP": 11,
+          "LEA": 6,
+          "SHF": 4,
+          "ISETP": 4,
+          "IADD3": 3,
+          "LDG": 3,
+          "FADD": 3,
+          "MOV": 2,
+          "S2R": 2,
+          "EXIT": 2,
+          "BRA": 2,
+          "ULDC": 1,
+          "UMOV": 1,
+          "STG": 1
+        },
+        "sm_90": {
+          "NOP": 9,
+          "IMAD": 8,
+          "LEA": 6,
+          "SHF": 4,
+          "ISETP": 4,
+          "ULDC": 4,
+          "IADD3": 4,
+          "LDG": 3,
+          "FADD": 3,
+          "LDC": 2,
+          "EXIT": 2,
+          "BRA": 2,
+          "S2R": 1,
+          "S2UR": 1,
+          "UMOV": 1,
+          "VIADD": 1,
+          "STG": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z14moe_sum_kernelIfLi3EEvPT_PKS0_i": "//--------------------- .text._Z14moe_sum_kernelIfLi3EEvPT_PKS0_i --------------------------\n\t.section\t.text._Z14moe_sum_kernelIfLi3EEvPT_PKS0_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=22\"\n\t.align\t128\n.text._Z14moe_sum_kernelIfLi3EEvPT_PKS0_i:\n        .weak           _Z14moe_sum_kernelIfLi3EEvPT_PKS0_i\n        .type           _Z14moe_sum_kernelIfLi3EEvPT_PKS0_i,@function\n        .size           _Z14moe_sum_kernelIfLi3EEvPT_PKS0_i,(.L_x_13 - _Z14moe_sum_kernelIfLi3EEvPT_PKS0_i)\n        .other          _Z14moe_sum_kernelIfLi3EEvPT_PKS0_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z14moe_sum_kernelIfLi3EEvPT_PKS0_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R8, SR_TID.X ;\n        /*0020*/                   IMAD.MOV.U32 R0, RZ, RZ, c[0x0][0x170] ;\n        /*0030*/                   SHF.R.S32.HI R3, RZ, 0x1f, R0 ;\n        /*0040*/                   ISETP.GE.U32.AND P0, PT, R8, c[0x0][0x170], PT ;\n        /*0050*/                   ISETP.GE.AND.EX P0, PT, RZ, R3, PT, P0 ;\n        /*0060*/               @P0 EXIT ;\n        /*0070*/                   S2R R9, SR_CTAID.X ;\n        /*0080*/                   IMAD.SHL.U32 R2, R0.reuse, 0x2, RZ ;\n        /*0090*/                   SHF.L.U64.HI R7, R0, 0x2, R3 ;\n        /*00a0*/                   IMAD.MOV.U32 R6, RZ, RZ, RZ ;\n        /*00b0*/                   ULDC.64 UR6, c[0x0][0x118] ;\n        /*00c0*/                   SHF.R.S32.HI R5, RZ, 0x1f, R2 ;\n        /*00d0*/                   SHF.L.U64.HI R19, R2, 0x2, R5 ;\n        /*00e0*/                   IMAD R9, R9, c[0x0][0x170], RZ ;\n.L_x_2:\n        /*00f0*/                   IMAD.MOV.U32 R4, RZ, RZ, R8 ;\n        /*0100*/                   UMOV UR4, URZ ;\n        /*0110*/                   IMAD.MOV.U32 R5, RZ, RZ, R6 ;\n        /*0120*/                   IMAD.WIDE.U32 R4, R9, 0x3, R4 ;\n        /*0130*/                   IADD3 R5, R5, UR4, RZ ;\n        /*0140*/                   LEA R10, P0, R4, c[0x0][0x168], 0x2 ;\n        /*0150*/                   LEA.HI.X R11, R4, c[0x0][0x16c], R5, 0x2, P0 ;\n        /*0160*/                   LEA R12, P0, R0, R10.reuse, 0x2 ;\n        /*0170*/                   LEA R14, P1, R2, R10, 0x2 ;\n        /*0180*/                   LDG.E.CONSTANT R4, [R10.64] ;\n        /*0190*/                   IMAD.X R13, R7, 0x1, R11, P0 ;\n        /*01a0*/                   IMAD.X R15, R11, 0x1, R19, P1 ;\n        /*01b0*/                   LDG.E.CONSTANT R12, [R12.64] ;\n        /*01c0*/                   LDG.E.CONSTANT R15, [R14.64] ;\n        /*01d0*/                   IADD3 R17, P0, R9, R8, RZ ;\n        /*01e0*/                   IMAD.X R18, RZ, RZ, R6, P0 ;\n        /*01f0*/                   FADD R5, RZ, R4 ;\n        /*0200*/                   LEA R4, P0, R17, c[0x0][0x160], 0x2 ;\n        /*0210*/                   FADD R16, R5, R12 ;\n        /*0220*/                   LEA.HI.X R5, R17, c[0x0][0x164], R18, 0x2, P0 ;\n        /*0230*/                   IADD3 R8, P0, R8, c[0x0][0x0], RZ ;\n        /*0240*/                   FADD R17, R16, R15 ;\n        /*0250*/                   IMAD.X R6, RZ, RZ, R6, P0 ;\n        /*0260*/                   STG.E [R4.64], R17 ;\n        /*0270*/                   ISETP.GE.U32.AND P0, PT, R8, c[0x0][0x170], PT ;\n        /*0280*/                   ISETP.GE.AND.EX P0, PT, R6, R3, PT, P0 ;\n        /*0290*/              @!P0 BRA `(.L_x_2) ;\n        /*02a0*/                   EXIT ;\n.L_x_3:\n        /*02b0*/                   BRA `(.L_x_3);\n        /*02c0*/                   NOP;\n        /*02d0*/                   NOP;\n        /*02e0*/                   NOP;\n        /*02f0*/                   NOP;\n        /*0300*/                   NOP;\n        /*0310*/                   NOP;\n        /*0320*/                   NOP;\n        /*0330*/                   NOP;\n        /*0340*/                   NOP;\n        /*0350*/                   NOP;\n        /*0360*/                   NOP;\n        /*0370*/                   NOP;\n.L_x_13:"
+        },
+        "sm_86": {
+          "_Z14moe_sum_kernelIfLi3EEvPT_PKS0_i": "//--------------------- .text._Z14moe_sum_kernelIfLi3EEvPT_PKS0_i --------------------------\n\t.section\t.text._Z14moe_sum_kernelIfLi3EEvPT_PKS0_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=26\"\n\t.align\t128\n.text._Z14moe_sum_kernelIfLi3EEvPT_PKS0_i:\n        .weak           _Z14moe_sum_kernelIfLi3EEvPT_PKS0_i\n        .type           _Z14moe_sum_kernelIfLi3EEvPT_PKS0_i,@function\n        .size           _Z14moe_sum_kernelIfLi3EEvPT_PKS0_i,(.L_x_13 - _Z14moe_sum_kernelIfLi3EEvPT_PKS0_i)\n        .other          _Z14moe_sum_kernelIfLi3EEvPT_PKS0_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z14moe_sum_kernelIfLi3EEvPT_PKS0_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_TID.X ;\n        /*0020*/                   IMAD.MOV.U32 R23, RZ, RZ, c[0x0][0x170] ;\n        /*0030*/                   SHF.R.S32.HI R10, RZ, 0x1f, R23 ;\n        /*0040*/                   ISETP.GE.U32.AND P0, PT, R0, c[0x0][0x170], PT ;\n        /*0050*/                   ISETP.GE.AND.EX P0, PT, RZ, R10, PT, P0 ;\n        /*0060*/               @P0 EXIT ;\n        /*0070*/                   S2R R11, SR_CTAID.X ;\n        /*0080*/                   IMAD.SHL.U32 R13, R23.reuse, 0x2, RZ ;\n        /*0090*/                   MOV R14, R0 ;\n        /*00a0*/                   IMAD.MOV.U32 R21, RZ, RZ, RZ ;\n        /*00b0*/                   SHF.L.U64.HI R17, R23, 0x2, R10 ;\n        /*00c0*/                   ULDC.64 UR6, c[0x0][0x118] ;\n        /*00d0*/                   SHF.R.S32.HI R0, RZ, 0x1f, R13 ;\n        /*00e0*/                   SHF.L.U64.HI R19, R13, 0x2, R0 ;\n        /*00f0*/                   IMAD R11, R11, c[0x0][0x170], RZ ;\n.L_x_2:\n        /*0100*/                   IMAD.MOV.U32 R2, RZ, RZ, R14 ;\n        /*0110*/                   UMOV UR4, URZ ;\n        /*0120*/                   IMAD.MOV.U32 R3, RZ, RZ, R21 ;\n        /*0130*/                   IMAD.WIDE.U32 R2, R11, 0x3, R2 ;\n        /*0140*/                   IADD3 R3, R3, UR4, RZ ;\n        /*0150*/                   LEA R4, P0, R2, c[0x0][0x168], 0x2 ;\n        /*0160*/                   LEA.HI.X R5, R2, c[0x0][0x16c], R3, 0x2, P0 ;\n        /*0170*/                   LEA R2, P0, R23, R4.reuse, 0x2 ;\n        /*0180*/                   LEA R6, P1, R13, R4, 0x2 ;\n        /*0190*/                   LDG.E.CONSTANT R0, [R4.64] ;\n        /*01a0*/                   IMAD.X R3, R17, 0x1, R5, P0 ;\n        /*01b0*/                   IMAD.X R7, R5, 0x1, R19, P1 ;\n        /*01c0*/                   LDG.E.CONSTANT R3, [R2.64] ;\n        /*01d0*/                   LDG.E.CONSTANT R7, [R6.64] ;\n        /*01e0*/                   IADD3 R9, P0, R11, R14, RZ ;\n        /*01f0*/                   IMAD.X R12, RZ, RZ, R21, P0 ;\n        /*0200*/                   LEA R8, P0, R9, c[0x0][0x160], 0x2 ;\n        /*0210*/                   LEA.HI.X R9, R9, c[0x0][0x164], R12, 0x2, P0 ;\n        /*0220*/                   IADD3 R14, P0, R14, c[0x0][0x0], RZ ;\n        /*0230*/                   IMAD.X R21, RZ, RZ, R21, P0 ;\n        /*0240*/                   ISETP.GE.U32.AND P0, PT, R14, c[0x0][0x170], PT ;\n        /*0250*/                   ISETP.GE.AND.EX P0, PT, R21, R10, PT, P0 ;\n        /*0260*/                   FADD R0, RZ, R0 ;\n        /*0270*/                   FADD R0, R0, R3 ;\n        /*0280*/                   FADD R15, R0, R7 ;\n        /*0290*/                   STG.E [R8.64], R15 ;\n        /*02a0*/              @!P0 BRA `(.L_x_2) ;\n        /*02b0*/                   EXIT ;\n.L_x_3:\n        /*02c0*/                   BRA `(.L_x_3);\n        /*02d0*/                   NOP;\n        /*02e0*/                   NOP;\n        /*02f0*/                   NOP;\n        /*0300*/                   NOP;\n        /*0310*/                   NOP;\n        /*0320*/                   NOP;\n        /*0330*/                   NOP;\n        /*0340*/                   NOP;\n        /*0350*/                   NOP;\n        /*0360*/                   NOP;\n        /*0370*/                   NOP;\n.L_x_13:"
+        },
+        "sm_90": {
+          "_Z14moe_sum_kernelIfLi3EEvPT_PKS0_i": "//--------------------- .text._Z14moe_sum_kernelIfLi3EEvPT_PKS0_i --------------------------\n\t.section\t.text._Z14moe_sum_kernelIfLi3EEvPT_PKS0_i,\"ax\",@progbits\n\t.align\t128\n.text._Z14moe_sum_kernelIfLi3EEvPT_PKS0_i:\n        .weak           _Z14moe_sum_kernelIfLi3EEvPT_PKS0_i\n        .type           _Z14moe_sum_kernelIfLi3EEvPT_PKS0_i,@function\n        .size           _Z14moe_sum_kernelIfLi3EEvPT_PKS0_i,(.L_x_13 - _Z14moe_sum_kernelIfLi3EEvPT_PKS0_i)\n        .other          _Z14moe_sum_kernelIfLi3EEvPT_PKS0_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z14moe_sum_kernelIfLi3EEvPT_PKS0_i:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R9, SR_TID.X ;\n        /*0020*/                   LDC R0, c[0x0][0x220] ;\n        /*0030*/                   SHF.R.S32.HI R5, RZ, 0x1f, R0 ;\n        /*0040*/                   ISETP.GE.U32.AND P0, PT, R9, R0, PT ;\n        /*0050*/                   ISETP.GE.AND.EX P0, PT, RZ, R5, PT, P0 ;\n        /*0060*/               @P0 EXIT ;\n        /*0070*/                   S2UR UR4, SR_CTAID.X ;\n        /*0080*/                   IMAD.SHL.U32 R4, R0.reuse, 0x2, RZ ;\n        /*0090*/                   SHF.L.U64.HI R7, R0, 0x2, R5 ;\n        /*00a0*/                   IMAD.MOV.U32 R8, RZ, RZ, RZ ;\n        /*00b0*/                   ULDC UR5, c[0x0][0x0] ;\n        /*00c0*/                   ULDC.64 UR6, c[0x0][0x208] ;\n        /*00d0*/                   SHF.R.S32.HI R3, RZ, 0x1f, R4 ;\n        /*00e0*/                   ULDC.64 UR8, c[0x0][0x218] ;\n        /*00f0*/                   ULDC.64 UR10, c[0x0][0x210] ;\n        /*0100*/                   SHF.L.U64.HI R19, R4, 0x2, R3 ;\n        /*0110*/                   IMAD R6, R0, UR4, RZ ;\n.L_x_2:\n        /*0120*/                   IMAD.MOV.U32 R2, RZ, RZ, R9 ;\n        /*0130*/                   UMOV UR4, URZ ;\n        /*0140*/                   IMAD.MOV.U32 R3, RZ, RZ, R8 ;\n        /*0150*/                   IMAD.WIDE.U32 R2, R6, 0x3, R2 ;\n        /*0160*/                   VIADD R3, R3, UR4 ;\n        /*0170*/                   LEA R10, P0, R2, UR8, 0x2 ;\n        /*0180*/                   LEA.HI.X R11, R2, UR9, R3, 0x2, P0 ;\n        /*0190*/                   LEA R12, P0, R0, R10.reuse, 0x2 ;\n        /*01a0*/                   LEA R14, P1, R4, R10, 0x2 ;\n        /*01b0*/                   LDG.E.CONSTANT R2, desc[UR6][R10.64] ;\n        /*01c0*/                   IADD3.X R13, R7, R11, RZ, P0, !PT ;\n        /*01d0*/                   IMAD.X R15, R11, 0x1, R19, P1 ;\n        /*01e0*/                   LDG.E.CONSTANT R12, desc[UR6][R12.64] ;\n        /*01f0*/                   LDG.E.CONSTANT R15, desc[UR6][R14.64] ;\n        /*0200*/                   IADD3 R17, P0, R6, R9, RZ ;\n        /*0210*/                   IMAD.X R18, RZ, RZ, R8, P0 ;\n        /*0220*/                   FADD R3, RZ, R2 ;\n        /*0230*/                   LEA R2, P0, R17, UR10, 0x2 ;\n        /*0240*/                   FADD R16, R3, R12 ;\n        /*0250*/                   LEA.HI.X R3, R17, UR11, R18, 0x2, P0 ;\n        /*0260*/                   IADD3 R9, P0, R9, UR5, RZ ;\n        /*0270*/                   FADD R17, R16, R15 ;\n        /*0280*/                   IADD3.X R8, RZ, R8, RZ, P0, !PT ;\n        /*0290*/                   STG.E desc[UR6][R2.64], R17 ;\n        /*02a0*/                   ISETP.GE.U32.AND P0, PT, R9, R0, PT ;\n        /*02b0*/                   ISETP.GE.AND.EX P0, PT, R8, R5, PT, P0 ;\n        /*02c0*/              @!P0 BRA `(.L_x_2) ;\n        /*02d0*/                   EXIT ;\n.L_x_3:\n        /*02e0*/                   BRA `(.L_x_3);\n        /*02f0*/                   NOP;\n        /*0300*/                   NOP;\n        /*0310*/                   NOP;\n        /*0320*/                   NOP;\n        /*0330*/                   NOP;\n        /*0340*/                   NOP;\n        /*0350*/                   NOP;\n        /*0360*/                   NOP;\n        /*0370*/                   NOP;\n.L_x_13:"
+        }
+      }
+    },
+    "_Z14moe_sum_kernelIfLi4EEvPT_PKS0_i": {
+      "demangledName": "void moe_sum_kernel<float, (int)4>(T1 *, const T1 *, int)",
+      "imix": {
+        "sm_80": {
+          "IMAD": 10,
+          "LEA": 9,
+          "NOP": 8,
+          "SHF": 6,
+          "ISETP": 4,
+          "LDG": 4,
+          "FADD": 4,
+          "S2R": 2,
+          "EXIT": 2,
+          "IADD3": 2,
+          "BRA": 2,
+          "MOV": 1,
+          "ULDC": 1,
+          "STG": 1
+        },
+        "sm_86": {
+          "NOP": 15,
+          "IMAD": 11,
+          "LEA": 9,
+          "SHF": 6,
+          "ISETP": 4,
+          "LDG": 4,
+          "FADD": 4,
+          "S2R": 2,
+          "EXIT": 2,
+          "IADD3": 2,
+          "BRA": 2,
+          "MOV": 1,
+          "ULDC": 1,
+          "STG": 1
+        },
+        "sm_90": {
+          "NOP": 13,
+          "IMAD": 9,
+          "LEA": 9,
+          "SHF": 6,
+          "ISETP": 4,
+          "ULDC": 4,
+          "LDG": 4,
+          "FADD": 4,
+          "LDC": 2,
+          "EXIT": 2,
+          "IADD3": 2,
+          "BRA": 2,
+          "S2R": 1,
+          "S2UR": 1,
+          "STG": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z14moe_sum_kernelIfLi4EEvPT_PKS0_i": "//--------------------- .text._Z14moe_sum_kernelIfLi4EEvPT_PKS0_i --------------------------\n\t.section\t.text._Z14moe_sum_kernelIfLi4EEvPT_PKS0_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=30\"\n\t.align\t128\n.text._Z14moe_sum_kernelIfLi4EEvPT_PKS0_i:\n        .weak           _Z14moe_sum_kernelIfLi4EEvPT_PKS0_i\n        .type           _Z14moe_sum_kernelIfLi4EEvPT_PKS0_i,@function\n        .size           _Z14moe_sum_kernelIfLi4EEvPT_PKS0_i,(.L_x_12 - _Z14moe_sum_kernelIfLi4EEvPT_PKS0_i)\n        .other          _Z14moe_sum_kernelIfLi4EEvPT_PKS0_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z14moe_sum_kernelIfLi4EEvPT_PKS0_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R10, SR_TID.X ;\n        /*0020*/                   IMAD.MOV.U32 R11, RZ, RZ, c[0x0][0x170] ;\n        /*0030*/                   SHF.R.S32.HI R0, RZ, 0x1f, R11 ;\n        /*0040*/                   ISETP.GE.U32.AND P0, PT, R10, c[0x0][0x170], PT ;\n        /*0050*/                   ISETP.GE.AND.EX P0, PT, RZ, R0, PT, P0 ;\n        /*0060*/               @P0 EXIT ;\n        /*0070*/                   S2R R21, SR_CTAID.X ;\n        /*0080*/                   IMAD.SHL.U32 R13, R11.reuse, 0x2, RZ ;\n        /*0090*/                   SHF.L.U64.HI R17, R11.reuse, 0x2, R0 ;\n        /*00a0*/                   IMAD R15, R11, 0x3, RZ ;\n        /*00b0*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*00c0*/                   IMAD.MOV.U32 R19, RZ, RZ, RZ ;\n        /*00d0*/                   SHF.R.S32.HI R2, RZ, 0x1f, R13 ;\n        /*00e0*/                   SHF.R.S32.HI R4, RZ, 0x1f, R15 ;\n        /*00f0*/                   SHF.L.U64.HI R23, R13, 0x2, R2 ;\n        /*0100*/                   SHF.L.U64.HI R25, R15, 0x2, R4 ;\n        /*0110*/                   IMAD R21, R21, c[0x0][0x170], RZ ;\n.L_x_0:\n        /*0120*/                   LEA R2, P0, R21, R10, 0x2 ;\n        /*0130*/                   LEA.HI.X R3, R21, R19, RZ, 0x2, P0 ;\n        /*0140*/                   LEA R8, P0, R2, c[0x0][0x168], 0x2 ;\n        /*0150*/                   LEA.HI.X R9, R2, c[0x0][0x16c], R3, 0x2, P0 ;\n        /*0160*/                   LEA R4, P1, R11, R8.reuse, 0x2 ;\n        /*0170*/                   LEA R2, P0, R13, R8.reuse, 0x2 ;\n        /*0180*/                   LDG.E.CONSTANT R12, [R8.64] ;\n        /*0190*/                   IMAD.X R5, R17, 0x1, R9, P1 ;\n        /*01a0*/                   LEA R6, P1, R15, R8, 0x2 ;\n        /*01b0*/                   IMAD.X R3, R9, 0x1, R23, P0 ;\n        /*01c0*/                   LDG.E.CONSTANT R5, [R4.64] ;\n        /*01d0*/                   IMAD.X R7, R9, 0x1, R25, P1 ;\n        /*01e0*/                   LDG.E.CONSTANT R3, [R2.64] ;\n        /*01f0*/                   LDG.E.CONSTANT R7, [R6.64] ;\n        /*0200*/                   IADD3 R14, P0, R21, R10, RZ ;\n        /*0210*/                   IMAD.X R27, RZ, RZ, R19, P0 ;\n        /*0220*/                   LEA R8, P0, R14, c[0x0][0x160], 0x2 ;\n        /*0230*/                   LEA.HI.X R9, R14, c[0x0][0x164], R27, 0x2, P0 ;\n        /*0240*/                   IADD3 R10, P0, R10, c[0x0][0x0], RZ ;\n        /*0250*/                   IMAD.X R19, RZ, RZ, R19, P0 ;\n        /*0260*/                   ISETP.GE.U32.AND P0, PT, R10, c[0x0][0x170], PT ;\n        /*0270*/                   ISETP.GE.AND.EX P0, PT, R19, R0, PT, P0 ;\n        /*0280*/                   FADD R12, RZ, R12 ;\n        /*0290*/                   FADD R12, R12, R5 ;\n        /*02a0*/                   FADD R12, R12, R3 ;\n        /*02b0*/                   FADD R5, R12, R7 ;\n        /*02c0*/                   STG.E [R8.64], R5 ;\n        /*02d0*/              @!P0 BRA `(.L_x_0) ;\n        /*02e0*/                   EXIT ;\n.L_x_1:\n        /*02f0*/                   BRA `(.L_x_1);\n        /*0300*/                   NOP;\n        /*0310*/                   NOP;\n        /*0320*/                   NOP;\n        /*0330*/                   NOP;\n        /*0340*/                   NOP;\n        /*0350*/                   NOP;\n        /*0360*/                   NOP;\n        /*0370*/                   NOP;\n.L_x_12:"
+        },
+        "sm_86": {
+          "_Z14moe_sum_kernelIfLi4EEvPT_PKS0_i": "//--------------------- .text._Z14moe_sum_kernelIfLi4EEvPT_PKS0_i --------------------------\n\t.section\t.text._Z14moe_sum_kernelIfLi4EEvPT_PKS0_i,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=30\"\n\t.align\t128\n.text._Z14moe_sum_kernelIfLi4EEvPT_PKS0_i:\n        .weak           _Z14moe_sum_kernelIfLi4EEvPT_PKS0_i\n        .type           _Z14moe_sum_kernelIfLi4EEvPT_PKS0_i,@function\n        .size           _Z14moe_sum_kernelIfLi4EEvPT_PKS0_i,(.L_x_12 - _Z14moe_sum_kernelIfLi4EEvPT_PKS0_i)\n        .other          _Z14moe_sum_kernelIfLi4EEvPT_PKS0_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z14moe_sum_kernelIfLi4EEvPT_PKS0_i:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R2, SR_TID.X ;\n        /*0020*/                   IMAD.MOV.U32 R27, RZ, RZ, c[0x0][0x170] ;\n        /*0030*/                   SHF.R.S32.HI R12, RZ, 0x1f, R27 ;\n        /*0040*/                   ISETP.GE.U32.AND P0, PT, R2, c[0x0][0x170], PT ;\n        /*0050*/                   ISETP.GE.AND.EX P0, PT, RZ, R12, PT, P0 ;\n        /*0060*/               @P0 EXIT ;\n        /*0070*/                   S2R R0, SR_CTAID.X ;\n        /*0080*/                   IMAD.SHL.U32 R11, R27.reuse, 0x2, RZ ;\n        /*0090*/                   SHF.L.U64.HI R17, R27.reuse, 0x2, R12 ;\n        /*00a0*/                   IMAD R13, R27, 0x3, RZ ;\n        /*00b0*/                   ULDC.64 UR4, c[0x0][0x118] ;\n        /*00c0*/                   IMAD.MOV.U32 R23, RZ, RZ, R2 ;\n        /*00d0*/                   SHF.R.S32.HI R2, RZ, 0x1f, R11 ;\n        /*00e0*/                   IMAD.MOV.U32 R25, RZ, RZ, RZ ;\n        /*00f0*/                   SHF.R.S32.HI R4, RZ, 0x1f, R13 ;\n        /*0100*/                   SHF.L.U64.HI R21, R11, 0x2, R2 ;\n        /*0110*/                   SHF.L.U64.HI R19, R13, 0x2, R4 ;\n        /*0120*/                   IMAD R0, R0, c[0x0][0x170], RZ ;\n.L_x_0:\n        /*0130*/                   LEA R3, P0, R0, R23, 0x2 ;\n        /*0140*/                   LEA.HI.X R4, R0, R25, RZ, 0x2, P0 ;\n        /*0150*/                   LEA R2, P0, R3, c[0x0][0x168], 0x2 ;\n        /*0160*/                   LEA.HI.X R3, R3, c[0x0][0x16c], R4, 0x2, P0 ;\n        /*0170*/                   LEA R4, P1, R27, R2.reuse, 0x2 ;\n        /*0180*/                   LEA R6, P0, R11, R2.reuse, 0x2 ;\n        /*0190*/                   LDG.E.CONSTANT R10, [R2.64] ;\n        /*01a0*/                   IMAD.X R5, R17, 0x1, R3, P1 ;\n        /*01b0*/                   LEA R8, P1, R13, R2, 0x2 ;\n        /*01c0*/                   IMAD.X R7, R3, 0x1, R21, P0 ;\n        /*01d0*/                   LDG.E.CONSTANT R5, [R4.64] ;\n        /*01e0*/                   IMAD.X R9, R3, 0x1, R19, P1 ;\n        /*01f0*/                   LDG.E.CONSTANT R7, [R6.64] ;\n        /*0200*/                   LDG.E.CONSTANT R9, [R8.64] ;\n        /*0210*/                   IADD3 R14, P0, R0, R23, RZ ;\n        /*0220*/                   IMAD.X R15, RZ, RZ, R25, P0 ;\n        /*0230*/                   LEA R2, P0, R14, c[0x0][0x160], 0x2 ;\n        /*0240*/                   LEA.HI.X R3, R14, c[0x0][0x164], R15, 0x2, P0 ;\n        /*0250*/                   IADD3 R23, P0, R23, c[0x0][0x0], RZ ;\n        /*0260*/                   IMAD.X R25, RZ, RZ, R25, P0 ;\n        /*0270*/                   ISETP.GE.U32.AND P0, PT, R23, c[0x0][0x170], PT ;\n        /*0280*/                   ISETP.GE.AND.EX P0, PT, R25, R12, PT, P0 ;\n        /*0290*/                   FADD R10, RZ, R10 ;\n        /*02a0*/                   FADD R10, R10, R5 ;\n        /*02b0*/                   FADD R10, R10, R7 ;\n        /*02c0*/                   FADD R5, R10, R9 ;\n        /*02d0*/                   STG.E [R2.64], R5 ;\n        /*02e0*/              @!P0 BRA `(.L_x_0) ;\n        /*02f0*/                   EXIT ;\n.L_x_1:\n        /*0300*/                   BRA `(.L_x_1);\n        /*0310*/                   NOP;\n        /*0320*/                   NOP;\n        /*0330*/                   NOP;\n        /*0340*/                   NOP;\n        /*0350*/                   NOP;\n        /*0360*/                   NOP;\n        /*0370*/                   NOP;\n        /*0380*/                   NOP;\n        /*0390*/                   NOP;\n        /*03a0*/                   NOP;\n        /*03b0*/                   NOP;\n        /*03c0*/                   NOP;\n        /*03d0*/                   NOP;\n        /*03e0*/                   NOP;\n        /*03f0*/                   NOP;\n.L_x_12:"
+        },
+        "sm_90": {
+          "_Z14moe_sum_kernelIfLi4EEvPT_PKS0_i": "//--------------------- .text._Z14moe_sum_kernelIfLi4EEvPT_PKS0_i --------------------------\n\t.section\t.text._Z14moe_sum_kernelIfLi4EEvPT_PKS0_i,\"ax\",@progbits\n\t.align\t128\n.text._Z14moe_sum_kernelIfLi4EEvPT_PKS0_i:\n        .weak           _Z14moe_sum_kernelIfLi4EEvPT_PKS0_i\n        .type           _Z14moe_sum_kernelIfLi4EEvPT_PKS0_i,@function\n        .size           _Z14moe_sum_kernelIfLi4EEvPT_PKS0_i,(.L_x_12 - _Z14moe_sum_kernelIfLi4EEvPT_PKS0_i)\n        .other          _Z14moe_sum_kernelIfLi4EEvPT_PKS0_i,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z14moe_sum_kernelIfLi4EEvPT_PKS0_i:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R15, SR_TID.X ;\n        /*0020*/                   LDC R11, c[0x0][0x220] ;\n        /*0030*/                   SHF.R.S32.HI R0, RZ, 0x1f, R11 ;\n        /*0040*/                   ISETP.GE.U32.AND P0, PT, R15, R11, PT ;\n        /*0050*/                   ISETP.GE.AND.EX P0, PT, RZ, R0, PT, P0 ;\n        /*0060*/               @P0 EXIT ;\n        /*0070*/                   S2UR UR4, SR_CTAID.X ;\n        /*0080*/                   IMAD.SHL.U32 R17, R11.reuse, 0x2, RZ ;\n        /*0090*/                   SHF.L.U64.HI R13, R11.reuse, 0x2, R0 ;\n        /*00a0*/                   IMAD R19, R11, 0x3, RZ ;\n        /*00b0*/                   ULDC UR5, c[0x0][0x0] ;\n        /*00c0*/                   IMAD.MOV.U32 R21, RZ, RZ, RZ ;\n        /*00d0*/                   SHF.R.S32.HI R2, RZ, 0x1f, R17 ;\n        /*00e0*/                   ULDC.64 UR6, c[0x0][0x208] ;\n        /*00f0*/                   SHF.R.S32.HI R4, RZ, 0x1f, R19 ;\n        /*0100*/                   ULDC.64 UR8, c[0x0][0x218] ;\n        /*0110*/                   SHF.L.U64.HI R23, R17, 0x2, R2 ;\n        /*0120*/                   ULDC.64 UR10, c[0x0][0x210] ;\n        /*0130*/                   SHF.L.U64.HI R25, R19, 0x2, R4 ;\n        /*0140*/                   IMAD R10, R11, UR4, RZ ;\n.L_x_0:\n        /*0150*/                   LEA R2, P0, R10, R15, 0x2 ;\n        /*0160*/                   LEA.HI.X R3, R10, R21, RZ, 0x2, P0 ;\n        /*0170*/                   LEA R8, P0, R2, UR8, 0x2 ;\n        /*0180*/                   LEA.HI.X R9, R2, UR9, R3, 0x2, P0 ;\n        /*0190*/                   LEA R4, P1, R11, R8.reuse, 0x2 ;\n        /*01a0*/                   LEA R2, P0, R17, R8.reuse, 0x2 ;\n        /*01b0*/                   LDG.E.CONSTANT R12, desc[UR6][R8.64] ;\n        /*01c0*/                   IMAD.X R5, R13, 0x1, R9, P1 ;\n        /*01d0*/                   LEA R6, P1, R19, R8, 0x2 ;\n        /*01e0*/                   IMAD.X R3, R9, 0x1, R23, P0 ;\n        /*01f0*/                   LDG.E.CONSTANT R5, desc[UR6][R4.64] ;\n        /*0200*/                   IMAD.X R7, R9, 0x1, R25, P1 ;\n        /*0210*/                   LDG.E.CONSTANT R3, desc[UR6][R2.64] ;\n        /*0220*/                   LDG.E.CONSTANT R7, desc[UR6][R6.64] ;\n        /*0230*/                   IADD3 R14, P0, R10, R15, RZ ;\n        /*0240*/                   IMAD.X R27, RZ, RZ, R21, P0 ;\n        /*0250*/                   LEA R8, P0, R14, UR10, 0x2 ;\n        /*0260*/                   LEA.HI.X R9, R14, UR11, R27, 0x2, P0 ;\n        /*0270*/                   IADD3 R15, P0, R15, UR5, RZ ;\n        /*0280*/                   IMAD.X R21, RZ, RZ, R21, P0 ;\n        /*0290*/                   ISETP.GE.U32.AND P0, PT, R15, R11, PT ;\n        /*02a0*/                   ISETP.GE.AND.EX P0, PT, R21, R0, PT, P0 ;\n        /*02b0*/                   FADD R12, RZ, R12 ;\n        /*02c0*/                   FADD R12, R12, R5 ;\n        /*02d0*/                   FADD R12, R12, R3 ;\n        /*02e0*/                   FADD R5, R12, R7 ;\n        /*02f0*/                   STG.E desc[UR6][R8.64], R5 ;\n        /*0300*/              @!P0 BRA `(.L_x_0) ;\n        /*0310*/                   EXIT ;\n.L_x_1:\n        /*0320*/                   BRA `(.L_x_1);\n        /*0330*/                   NOP;\n        /*0340*/                   NOP;\n        /*0350*/                   NOP;\n        /*0360*/                   NOP;\n        /*0370*/                   NOP;\n        /*0380*/                   NOP;\n        /*0390*/                   NOP;\n        /*03a0*/                   NOP;\n        /*03b0*/                   NOP;\n        /*03c0*/                   NOP;\n        /*03d0*/                   NOP;\n        /*03e0*/                   NOP;\n        /*03f0*/                   NOP;\n.L_x_12:"
+        }
+      }
+    },
+    "_Z19moe_sum_kernel_vec4ILi2EEvPfPKfi": {
+      "demangledName": "void moe_sum_kernel_vec4<(int)2>(float *, const float *, int)",
+      "imix": {
+        "sm_80": {
+          "NOP": 14,
+          "FADD": 8,
+          "IMAD": 4,
+          "IADD3": 3,
+          "S2R": 2,
+          "ULDC": 2,
+          "ISETP": 2,
+          "EXIT": 2,
+          "LDG": 2,
+          "BRA": 2,
+          "MOV": 1,
+          "USHF": 1,
+          "SHF": 1,
+          "LOP3": 1,
+          "HFMA2": 1,
+          "LEA": 1,
+          "STG": 1
+        },
+        "sm_86": {
+          "NOP": 14,
+          "FADD": 8,
+          "IMAD": 4,
+          "IADD3": 3,
+          "MOV": 2,
+          "S2R": 2,
+          "ULDC": 2,
+          "ISETP": 2,
+          "EXIT": 2,
+          "LDG": 2,
+          "BRA": 2,
+          "USHF": 1,
+          "SHF": 1,
+          "LOP3": 1,
+          "LEA": 1,
+          "STG": 1
+        },
+        "sm_90": {
+          "NOP": 12,
+          "FADD": 8,
+          "IMAD": 4,
+          "LDC": 3,
+          "ULDC": 3,
+          "IADD3": 3,
+          "S2R": 2,
+          "ISETP": 2,
+          "EXIT": 2,
+          "LDG": 2,
+          "BRA": 2,
+          "USHF": 1,
+          "SHF": 1,
+          "LOP3": 1,
+          "LEA": 1,
+          "STG": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z19moe_sum_kernel_vec4ILi2EEvPfPKfi": "//--------------------- .text._Z19moe_sum_kernel_vec4ILi2EEvPfPKfi --------------------------\n\t.section\t.text._Z19moe_sum_kernel_vec4ILi2EEvPfPKfi,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=20\"\n\t.align\t128\n.text._Z19moe_sum_kernel_vec4ILi2EEvPfPKfi:\n        .weak           _Z19moe_sum_kernel_vec4ILi2EEvPfPKfi\n        .type           _Z19moe_sum_kernel_vec4ILi2EEvPfPKfi,@function\n        .size           _Z19moe_sum_kernel_vec4ILi2EEvPfPKfi,(.L_x_17 - _Z19moe_sum_kernel_vec4ILi2EEvPfPKfi)\n        .other          _Z19moe_sum_kernel_vec4ILi2EEvPfPKfi,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z19moe_sum_kernel_vec4ILi2EEvPfPKfi:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R3, SR_TID.X ;\n        /*0020*/                   ULDC UR4, c[0x0][0x170] ;\n        /*0030*/                   USHF.R.S32.HI UR4, URZ, 0x2, UR4 ;\n        /*0040*/                   ISETP.GE.AND P0, PT, R3, UR4, PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   S2R R0, SR_CTAID.X ;\n        /*0070*/                   ULDC.64 UR6, c[0x0][0x118] ;\n        /*0080*/                   IMAD R0, R0, c[0x0][0x170], RZ ;\n        /*0090*/                   SHF.R.U32.HI R2, RZ, 0x1, R0 ;\n        /*00a0*/                   LOP3.LUT R2, R2, 0x3fffffff, RZ, 0xc0, !PT ;\n.L_x_10:\n        /*00b0*/                   HFMA2.MMA R17, -RZ, RZ, 0, 9.5367431640625e-07 ;\n        /*00c0*/                   IADD3 R4, R2, R3, RZ ;\n        /*00d0*/                   IADD3 R12, R4, UR4, RZ ;\n        /*00e0*/                   IMAD.WIDE R4, R4, R17, c[0x0][0x168] ;\n        /*00f0*/                   IMAD.WIDE R12, R12, R17, c[0x0][0x168] ;\n        /*0100*/                   LDG.E.128.CONSTANT R4, [R4.64] ;\n        /*0110*/                   LDG.E.128.CONSTANT R8, [R12.64] ;\n        /*0120*/                   LEA.HI R16, R0, R3, RZ, 0x1e ;\n        /*0130*/                   IADD3 R3, R3, c[0x0][0x0], RZ ;\n        /*0140*/                   ISETP.GE.AND P0, PT, R3, UR4, PT ;\n        /*0150*/                   FADD R14, RZ, R7 ;\n        /*0160*/                   FADD R7, RZ, R6 ;\n        /*0170*/                   FADD R15, RZ, R4 ;\n        /*0180*/                   FADD R6, RZ, R5 ;\n        /*0190*/                   FADD R11, R14, R11 ;\n        /*01a0*/                   FADD R10, R7, R10 ;\n        /*01b0*/                   FADD R9, R6, R9 ;\n        /*01c0*/                   FADD R8, R15, R8 ;\n        /*01d0*/                   IMAD.WIDE R4, R16, R17, c[0x0][0x160] ;\n        /*01e0*/                   STG.E.128 [R4.64], R8 ;\n        /*01f0*/              @!P0 BRA `(.L_x_10) ;\n        /*0200*/                   EXIT ;\n.L_x_11:\n        /*0210*/                   BRA `(.L_x_11);\n        /*0220*/                   NOP;\n        /*0230*/                   NOP;\n        /*0240*/                   NOP;\n        /*0250*/                   NOP;\n        /*0260*/                   NOP;\n        /*0270*/                   NOP;\n        /*0280*/                   NOP;\n        /*0290*/                   NOP;\n        /*02a0*/                   NOP;\n        /*02b0*/                   NOP;\n        /*02c0*/                   NOP;\n        /*02d0*/                   NOP;\n        /*02e0*/                   NOP;\n        /*02f0*/                   NOP;\n.L_x_17:\n// Disassembly for moe-sum-cuda-moe-sum.1.sm_80.cubin"
+        },
+        "sm_86": {
+          "_Z19moe_sum_kernel_vec4ILi2EEvPfPKfi": "//--------------------- .text._Z19moe_sum_kernel_vec4ILi2EEvPfPKfi --------------------------\n\t.section\t.text._Z19moe_sum_kernel_vec4ILi2EEvPfPKfi,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=22\"\n\t.align\t128\n.text._Z19moe_sum_kernel_vec4ILi2EEvPfPKfi:\n        .weak           _Z19moe_sum_kernel_vec4ILi2EEvPfPKfi\n        .type           _Z19moe_sum_kernel_vec4ILi2EEvPfPKfi,@function\n        .size           _Z19moe_sum_kernel_vec4ILi2EEvPfPKfi,(.L_x_17 - _Z19moe_sum_kernel_vec4ILi2EEvPfPKfi)\n        .other          _Z19moe_sum_kernel_vec4ILi2EEvPfPKfi,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z19moe_sum_kernel_vec4ILi2EEvPfPKfi:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R0, SR_TID.X ;\n        /*0020*/                   ULDC UR4, c[0x0][0x170] ;\n        /*0030*/                   USHF.R.S32.HI UR4, URZ, 0x2, UR4 ;\n        /*0040*/                   ISETP.GE.AND P0, PT, R0, UR4, PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   S2R R13, SR_CTAID.X ;\n        /*0070*/                   ULDC.64 UR6, c[0x0][0x118] ;\n        /*0080*/                   IMAD R13, R13, c[0x0][0x170], RZ ;\n        /*0090*/                   SHF.R.U32.HI R2, RZ, 0x1, R13 ;\n        /*00a0*/                   LOP3.LUT R15, R2, 0x3fffffff, RZ, 0xc0, !PT ;\n.L_x_10:\n        /*00b0*/                   IADD3 R8, R15, R0, RZ ;\n        /*00c0*/                   MOV R19, 0x10 ;\n        /*00d0*/                   IADD3 R2, R8, UR4, RZ ;\n        /*00e0*/                   IMAD.WIDE R8, R8, R19, c[0x0][0x168] ;\n        /*00f0*/                   IMAD.WIDE R2, R2, R19, c[0x0][0x168] ;\n        /*0100*/                   LDG.E.128.CONSTANT R8, [R8.64] ;\n        /*0110*/                   LDG.E.128.CONSTANT R4, [R2.64] ;\n        /*0120*/                   LEA.HI R14, R13, R0, RZ, 0x1e ;\n        /*0130*/                   IADD3 R0, R0, c[0x0][0x0], RZ ;\n        /*0140*/                   ISETP.GE.AND P0, PT, R0, UR4, PT ;\n        /*0150*/                   FADD R12, RZ, R11 ;\n        /*0160*/                   FADD R11, RZ, R10 ;\n        /*0170*/                   FADD R17, RZ, R8 ;\n        /*0180*/                   FADD R10, RZ, R9 ;\n        /*0190*/                   FADD R7, R12, R7 ;\n        /*01a0*/                   FADD R6, R11, R6 ;\n        /*01b0*/                   FADD R4, R17, R4 ;\n        /*01c0*/                   FADD R5, R10, R5 ;\n        /*01d0*/                   IMAD.WIDE R8, R14, R19, c[0x0][0x160] ;\n        /*01e0*/                   STG.E.128 [R8.64], R4 ;\n        /*01f0*/              @!P0 BRA `(.L_x_10) ;\n        /*0200*/                   EXIT ;\n.L_x_11:\n        /*0210*/                   BRA `(.L_x_11);\n        /*0220*/                   NOP;\n        /*0230*/                   NOP;\n        /*0240*/                   NOP;\n        /*0250*/                   NOP;\n        /*0260*/                   NOP;\n        /*0270*/                   NOP;\n        /*0280*/                   NOP;\n        /*0290*/                   NOP;\n        /*02a0*/                   NOP;\n        /*02b0*/                   NOP;\n        /*02c0*/                   NOP;\n        /*02d0*/                   NOP;\n        /*02e0*/                   NOP;\n        /*02f0*/                   NOP;\n.L_x_17:\n// Disassembly for moe-sum-cuda-moe-sum.1.sm_86.cubin"
+        },
+        "sm_90": {
+          "_Z19moe_sum_kernel_vec4ILi2EEvPfPKfi": "//--------------------- .text._Z19moe_sum_kernel_vec4ILi2EEvPfPKfi --------------------------\n\t.section\t.text._Z19moe_sum_kernel_vec4ILi2EEvPfPKfi,\"ax\",@progbits\n\t.align\t128\n.text._Z19moe_sum_kernel_vec4ILi2EEvPfPKfi:\n        .weak           _Z19moe_sum_kernel_vec4ILi2EEvPfPKfi\n        .type           _Z19moe_sum_kernel_vec4ILi2EEvPfPKfi,@function\n        .size           _Z19moe_sum_kernel_vec4ILi2EEvPfPKfi,(.L_x_17 - _Z19moe_sum_kernel_vec4ILi2EEvPfPKfi)\n        .other          _Z19moe_sum_kernel_vec4ILi2EEvPfPKfi,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z19moe_sum_kernel_vec4ILi2EEvPfPKfi:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R15, SR_TID.X ;\n        /*0020*/                   ULDC UR5, c[0x0][0x220] ;\n        /*0030*/                   USHF.R.S32.HI UR4, URZ, 0x2, UR5 ;\n        /*0040*/                   ISETP.GE.AND P0, PT, R15, UR4, PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   S2R R0, SR_CTAID.X ;\n        /*0070*/                   LDC.64 R2, c[0x0][0x218] ;\n        /*0080*/                   ULDC.64 UR6, c[0x0][0x208] ;\n        /*0090*/                   LDC.64 R12, c[0x0][0x210] ;\n        /*00a0*/                   IMAD R0, R0, UR5, RZ ;\n        /*00b0*/                   ULDC UR5, c[0x0][0x0] ;\n        /*00c0*/                   SHF.R.U32.HI R14, RZ, 0x1, R0 ;\n        /*00d0*/                   LOP3.LUT R14, R14, 0x3fffffff, RZ, 0xc0, !PT ;\n.L_x_10:\n        /*00e0*/                   IADD3 R5, R14, R15, RZ ;\n        /*00f0*/                   IADD3 R17, R5.reuse, UR4, RZ ;\n        /*0100*/                   IMAD.WIDE R4, R5, 0x10, R2 ;\n        /*0110*/                   IMAD.WIDE R16, R17, 0x10, R2 ;\n        /*0120*/                   LDG.E.128.CONSTANT R4, desc[UR6][R4.64] ;\n        /*0130*/                   LDG.E.128.CONSTANT R8, desc[UR6][R16.64] ;\n        /*0140*/                   LEA.HI R21, R0, R15, RZ, 0x1e ;\n        /*0150*/                   IADD3 R15, R15, UR5, RZ ;\n        /*0160*/                   ISETP.GE.AND P0, PT, R15, UR4, PT ;\n        /*0170*/                   FADD R18, RZ, R7 ;\n        /*0180*/                   FADD R7, RZ, R6 ;\n        /*0190*/                   FADD R19, RZ, R4 ;\n        /*01a0*/                   FADD R6, RZ, R5 ;\n        /*01b0*/                   FADD R11, R18, R11 ;\n        /*01c0*/                   FADD R10, R7, R10 ;\n        /*01d0*/                   FADD R8, R19, R8 ;\n        /*01e0*/                   FADD R9, R6, R9 ;\n        /*01f0*/                   IMAD.WIDE R4, R21, 0x10, R12 ;\n        /*0200*/                   STG.E.128 desc[UR6][R4.64], R8 ;\n        /*0210*/              @!P0 BRA `(.L_x_10) ;\n        /*0220*/                   EXIT ;\n.L_x_11:\n        /*0230*/                   BRA `(.L_x_11);\n        /*0240*/                   NOP;\n        /*0250*/                   NOP;\n        /*0260*/                   NOP;\n        /*0270*/                   NOP;\n        /*0280*/                   NOP;\n        /*0290*/                   NOP;\n        /*02a0*/                   NOP;\n        /*02b0*/                   NOP;\n        /*02c0*/                   NOP;\n        /*02d0*/                   NOP;\n        /*02e0*/                   NOP;\n        /*02f0*/                   NOP;\n.L_x_17:"
+        }
+      }
+    },
+    "_Z19moe_sum_kernel_vec4ILi3EEvPfPKfi": {
+      "demangledName": "void moe_sum_kernel_vec4<(int)3>(float *, const float *, int)",
+      "imix": {
+        "sm_80": {
+          "FADD": 12,
+          "NOP": 8,
+          "IMAD": 6,
+          "IADD3": 3,
+          "LDG": 3,
+          "S2R": 2,
+          "ULDC": 2,
+          "ISETP": 2,
+          "EXIT": 2,
+          "LEA": 2,
+          "BRA": 2,
+          "MOV": 1,
+          "USHF": 1,
+          "HFMA2": 1,
+          "STG": 1
+        },
+        "sm_86": {
+          "FADD": 12,
+          "NOP": 8,
+          "IMAD": 6,
+          "IADD3": 3,
+          "LDG": 3,
+          "MOV": 2,
+          "S2R": 2,
+          "ULDC": 2,
+          "ISETP": 2,
+          "EXIT": 2,
+          "LEA": 2,
+          "BRA": 2,
+          "USHF": 1,
+          "STG": 1
+        },
+        "sm_90": {
+          "NOP": 14,
+          "FADD": 12,
+          "IMAD": 6,
+          "LDC": 3,
+          "ULDC": 3,
+          "IADD3": 3,
+          "LDG": 3,
+          "S2R": 2,
+          "ISETP": 2,
+          "EXIT": 2,
+          "LEA": 2,
+          "BRA": 2,
+          "USHF": 1,
+          "STG": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z19moe_sum_kernel_vec4ILi3EEvPfPKfi": "//--------------------- .text._Z19moe_sum_kernel_vec4ILi3EEvPfPKfi --------------------------\n\t.section\t.text._Z19moe_sum_kernel_vec4ILi3EEvPfPKfi,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=21\"\n\t.align\t128\n.text._Z19moe_sum_kernel_vec4ILi3EEvPfPKfi:\n        .weak           _Z19moe_sum_kernel_vec4ILi3EEvPfPKfi\n        .type           _Z19moe_sum_kernel_vec4ILi3EEvPfPKfi,@function\n        .size           _Z19moe_sum_kernel_vec4ILi3EEvPfPKfi,(.L_x_16 - _Z19moe_sum_kernel_vec4ILi3EEvPfPKfi)\n        .other          _Z19moe_sum_kernel_vec4ILi3EEvPfPKfi,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z19moe_sum_kernel_vec4ILi3EEvPfPKfi:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R3, SR_TID.X ;\n        /*0020*/                   ULDC UR4, c[0x0][0x170] ;\n        /*0030*/                   USHF.R.S32.HI UR4, URZ, 0x2, UR4 ;\n        /*0040*/                   ISETP.GE.AND P0, PT, R3, UR4, PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   S2R R0, SR_CTAID.X ;\n        /*0070*/                   ULDC.64 UR6, c[0x0][0x118] ;\n        /*0080*/                   IMAD R0, R0, c[0x0][0x170], RZ ;\n        /*0090*/                   IMAD R2, R0, 0x3, RZ ;\n.L_x_8:\n        /*00a0*/                   HFMA2.MMA R16, -RZ, RZ, 0, 9.5367431640625e-07 ;\n        /*00b0*/                   LEA.HI R5, R2, R3, RZ, 0x1e ;\n        /*00c0*/                   IADD3 R9, R5, UR4, RZ ;\n        /*00d0*/                   IADD3 R13, R9, UR4, RZ ;\n        /*00e0*/                   IMAD.WIDE R4, R5, R16, c[0x0][0x168] ;\n        /*00f0*/                   IMAD.WIDE R8, R9, R16.reuse, c[0x0][0x168] ;\n        /*0100*/                   LDG.E.128.CONSTANT R4, [R4.64] ;\n        /*0110*/                   IMAD.WIDE R12, R13, R16, c[0x0][0x168] ;\n        /*0120*/                   LDG.E.128.CONSTANT R8, [R8.64] ;\n        /*0130*/                   LDG.E.128.CONSTANT R12, [R12.64] ;\n        /*0140*/                   FADD R18, RZ, R7 ;\n        /*0150*/                   FADD R17, RZ, R4 ;\n        /*0160*/                   FADD R7, RZ, R6 ;\n        /*0170*/                   FADD R6, RZ, R5 ;\n        /*0180*/                   LEA.HI R5, R0, R3, RZ, 0x1e ;\n        /*0190*/                   FADD R17, R17, R8 ;\n        /*01a0*/                   IADD3 R3, R3, c[0x0][0x0], RZ ;\n        /*01b0*/                   FADD R18, R18, R11 ;\n        /*01c0*/                   FADD R7, R7, R10 ;\n        /*01d0*/                   ISETP.GE.AND P0, PT, R3, UR4, PT ;\n        /*01e0*/                   FADD R6, R6, R9 ;\n        /*01f0*/                   FADD R12, R17, R12 ;\n        /*0200*/                   FADD R15, R18, R15 ;\n        /*0210*/                   FADD R14, R7, R14 ;\n        /*0220*/                   FADD R13, R6, R13 ;\n        /*0230*/                   IMAD.WIDE R16, R5, R16, c[0x0][0x160] ;\n        /*0240*/                   STG.E.128 [R16.64], R12 ;\n        /*0250*/              @!P0 BRA `(.L_x_8) ;\n        /*0260*/                   EXIT ;\n.L_x_9:\n        /*0270*/                   BRA `(.L_x_9);\n        /*0280*/                   NOP;\n        /*0290*/                   NOP;\n        /*02a0*/                   NOP;\n        /*02b0*/                   NOP;\n        /*02c0*/                   NOP;\n        /*02d0*/                   NOP;\n        /*02e0*/                   NOP;\n        /*02f0*/                   NOP;\n.L_x_16:"
+        },
+        "sm_86": {
+          "_Z19moe_sum_kernel_vec4ILi3EEvPfPKfi": "//--------------------- .text._Z19moe_sum_kernel_vec4ILi3EEvPfPKfi --------------------------\n\t.section\t.text._Z19moe_sum_kernel_vec4ILi3EEvPfPKfi,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=21\"\n\t.align\t128\n.text._Z19moe_sum_kernel_vec4ILi3EEvPfPKfi:\n        .weak           _Z19moe_sum_kernel_vec4ILi3EEvPfPKfi\n        .type           _Z19moe_sum_kernel_vec4ILi3EEvPfPKfi,@function\n        .size           _Z19moe_sum_kernel_vec4ILi3EEvPfPKfi,(.L_x_16 - _Z19moe_sum_kernel_vec4ILi3EEvPfPKfi)\n        .other          _Z19moe_sum_kernel_vec4ILi3EEvPfPKfi,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z19moe_sum_kernel_vec4ILi3EEvPfPKfi:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R3, SR_TID.X ;\n        /*0020*/                   ULDC UR4, c[0x0][0x170] ;\n        /*0030*/                   USHF.R.S32.HI UR4, URZ, 0x2, UR4 ;\n        /*0040*/                   ISETP.GE.AND P0, PT, R3, UR4, PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   S2R R0, SR_CTAID.X ;\n        /*0070*/                   ULDC.64 UR6, c[0x0][0x118] ;\n        /*0080*/                   IMAD R0, R0, c[0x0][0x170], RZ ;\n        /*0090*/                   IMAD R2, R0, 0x3, RZ ;\n.L_x_8:\n        /*00a0*/                   LEA.HI R5, R2, R3, RZ, 0x1e ;\n        /*00b0*/                   MOV R16, 0x10 ;\n        /*00c0*/                   IADD3 R9, R5, UR4, RZ ;\n        /*00d0*/                   IMAD.WIDE R4, R5, R16, c[0x0][0x168] ;\n        /*00e0*/                   IADD3 R13, R9, UR4, RZ ;\n        /*00f0*/                   IMAD.WIDE R8, R9, R16.reuse, c[0x0][0x168] ;\n        /*0100*/                   LDG.E.128.CONSTANT R4, [R4.64] ;\n        /*0110*/                   IMAD.WIDE R12, R13, R16.reuse, c[0x0][0x168] ;\n        /*0120*/                   LDG.E.128.CONSTANT R8, [R8.64] ;\n        /*0130*/                   LDG.E.128.CONSTANT R12, [R12.64] ;\n        /*0140*/                   FADD R18, RZ, R7 ;\n        /*0150*/                   FADD R17, RZ, R4 ;\n        /*0160*/                   FADD R7, RZ, R6 ;\n        /*0170*/                   FADD R6, RZ, R5 ;\n        /*0180*/                   LEA.HI R5, R0, R3, RZ, 0x1e ;\n        /*0190*/                   FADD R17, R17, R8 ;\n        /*01a0*/                   FADD R18, R18, R11 ;\n        /*01b0*/                   FADD R7, R7, R10 ;\n        /*01c0*/                   FADD R6, R6, R9 ;\n        /*01d0*/                   FADD R12, R17, R12 ;\n        /*01e0*/                   FADD R15, R18, R15 ;\n        /*01f0*/                   FADD R14, R7, R14 ;\n        /*0200*/                   FADD R13, R6, R13 ;\n        /*0210*/                   IMAD.WIDE R16, R5, R16, c[0x0][0x160] ;\n        /*0220*/                   IADD3 R3, R3, c[0x0][0x0], RZ ;\n        /*0230*/                   STG.E.128 [R16.64], R12 ;\n        /*0240*/                   ISETP.GE.AND P0, PT, R3, UR4, PT ;\n        /*0250*/              @!P0 BRA `(.L_x_8) ;\n        /*0260*/                   EXIT ;\n.L_x_9:\n        /*0270*/                   BRA `(.L_x_9);\n        /*0280*/                   NOP;\n        /*0290*/                   NOP;\n        /*02a0*/                   NOP;\n        /*02b0*/                   NOP;\n        /*02c0*/                   NOP;\n        /*02d0*/                   NOP;\n        /*02e0*/                   NOP;\n        /*02f0*/                   NOP;\n.L_x_16:"
+        },
+        "sm_90": {
+          "_Z19moe_sum_kernel_vec4ILi3EEvPfPKfi": "//--------------------- .text._Z19moe_sum_kernel_vec4ILi3EEvPfPKfi --------------------------\n\t.section\t.text._Z19moe_sum_kernel_vec4ILi3EEvPfPKfi,\"ax\",@progbits\n\t.align\t128\n.text._Z19moe_sum_kernel_vec4ILi3EEvPfPKfi:\n        .weak           _Z19moe_sum_kernel_vec4ILi3EEvPfPKfi\n        .type           _Z19moe_sum_kernel_vec4ILi3EEvPfPKfi,@function\n        .size           _Z19moe_sum_kernel_vec4ILi3EEvPfPKfi,(.L_x_16 - _Z19moe_sum_kernel_vec4ILi3EEvPfPKfi)\n        .other          _Z19moe_sum_kernel_vec4ILi3EEvPfPKfi,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z19moe_sum_kernel_vec4ILi3EEvPfPKfi:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R19, SR_TID.X ;\n        /*0020*/                   ULDC UR5, c[0x0][0x220] ;\n        /*0030*/                   USHF.R.S32.HI UR4, URZ, 0x2, UR5 ;\n        /*0040*/                   ISETP.GE.AND P0, PT, R19, UR4, PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   S2R R0, SR_CTAID.X ;\n        /*0070*/                   LDC.64 R2, c[0x0][0x218] ;\n        /*0080*/                   ULDC.64 UR6, c[0x0][0x208] ;\n        /*0090*/                   LDC.64 R16, c[0x0][0x210] ;\n        /*00a0*/                   IMAD R0, R0, UR5, RZ ;\n        /*00b0*/                   ULDC UR5, c[0x0][0x0] ;\n        /*00c0*/                   IMAD R18, R0, 0x3, RZ ;\n.L_x_8:\n        /*00d0*/                   LEA.HI R5, R18, R19, RZ, 0x1e ;\n        /*00e0*/                   IADD3 R9, R5.reuse, UR4, RZ ;\n        /*00f0*/                   IMAD.WIDE R4, R5, 0x10, R2 ;\n        /*0100*/                   IADD3 R13, R9.reuse, UR4, RZ ;\n        /*0110*/                   IMAD.WIDE R8, R9, 0x10, R2.reuse ;\n        /*0120*/                   LDG.E.128.CONSTANT R4, desc[UR6][R4.64] ;\n        /*0130*/                   IMAD.WIDE R12, R13, 0x10, R2 ;\n        /*0140*/                   LDG.E.128.CONSTANT R8, desc[UR6][R8.64] ;\n        /*0150*/                   LDG.E.128.CONSTANT R12, desc[UR6][R12.64] ;\n        /*0160*/                   FADD R20, RZ, R7 ;\n        /*0170*/                   FADD R7, RZ, R6 ;\n        /*0180*/                   FADD R21, RZ, R4 ;\n        /*0190*/                   FADD R6, RZ, R5 ;\n        /*01a0*/                   LEA.HI R5, R0, R19, RZ, 0x1e ;\n        /*01b0*/                   FADD R20, R20, R11 ;\n        /*01c0*/                   FADD R21, R21, R8 ;\n        /*01d0*/                   FADD R7, R7, R10 ;\n        /*01e0*/                   FADD R6, R6, R9 ;\n        /*01f0*/                   FADD R15, R20, R15 ;\n        /*0200*/                   FADD R12, R21, R12 ;\n        /*0210*/                   FADD R14, R7, R14 ;\n        /*0220*/                   FADD R13, R6, R13 ;\n        /*0230*/                   IMAD.WIDE R4, R5, 0x10, R16 ;\n        /*0240*/                   IADD3 R19, R19, UR5, RZ ;\n        /*0250*/                   STG.E.128 desc[UR6][R4.64], R12 ;\n        /*0260*/                   ISETP.GE.AND P0, PT, R19, UR4, PT ;\n        /*0270*/              @!P0 BRA `(.L_x_8) ;\n        /*0280*/                   EXIT ;\n.L_x_9:\n        /*0290*/                   BRA `(.L_x_9);\n        /*02a0*/                   NOP;\n        /*02b0*/                   NOP;\n        /*02c0*/                   NOP;\n        /*02d0*/                   NOP;\n        /*02e0*/                   NOP;\n        /*02f0*/                   NOP;\n        /*0300*/                   NOP;\n        /*0310*/                   NOP;\n        /*0320*/                   NOP;\n        /*0330*/                   NOP;\n        /*0340*/                   NOP;\n        /*0350*/                   NOP;\n        /*0360*/                   NOP;\n        /*0370*/                   NOP;\n.L_x_16:"
+        }
+      }
+    },
+    "_Z19moe_sum_kernel_vec4ILi4EEvPfPKfi": {
+      "demangledName": "void moe_sum_kernel_vec4<(int)4>(float *, const float *, int)",
+      "imix": {
+        "sm_80": {
+          "FADD": 16,
+          "NOP": 9,
+          "IMAD": 6,
+          "IADD3": 5,
+          "LDG": 4,
+          "S2R": 2,
+          "ULDC": 2,
+          "ISETP": 2,
+          "EXIT": 2,
+          "BRA": 2,
+          "MOV": 1,
+          "USHF": 1,
+          "LOP3": 1,
+          "HFMA2": 1,
+          "LEA": 1,
+          "STG": 1
+        },
+        "sm_86": {
+          "FADD": 16,
+          "NOP": 9,
+          "IMAD": 6,
+          "IADD3": 5,
+          "LDG": 4,
+          "MOV": 2,
+          "S2R": 2,
+          "ULDC": 2,
+          "ISETP": 2,
+          "EXIT": 2,
+          "BRA": 2,
+          "USHF": 1,
+          "LOP3": 1,
+          "LEA": 1,
+          "STG": 1
+        },
+        "sm_90": {
+          "FADD": 16,
+          "NOP": 15,
+          "IMAD": 6,
+          "IADD3": 5,
+          "LDG": 4,
+          "LDC": 3,
+          "ULDC": 3,
+          "S2R": 2,
+          "ISETP": 2,
+          "EXIT": 2,
+          "BRA": 2,
+          "USHF": 1,
+          "LOP3": 1,
+          "LEA": 1,
+          "STG": 1
+        }
+      },
+      "sass_code": {
+        "sm_80": {
+          "_Z19moe_sum_kernel_vec4ILi4EEvPfPKfi": "//--------------------- .text._Z19moe_sum_kernel_vec4ILi4EEvPfPKfi --------------------------\n\t.section\t.text._Z19moe_sum_kernel_vec4ILi4EEvPfPKfi,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=25\"\n\t.align\t128\n.text._Z19moe_sum_kernel_vec4ILi4EEvPfPKfi:\n        .weak           _Z19moe_sum_kernel_vec4ILi4EEvPfPKfi\n        .type           _Z19moe_sum_kernel_vec4ILi4EEvPfPKfi,@function\n        .size           _Z19moe_sum_kernel_vec4ILi4EEvPfPKfi,(.L_x_15 - _Z19moe_sum_kernel_vec4ILi4EEvPfPKfi)\n        .other          _Z19moe_sum_kernel_vec4ILi4EEvPfPKfi,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z19moe_sum_kernel_vec4ILi4EEvPfPKfi:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R3, SR_TID.X ;\n        /*0020*/                   ULDC UR4, c[0x0][0x170] ;\n        /*0030*/                   USHF.R.S32.HI UR4, URZ, 0x2, UR4 ;\n        /*0040*/                   ISETP.GE.AND P0, PT, R3, UR4, PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   S2R R0, SR_CTAID.X ;\n        /*0070*/                   ULDC.64 UR6, c[0x0][0x118] ;\n        /*0080*/                   IMAD R0, R0, c[0x0][0x170], RZ ;\n        /*0090*/                   LOP3.LUT R2, R0, 0x3fffffff, RZ, 0xc0, !PT ;\n.L_x_6:\n        /*00a0*/                   HFMA2.MMA R20, -RZ, RZ, 0, 9.5367431640625e-07 ;\n        /*00b0*/                   IADD3 R5, R2, R3, RZ ;\n        /*00c0*/                   IADD3 R9, R5, UR4, RZ ;\n        /*00d0*/                   IADD3 R13, R9, UR4, RZ ;\n        /*00e0*/                   IMAD.WIDE R4, R5, R20, c[0x0][0x168] ;\n        /*00f0*/                   IMAD.WIDE R8, R9, R20.reuse, c[0x0][0x168] ;\n        /*0100*/                   LDG.E.128.CONSTANT R4, [R4.64] ;\n        /*0110*/                   IADD3 R17, R13.reuse, UR4, RZ ;\n        /*0120*/                   IMAD.WIDE R12, R13, R20.reuse, c[0x0][0x168] ;\n        /*0130*/                   LDG.E.128.CONSTANT R8, [R8.64] ;\n        /*0140*/                   IMAD.WIDE R16, R17, R20, c[0x0][0x168] ;\n        /*0150*/                   LDG.E.128.CONSTANT R12, [R12.64] ;\n        /*0160*/                   LDG.E.128.CONSTANT R16, [R16.64] ;\n        /*0170*/                   FADD R22, RZ, R7 ;\n        /*0180*/                   FADD R21, RZ, R4 ;\n        /*0190*/                   FADD R7, RZ, R6 ;\n        /*01a0*/                   FADD R6, RZ, R5 ;\n        /*01b0*/                   LEA.HI R5, R0, R3, RZ, 0x1e ;\n        /*01c0*/                   FADD R21, R21, R8 ;\n        /*01d0*/                   IADD3 R3, R3, c[0x0][0x0], RZ ;\n        /*01e0*/                   FADD R22, R22, R11 ;\n        /*01f0*/                   FADD R7, R7, R10 ;\n        /*0200*/                   ISETP.GE.AND P0, PT, R3, UR4, PT ;\n        /*0210*/                   FADD R6, R6, R9 ;\n        /*0220*/                   FADD R21, R21, R12 ;\n        /*0230*/                   FADD R22, R22, R15 ;\n        /*0240*/                   FADD R7, R7, R14 ;\n        /*0250*/                   FADD R6, R6, R13 ;\n        /*0260*/                   FADD R16, R21, R16 ;\n        /*0270*/                   FADD R19, R22, R19 ;\n        /*0280*/                   FADD R18, R7, R18 ;\n        /*0290*/                   FADD R17, R6, R17 ;\n        /*02a0*/                   IMAD.WIDE R20, R5, R20, c[0x0][0x160] ;\n        /*02b0*/                   STG.E.128 [R20.64], R16 ;\n        /*02c0*/              @!P0 BRA `(.L_x_6) ;\n        /*02d0*/                   EXIT ;\n.L_x_7:\n        /*02e0*/                   BRA `(.L_x_7);\n        /*02f0*/                   NOP;\n        /*0300*/                   NOP;\n        /*0310*/                   NOP;\n        /*0320*/                   NOP;\n        /*0330*/                   NOP;\n        /*0340*/                   NOP;\n        /*0350*/                   NOP;\n        /*0360*/                   NOP;\n        /*0370*/                   NOP;\n.L_x_15:"
+        },
+        "sm_86": {
+          "_Z19moe_sum_kernel_vec4ILi4EEvPfPKfi": "//--------------------- .text._Z19moe_sum_kernel_vec4ILi4EEvPfPKfi --------------------------\n\t.section\t.text._Z19moe_sum_kernel_vec4ILi4EEvPfPKfi,\"ax\",@progbits\n\t.sectioninfo\t@\"SHI_REGISTERS=25\"\n\t.align\t128\n.text._Z19moe_sum_kernel_vec4ILi4EEvPfPKfi:\n        .weak           _Z19moe_sum_kernel_vec4ILi4EEvPfPKfi\n        .type           _Z19moe_sum_kernel_vec4ILi4EEvPfPKfi,@function\n        .size           _Z19moe_sum_kernel_vec4ILi4EEvPfPKfi,(.L_x_15 - _Z19moe_sum_kernel_vec4ILi4EEvPfPKfi)\n        .other          _Z19moe_sum_kernel_vec4ILi4EEvPfPKfi,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z19moe_sum_kernel_vec4ILi4EEvPfPKfi:\n        /*0000*/                   MOV R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R3, SR_TID.X ;\n        /*0020*/                   ULDC UR4, c[0x0][0x170] ;\n        /*0030*/                   USHF.R.S32.HI UR4, URZ, 0x2, UR4 ;\n        /*0040*/                   ISETP.GE.AND P0, PT, R3, UR4, PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   S2R R0, SR_CTAID.X ;\n        /*0070*/                   ULDC.64 UR6, c[0x0][0x118] ;\n        /*0080*/                   IMAD R0, R0, c[0x0][0x170], RZ ;\n        /*0090*/                   LOP3.LUT R2, R0, 0x3fffffff, RZ, 0xc0, !PT ;\n.L_x_6:\n        /*00a0*/                   IADD3 R5, R2, R3, RZ ;\n        /*00b0*/                   MOV R20, 0x10 ;\n        /*00c0*/                   IADD3 R9, R5, UR4, RZ ;\n        /*00d0*/                   IMAD.WIDE R4, R5, R20, c[0x0][0x168] ;\n        /*00e0*/                   IADD3 R13, R9, UR4, RZ ;\n        /*00f0*/                   IMAD.WIDE R8, R9, R20.reuse, c[0x0][0x168] ;\n        /*0100*/                   LDG.E.128.CONSTANT R4, [R4.64] ;\n        /*0110*/                   IADD3 R17, R13.reuse, UR4, RZ ;\n        /*0120*/                   IMAD.WIDE R12, R13, R20.reuse, c[0x0][0x168] ;\n        /*0130*/                   LDG.E.128.CONSTANT R8, [R8.64] ;\n        /*0140*/                   IMAD.WIDE R16, R17, R20.reuse, c[0x0][0x168] ;\n        /*0150*/                   LDG.E.128.CONSTANT R12, [R12.64] ;\n        /*0160*/                   LDG.E.128.CONSTANT R16, [R16.64] ;\n        /*0170*/                   FADD R22, RZ, R7 ;\n        /*0180*/                   FADD R21, RZ, R4 ;\n        /*0190*/                   FADD R7, RZ, R6 ;\n        /*01a0*/                   FADD R6, RZ, R5 ;\n        /*01b0*/                   FADD R22, R22, R11 ;\n        /*01c0*/                   FADD R21, R21, R8 ;\n        /*01d0*/                   FADD R7, R7, R10 ;\n        /*01e0*/                   FADD R6, R6, R9 ;\n        /*01f0*/                   LEA.HI R5, R0, R3, RZ, 0x1e ;\n        /*0200*/                   FADD R21, R21, R12 ;\n        /*0210*/                   FADD R22, R22, R15 ;\n        /*0220*/                   FADD R7, R7, R14 ;\n        /*0230*/                   FADD R6, R6, R13 ;\n        /*0240*/                   FADD R16, R21, R16 ;\n        /*0250*/                   FADD R19, R22, R19 ;\n        /*0260*/                   FADD R18, R7, R18 ;\n        /*0270*/                   FADD R17, R6, R17 ;\n        /*0280*/                   IMAD.WIDE R20, R5, R20, c[0x0][0x160] ;\n        /*0290*/                   IADD3 R3, R3, c[0x0][0x0], RZ ;\n        /*02a0*/                   STG.E.128 [R20.64], R16 ;\n        /*02b0*/                   ISETP.GE.AND P0, PT, R3, UR4, PT ;\n        /*02c0*/              @!P0 BRA `(.L_x_6) ;\n        /*02d0*/                   EXIT ;\n.L_x_7:\n        /*02e0*/                   BRA `(.L_x_7);\n        /*02f0*/                   NOP;\n        /*0300*/                   NOP;\n        /*0310*/                   NOP;\n        /*0320*/                   NOP;\n        /*0330*/                   NOP;\n        /*0340*/                   NOP;\n        /*0350*/                   NOP;\n        /*0360*/                   NOP;\n        /*0370*/                   NOP;\n.L_x_15:"
+        },
+        "sm_90": {
+          "_Z19moe_sum_kernel_vec4ILi4EEvPfPKfi": "//--------------------- .text._Z19moe_sum_kernel_vec4ILi4EEvPfPKfi --------------------------\n\t.section\t.text._Z19moe_sum_kernel_vec4ILi4EEvPfPKfi,\"ax\",@progbits\n\t.align\t128\n.text._Z19moe_sum_kernel_vec4ILi4EEvPfPKfi:\n        .weak           _Z19moe_sum_kernel_vec4ILi4EEvPfPKfi\n        .type           _Z19moe_sum_kernel_vec4ILi4EEvPfPKfi,@function\n        .size           _Z19moe_sum_kernel_vec4ILi4EEvPfPKfi,(.L_x_15 - _Z19moe_sum_kernel_vec4ILi4EEvPfPKfi)\n        .other          _Z19moe_sum_kernel_vec4ILi4EEvPfPKfi,@\"STO_CUDA_ENTRY STV_DEFAULT\"\n_Z19moe_sum_kernel_vec4ILi4EEvPfPKfi:\n        /*0000*/                   LDC R1, c[0x0][0x28] ;\n        /*0010*/                   S2R R23, SR_TID.X ;\n        /*0020*/                   ULDC UR5, c[0x0][0x220] ;\n        /*0030*/                   USHF.R.S32.HI UR4, URZ, 0x2, UR5 ;\n        /*0040*/                   ISETP.GE.AND P0, PT, R23, UR4, PT ;\n        /*0050*/               @P0 EXIT ;\n        /*0060*/                   S2R R0, SR_CTAID.X ;\n        /*0070*/                   LDC.64 R2, c[0x0][0x218] ;\n        /*0080*/                   ULDC.64 UR6, c[0x0][0x208] ;\n        /*0090*/                   LDC.64 R20, c[0x0][0x210] ;\n        /*00a0*/                   IMAD R0, R0, UR5, RZ ;\n        /*00b0*/                   ULDC UR5, c[0x0][0x0] ;\n        /*00c0*/                   LOP3.LUT R22, R0, 0x3fffffff, RZ, 0xc0, !PT ;\n.L_x_6:\n        /*00d0*/                   IADD3 R5, R22, R23, RZ ;\n        /*00e0*/                   IADD3 R9, R5.reuse, UR4, RZ ;\n        /*00f0*/                   IMAD.WIDE R4, R5, 0x10, R2 ;\n        /*0100*/                   IADD3 R13, R9.reuse, UR4, RZ ;\n        /*0110*/                   IMAD.WIDE R8, R9, 0x10, R2.reuse ;\n        /*0120*/                   LDG.E.128.CONSTANT R4, desc[UR6][R4.64] ;\n        /*0130*/                   IADD3 R17, R13.reuse, UR4, RZ ;\n        /*0140*/                   IMAD.WIDE R12, R13, 0x10, R2.reuse ;\n        /*0150*/                   LDG.E.128.CONSTANT R8, desc[UR6][R8.64] ;\n        /*0160*/                   IMAD.WIDE R16, R17, 0x10, R2 ;\n        /*0170*/                   LDG.E.128.CONSTANT R12, desc[UR6][R12.64] ;\n        /*0180*/                   LDG.E.128.CONSTANT R16, desc[UR6][R16.64] ;\n        /*0190*/                   FADD R24, RZ, R7 ;\n        /*01a0*/                   FADD R7, RZ, R6 ;\n        /*01b0*/                   FADD R25, RZ, R4 ;\n        /*01c0*/                   FADD R6, RZ, R5 ;\n        /*01d0*/                   FADD R24, R24, R11 ;\n        /*01e0*/                   FADD R7, R7, R10 ;\n        /*01f0*/                   FADD R25, R25, R8 ;\n        /*0200*/                   FADD R6, R6, R9 ;\n        /*0210*/                   LEA.HI R5, R0, R23, RZ, 0x1e ;\n        /*0220*/                   FADD R24, R24, R15 ;\n        /*0230*/                   FADD R25, R25, R12 ;\n        /*0240*/                   FADD R7, R7, R14 ;\n        /*0250*/                   FADD R6, R6, R13 ;\n        /*0260*/                   FADD R19, R24, R19 ;\n        /*0270*/                   FADD R16, R25, R16 ;\n        /*0280*/                   FADD R18, R7, R18 ;\n        /*0290*/                   FADD R17, R6, R17 ;\n        /*02a0*/                   IMAD.WIDE R4, R5, 0x10, R20 ;\n        /*02b0*/                   IADD3 R23, R23, UR5, RZ ;\n        /*02c0*/                   STG.E.128 desc[UR6][R4.64], R16 ;\n        /*02d0*/                   ISETP.GE.AND P0, PT, R23, UR4, PT ;\n        /*02e0*/              @!P0 BRA `(.L_x_6) ;\n        /*02f0*/                   EXIT ;\n.L_x_7:\n        /*0300*/                   BRA `(.L_x_7);\n        /*0310*/                   NOP;\n        /*0320*/                   NOP;\n        /*0330*/                   NOP;\n        /*0340*/                   NOP;\n        /*0350*/                   NOP;\n        /*0360*/                   NOP;\n        /*0370*/                   NOP;\n        /*0380*/                   NOP;\n        /*0390*/                   NOP;\n        /*03a0*/                   NOP;\n        /*03b0*/                   NOP;\n        /*03c0*/                   NOP;\n        /*03d0*/                   NOP;\n        /*03e0*/                   NOP;\n        /*03f0*/                   NOP;\n.L_x_15:"
+        }
+      }
+    }
+  }
+}
