@@ -330,21 +330,22 @@
   }
 
   function renderModelCoverage(modelMatrix) {
+    const focusedModels = modelMatrix.filter((entry) => ["cuda", "omp"].includes(entry.model));
     renderPlot(
       modelCoverageNode,
       [
         {
           type: "bar",
           name: "declared sources",
-          x: modelMatrix.map((entry) => entry.model.toUpperCase()),
-          y: modelMatrix.map((entry) => entry.available),
-          marker: { color: modelMatrix.map((entry) => COLORS[entry.model] || "#90b7ff") },
+          x: focusedModels.map((entry) => entry.model.toUpperCase()),
+          y: focusedModels.map((entry) => entry.available),
+          marker: { color: focusedModels.map((entry) => COLORS[entry.model] || "#90b7ff") },
         },
         {
           type: "bar",
           name: "profiled sources",
-          x: modelMatrix.map((entry) => entry.model.toUpperCase()),
-          y: modelMatrix.map((entry) => entry.profiled),
+          x: focusedModels.map((entry) => entry.model.toUpperCase()),
+          y: focusedModels.map((entry) => entry.profiled),
           marker: { color: "rgba(255, 156, 91, 0.84)" },
         },
       ],
