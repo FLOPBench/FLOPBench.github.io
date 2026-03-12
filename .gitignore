@@ -1,3 +1,4 @@
 FLOPBench_site_bundles_*.zip
 FLOPBench_site_bundles_*/
-
+__pycache__/
+*.pyc
