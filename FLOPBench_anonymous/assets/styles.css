@@ -1072,6 +1072,17 @@ td span {
     flex-direction: column;
   }
 
+  .nav-links {
+    width: 100%;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+
+  .nav-links a {
+    white-space: nowrap;
+  }
+
   .metric-grid {
     grid-template-columns: 1fr;
   }
@@ -1102,8 +1113,38 @@ td span {
     font-size: 42px;
   }
 
+  .hero-actions {
+    width: 100%;
+  }
+
+  .hero-actions .button {
+    flex: 1 1 100%;
+  }
+
   .chart {
     min-height: 340px;
+  }
+
+  .control-row {
+    gap: 10px;
+  }
+
+  .field {
+    min-width: 100%;
+  }
+
+  .table-scroll {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  th,
+  td {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  th {
+    font-size: 10px;
   }
 
   .explorer-kernel-head {
@@ -1112,6 +1153,7 @@ td span {
 
   .explorer-code-block {
     min-height: 320px;
+    font-size: 11px;
   }
 
   .footer {
