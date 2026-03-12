@@ -353,7 +353,7 @@ def build_perf_data(dataset: dict, metadata: dict, category_map: dict[str, str])
                     "model_type": model_type,
                     "device": device,
                     "kernel": kernel_name,
-                    "kernel_demangled": demangled_kernel if model_type != "omp" else kernel_name,
+                    "kernel_demangled": demangled_kernel,
                     "block_size": block_size,
                     "grid_size": grid_size,
                     "exe_args": exe_args,
