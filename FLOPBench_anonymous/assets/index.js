@@ -62,6 +62,13 @@
     return [...new Set(values.filter(Boolean))].sort((left, right) => left.localeCompare(right));
   }
 
+  function shortenLabel(value, maxLength) {
+    if (!value || value.length <= maxLength) {
+      return value;
+    }
+    return `${value.slice(0, maxLength - 3)}...`;
+  }
+
   function refillSelect(node, values, allLabel) {
     const current = node.value;
     node.innerHTML = "";
@@ -527,16 +534,15 @@
         name: device,
         x: deviceRows.map((row) => row.arithmetic_intensity),
         y: deviceRows.map((row) => row.performance_tflops),
-        text: deviceRows.map((row) => `${row.source}<br>${row.kernel_demangled || row.kernel}`),
-        customdata: deviceRows.map((row) => [row.category, row.model_type, row.dominant_precision, row.xtime_ns]),
+        text: deviceRows.map((row) => `${row.source}<br>${shortenLabel(row.kernel_demangled || row.kernel, 96)}`),
+        customdata: deviceRows.map((row) => [row.model_type, row.dominant_precision, row.xtime_ns]),
         hovertemplate:
           "<b>%{text}</b><br>" +
-          "category=%{customdata[0]}<br>" +
-          "model=%{customdata[1]}<br>" +
-          "dominant precision=%{customdata[2]}<br>" +
+          "model=%{customdata[0]}<br>" +
+          "dominant precision=%{customdata[1]}<br>" +
           "AI=%{x:.4f}<br>" +
           "performance=%{y:.4f} TFLOP/s<br>" +
-          "time=%{customdata[3]:.2f} ns<extra></extra>",
+          "time=%{customdata[2]:.2f} ns<extra></extra>",
         marker: {
           size: 8,
           opacity: 0.72,
