@@ -574,7 +574,7 @@
         name: device,
         x: deviceRows.map((row) => row.arithmetic_intensity),
         y: deviceRows.map((row) => row.performance_tflops),
-        text: deviceRows.map((row) => `${row.source}<br>${shortenLabel(row.kernel_demangled || row.kernel, 96)}`),
+        text: deviceRows.map((row) => `${row.source}<br>${shortenLabel(row.kernel_demangled || row.kernel, 52)}`),
         customdata: deviceRows.map((row) => [row.model_type, row.dominant_precision, row.xtime_ns]),
         hovertemplate:
           "<b>%{text}</b><br>" +
