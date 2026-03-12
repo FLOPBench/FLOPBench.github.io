@@ -22,7 +22,7 @@
 
   const heroMetricsNode = document.getElementById("heroMetrics");
   const benchmarkSurfaceGridNode = document.getElementById("benchmarkSurfaceGrid");
-  const deviceCardsNode = document.getElementById("deviceCards");
+  const deviceTableBody = document.getElementById("deviceTableBody");
   const downloadsGridNode = document.getElementById("downloadsGrid");
   const peakPerfListNode = document.getElementById("peakPerfList");
   const aiDenseListNode = document.getElementById("aiDenseList");
@@ -192,25 +192,25 @@
     });
   }
 
-  function renderDeviceCards(devices) {
+  function renderDeviceTable(devices) {
+    deviceTableBody.innerHTML = "";
     devices.forEach((device) => {
-      const card = document.createElement("article");
-      card.className = "device-card";
-      card.innerHTML = `
-        <span class="tag">${device.device}</span>
-        <h3>${device.label}</h3>
-        <p>${device.architecture}, compute capability ${device.compute_capability}.</p>
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>
+          <strong>${device.label}</strong>
+          <span>${device.full_name}</span>
+        </td>
+        <td>${device.architecture}</td>
+        <td class="mono">${device.compute_capability}</td>
+        <td class="mono">${formatNumber(device.memory_bandwidth_gbps, 0)}</td>
+        <td class="mono">${formatNumber(device.peak_fp16_tflops, 2)}</td>
+        <td class="mono">${formatNumber(device.peak_fp32_tflops, 2)}</td>
+        <td class="mono">${formatNumber(device.peak_fp64_tflops, 3)}</td>
+        <td class="mono">${formatNumber(device.sources, 0)}</td>
+        <td class="mono">${formatNumber(device.kernels, 0)}</td>
       `;
-      const metrics = document.createElement("div");
-      metrics.className = "inline-metrics";
-      metrics.append(
-        inlineMetric("sources", device.sources, 0),
-        inlineMetric("kernels", device.kernels, 0),
-        inlineMetric("bandwidth (GB/s)", device.memory_bandwidth_gbps, 0),
-        inlineMetric("peak fp32", device.peak_fp32_tflops, 2)
-      );
-      card.appendChild(metrics);
-      deviceCardsNode.appendChild(card);
+      deviceTableBody.appendChild(tr);
     });
   }
 
@@ -875,7 +875,7 @@
   function init() {
     renderHeroMetrics(meta.hero.headline_metrics);
     renderBenchmarkSurfaces();
-    renderDeviceCards(meta.device_summary);
+    renderDeviceTable(meta.device_summary);
     renderDownloads(meta.downloads);
     renderTopList(peakPerfListNode, "Performance leaders", meta.top_lists.performance_sources);
     renderTopList(aiDenseListNode, "AI-dense leaders", meta.top_lists.ai_dense_sources);

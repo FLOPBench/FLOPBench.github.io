@@ -6,7 +6,7 @@
     <title>gpuFLOPBench</title>
     <meta
       name="description"
-      content="gpuFLOPBench is a standalone benchmark site for exploring benchmark inventory, multi-GPU profiling coverage, kernel-level rooflines, measured floating-point performance, and source-level exploration."
+      content="gpuFLOPBench is a research benchmark site for studying whether off-the-shelf LLMs can act as GPU Roofline triage tools through arithmetic-intensity prediction."
     >
     <link rel="stylesheet" href="./assets/styles.css">
     <script src="./assets/plotly-2.32.0.min.js" defer></script>
@@ -25,6 +25,7 @@
           </div>
         </a>
         <nav class="nav-links">
+          <a href="#research">Research</a>
           <a href="#benchmark">Benchmark</a>
           <a href="#coverage">Coverage</a>
           <a href="#performance">Performance</a>
@@ -37,31 +38,84 @@
 
     <main id="top">
       <section class="hero">
-        <div class="eyebrow">GPU benchmark</div>
+        <div class="eyebrow">Research project</div>
         <div class="hero-grid">
           <article class="hero-copy">
             <span class="tag">gpuFLOPBench</span>
             <h1>gpuFLOPBench</h1>
             <p>
-              A multi-GPU benchmark atlas for source binaries, kernel rooflines,
-              floating-point performance, and exact source-level exploration across the profiled corpus.
+              A benchmark and analysis site for studying whether off-the-shelf LLMs can provide Roofline-oriented
+              GPU triage by predicting profiler-derived arithmetic intensity before scarce accelerator time is available.
             </p>
             <div class="hero-actions">
-              <a class="button primary" href="#performance">Explore performance</a>
+              <a class="button primary" href="#research">Read motivation</a>
+              <a class="button secondary" href="#performance">Explore performance</a>
               <a class="button secondary" href="#explorer">Open explorer</a>
-              <a class="button secondary" href="#downloads">Get the data</a>
             </div>
           </article>
           <div class="metric-grid" id="heroMetrics" data-fallback="hero metrics"></div>
         </div>
         <article class="hero-notes">
-          <h2>What the benchmark shows</h2>
+          <h2>Why this project exists</h2>
           <ul>
-            <li><strong>Scale.</strong> Hundreds of benchmark source binaries and thousands of kernel-device observations.</li>
-            <li><strong>Hardware spread.</strong> Direct comparison across RTX 3080, A10, A100, and H100 GPUs.</li>
-            <li><strong>Measured rooflines.</strong> Floating-point arithmetic intensity and FLOP/xtime performance in one public-facing benchmark view.</li>
+            <li><strong>Motivation.</strong> Profiler-driven GPU optimization breaks down when target hardware is unavailable, rationed, or too costly for early-stage triage.</li>
+            <li><strong>Signal.</strong> Arithmetic intensity gives an interpretable Roofline quantity for deciding whether effort should focus on memory traffic or computation.</li>
+            <li><strong>Goal.</strong> The site exposes the corpus used to test whether prompting alone is enough for modern LLMs to approximate that signal across multiple GPUs.</li>
           </ul>
         </article>
+      </section>
+
+      <section class="section" id="research">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Research framing</div>
+            <h2>Motivation, key question, and the questions that drive the study.</h2>
+            <p>
+              The project studies whether a smaller, interpretable performance signal can guide GPU optimization before
+              full profiler feedback is available. It positions arithmetic intensity as an early triage quantity rather
+              than a replacement for hardware profiling.
+            </p>
+          </div>
+        </div>
+        <div class="paper-grid" data-fallback="research framing">
+          <article class="paper-card">
+            <em>motivation</em>
+            <h3>Profiler-driven optimization does not scale to every iteration.</h3>
+            <p>
+              Typical LLM-based GPU optimization loops depend on repeated execution and profiling of candidate variants.
+              That coupling makes optimization quality dependent on accelerator availability, which is often the scarcest
+              resource during early kernel triage.
+            </p>
+          </article>
+          <article class="paper-card">
+            <em>key question</em>
+            <h3>Can prompting alone recover a useful Roofline signal?</h3>
+            <p>
+              The central question is whether off-the-shelf state-of-the-art LLMs, without task-specific training or
+              fine-tuning, can act as GPU Roofline triage tools by predicting a kernel's arithmetic intensity.
+            </p>
+          </article>
+          <article class="paper-card">
+            <em>research questions</em>
+            <h3>Four questions structure the evaluation.</h3>
+            <ul class="note-list research-list">
+              <li><strong>RQ1.</strong> Can LLMs predict arithmetic intensity well across multiple GPU architectures?</li>
+              <li><strong>RQ2.</strong> Does agentic prompting outperform zero-shot prompting for this task?</li>
+              <li><strong>RQ3.</strong> Which source-code features lead to larger prediction errors?</li>
+              <li><strong>RQ4.</strong> Do post-compilation SASS artifacts improve prediction quality?</li>
+            </ul>
+          </article>
+          <article class="paper-card">
+            <em>contributions</em>
+            <h3>What the study contributes.</h3>
+            <ul class="note-list research-list">
+              <li><strong>Zero-training test.</strong> It evaluates whether prompting alone can estimate profiler-derived arithmetic intensity across multiple GPU targets.</li>
+              <li><strong>Prompting tradeoff.</strong> It compares zero-shot and agentic prompting to determine when extra reasoning cost is worthwhile.</li>
+              <li><strong>Artifact value.</strong> It measures how much SASS helps when source-only reasoning misses compiler-realized behavior.</li>
+              <li><strong>Triage framing.</strong> It positions LLM-based static profiling as a complement to, not a substitute for, hardware profilers.</li>
+            </ul>
+          </article>
+        </div>
       </section>
 
       <section class="section" id="benchmark">
@@ -109,7 +163,26 @@
             <div class="chart small" id="categoryCoverageChart" data-fallback="category coverage"></div>
           </article>
         </div>
-        <div class="device-card-grid" id="deviceCards" style="margin-top: 18px;" data-fallback="device cards"></div>
+        <div class="table-shell" style="margin-top: 18px;">
+          <div class="table-scroll short-scroll">
+            <table class="device-summary-table">
+              <thead>
+                <tr>
+                  <th>GPU</th>
+                  <th>architecture</th>
+                  <th>CC</th>
+                  <th>bandwidth (GB/s)</th>
+                  <th>peak FP16</th>
+                  <th>peak FP32</th>
+                  <th>peak FP64</th>
+                  <th>sources</th>
+                  <th>kernels</th>
+                </tr>
+              </thead>
+              <tbody id="deviceTableBody"></tbody>
+            </table>
+          </div>
+        </div>
       </section>
 
       <section class="section" id="performance">

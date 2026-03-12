@@ -411,7 +411,6 @@ main {
 .downloads-grid,
 .top-grid,
 .team-grid,
-.device-card-grid,
 .paper-grid {
   display: grid;
   gap: 18px;
@@ -424,7 +423,6 @@ main {
 }
 
 .downloads-grid,
-.device-card-grid,
 .team-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
@@ -440,7 +438,6 @@ main {
 .status-card,
 .download-card,
 .top-card,
-.device-card,
 .paper-card {
   padding: 18px;
   border: 1px solid var(--border);
@@ -489,7 +486,6 @@ main {
 .status-card h3,
 .download-card h3,
 .top-card h3,
-.device-card h3,
 .paper-card h3 {
   margin: 14px 0 10px;
   font-size: 18px;
@@ -498,7 +494,6 @@ main {
 .status-card p,
 .download-card p,
 .top-card p,
-.device-card p,
 .paper-card p {
   margin: 0;
   color: var(--muted);
@@ -516,6 +511,26 @@ main {
 
 .download-actions {
   margin-top: 16px;
+}
+
+.research-list {
+  margin-top: 12px;
+}
+
+.research-list li {
+  padding: 12px 14px;
+  border: 1px solid rgba(145, 183, 255, 0.1);
+  border-radius: var(--radius-md);
+  background: rgba(145, 183, 255, 0.04);
+}
+
+.device-summary-table td:first-child strong {
+  margin-bottom: 4px;
+}
+
+.device-summary-table td:first-child span {
+  display: block;
+  max-width: 220px;
 }
 
 .reading-guide {
@@ -1005,7 +1020,6 @@ td span {
   .status-grid,
   .downloads-grid,
   .team-grid,
-  .device-card-grid,
   .paper-grid,
   .top-grid {
     grid-template-columns: 1fr;
@@ -1086,7 +1100,6 @@ td span {
   .status-card,
   .download-card,
   .top-card,
-  .device-card,
   .paper-card {
     padding: 18px;
   }
