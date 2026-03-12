@@ -316,10 +316,11 @@ def build_perf_data(dataset: dict, metadata: dict, category_map: dict[str, str])
         exe_args = payload.get("exeArgs", "")
 
         for kernel_symbol, kernel_payload in payload.get("kernels", {}).items():
+            demangled_kernel = str(kernel_payload.get("demangledName") or kernel_symbol)
             kernel_name = normalize_display_kernel(
                 model_type,
                 kernel_symbol,
-                str(kernel_payload.get("demangledName", "")),
+                demangled_kernel,
             )
             block_size = kernel_payload.get("blockSz")
             grid_size = kernel_payload.get("gridSz")
@@ -352,6 +353,7 @@ def build_perf_data(dataset: dict, metadata: dict, category_map: dict[str, str])
                     "model_type": model_type,
                     "device": device,
                     "kernel": kernel_name,
+                    "kernel_demangled": demangled_kernel if model_type != "omp" else kernel_name,
                     "block_size": block_size,
                     "grid_size": grid_size,
                     "exe_args": exe_args,

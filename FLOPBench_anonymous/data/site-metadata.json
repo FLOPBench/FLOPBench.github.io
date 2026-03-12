@@ -130,7 +130,7 @@
     "category_source": "source-data/HeCBench/README.md"
   },
   "audit": {
-    "generated_at": "2026-03-12T18:50:30.780750+00:00",
+    "generated_at": "2026-03-12T19:05:26.000944+00:00",
     "dataset_source": "source-data/gpuFLOPBench.json.gz",
     "category_source": "source-data/HeCBench/README.md",
     "categorized_benchmarks": 484
@@ -982,7 +982,7 @@
       "label": "Kernel summary JSON",
       "path": "data/kernel-performance.json",
       "href": "./data/kernel-performance.json",
-      "size_bytes": 4095830
+      "size_bytes": 4769444
     },
     {
       "label": "Structured benchmark dataset JSON.gz",

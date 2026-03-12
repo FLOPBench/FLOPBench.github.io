@@ -416,12 +416,15 @@
   }
 
   function matchesRooflineFilters(row) {
+    const selectedPrecision = rooflinePrecision.value;
+    const kernelLabel = row.kernel_demangled || row.kernel;
     const matchesDevice = rooflineDevice.value === "all" || row.device === rooflineDevice.value;
     const matchesModel = rooflineModel.value === "all" || row.model_type === rooflineModel.value;
     const matchesProgram = rooflineProgram.value === "all" || row.benchmark === rooflineProgram.value;
     const matchesCategory = rooflineCategory.value === "all" || row.category === rooflineCategory.value;
-    const matchesKernel = rooflineKernel.value === "all" || row.kernel === rooflineKernel.value;
-    return matchesDevice && matchesModel && matchesProgram && matchesCategory && matchesKernel;
+    const matchesKernel = rooflineKernel.value === "all" || kernelLabel === rooflineKernel.value;
+    const matchesPrecision = row.dominant_precision === selectedPrecision;
+    return matchesDevice && matchesModel && matchesProgram && matchesCategory && matchesKernel && matchesPrecision;
   }
 
   function filteredKernelRows(rows) {
@@ -433,13 +436,14 @@
       const matchesDevice = rooflineDevice.value === "all" || row.device === rooflineDevice.value;
       const matchesModel = rooflineModel.value === "all" || row.model_type === rooflineModel.value;
       const matchesCategory = rooflineCategory.value === "all" || row.category === rooflineCategory.value;
-      return matchesDevice && matchesModel && matchesCategory;
+      const matchesPrecision = row.dominant_precision === rooflinePrecision.value;
+      return matchesDevice && matchesModel && matchesCategory && matchesPrecision;
     });
 
     refillSelect(rooflineProgram, uniqueSorted(baseRows.map((row) => row.benchmark)), "all programs");
 
     const programRows = baseRows.filter((row) => rooflineProgram.value === "all" || row.benchmark === rooflineProgram.value);
-    refillSelect(rooflineKernel, uniqueSorted(programRows.map((row) => row.kernel)), "all kernels");
+    refillSelect(rooflineKernel, uniqueSorted(programRows.map((row) => row.kernel_demangled || row.kernel)), "all kernels");
   }
 
   function renderRooflineDetails(rows) {
@@ -464,7 +468,7 @@
           <span>${row.category}</span>
         </td>
         <td>
-          <strong>${row.kernel}</strong>
+          <strong>${row.kernel_demangled || row.kernel}</strong>
           <span>block ${row.block_size || "n/a"} | grid ${row.grid_size || "n/a"}</span>
         </td>
         <td><span class="tag">${row.device}</span></td>
@@ -523,7 +527,7 @@
         name: device,
         x: deviceRows.map((row) => row.arithmetic_intensity),
         y: deviceRows.map((row) => row.performance_tflops),
-        text: deviceRows.map((row) => `${row.source}<br>${row.kernel}`),
+        text: deviceRows.map((row) => `${row.source}<br>${row.kernel_demangled || row.kernel}`),
         customdata: deviceRows.map((row) => [row.category, row.model_type, row.dominant_precision, row.xtime_ns]),
         hovertemplate:
           "<b>%{text}</b><br>" +
