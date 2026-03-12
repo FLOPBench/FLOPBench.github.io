@@ -356,16 +356,10 @@ main {
 
 .performance-grid {
   display: grid;
-  grid-template-columns: minmax(320px, 0.9fr) minmax(0, 1.35fr);
+  grid-template-columns: minmax(0, 1fr);
   gap: 20px;
   align-items: start;
   margin-bottom: 12px;
-}
-
-.performance-side-stack {
-  display: grid;
-  gap: 20px;
-  align-content: start;
 }
 
 .section-head-tight {
