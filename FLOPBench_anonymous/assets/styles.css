@@ -891,16 +891,19 @@ main {
   grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.85fr);
   gap: 18px;
   margin-top: 18px;
+  min-width: 0;
 }
 
 .explorer-pane {
   padding: 20px;
+  min-width: 0;
 }
 
 .explorer-code-block {
   min-height: 420px;
   max-height: 720px;
   overflow: auto;
+  max-width: 100%;
   margin: 0;
   padding: 18px;
   border-radius: var(--radius-md);
@@ -914,6 +917,7 @@ main {
 
 .explorer-imix-shell {
   margin-top: 6px;
+  min-width: 0;
 }
 
 .table-row-selectable {
@@ -1154,6 +1158,8 @@ td span {
   .explorer-code-block {
     min-height: 320px;
     font-size: 11px;
+    white-space: pre-wrap;
+    word-break: break-word;
   }
 
   .footer {
