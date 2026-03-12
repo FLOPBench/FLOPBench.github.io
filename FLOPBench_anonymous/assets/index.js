@@ -351,6 +351,17 @@
     return rows.filter(matchesRooflineFilters);
   }
 
+  function filteredRooflineContextRows(rows) {
+    return rows.filter((row) => {
+      const matchesDevice = rooflineDevice.value === "all" || row.device === rooflineDevice.value;
+      const matchesModel = rooflineModel.value === "all" || row.model_type === rooflineModel.value;
+      const matchesProgram = rooflineProgram.value === "all" || row.benchmark === rooflineProgram.value;
+      const matchesCategory = rooflineCategory.value === "all" || row.category === rooflineCategory.value;
+      const matchesPrecision = row.dominant_precision === rooflinePrecision.value;
+      return matchesDevice && matchesModel && matchesProgram && matchesCategory && matchesPrecision;
+    });
+  }
+
   function syncRooflineFilters() {
     const baseRows = kernelRows.filter((row) => {
       const matchesDevice = rooflineDevice.value === "all" || row.device === rooflineDevice.value;
@@ -406,6 +417,9 @@
   function renderRoofline(rows) {
     const exactRows = filteredKernelRows(rows);
     const subset = exactRows.filter((row) => Number(row.arithmetic_intensity) > 0 && Number(row.performance_tflops) > 0);
+    const contextRows = filteredRooflineContextRows(rows).filter(
+      (row) => Number(row.arithmetic_intensity) > 0 && Number(row.performance_tflops) > 0
+    );
     renderRooflineDetails(rows);
 
     if (!subset.length) {
@@ -415,7 +429,7 @@
     }
 
     const selectedPrecision = rooflinePrecision.value;
-    const range = buildRooflineRange(subset);
+    const range = buildRooflineRange(contextRows.length ? contextRows : subset);
     const roofSpecs = meta.roofline_specs.filter((spec) => rooflineDevice.value === "all" || spec.device === rooflineDevice.value);
     const xSeries = buildLogSeries(range.min, range.max, 60);
 
