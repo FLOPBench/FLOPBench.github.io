@@ -2,30 +2,37 @@
   "hero": {
     "headline_metrics": [
       {
-        "label": "benchmark entries",
-        "value": 505
+        "label": "paper kernels",
+        "value": 254
       },
       {
         "label": "GPUs covered",
         "value": 4
       },
       {
-        "label": "profiled binaries",
-        "value": 623
+        "label": "LLM samples",
+        "value": 5766
       },
       {
         "label": "kernel-device rows",
-        "value": 6320
+        "value": 1016
       }
     ],
-    "subhead": "gpuFLOPBench is a multi-GPU benchmark atlas for floating-point rooflines, source-level coverage, and exact kernel exploration across the profiled corpus."
+    "subhead": "gpuFLOPBench is a reviewer-facing atlas for the 254 paper-study kernels, their measured Rooflines, and the source-only versus source+SASS LLM predictions."
+  },
+  "paper_subset": {
+    "kernel_count": 254,
+    "kernel_device_rows": 1016,
+    "selection": "completed paper models, source-only and source+SASS, no IMIX, shared across paper combinations",
+    "llm_sample_count": 5766,
+    "llm_prediction_row_count": 17298
   },
   "inventory": {
     "totals": {
       "benchmarks_yaml": 505,
-      "profiled_benchmarks": 369,
-      "profiled_sources": 623,
-      "categorized_profiled_benchmarks": 349
+      "profiled_benchmarks": 57,
+      "profiled_sources": 95,
+      "categorized_profiled_benchmarks": 53
     },
     "models_available": [
       {
@@ -130,7 +137,7 @@
     "category_source": "source-data/HeCBench/README.md"
   },
   "audit": {
-    "generated_at": "2026-03-12T20:08:56.547377+00:00",
+    "generated_at": "2026-05-07T17:40:35.980089+00:00",
     "dataset_source": "source-data/gpuFLOPBench.json.gz",
     "category_source": "source-data/HeCBench/README.md",
     "categorized_benchmarks": 484
@@ -146,24 +153,24 @@
       "peak_fp16_tflops": 30.55,
       "peak_fp32_tflops": 30.55,
       "peak_fp64_tflops": 0.477,
-      "rows": 1714,
-      "benchmarks": 362,
-      "sources": 607,
-      "kernels": 1320,
+      "rows": 254,
+      "benchmarks": 57,
+      "sources": 95,
+      "kernels": 212,
       "models": [
         {
           "model": "cuda",
-          "sources": 357
+          "sources": 56
         },
         {
           "model": "omp",
-          "sources": 250
+          "sources": 39
         }
       ],
-      "median_performance_tflops": 0.18406050000000002,
-      "p95_performance_tflops": 4.127116,
-      "median_arithmetic_intensity": 1.58371,
-      "median_xtime_ns": 202754.5
+      "median_performance_tflops": 0.231584,
+      "p95_performance_tflops": 6.281684,
+      "median_arithmetic_intensity": 2.564656,
+      "median_xtime_ns": 314507.0
     },
     {
       "device": "A10",
@@ -175,24 +182,24 @@
       "peak_fp16_tflops": 15.62,
       "peak_fp32_tflops": 15.62,
       "peak_fp64_tflops": 0.244,
-      "rows": 1565,
-      "benchmarks": 360,
-      "sources": 599,
-      "kernels": 1227,
+      "rows": 254,
+      "benchmarks": 57,
+      "sources": 95,
+      "kernels": 212,
       "models": [
         {
           "model": "cuda",
-          "sources": 353
+          "sources": 56
         },
         {
           "model": "omp",
-          "sources": 246
+          "sources": 39
         }
       ],
-      "median_performance_tflops": 0.122847,
-      "p95_performance_tflops": 2.461791,
-      "median_arithmetic_intensity": 1.211909,
-      "median_xtime_ns": 316203.0
+      "median_performance_tflops": 0.15056,
+      "p95_performance_tflops": 4.094747,
+      "median_arithmetic_intensity": 2.325848,
+      "median_xtime_ns": 462741.0
     },
     {
       "device": "A100",
@@ -204,24 +211,24 @@
       "peak_fp16_tflops": 77.97,
       "peak_fp32_tflops": 19.49,
       "peak_fp64_tflops": 9.75,
-      "rows": 1435,
-      "benchmarks": 362,
-      "sources": 610,
-      "kernels": 1164,
+      "rows": 254,
+      "benchmarks": 57,
+      "sources": 95,
+      "kernels": 212,
       "models": [
         {
           "model": "cuda",
-          "sources": 356
+          "sources": 56
         },
         {
           "model": "omp",
-          "sources": 254
+          "sources": 39
         }
       ],
-      "median_performance_tflops": 0.264514,
-      "p95_performance_tflops": 4.722625,
-      "median_arithmetic_intensity": 1.207537,
-      "median_xtime_ns": 168213.0
+      "median_performance_tflops": 0.268335,
+      "p95_performance_tflops": 5.955383,
+      "median_arithmetic_intensity": 1.529514,
+      "median_xtime_ns": 230309.5
     },
     {
       "device": "H100",
@@ -233,32 +240,32 @@
       "peak_fp16_tflops": 133.82,
       "peak_fp32_tflops": 66.91,
       "peak_fp64_tflops": 33.45,
-      "rows": 1606,
-      "benchmarks": 368,
-      "sources": 619,
-      "kernels": 1260,
+      "rows": 254,
+      "benchmarks": 57,
+      "sources": 95,
+      "kernels": 212,
       "models": [
         {
           "model": "cuda",
-          "sources": 363
+          "sources": 56
         },
         {
           "model": "omp",
-          "sources": 256
+          "sources": 39
         }
       ],
-      "median_performance_tflops": 0.35882400000000003,
-      "p95_performance_tflops": 10.084013,
-      "median_arithmetic_intensity": 1.1352165,
-      "median_xtime_ns": 96245.0
+      "median_performance_tflops": 0.28763099999999997,
+      "p95_performance_tflops": 14.082709,
+      "median_arithmetic_intensity": 2.236687,
+      "median_xtime_ns": 125760.0
     }
   ],
   "model_matrix": [
     {
       "model": "cuda",
       "available": 504,
-      "profiled": 364,
-      "profiled_ratio": 0.7222
+      "profiled": 56,
+      "profiled_ratio": 0.1111
     },
     {
       "model": "hip",
@@ -269,8 +276,8 @@
     {
       "model": "omp",
       "available": 326,
-      "profiled": 259,
-      "profiled_ratio": 0.7945
+      "profiled": 39,
+      "profiled_ratio": 0.1196
     },
     {
       "model": "sycl",
@@ -281,231 +288,148 @@
   ],
   "category_profiled": [
     {
-      "category": "Simulation",
-      "model_type": "cuda",
-      "profiled_sources": 80
-    },
-    {
-      "category": "Simulation",
-      "model_type": "omp",
-      "profiled_sources": 69
-    },
-    {
-      "category": "Machine learning",
-      "model_type": "cuda",
-      "profiled_sources": 62
-    },
-    {
-      "category": "Machine learning",
-      "model_type": "omp",
-      "profiled_sources": 41
-    },
-    {
-      "category": "Math",
-      "model_type": "cuda",
-      "profiled_sources": 40
-    },
-    {
-      "category": "Math",
-      "model_type": "omp",
-      "profiled_sources": 32
-    },
-    {
       "category": "Computer vision and image processing",
-      "model_type": "cuda",
-      "profiled_sources": 36
-    },
-    {
-      "category": "Computer vision and image processing",
-      "model_type": "omp",
-      "profiled_sources": 28
-    },
-    {
-      "category": "Language and kernel features",
-      "model_type": "cuda",
-      "profiled_sources": 34
-    },
-    {
-      "category": "Language and kernel features",
-      "model_type": "omp",
-      "profiled_sources": 14
-    },
-    {
-      "category": "Data compression and reduction",
-      "model_type": "cuda",
-      "profiled_sources": 28
-    },
-    {
-      "category": "Data compression and reduction",
-      "model_type": "omp",
-      "profiled_sources": 13
-    },
-    {
-      "category": "algorithms",
-      "model_type": "cuda",
-      "profiled_sources": 20
-    },
-    {
-      "category": "algorithms",
-      "model_type": "omp",
-      "profiled_sources": 12
-    },
-    {
-      "category": "Sorting",
-      "model_type": "cuda",
-      "profiled_sources": 10
-    },
-    {
-      "category": "Sorting",
-      "model_type": "omp",
-      "profiled_sources": 7
-    },
-    {
-      "category": "Data encoding, decoding, or verification",
       "model_type": "cuda",
       "profiled_sources": 9
     },
     {
+      "category": "Computer vision and image processing",
+      "model_type": "omp",
+      "profiled_sources": 8
+    },
+    {
+      "category": "Simulation",
+      "model_type": "cuda",
+      "profiled_sources": 8
+    },
+    {
+      "category": "Simulation",
+      "model_type": "omp",
+      "profiled_sources": 7
+    },
+    {
+      "category": "Machine learning",
+      "model_type": "cuda",
+      "profiled_sources": 9
+    },
+    {
+      "category": "Machine learning",
+      "model_type": "omp",
+      "profiled_sources": 5
+    },
+    {
+      "category": "Data compression and reduction",
+      "model_type": "cuda",
+      "profiled_sources": 8
+    },
+    {
+      "category": "Data compression and reduction",
+      "model_type": "omp",
+      "profiled_sources": 4
+    },
+    {
+      "category": "Language and kernel features",
+      "model_type": "cuda",
+      "profiled_sources": 5
+    },
+    {
+      "category": "Language and kernel features",
+      "model_type": "omp",
+      "profiled_sources": 3
+    },
+    {
+      "category": "Finance",
+      "model_type": "cuda",
+      "profiled_sources": 4
+    },
+    {
+      "category": "Finance",
+      "model_type": "omp",
+      "profiled_sources": 3
+    },
+    {
+      "category": "algorithms",
+      "model_type": "cuda",
+      "profiled_sources": 4
+    },
+    {
+      "category": "algorithms",
+      "model_type": "omp",
+      "profiled_sources": 2
+    },
+    {
+      "category": "Search",
+      "model_type": "cuda",
+      "profiled_sources": 2
+    },
+    {
+      "category": "Search",
+      "model_type": "omp",
+      "profiled_sources": 2
+    },
+    {
+      "category": "Bandwidth",
+      "model_type": "cuda",
+      "profiled_sources": 1
+    },
+    {
+      "category": "Bandwidth",
+      "model_type": "omp",
+      "profiled_sources": 1
+    },
+    {
+      "category": "Bioinformatics",
+      "model_type": "cuda",
+      "profiled_sources": 1
+    },
+    {
+      "category": "Bioinformatics",
+      "model_type": "omp",
+      "profiled_sources": 1
+    },
+    {
+      "category": "Geoscience",
+      "model_type": "cuda",
+      "profiled_sources": 1
+    },
+    {
+      "category": "Geoscience",
+      "model_type": "omp",
+      "profiled_sources": 1
+    },
+    {
+      "category": "Math",
+      "model_type": "cuda",
+      "profiled_sources": 1
+    },
+    {
+      "category": "Math",
+      "model_type": "omp",
+      "profiled_sources": 1
+    },
+    {
+      "category": "Sorting",
+      "model_type": "cuda",
+      "profiled_sources": 1
+    },
+    {
+      "category": "Sorting",
+      "model_type": "omp",
+      "profiled_sources": 1
+    },
+    {
+      "category": "Cryptography",
+      "model_type": "cuda",
+      "profiled_sources": 1
+    },
+    {
       "category": "Data encoding, decoding, or verification",
-      "model_type": "omp",
-      "profiled_sources": 7
-    },
-    {
-      "category": "Bioinformatics",
       "model_type": "cuda",
-      "profiled_sources": 7
-    },
-    {
-      "category": "Bioinformatics",
-      "model_type": "omp",
-      "profiled_sources": 5
-    },
-    {
-      "category": "Bandwidth",
-      "model_type": "cuda",
-      "profiled_sources": 6
-    },
-    {
-      "category": "Bandwidth",
-      "model_type": "omp",
-      "profiled_sources": 5
-    },
-    {
-      "category": "Cryptography",
-      "model_type": "cuda",
-      "profiled_sources": 6
-    },
-    {
-      "category": "Cryptography",
-      "model_type": "omp",
-      "profiled_sources": 4
-    },
-    {
-      "category": "Finance",
-      "model_type": "cuda",
-      "profiled_sources": 5
-    },
-    {
-      "category": "Finance",
-      "model_type": "omp",
-      "profiled_sources": 4
-    },
-    {
-      "category": "Signal processing",
-      "model_type": "cuda",
-      "profiled_sources": 5
-    },
-    {
-      "category": "Signal processing",
-      "model_type": "omp",
-      "profiled_sources": 4
-    },
-    {
-      "category": "Search",
-      "model_type": "cuda",
-      "profiled_sources": 4
-    },
-    {
-      "category": "Search",
-      "model_type": "omp",
-      "profiled_sources": 4
-    },
-    {
-      "category": "Graph and Tree",
-      "model_type": "cuda",
-      "profiled_sources": 4
-    },
-    {
-      "category": "Graph and Tree",
-      "model_type": "omp",
-      "profiled_sources": 3
-    },
-    {
-      "category": "Random number generation",
-      "model_type": "cuda",
-      "profiled_sources": 3
-    },
-    {
-      "category": "Random number generation",
-      "model_type": "omp",
-      "profiled_sources": 3
-    },
-    {
-      "category": "Geoscience",
-      "model_type": "cuda",
-      "profiled_sources": 3
-    },
-    {
-      "category": "Geoscience",
-      "model_type": "omp",
-      "profiled_sources": 2
-    },
-    {
-      "category": "Robotics",
-      "model_type": "cuda",
-      "profiled_sources": 2
-    },
-    {
-      "category": "Robotics",
-      "model_type": "omp",
-      "profiled_sources": 2
+      "profiled_sources": 1
     }
   ],
   "top_lists": {
     "performance_sources": [
-      {
-        "source": "maxFlops-cuda",
-        "benchmark": "maxFlops",
-        "category": "Language and kernel features",
-        "model_type": "cuda",
-        "device": "H100",
-        "kernel_count": 3,
-        "peak_performance_tflops": 26.134151,
-        "median_arithmetic_intensity": 245819.849781,
-        "median_xtime_ns": 96321163.0
-      },
-      {
-        "source": "maxFlops-omp",
-        "benchmark": "maxFlops",
-        "category": "Language and kernel features",
-        "model_type": "omp",
-        "device": "H100",
-        "kernel_count": 3,
-        "peak_performance_tflops": 26.124734,
-        "median_arithmetic_intensity": 245583.175874,
-        "median_xtime_ns": 96349003.0
-      },
-      {
-        "source": "michalewicz-cuda",
-        "benchmark": "michalewicz",
-        "category": "Math",
-        "model_type": "cuda",
-        "device": "H100",
-        "kernel_count": 1,
-        "peak_performance_tflops": 19.328739,
-        "median_arithmetic_intensity": 33.293914,
-        "median_xtime_ns": 1382507.0
-      },
       {
         "source": "atan2-cuda",
         "benchmark": "atan2",
@@ -518,17 +442,6 @@
         "median_xtime_ns": 54677.0
       },
       {
-        "source": "epistasis-cuda",
-        "benchmark": "epistasis",
-        "category": "Bioinformatics",
-        "model_type": "cuda",
-        "device": "H100",
-        "kernel_count": 1,
-        "peak_performance_tflops": 18.388286,
-        "median_arithmetic_intensity": 224.724279,
-        "median_xtime_ns": 23789461.0
-      },
-      {
         "source": "bilateral-cuda",
         "benchmark": "bilateral",
         "category": "Computer vision and image processing",
@@ -536,63 +449,8 @@
         "device": "H100",
         "kernel_count": 1,
         "peak_performance_tflops": 17.834357,
-        "median_arithmetic_intensity": 1330.271352,
-        "median_xtime_ns": 1798688.0
-      },
-      {
-        "source": "lombscargle-omp",
-        "benchmark": "lombscargle",
-        "category": "Signal processing",
-        "model_type": "omp",
-        "device": "H100",
-        "kernel_count": 1,
-        "peak_performance_tflops": 17.697308,
-        "median_arithmetic_intensity": 9337.03475,
-        "median_xtime_ns": 221056.0
-      },
-      {
-        "source": "keogh-cuda",
-        "benchmark": "keogh",
-        "category": "Search",
-        "model_type": "cuda",
-        "device": "H100",
-        "kernel_count": 1,
-        "peak_performance_tflops": 17.544089,
-        "median_arithmetic_intensity": 310.068929,
-        "median_xtime_ns": 5549376.0
-      },
-      {
-        "source": "lavaMD-omp",
-        "benchmark": "lavaMD",
-        "category": "Simulation",
-        "model_type": "omp",
-        "device": "H100",
-        "kernel_count": 1,
-        "peak_performance_tflops": 17.255572,
-        "median_arithmetic_intensity": 1848.111305,
-        "median_xtime_ns": 1863797.0
-      },
-      {
-        "source": "quant3MatMul-cuda",
-        "benchmark": "quant3MatMul",
-        "category": "Math",
-        "model_type": "cuda",
-        "device": "H100",
-        "kernel_count": 2,
-        "peak_performance_tflops": 17.138384,
-        "median_arithmetic_intensity": 10.801698,
-        "median_xtime_ns": 164240.0
-      },
-      {
-        "source": "lavaMD-cuda",
-        "benchmark": "lavaMD",
-        "category": "Simulation",
-        "model_type": "cuda",
-        "device": "H100",
-        "kernel_count": 1,
-        "peak_performance_tflops": 17.134446,
-        "median_arithmetic_intensity": 1858.563298,
-        "median_xtime_ns": 1876971.0
+        "median_arithmetic_intensity": 863.044278,
+        "median_xtime_ns": 1140853.5
       },
       {
         "source": "binomial-omp",
@@ -606,39 +464,6 @@
         "median_xtime_ns": 385931.0
       },
       {
-        "source": "marchingCubes-cuda",
-        "benchmark": "marchingCubes",
-        "category": "algorithms",
-        "model_type": "cuda",
-        "device": "H100",
-        "kernel_count": 5,
-        "peak_performance_tflops": 16.807826,
-        "median_arithmetic_intensity": 296.869894,
-        "median_xtime_ns": 174613.0
-      },
-      {
-        "source": "minkowski-omp",
-        "benchmark": "minkowski",
-        "category": "Math",
-        "model_type": "omp",
-        "device": "H100",
-        "kernel_count": 1,
-        "peak_performance_tflops": 15.786852,
-        "median_arithmetic_intensity": 6501.752319,
-        "median_xtime_ns": 4357845.0
-      },
-      {
-        "source": "michalewicz-omp",
-        "benchmark": "michalewicz",
-        "category": "Math",
-        "model_type": "omp",
-        "device": "H100",
-        "kernel_count": 1,
-        "peak_performance_tflops": 14.951016,
-        "median_arithmetic_intensity": 63.585863,
-        "median_xtime_ns": 3413035.0
-      },
-      {
         "source": "bilateral-omp",
         "benchmark": "bilateral",
         "category": "Computer vision and image processing",
@@ -650,39 +475,6 @@
         "median_xtime_ns": 2005077.0
       },
       {
-        "source": "clenergy-cuda",
-        "benchmark": "clenergy",
-        "category": "Simulation",
-        "model_type": "cuda",
-        "device": "H100",
-        "kernel_count": 1,
-        "peak_performance_tflops": 14.678667,
-        "median_arithmetic_intensity": 6310.721517,
-        "median_xtime_ns": 1044843.0
-      },
-      {
-        "source": "surfel-omp",
-        "benchmark": "surfel",
-        "category": "Computer vision and image processing",
-        "model_type": "omp",
-        "device": "H100",
-        "kernel_count": 1,
-        "peak_performance_tflops": 14.570374,
-        "median_arithmetic_intensity": 215047.644062,
-        "median_xtime_ns": 20240704.0
-      },
-      {
-        "source": "pnpoly-cuda",
-        "benchmark": "pnpoly",
-        "category": "Math",
-        "model_type": "cuda",
-        "device": "H100",
-        "kernel_count": 2,
-        "peak_performance_tflops": 14.539963,
-        "median_arithmetic_intensity": 591.125004,
-        "median_xtime_ns": 9859434.5
-      },
-      {
         "source": "atan2-omp",
         "benchmark": "atan2",
         "category": "Math",
@@ -692,97 +484,174 @@
         "peak_performance_tflops": 14.368406,
         "median_arithmetic_intensity": 6.993178,
         "median_xtime_ns": 72245.0
+      },
+      {
+        "source": "binomial-cuda",
+        "benchmark": "binomial",
+        "category": "Finance",
+        "model_type": "cuda",
+        "device": "H100",
+        "kernel_count": 1,
+        "peak_performance_tflops": 12.21587,
+        "median_arithmetic_intensity": 52310.091879,
+        "median_xtime_ns": 533131.0
+      },
+      {
+        "source": "black-scholes-cuda",
+        "benchmark": "black-scholes",
+        "category": "Finance",
+        "model_type": "cuda",
+        "device": "H100",
+        "kernel_count": 1,
+        "peak_performance_tflops": 10.505127,
+        "median_arithmetic_intensity": 5.081592,
+        "median_xtime_ns": 966709.0
+      },
+      {
+        "source": "axhelm-omp",
+        "benchmark": "axhelm",
+        "category": "Simulation",
+        "model_type": "omp",
+        "device": "H100",
+        "kernel_count": 1,
+        "peak_performance_tflops": 10.37141,
+        "median_arithmetic_intensity": 6.026663,
+        "median_xtime_ns": 139019.0
+      },
+      {
+        "source": "axhelm-cuda",
+        "benchmark": "axhelm",
+        "category": "Simulation",
+        "model_type": "cuda",
+        "device": "H100",
+        "kernel_count": 1,
+        "peak_performance_tflops": 10.333127,
+        "median_arithmetic_intensity": 6.067074,
+        "median_xtime_ns": 139531.0
+      },
+      {
+        "source": "bilateral-cuda",
+        "benchmark": "bilateral",
+        "category": "Computer vision and image processing",
+        "model_type": "cuda",
+        "device": "A100",
+        "kernel_count": 1,
+        "peak_performance_tflops": 9.801034,
+        "median_arithmetic_intensity": 829.138104,
+        "median_xtime_ns": 2232320.0
+      },
+      {
+        "source": "bilateral-omp",
+        "benchmark": "bilateral",
+        "category": "Computer vision and image processing",
+        "model_type": "omp",
+        "device": "A100",
+        "kernel_count": 3,
+        "peak_performance_tflops": 9.318012,
+        "median_arithmetic_intensity": 1356.891563,
+        "median_xtime_ns": 3829675.0
+      },
+      {
+        "source": "atan2-cuda",
+        "benchmark": "atan2",
+        "category": "Math",
+        "model_type": "cuda",
+        "device": "A100",
+        "kernel_count": 3,
+        "peak_performance_tflops": 9.241909,
+        "median_arithmetic_intensity": 7.177835,
+        "median_xtime_ns": 104587.0
+      },
+      {
+        "source": "black-scholes-omp",
+        "benchmark": "black-scholes",
+        "category": "Finance",
+        "model_type": "omp",
+        "device": "H100",
+        "kernel_count": 1,
+        "peak_performance_tflops": 8.173537,
+        "median_arithmetic_intensity": 4.882026,
+        "median_xtime_ns": 1193867.0
+      },
+      {
+        "source": "atan2-omp",
+        "benchmark": "atan2",
+        "category": "Math",
+        "model_type": "omp",
+        "device": "A100",
+        "kernel_count": 3,
+        "peak_performance_tflops": 7.767673,
+        "median_arithmetic_intensity": 6.867837,
+        "median_xtime_ns": 129845.0
+      },
+      {
+        "source": "bilateral-cuda",
+        "benchmark": "bilateral",
+        "category": "Computer vision and image processing",
+        "model_type": "cuda",
+        "device": "3080",
+        "kernel_count": 1,
+        "peak_performance_tflops": 7.664604,
+        "median_arithmetic_intensity": 511.491915,
+        "median_xtime_ns": 2393968.0
+      },
+      {
+        "source": "binomial-omp",
+        "benchmark": "binomial",
+        "category": "Finance",
+        "model_type": "omp",
+        "device": "3080",
+        "kernel_count": 1,
+        "peak_performance_tflops": 7.519171,
+        "median_arithmetic_intensity": 132518.070556,
+        "median_xtime_ns": 868512.0
+      },
+      {
+        "source": "ace-cuda",
+        "benchmark": "ace",
+        "category": "Simulation",
+        "model_type": "cuda",
+        "device": "H100",
+        "kernel_count": 6,
+        "peak_performance_tflops": 7.092146,
+        "median_arithmetic_intensity": 1.937238,
+        "median_xtime_ns": 1158922.5
+      },
+      {
+        "source": "addBiasResidualLayerNorm-cuda",
+        "benchmark": "addBiasResidualLayerNorm",
+        "category": "Machine learning",
+        "model_type": "cuda",
+        "device": "H100",
+        "kernel_count": 3,
+        "peak_performance_tflops": 6.689803,
+        "median_arithmetic_intensity": 7.250344,
+        "median_xtime_ns": 12363.0
+      },
+      {
+        "source": "aobench-cuda",
+        "benchmark": "aobench",
+        "category": "Computer vision and image processing",
+        "model_type": "cuda",
+        "device": "H100",
+        "kernel_count": 1,
+        "peak_performance_tflops": 6.662552,
+        "median_arithmetic_intensity": 65825.750468,
+        "median_xtime_ns": 100331.0
+      },
+      {
+        "source": "bilateral-omp",
+        "benchmark": "bilateral",
+        "category": "Computer vision and image processing",
+        "model_type": "omp",
+        "device": "3080",
+        "kernel_count": 3,
+        "peak_performance_tflops": 6.48659,
+        "median_arithmetic_intensity": 770.368116,
+        "median_xtime_ns": 4249984.0
       }
     ],
     "ai_dense_sources": [
-      {
-        "source": "maxFlops-omp",
-        "benchmark": "maxFlops",
-        "category": "Language and kernel features",
-        "model_type": "omp",
-        "device": "A100",
-        "kernel_count": 1,
-        "peak_performance_tflops": 7.4447,
-        "median_arithmetic_intensity": 297274.583952,
-        "median_xtime_ns": 338037621.0
-      },
-      {
-        "source": "maxFlops-cuda",
-        "benchmark": "maxFlops",
-        "category": "Language and kernel features",
-        "model_type": "cuda",
-        "device": "A100",
-        "kernel_count": 1,
-        "peak_performance_tflops": 7.552881,
-        "median_arithmetic_intensity": 295770.589818,
-        "median_xtime_ns": 333195979.0
-      },
-      {
-        "source": "grrt-omp",
-        "benchmark": "grrt",
-        "category": "Simulation",
-        "model_type": "omp",
-        "device": "A100",
-        "kernel_count": 2,
-        "peak_performance_tflops": 0.820199,
-        "median_arithmetic_intensity": 262723.116916,
-        "median_xtime_ns": 30087770.5
-      },
-      {
-        "source": "maxFlops-cuda",
-        "benchmark": "maxFlops",
-        "category": "Language and kernel features",
-        "model_type": "cuda",
-        "device": "H100",
-        "kernel_count": 3,
-        "peak_performance_tflops": 26.134151,
-        "median_arithmetic_intensity": 245819.849781,
-        "median_xtime_ns": 96321163.0
-      },
-      {
-        "source": "maxFlops-omp",
-        "benchmark": "maxFlops",
-        "category": "Language and kernel features",
-        "model_type": "omp",
-        "device": "H100",
-        "kernel_count": 3,
-        "peak_performance_tflops": 26.124734,
-        "median_arithmetic_intensity": 245583.175874,
-        "median_xtime_ns": 96349003.0
-      },
-      {
-        "source": "grrt-cuda",
-        "benchmark": "grrt",
-        "category": "Simulation",
-        "model_type": "cuda",
-        "device": "A100",
-        "kernel_count": 2,
-        "peak_performance_tflops": 0.998694,
-        "median_arithmetic_intensity": 221786.791183,
-        "median_xtime_ns": 23909520.0
-      },
-      {
-        "source": "surfel-omp",
-        "benchmark": "surfel",
-        "category": "Computer vision and image processing",
-        "model_type": "omp",
-        "device": "H100",
-        "kernel_count": 1,
-        "peak_performance_tflops": 14.570374,
-        "median_arithmetic_intensity": 215047.644062,
-        "median_xtime_ns": 20240704.0
-      },
-      {
-        "source": "complex-cuda",
-        "benchmark": "complex",
-        "category": "Math",
-        "model_type": "cuda",
-        "device": "H100",
-        "kernel_count": 4,
-        "peak_performance_tflops": 5.993009,
-        "median_arithmetic_intensity": 207834.053162,
-        "median_xtime_ns": 565658.5
-      },
       {
         "source": "binomial-cuda",
         "benchmark": "binomial",
@@ -804,17 +673,6 @@
         "peak_performance_tflops": 6.294022,
         "median_arithmetic_intensity": 172251.227072,
         "median_xtime_ns": 1034571.0
-      },
-      {
-        "source": "mandelbrot-omp",
-        "benchmark": "mandelbrot",
-        "category": "Computer vision and image processing",
-        "model_type": "omp",
-        "device": "A100",
-        "kernel_count": 1,
-        "peak_performance_tflops": 6.41275,
-        "median_arithmetic_intensity": 169811.212625,
-        "median_xtime_ns": 140107.0
       },
       {
         "source": "binomial-omp",
@@ -839,28 +697,6 @@
         "median_xtime_ns": 385931.0
       },
       {
-        "source": "mandelbrot-omp",
-        "benchmark": "mandelbrot",
-        "category": "Computer vision and image processing",
-        "model_type": "omp",
-        "device": "H100",
-        "kernel_count": 1,
-        "peak_performance_tflops": 10.190093,
-        "median_arithmetic_intensity": 157157.71541,
-        "median_xtime_ns": 88171.0
-      },
-      {
-        "source": "complex-omp",
-        "benchmark": "complex",
-        "category": "Math",
-        "model_type": "omp",
-        "device": "H100",
-        "kernel_count": 1,
-        "peak_performance_tflops": 3.86848,
-        "median_arithmetic_intensity": 146667.653893,
-        "median_xtime_ns": 527339.0
-      },
-      {
         "source": "binomial-cuda",
         "benchmark": "binomial",
         "category": "Finance",
@@ -870,28 +706,6 @@
         "peak_performance_tflops": 4.095446,
         "median_arithmetic_intensity": 138362.322617,
         "median_xtime_ns": 1589963.0
-      },
-      {
-        "source": "maxFlops-omp",
-        "benchmark": "maxFlops",
-        "category": "Language and kernel features",
-        "model_type": "omp",
-        "device": "3080",
-        "kernel_count": 2,
-        "peak_performance_tflops": 12.222933,
-        "median_arithmetic_intensity": 136635.219446,
-        "median_xtime_ns": 206741642.5
-      },
-      {
-        "source": "maxFlops-cuda",
-        "benchmark": "maxFlops",
-        "category": "Language and kernel features",
-        "model_type": "cuda",
-        "device": "3080",
-        "kernel_count": 2,
-        "peak_performance_tflops": 12.32278,
-        "median_arithmetic_intensity": 135139.688576,
-        "median_xtime_ns": 204643797.5
       },
       {
         "source": "binomial-omp",
@@ -905,15 +719,158 @@
         "median_xtime_ns": 868512.0
       },
       {
-        "source": "complex-cuda",
-        "benchmark": "complex",
-        "category": "Math",
+        "source": "binomial-omp",
+        "benchmark": "binomial",
+        "category": "Finance",
+        "model_type": "omp",
+        "device": "A10",
+        "kernel_count": 1,
+        "peak_performance_tflops": 4.852718,
+        "median_arithmetic_intensity": 124639.595858,
+        "median_xtime_ns": 1345739.0
+      },
+      {
+        "source": "aobench-cuda",
+        "benchmark": "aobench",
+        "category": "Computer vision and image processing",
         "model_type": "cuda",
         "device": "A100",
-        "kernel_count": 4,
-        "peak_performance_tflops": 3.100534,
-        "median_arithmetic_intensity": 132251.946619,
-        "median_xtime_ns": 1063648.0
+        "kernel_count": 1,
+        "peak_performance_tflops": 4.299448,
+        "median_arithmetic_intensity": 67422.159309,
+        "median_xtime_ns": 155232.0
+      },
+      {
+        "source": "aobench-cuda",
+        "benchmark": "aobench",
+        "category": "Computer vision and image processing",
+        "model_type": "cuda",
+        "device": "H100",
+        "kernel_count": 1,
+        "peak_performance_tflops": 6.662552,
+        "median_arithmetic_intensity": 65825.750468,
+        "median_xtime_ns": 100331.0
+      },
+      {
+        "source": "binomial-cuda",
+        "benchmark": "binomial",
+        "category": "Finance",
+        "model_type": "cuda",
+        "device": "H100",
+        "kernel_count": 1,
+        "peak_performance_tflops": 12.21587,
+        "median_arithmetic_intensity": 52310.091879,
+        "median_xtime_ns": 533131.0
+      },
+      {
+        "source": "aobench-cuda",
+        "benchmark": "aobench",
+        "category": "Computer vision and image processing",
+        "model_type": "cuda",
+        "device": "A10",
+        "kernel_count": 1,
+        "peak_performance_tflops": 2.384556,
+        "median_arithmetic_intensity": 33449.453364,
+        "median_xtime_ns": 263339.0
+      },
+      {
+        "source": "aidw-omp",
+        "benchmark": "aidw",
+        "category": "Geoscience",
+        "model_type": "omp",
+        "device": "A100",
+        "kernel_count": 1,
+        "peak_performance_tflops": 1.738111,
+        "median_arithmetic_intensity": 31609.147485,
+        "median_xtime_ns": 4766549.0
+      },
+      {
+        "source": "aidw-omp",
+        "benchmark": "aidw",
+        "category": "Geoscience",
+        "model_type": "omp",
+        "device": "3080",
+        "kernel_count": 1,
+        "peak_performance_tflops": 2.055293,
+        "median_arithmetic_intensity": 27399.949923,
+        "median_xtime_ns": 3622731.0
+      },
+      {
+        "source": "aidw-omp",
+        "benchmark": "aidw",
+        "category": "Geoscience",
+        "model_type": "omp",
+        "device": "H100",
+        "kernel_count": 1,
+        "peak_performance_tflops": 2.244869,
+        "median_arithmetic_intensity": 22274.564299,
+        "median_xtime_ns": 3503701.0
+      },
+      {
+        "source": "aobench-omp",
+        "benchmark": "aobench",
+        "category": "Computer vision and image processing",
+        "model_type": "omp",
+        "device": "H100",
+        "kernel_count": 1,
+        "peak_performance_tflops": 5.896186,
+        "median_arithmetic_intensity": 21408.594507,
+        "median_xtime_ns": 158635.0
+      },
+      {
+        "source": "aobench-omp",
+        "benchmark": "aobench",
+        "category": "Computer vision and image processing",
+        "model_type": "omp",
+        "device": "3080",
+        "kernel_count": 1,
+        "peak_performance_tflops": 2.414662,
+        "median_arithmetic_intensity": 19008.753661,
+        "median_xtime_ns": 355360.0
+      },
+      {
+        "source": "atomicAggregate-cuda",
+        "benchmark": "atomicAggregate",
+        "category": "Data compression and reduction",
+        "model_type": "cuda",
+        "device": "A100",
+        "kernel_count": 1,
+        "peak_performance_tflops": 0.033487,
+        "median_arithmetic_intensity": 18726.007812,
+        "median_xtime_ns": 2004203.0
+      },
+      {
+        "source": "atomicIntrinsics-omp",
+        "benchmark": "atomicIntrinsics",
+        "category": "Data compression and reduction",
+        "model_type": "omp",
+        "device": "A100",
+        "kernel_count": 5,
+        "peak_performance_tflops": 0.265888,
+        "median_arithmetic_intensity": 18343.195292,
+        "median_xtime_ns": 2023691.0
+      },
+      {
+        "source": "aidw-omp",
+        "benchmark": "aidw",
+        "category": "Geoscience",
+        "model_type": "omp",
+        "device": "A10",
+        "kernel_count": 1,
+        "peak_performance_tflops": 1.290245,
+        "median_arithmetic_intensity": 18138.479912,
+        "median_xtime_ns": 5770821.0
+      },
+      {
+        "source": "aobench-omp",
+        "benchmark": "aobench",
+        "category": "Computer vision and image processing",
+        "model_type": "omp",
+        "device": "A100",
+        "kernel_count": 1,
+        "peak_performance_tflops": 2.101713,
+        "median_arithmetic_intensity": 15334.513235,
+        "median_xtime_ns": 445163.0
       }
     ]
   },
@@ -964,31 +921,37 @@
       "label": "Compact source summary CSV",
       "path": "data/source-performance.csv",
       "href": "./data/source-performance.csv",
-      "size_bytes": 241507
+      "size_bytes": 38795
     },
     {
       "label": "Compact kernel summary CSV",
       "path": "data/kernel-performance.csv",
       "href": "./data/kernel-performance.csv",
-      "size_bytes": 2602678
+      "size_bytes": 369756
     },
     {
       "label": "Source summary JSON",
       "path": "data/source-performance.json",
       "href": "./data/source-performance.json",
-      "size_bytes": 876880
+      "size_bytes": 137813
     },
     {
       "label": "Kernel summary JSON",
       "path": "data/kernel-performance.json",
       "href": "./data/kernel-performance.json",
-      "size_bytes": 5345311
+      "size_bytes": 810453
     },
     {
       "label": "Structured benchmark dataset JSON.gz",
       "path": "downloads/gpuFLOPBench.json.gz",
       "href": "./downloads/gpuFLOPBench.json.gz",
-      "size_bytes": 35251727
+      "size_bytes": 23641483
+    },
+    {
+      "label": "LLM prediction index JSON",
+      "path": "data/paper-llm-index.json",
+      "href": "./data/paper-llm-index.json",
+      "size_bytes": 22779638
     }
   ]
 }

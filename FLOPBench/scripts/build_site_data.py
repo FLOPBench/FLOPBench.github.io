@@ -23,6 +23,8 @@ DOWNLOADS_DIR = SITE_DIR / "downloads"
 EXPLORER_PROGRAMS_DIR = DATA_DIR / "explorer-programs"
 SOURCE_DATA_DIR = SITE_DIR / "source-data"
 VENDORED_DATASET_GZ = SOURCE_DATA_DIR / "gpuFLOPBench.json.gz"
+PAPER_KERNEL_SUBSET = SOURCE_DATA_DIR / "paper-kernel-subset.json"
+PAPER_LLM_INDEX = DATA_DIR / "paper-llm-index.json"
 BENCHMARKS_YAML = SOURCE_DATA_DIR / "HeCBench" / "benchmarks.yaml"
 HECBENCH_README = SOURCE_DATA_DIR / "HeCBench" / "README.md"
 
@@ -236,6 +238,33 @@ def load_dataset() -> dict:
         return json.load(handle)
 
 
+def load_paper_subset() -> tuple[set[tuple[str, str]], dict]:
+    if not PAPER_KERNEL_SUBSET.exists():
+        return set(), {}
+    payload = json.loads(PAPER_KERNEL_SUBSET.read_text())
+    keys = {
+        (row["program_name"], row["kernel_mangled_name"])
+        for row in payload.get("kernels", [])
+    }
+    return keys, payload
+
+
+def load_paper_llm_index() -> dict:
+    if not PAPER_LLM_INDEX.exists():
+        return {
+            "kernel_count": 0,
+            "sample_count": 0,
+            "prediction_row_count": 0,
+            "models": [],
+            "gpus": [],
+            "prompt_types": [],
+            "model_prompt_counts": [],
+            "predictionRows": [],
+            "resultShards": {},
+        }
+    return json.loads(PAPER_LLM_INDEX.read_text())
+
+
 def build_inventory(metadata: dict, profiled_sources: set[str], category_map: dict[str, str]) -> dict:
     available_by_model: dict[str, int] = {}
     available_by_category: dict[str, int] = {}
@@ -298,7 +327,12 @@ def dense_rank_desc(rows: list[dict], group_keys: tuple[str, ...], metric_key: s
             row["coverage_rank"] = float(rank)
 
 
-def build_perf_data(dataset: dict, metadata: dict, category_map: dict[str, str]) -> tuple[list[dict], list[dict]]:
+def build_perf_data(
+    dataset: dict,
+    metadata: dict,
+    category_map: dict[str, str],
+    paper_subset_keys: set[tuple[str, str]] | None = None,
+) -> tuple[list[dict], list[dict]]:
     kernel_rows: list[dict] = []
     source_accumulator: dict[tuple[str, str, str, str, str], dict] = defaultdict(
         lambda: {
@@ -317,6 +351,8 @@ def build_perf_data(dataset: dict, metadata: dict, category_map: dict[str, str])
         exe_args = payload.get("exeArgs", "")
 
         for kernel_symbol, kernel_payload in payload.get("kernels", {}).items():
+            if paper_subset_keys and (source, kernel_symbol) not in paper_subset_keys:
+                continue
             demangled_kernel = str(kernel_payload.get("demangledName") or kernel_symbol)
             kernel_name = normalize_display_kernel(
                 model_type,
@@ -578,7 +614,10 @@ def reset_directory(path: Path) -> None:
     path.mkdir(parents=True, exist_ok=True)
 
 
-def write_explorer_program_payloads(dataset: dict) -> dict[str, str]:
+def write_explorer_program_payloads(
+    dataset: dict,
+    paper_subset_keys: set[tuple[str, str]] | None = None,
+) -> dict[str, str]:
     reset_directory(EXPLORER_PROGRAMS_DIR)
     program_files: dict[str, str] = {}
 
@@ -588,11 +627,16 @@ def write_explorer_program_payloads(dataset: dict) -> dict[str, str]:
             "kernels": {},
         }
         for kernel_symbol, kernel_payload in payload.get("kernels", {}).items():
+            if paper_subset_keys and (program, kernel_symbol) not in paper_subset_keys:
+                continue
             program_payload["kernels"][kernel_symbol] = {
                 "demangledName": kernel_payload.get("demangledName"),
                 "imix": kernel_payload.get("imix", {}),
                 "sass_code": kernel_payload.get("sass_code", {}),
             }
+
+        if not program_payload["kernels"]:
+            continue
 
         out_path = EXPLORER_PROGRAMS_DIR / f"{program}.json"
         write_json(out_path, program_payload)
@@ -615,10 +659,12 @@ def main() -> None:
     metadata = load_metadata()
     category_map, category_order = parse_hecbench_categories()
     dataset = load_dataset()
-    kernel_rows, source_rows = build_perf_data(dataset, metadata, category_map)
-    explorer_program_files = write_explorer_program_payloads(dataset)
+    paper_subset_keys, paper_subset_payload = load_paper_subset()
+    paper_llm_index = load_paper_llm_index()
+    kernel_rows, source_rows = build_perf_data(dataset, metadata, category_map, paper_subset_keys)
+    explorer_program_files = write_explorer_program_payloads(dataset, paper_subset_keys)
 
-    inventory = build_inventory(metadata, set(dataset.keys()), category_map)
+    inventory = build_inventory(metadata, {row["source"] for row in kernel_rows}, category_map)
     audit = build_audit(category_map)
     device_summary = build_device_summary(kernel_rows, source_rows)
     model_matrix = build_model_matrix(metadata, source_rows)
@@ -627,12 +673,12 @@ def main() -> None:
 
     hero = {
         "headline_metrics": [
-            {"label": "benchmark entries", "value": inventory["totals"]["benchmarks_yaml"]},
+            {"label": "paper kernels", "value": len({(row["source"], row["kernel_symbol"]) for row in kernel_rows})},
             {"label": "GPUs covered", "value": len(device_summary)},
-            {"label": "profiled binaries", "value": inventory["totals"]["profiled_sources"]},
+            {"label": "LLM samples", "value": paper_llm_index.get("sample_count", 0)},
             {"label": "kernel-device rows", "value": len(kernel_rows)},
         ],
-        "subhead": "gpuFLOPBench is a multi-GPU benchmark atlas for floating-point rooflines, source-level coverage, and exact kernel exploration across the profiled corpus.",
+        "subhead": "gpuFLOPBench is a reviewer-facing atlas for the 254 paper-study kernels, their measured Rooflines, and the source-only versus source+SASS LLM predictions.",
     }
 
     write_json(DATA_DIR / "kernel-performance.json", kernel_rows)
@@ -702,6 +748,13 @@ def main() -> None:
 
     metadata_payload = {
         "hero": hero,
+        "paper_subset": {
+            "kernel_count": len({(row["source"], row["kernel_symbol"]) for row in kernel_rows}),
+            "kernel_device_rows": len(kernel_rows),
+            "selection": paper_subset_payload.get("selection", "paper-study kernel subset"),
+            "llm_sample_count": paper_llm_index.get("sample_count", 0),
+            "llm_prediction_row_count": paper_llm_index.get("prediction_row_count", 0),
+        },
         "inventory": inventory,
         "audit": audit,
         "device_summary": device_summary,
@@ -761,6 +814,12 @@ def main() -> None:
                 "href": "./downloads/gpuFLOPBench.json.gz",
                 "size_bytes": raw_download.stat().st_size,
             },
+            {
+                "label": "LLM prediction index JSON",
+                "path": "data/paper-llm-index.json",
+                "href": "./data/paper-llm-index.json",
+                "size_bytes": PAPER_LLM_INDEX.stat().st_size if PAPER_LLM_INDEX.exists() else 0,
+            },
         ],
     }
 
@@ -773,6 +832,7 @@ def main() -> None:
             "kernelRows": kernel_rows,
             "sourceRows": source_rows,
             "explorerProgramFiles": explorer_program_files,
+            "llmIndex": paper_llm_index,
         },
     )
 

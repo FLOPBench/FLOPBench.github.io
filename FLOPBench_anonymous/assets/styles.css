@@ -354,6 +354,12 @@ main {
   gap: 20px;
 }
 
+.coverage-stack {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
 .performance-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -395,6 +401,12 @@ main {
 
 .chart.small {
   min-height: 320px;
+}
+
+.hardware-panel .table-scroll {
+  margin-top: 12px;
+  border: 1px solid rgba(145, 183, 255, 0.08);
+  border-radius: var(--radius-md);
 }
 
 .compact-chart {
@@ -894,6 +906,14 @@ main {
   min-width: 0;
 }
 
+.llm-compare-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 18px;
+  min-width: 0;
+}
+
 .explorer-pane {
   padding: 20px;
   min-width: 0;
@@ -913,6 +933,40 @@ main {
   font-size: 12px;
   line-height: 1.55;
   white-space: pre;
+}
+
+.llm-detail {
+  margin-top: 14px;
+  border: 1px solid rgba(145, 183, 255, 0.1);
+  border-radius: var(--radius-md);
+  background: rgba(6, 13, 24, 0.42);
+  overflow: hidden;
+}
+
+.llm-detail summary {
+  cursor: pointer;
+  padding: 12px 14px;
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(145, 183, 255, 0.08);
+}
+
+.json-render {
+  min-height: 240px;
+}
+
+.json-block {
+  margin: 0;
+  padding: 16px;
+  max-height: 520px;
+  overflow: auto;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
 .explorer-imix-shell {
@@ -1014,6 +1068,7 @@ td span {
   .hero-grid,
   .split-grid,
   .explorer-code-grid,
+  .llm-compare-grid,
   .performance-grid,
   .status-grid,
   .downloads-grid,

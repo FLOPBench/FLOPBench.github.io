@@ -18,6 +18,8 @@
   const kernelRows = data.kernelRows;
   const sourceRows = data.sourceRows;
   const explorerProgramFiles = data.explorerProgramFiles || {};
+  const llmIndex = data.llmIndex || { predictionRows: [], resultShards: {} };
+  const llmPredictionRows = llmIndex.predictionRows || [];
   const hasPlotly = Boolean(window.Plotly);
 
   const heroMetricsNode = document.getElementById("heroMetrics");
@@ -29,7 +31,6 @@
   const readingGuideMetricsNode = document.getElementById("readingGuideMetrics");
   const lastUpdatedNode = document.getElementById("lastUpdated");
 
-  const modelCoverageNode = document.getElementById("modelCoverageChart");
   const categoryCoverageNode = document.getElementById("categoryCoverageChart");
   const rooflineNode = document.getElementById("rooflineChart");
   const rooflineSummaryNode = document.getElementById("rooflineSummary");
@@ -42,6 +43,16 @@
   const explorerGpuTableBody = document.getElementById("explorerGpuTableBody");
   const explorerSassCodeNode = document.getElementById("explorerSassCode");
   const explorerImixBody = document.getElementById("explorerImixBody");
+  const accuracySummaryNode = document.getElementById("accuracySummary");
+  const accuracyTableBody = document.getElementById("accuracyTableBody");
+  const llmSummaryNode = document.getElementById("llmSummary");
+  const llmMetricStripNode = document.getElementById("llmMetricStrip");
+  const llmSourceOnlyMetaNode = document.getElementById("llmSourceOnlyMeta");
+  const llmSassMetaNode = document.getElementById("llmSassMeta");
+  const llmSourceOnlyResponseNode = document.getElementById("llmSourceOnlyResponse");
+  const llmSassResponseNode = document.getElementById("llmSassResponse");
+  const llmSourceOnlyPromptNode = document.getElementById("llmSourceOnlyPrompt");
+  const llmSassPromptNode = document.getElementById("llmSassPrompt");
 
   const rooflineDevice = document.getElementById("rooflineDevice");
   const rooflineModel = document.getElementById("rooflineModel");
@@ -56,6 +67,17 @@
   const explorerProgram = document.getElementById("explorerProgram");
   const explorerKernel = document.getElementById("explorerKernel");
   const explorerArch = document.getElementById("explorerArch");
+  const accuracyModel = document.getElementById("accuracyModel");
+  const accuracyGpu = document.getElementById("accuracyGpu");
+  const accuracyPrompt = document.getElementById("accuracyPrompt");
+  const accuracyPrecision = document.getElementById("accuracyPrecision");
+  const accuracyClass = document.getElementById("accuracyClass");
+  const accuracySort = document.getElementById("accuracySort");
+  const llmProgram = document.getElementById("llmProgram");
+  const llmKernel = document.getElementById("llmKernel");
+  const llmGpu = document.getElementById("llmGpu");
+  const llmModel = document.getElementById("llmModel");
+  const llmPrecision = document.getElementById("llmPrecision");
 
   function uniqueSorted(values) {
     return [...new Set(values.filter(Boolean))].sort((left, right) => left.localeCompare(right));
@@ -122,7 +144,9 @@
     ])
   );
   const explorerProgramCache = new Map();
+  const llmShardCache = new Map();
   let explorerRenderToken = 0;
+  let llmRenderToken = 0;
 
   function buildRooflineRange(rows) {
     const aiValues = rows.map((row) => Number(row.arithmetic_intensity)).filter((value) => Number.isFinite(value) && value > 0);
@@ -150,24 +174,24 @@
   function renderBenchmarkSurfaces() {
     const cards = [
       {
-        label: "inventory",
-        title: "Benchmark inventory",
-        text: `${meta.inventory.totals.benchmarks_yaml} benchmark entries define the source footprint visible in gpuFLOPBench.`,
+        label: "paper subset",
+        title: "254 sampled kernels",
+        text: `${meta.paper_subset.kernel_count} CUDA/OpenMP kernels form the paper-study subset shown on this reviewer-facing site.`,
       },
       {
         label: "profiling",
-        title: "Kernel performance corpus",
-        text: `${meta.inventory.totals.profiled_sources} profiled source binaries expand into ${kernelRows.length} exact kernel-device rows.`,
+        title: "Four-GPU Roofline corpus",
+        text: `${meta.paper_subset.kernel_device_rows} kernel-device rows expose profiled RAI and TFLOP/s measurements.`,
       },
       {
-        label: "roofline",
-        title: "Measured floating-point rooflines",
-        text: `Kernel performance is recomputed from floating-point work over execution time and plotted against arithmetic intensity.`,
+        label: "LLM predictions",
+        title: "Source-only versus source+SASS",
+        text: `${meta.paper_subset.llm_sample_count} completed LLM samples compare static source reasoning against post-compilation SASS evidence.`,
       },
       {
-        label: "exploration",
-        title: "Source and kernel drill-down",
-        text: `The site keeps category coverage, exact kernel rows, and source-level best-observed performance in one place.`,
+        label: "inspection",
+        title: "Best and worst cases",
+        text: `Prediction rows can be sorted by raw RAI difference, absolute error, and percent-difference error for direct inspection.`,
       },
     ];
 
@@ -198,8 +222,6 @@
         <td class="mono">${formatNumber(device.peak_fp16_tflops, 2)}</td>
         <td class="mono">${formatNumber(device.peak_fp32_tflops, 2)}</td>
         <td class="mono">${formatNumber(device.peak_fp64_tflops, 3)}</td>
-        <td class="mono">${formatNumber(device.sources, 0)}</td>
-        <td class="mono">${formatNumber(device.kernels, 0)}</td>
       `;
       deviceTableBody.appendChild(tr);
     });
@@ -256,7 +278,7 @@
       `;
       row.append(
         inlineMetric("best perf", item.peak_performance_tflops, 4),
-        inlineMetric("median AI", item.median_arithmetic_intensity, 4),
+        inlineMetric("median RAI", item.median_arithmetic_intensity, 4),
         inlineMetric("kernels", item.kernel_count, 0)
       );
       list.appendChild(row);
@@ -270,9 +292,9 @@
     const uniqueCategories = new Set(meta.category_profiled.map((entry) => entry.category)).size;
     readingGuideMetricsNode.append(
       inlineMetric("GPUs", meta.device_summary.length, 0),
-      inlineMetric("profiled binaries", meta.inventory.totals.profiled_sources, 0),
+      inlineMetric("paper kernels", meta.paper_subset.kernel_count, 0),
       inlineMetric("kernel rows", kernelRows.length, 0),
-      inlineMetric("categories", uniqueCategories, 0)
+      inlineMetric("LLM rows", meta.paper_subset.llm_prediction_row_count, 0)
     );
   }
 
@@ -284,30 +306,6 @@
       return;
     }
     window.Plotly.react(node, traces, layout, { responsive: true, displayModeBar: false });
-  }
-
-  function renderModelCoverage(modelMatrix) {
-    const focusedModels = modelMatrix.filter((entry) => ["cuda", "omp"].includes(entry.model));
-    renderPlot(
-      modelCoverageNode,
-      [
-        {
-          type: "bar",
-          name: "declared sources",
-          x: focusedModels.map((entry) => entry.model.toUpperCase()),
-          y: focusedModels.map((entry) => entry.available),
-          marker: { color: focusedModels.map((entry) => COLORS[entry.model] || "#90b7ff") },
-        },
-        {
-          type: "bar",
-          name: "profiled sources",
-          x: focusedModels.map((entry) => entry.model.toUpperCase()),
-          y: focusedModels.map((entry) => entry.profiled),
-          marker: { color: "rgba(255, 156, 91, 0.84)" },
-        },
-      ],
-      basePlotlyLayout({ barmode: "group", yaxis: { title: "source binaries" } })
-    );
   }
 
   function renderCategoryCoverage(categoryProfiled) {
@@ -465,7 +463,7 @@
           "<b>%{text}</b><br>" +
           "model=%{customdata[0]}<br>" +
           "dominant precision=%{customdata[1]}<br>" +
-          "AI=%{x:.4f}<br>" +
+          "RAI=%{x:.4f}<br>" +
           "performance=%{y:.4f} TFLOP/s<br>" +
           "time=%{customdata[2]:.2f} ns<extra></extra>",
         marker: {
@@ -480,7 +478,7 @@
       rooflineNode,
       roofTraces.concat(pointTraces),
       basePlotlyLayout({
-        xaxis: { title: "arithmetic intensity (FLOPs / byte)", type: "log" },
+        xaxis: { title: "RAI (FLOPs / byte)", type: "log" },
         yaxis: { title: "performance (TFLOP/s)", type: "log" },
         margin: { l: 64, r: 28, t: 30, b: 58 },
       })
@@ -490,7 +488,7 @@
     const aiValues = subset.map((row) => Number(row.arithmetic_intensity)).sort((left, right) => left - right);
     rooflineSummaryNode.innerHTML = `
       <strong>${subset.length}</strong> floating-point kernel rows in view.
-      Median AI <strong>${formatNumber(aiValues[Math.floor(aiValues.length / 2)], 4)}</strong>,
+      Median RAI <strong>${formatNumber(aiValues[Math.floor(aiValues.length / 2)], 4)}</strong>,
       median performance <strong>${formatNumber(perfValues[Math.floor(perfValues.length / 2)], 4)} TFLOP/s</strong>.
       Dashed lines show the ${selectedPrecision.toUpperCase()} theoretical roofline at default device clocks.
     `;
@@ -751,15 +749,307 @@
     renderExplorerCodePane(selectedPair, selectedRows, explorerArch.value, ++explorerRenderToken);
   }
 
+  function formatPercent(value) {
+    if (value === null || value === undefined || Number.isNaN(Number(value))) {
+      return "undefined";
+    }
+    const numeric = Number(value);
+    if (!Number.isFinite(numeric)) {
+      return "undefined";
+    }
+    return `${numeric.toFixed(Math.abs(numeric) >= 100 ? 1 : 2)}%`;
+  }
+
+  function kernelKey(row) {
+    return `${row.program_name}::${row.kernel_mangled_name}`;
+  }
+
+  function filteredAccuracyRows() {
+    return llmPredictionRows.filter((row) => {
+      const matchesModel = accuracyModel.value === "all" || row.model_name === accuracyModel.value;
+      const matchesGpu = accuracyGpu.value === "all" || row.gpu === accuracyGpu.value;
+      const matchesPrompt = accuracyPrompt.value === "all" || row.prompt_type === accuracyPrompt.value;
+      const matchesPrecision = accuracyPrecision.value === "all" || row.precision === accuracyPrecision.value;
+      const matchesClass =
+        accuracyClass.value === "all" ||
+        row.expected_bound === accuracyClass.value ||
+        (accuracyClass.value === "nonzero" && row.expected_bound !== "zero");
+      return matchesModel && matchesGpu && matchesPrompt && matchesPrecision && matchesClass;
+    });
+  }
+
+  function accuracySortValue(row, key) {
+    if (key === "largest_under") {
+      return Number(row.ai_raw_diff);
+    }
+    if (key === "largest_over") {
+      return -Number(row.ai_raw_diff);
+    }
+    if (key === "worst_abs") {
+      return -Number(row.ai_abs_error);
+    }
+    if (key === "best_ape") {
+      return Number.isFinite(Number(row.ai_abs_percent_error)) ? Number(row.ai_abs_percent_error) : Number.POSITIVE_INFINITY;
+    }
+    return Number.isFinite(Number(row.ai_abs_percent_error)) ? -Number(row.ai_abs_percent_error) : Number.POSITIVE_INFINITY;
+  }
+
+  function sortAccuracyRows(rows) {
+    const sortKey = accuracySort.value;
+    return rows.slice().sort((left, right) => {
+      const leftValue = accuracySortValue(left, sortKey);
+      const rightValue = accuracySortValue(right, sortKey);
+      if (leftValue !== rightValue) {
+        return leftValue - rightValue;
+      }
+      return `${left.program_name}${left.kernel_demangled_name}`.localeCompare(`${right.program_name}${right.kernel_demangled_name}`);
+    });
+  }
+
+  function selectLlmRow(row) {
+    llmProgram.value = row.program_name;
+    syncLlmFilters();
+    llmKernel.value = row.kernel_mangled_name;
+    syncLlmFilters();
+    llmGpu.value = row.gpu;
+    llmModel.value = row.model_name;
+    llmPrecision.value = row.precision;
+    renderLlmExplorer();
+    document.getElementById("llm-explorer").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function renderAccuracyBrowser() {
+    if (!llmPredictionRows.length) {
+      accuracySummaryNode.textContent = "No LLM prediction rows are available. Run scripts/export_paper_llm_data.py before building the site.";
+      accuracyTableBody.innerHTML = "";
+      return;
+    }
+
+    const rows = sortAccuracyRows(filteredAccuracyRows());
+    accuracyTableBody.innerHTML = "";
+    accuracySummaryNode.innerHTML = `
+      <strong>${rows.length}</strong> prediction rows in view across <strong>${llmIndex.kernel_count || 0}</strong> sampled kernels.
+      Click a row to open its source-only versus source+SASS response comparison.
+    `;
+
+    rows.slice(0, 80).forEach((row) => {
+      const tr = document.createElement("tr");
+      tr.className = "table-row-selectable";
+      tr.innerHTML = `
+        <td>
+          <strong>${row.program_name}</strong>
+          <span>${shortenLabel(row.kernel_demangled_name || row.kernel_mangled_name, 72)}</span>
+        </td>
+        <td><span class="tag">${row.gpu}</span></td>
+        <td>${row.model_name}</td>
+        <td>${row.prompt_type}</td>
+        <td class="mono">${row.precision.toUpperCase()}</td>
+        <td class="mono">${formatNumber(row.expected_ai, 5)}</td>
+        <td class="mono">${formatNumber(row.predicted_ai, 5)}</td>
+        <td class="mono">${formatNumber(row.ai_raw_diff, 5)}</td>
+        <td class="mono">${formatNumber(row.ai_abs_error, 5)}</td>
+        <td class="mono">${formatPercent(row.ai_percent_diff)}</td>
+      `;
+      tr.addEventListener("click", function () {
+        selectLlmRow(row);
+      });
+      accuracyTableBody.appendChild(tr);
+    });
+  }
+
+  function syncLlmFilters() {
+    const programs = uniqueSorted(llmPredictionRows.map((row) => row.program_name));
+    const selectedProgram = refillChoiceSelect(
+      llmProgram,
+      programs.map((program) => ({ value: program, label: program })),
+      "no programs"
+    );
+
+    const programRows = llmPredictionRows.filter((row) => row.program_name === selectedProgram);
+    const kernels = [];
+    const seenKernels = new Set();
+    programRows.forEach((row) => {
+      if (seenKernels.has(row.kernel_mangled_name)) {
+        return;
+      }
+      seenKernels.add(row.kernel_mangled_name);
+      kernels.push({
+        value: row.kernel_mangled_name,
+        label: row.kernel_demangled_name || row.kernel_mangled_name,
+      });
+    });
+    const selectedKernel = refillChoiceSelect(llmKernel, kernels, "no kernels");
+    const kernelRowsForSelection = programRows.filter((row) => row.kernel_mangled_name === selectedKernel);
+
+    refillChoiceSelect(
+      llmGpu,
+      uniqueSorted(kernelRowsForSelection.map((row) => row.gpu)).map((gpu) => ({ value: gpu, label: gpu })),
+      "no GPUs"
+    );
+    refillChoiceSelect(
+      llmModel,
+      uniqueSorted(kernelRowsForSelection.map((row) => row.model_name)).map((model) => ({ value: model, label: model })),
+      "no models"
+    );
+  }
+
+  async function loadLlmShard(program) {
+    const shardPath = llmIndex.resultShards ? llmIndex.resultShards[program] : null;
+    if (!shardPath) {
+      throw new Error(`No LLM result shard is registered for ${program}.`);
+    }
+    if (llmShardCache.has(shardPath)) {
+      return llmShardCache.get(shardPath);
+    }
+    const promise = fetch(`./${shardPath}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Failed to fetch ${shardPath} (${response.status}).`);
+        }
+        return response.json();
+      })
+      .catch((error) => {
+        llmShardCache.delete(shardPath);
+        throw error;
+      });
+    llmShardCache.set(shardPath, promise);
+    return promise;
+  }
+
+  function renderJsonObject(node, value) {
+    node.innerHTML = "";
+    if (!value || (typeof value === "object" && !Object.keys(value).length)) {
+      emptyState(node, "No structured response is available for this selection.");
+      return;
+    }
+    const pre = document.createElement("pre");
+    pre.className = "json-block mono";
+    pre.textContent = JSON.stringify(value, null, 2);
+    node.appendChild(pre);
+  }
+
+  function selectedLlmPredictionRow(promptType) {
+    return llmPredictionRows.find(
+      (row) =>
+        row.program_name === llmProgram.value &&
+        row.kernel_mangled_name === llmKernel.value &&
+        row.gpu === llmGpu.value &&
+        row.model_name === llmModel.value &&
+        row.precision === llmPrecision.value &&
+        row.prompt_type === promptType
+    );
+  }
+
+  function renderLlmMetrics(sourceOnlyRow, sassRow) {
+    llmMetricStripNode.innerHTML = "";
+    const rows = [sourceOnlyRow, sassRow].filter(Boolean);
+    if (!rows.length) {
+      return;
+    }
+    rows.forEach((row) => {
+      llmMetricStripNode.append(
+        inlineMetric(`${row.prompt_type} expected`, row.expected_ai, 5),
+        inlineMetric(`${row.prompt_type} predicted`, row.predicted_ai, 5),
+        inlineMetric(`${row.prompt_type} diff`, row.ai_raw_diff, 5),
+        inlineMetric(`${row.prompt_type} pct`, row.ai_percent_diff, 2)
+      );
+    });
+  }
+
+  function renderLlmPanel(record, row, prompt, metaNode, responseNode, promptNode) {
+    if (!record || !row) {
+      metaNode.textContent = "No completed record is available for this selection.";
+      promptNode.textContent = "";
+      renderJsonObject(responseNode, null);
+      return;
+    }
+    metaNode.textContent = `${row.model_name} on ${row.gpu}, ${row.precision.toUpperCase()}: raw diff ${formatNumber(
+      row.ai_raw_diff,
+      5
+    )}, abs error ${formatNumber(row.ai_abs_error, 5)}, percent diff ${formatPercent(row.ai_percent_diff)}.`;
+    renderJsonObject(responseNode, record.prediction || record.raw_response);
+    const systemPrompt = prompt?.system_prompt || "";
+    const humanPrompt = prompt?.human_prompt || "";
+    promptNode.textContent = `--- System Prompt ---\n${systemPrompt}\n\n--- Human Prompt ---\n${humanPrompt}`;
+  }
+
+  async function renderLlmExplorer() {
+    if (!llmPredictionRows.length) {
+      llmSummaryNode.textContent = "No LLM response data is available.";
+      return;
+    }
+
+    syncLlmFilters();
+    const token = ++llmRenderToken;
+    const sourceOnlyRow = selectedLlmPredictionRow("Source-Only");
+    const sassRow = selectedLlmPredictionRow("Source+SASS");
+    const representativeRow = sourceOnlyRow || sassRow;
+    if (!representativeRow) {
+      llmSummaryNode.textContent = "No source-only or source+SASS row matches the current selection.";
+      renderLlmMetrics(null, null);
+      renderLlmPanel(null, null, llmSourceOnlyMetaNode, llmSourceOnlyResponseNode, llmSourceOnlyPromptNode);
+      renderLlmPanel(null, null, llmSassMetaNode, llmSassResponseNode, llmSassPromptNode);
+      return;
+    }
+
+    llmSummaryNode.textContent = "Loading prompt and response shard for the selected program.";
+    renderLlmMetrics(sourceOnlyRow, sassRow);
+    try {
+      const shard = await loadLlmShard(representativeRow.program_name);
+      if (token !== llmRenderToken) {
+        return;
+      }
+      const records = shard.records || [];
+      const prompts = shard.prompts || {};
+      const findRecord = (row) =>
+        row
+          ? records.find(
+              (record) =>
+                record.thread_id === row.thread_id ||
+                (record.kernel_mangled_name === row.kernel_mangled_name &&
+                  record.gpu === row.gpu &&
+                  record.model_name === row.model_name &&
+                  record.prompt_type === row.prompt_type)
+            )
+          : null;
+      const sourceOnlyRecord = findRecord(sourceOnlyRow);
+      const sassRecord = findRecord(sassRow);
+      renderLlmPanel(
+        sourceOnlyRecord,
+        sourceOnlyRow,
+        sourceOnlyRecord ? prompts[sourceOnlyRecord.prompt_key] : null,
+        llmSourceOnlyMetaNode,
+        llmSourceOnlyResponseNode,
+        llmSourceOnlyPromptNode
+      );
+      renderLlmPanel(
+        sassRecord,
+        sassRow,
+        sassRecord ? prompts[sassRecord.prompt_key] : null,
+        llmSassMetaNode,
+        llmSassResponseNode,
+        llmSassPromptNode
+      );
+      llmSummaryNode.innerHTML = `
+        Showing <strong>${representativeRow.program_name}</strong> /
+        <strong>${shortenLabel(representativeRow.kernel_demangled_name || representativeRow.kernel_mangled_name, 80)}</strong>
+        for <strong>${representativeRow.gpu}</strong>, <strong>${representativeRow.model_name}</strong>,
+        <strong>${representativeRow.precision.toUpperCase()}</strong>.
+      `;
+    } catch (error) {
+      console.error(error);
+      llmSummaryNode.textContent = "Could not load the LLM response shard for this selection.";
+    }
+  }
+
   function init() {
     renderHeroMetrics(meta.hero.headline_metrics);
     renderBenchmarkSurfaces();
     renderDeviceTable(meta.device_summary);
     renderDownloads(meta.downloads);
     renderTopList(peakPerfListNode, "Performance leaders", meta.top_lists.performance_sources);
-    renderTopList(aiDenseListNode, "AI-dense leaders", meta.top_lists.ai_dense_sources);
+    renderTopList(aiDenseListNode, "RAI-dense leaders", meta.top_lists.ai_dense_sources);
     renderReadingGuide();
-    renderModelCoverage(meta.model_matrix);
     renderCategoryCoverage(meta.category_profiled);
 
     refillSelect(rooflineDevice, uniqueSorted(kernelRows.map((row) => row.device)), "all devices");
@@ -770,6 +1060,11 @@
     refillSelect(explorerDevice, uniqueSorted(kernelRows.map((row) => row.device)), "all devices");
     refillSelect(explorerModel, uniqueSorted(kernelRows.map((row) => row.model_type)), "all models");
     refillSelect(explorerCategory, uniqueSorted(kernelRows.map((row) => row.category)), "all categories");
+    refillSelect(accuracyModel, uniqueSorted(llmPredictionRows.map((row) => row.model_name)), "all models");
+    refillSelect(accuracyGpu, uniqueSorted(llmPredictionRows.map((row) => row.gpu)), "all GPUs");
+    refillSelect(accuracyPrompt, uniqueSorted(llmPredictionRows.map((row) => row.prompt_type)), "all prompts");
+    refillSelect(accuracyPrecision, uniqueSorted(llmPredictionRows.map((row) => row.precision)), "all precisions");
+    syncLlmFilters();
 
     [rooflineDevice, rooflineModel, rooflineProgram, rooflineCategory, rooflineKernel, rooflinePrecision].forEach((node) => {
       node.addEventListener("change", function () {
@@ -786,8 +1081,16 @@
     explorerSearch.addEventListener("input", function () {
       renderExplorer(kernelRows);
     });
+    [accuracyModel, accuracyGpu, accuracyPrompt, accuracyPrecision, accuracyClass, accuracySort].forEach((node) => {
+      node.addEventListener("change", renderAccuracyBrowser);
+    });
+    [llmProgram, llmKernel, llmGpu, llmModel, llmPrecision].forEach((node) => {
+      node.addEventListener("change", renderLlmExplorer);
+    });
 
     renderRoofline(kernelRows);
+    renderAccuracyBrowser();
+    renderLlmExplorer();
     renderExplorer(kernelRows);
     lastUpdatedNode.textContent = new Date(meta.audit.generated_at).toLocaleString();
   }

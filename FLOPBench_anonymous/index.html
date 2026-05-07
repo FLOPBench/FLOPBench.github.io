@@ -21,7 +21,7 @@
           <div class="brand-mark">GFB</div>
           <div class="brand-copy">
             <strong>gpuFLOPBench</strong>
-            <span>standalone benchmark atlas</span>
+            <span>paper-study benchmark atlas</span>
           </div>
         </a>
         <nav class="nav-links">
@@ -29,9 +29,11 @@
           <a href="#benchmark">Benchmark</a>
           <a href="#coverage">Coverage</a>
           <a href="#performance">Performance</a>
+          <a href="#accuracy">LLM Accuracy</a>
+          <a href="#llm-explorer">LLM Responses</a>
           <a href="#explorer">Explorer</a>
           <a href="#downloads">Downloads</a>
-          <a href="https://github.com/FLOPBench/FLOPBench.github.io" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://github.com/FLOPBench/SC26FLOPBench" target="_blank" rel="noreferrer">GitHub</a>
         </nav>
       </div>
     </header>
@@ -45,12 +47,12 @@
             <h1>gpuFLOPBench</h1>
             <p>
               A benchmark and analysis site for studying whether off-the-shelf LLMs can provide Roofline-oriented
-              GPU triage by predicting profiler-derived arithmetic intensity before scarce accelerator time is available.
+              GPU triage by predicting profiler-derived Roofline Arithmetic Intensity (RAI) for the 254 sampled paper kernels.
             </p>
             <div class="hero-actions">
               <a class="button primary" href="#research">Read motivation</a>
               <a class="button secondary" href="#performance">Explore performance</a>
-              <a class="button secondary" href="#explorer">Open explorer</a>
+              <a class="button secondary" href="#accuracy">Rank predictions</a>
             </div>
           </article>
           <div class="metric-grid" id="heroMetrics" data-fallback="hero metrics"></div>
@@ -59,7 +61,7 @@
           <h2>Why this project exists</h2>
           <ul>
             <li><strong>Motivation.</strong> Profiler-driven GPU optimization breaks down when target hardware is unavailable, rationed, or too costly for early-stage triage.</li>
-            <li><strong>Signal.</strong> Arithmetic intensity gives an interpretable Roofline quantity for deciding whether effort should focus on memory traffic or computation.</li>
+            <li><strong>Signal.</strong> Roofline Arithmetic Intensity (RAI) gives an interpretable quantity for deciding whether effort should focus on memory traffic or computation.</li>
             <li><strong>Goal.</strong> The site exposes the corpus used to test whether prompting alone is enough for modern LLMs to approximate that signal across multiple GPUs.</li>
           </ul>
         </article>
@@ -69,11 +71,11 @@
         <div class="section-head">
           <div>
             <div class="eyebrow">Research framing</div>
-            <h2>Motivation, key question, and the questions that drive the study.</h2>
+            <h2>Motivation, key question, and the claims reviewers can inspect.</h2>
             <p>
-              The project studies whether a smaller, interpretable performance signal can guide GPU optimization before
-              full profiler feedback is available. It positions arithmetic intensity as an early triage quantity rather
-              than a replacement for hardware profiling.
+              The paper asks whether off-the-shelf LLMs can predict a kernel's Roofline Arithmetic Intensity (RAI)
+              well enough to support early GPU-kernel triage before direct hardware profiling is available.
+              This page links those claims to exact profiled kernels, LLM predictions, prompts, responses, and error metrics.
             </p>
           </div>
         </div>
@@ -89,30 +91,29 @@
           </article>
           <article class="paper-card">
             <em>key question</em>
-            <h3>Can prompting alone recover a useful Roofline signal?</h3>
+            <h3>Can prompting alone recover a useful Roofline Arithmetic Intensity signal?</h3>
             <p>
               The central question is whether off-the-shelf state-of-the-art LLMs, without task-specific training or
-              fine-tuning, can act as GPU Roofline triage tools by predicting a kernel's arithmetic intensity.
+              fine-tuning, can act as GPU Roofline triage tools by predicting a kernel's Roofline Arithmetic Intensity (RAI).
             </p>
           </article>
           <article class="paper-card">
-            <em>research questions</em>
-            <h3>Four questions structure the evaluation.</h3>
+            <em>findings</em>
+            <h3>Three paper claims are directly inspectable.</h3>
             <ul class="note-list research-list">
-              <li><strong>RQ1.</strong> Can LLMs predict arithmetic intensity well across multiple GPU architectures?</li>
-              <li><strong>RQ2.</strong> Does agentic prompting outperform zero-shot prompting for this task?</li>
-              <li><strong>RQ3.</strong> Which source-code features lead to larger prediction errors?</li>
-              <li><strong>RQ4.</strong> Do post-compilation SASS artifacts improve prediction quality?</li>
+              <li><strong>SASS helps.</strong> Post-compilation artifacts substantially improve FP16 RAI estimates and compute/bandwidth-bound classifications for stronger models.</li>
+              <li><strong>Budget matters.</strong> Premium models are strongest overall, but a cheaper model remains surprisingly competitive when only source code is available.</li>
+              <li><strong>Reliability varies.</strong> Larger-cache GPUs are easier than smaller-cache GPUs, and errors concentrate around division, transcendental math, reusable subexpressions, and loop-invariant floating-point work.</li>
             </ul>
           </article>
           <article class="paper-card">
             <em>contributions</em>
             <h3>What the study contributes.</h3>
             <ul class="note-list research-list">
-              <li><strong>Zero-training test.</strong> It evaluates whether prompting alone can estimate profiler-derived arithmetic intensity across multiple GPU targets.</li>
-              <li><strong>Prompting tradeoff.</strong> It compares zero-shot and agentic prompting to determine when extra reasoning cost is worthwhile.</li>
-              <li><strong>Artifact value.</strong> It measures how much SASS helps when source-only reasoning misses compiler-realized behavior.</li>
-              <li><strong>Triage framing.</strong> It positions LLM-based static profiling as a complement to, not a substitute for, hardware profilers.</li>
+              <li><strong>Zero-training triage.</strong> It shows that prompted, off-the-shelf LLMs can estimate RAI well enough to support early Roofline triage across multiple GPU architectures.</li>
+              <li><strong>Compiler-realized behavior.</strong> It quantifies when adding SASS improves prediction quality over source-only reasoning.</li>
+              <li><strong>Reliability map.</strong> It compares inexpensive and premium models across CUDA/OpenMP, GPU cache regimes, and source features that systematically raise prediction error.</li>
+              <li><strong>Benchmark release.</strong> It publishes kernels, compilation and execution context, post-compilation artifacts, and profiler-derived ground truth for hardware-free RAI prediction.</li>
             </ul>
           </article>
         </div>
@@ -136,22 +137,36 @@
         <div class="section-head">
           <div>
             <div class="eyebrow">Coverage</div>
-            <h2>How broad is the benchmark?</h2>
+            <h2>Sampled Hardware and Programs</h2>
             <p>
-              These views summarize how the benchmark inventory maps onto the profiled corpus, across programming
-              models, benchmark categories, and GPU targets.
+              The paper-study subset is measured on four NVIDIA GPUs, then organized by HeCBench category and programming model.
             </p>
           </div>
         </div>
-        <div class="split-grid">
-          <article class="chart-panel">
+        <div class="coverage-stack">
+          <article class="chart-panel hardware-panel">
             <header>
               <div>
-                <h3>Programming-model coverage</h3>
-                <p>Declared benchmark sources versus the profiled source binaries currently represented in gpuFLOPBench.</p>
+                <h3>Sample hardware</h3>
+                <p>The GPU targets used for profiling and Roofline balance-point comparisons.</p>
               </div>
             </header>
-            <div class="chart small" id="modelCoverageChart" data-fallback="model coverage"></div>
+            <div class="table-scroll short-scroll">
+              <table class="device-summary-table">
+                <thead>
+                  <tr>
+                    <th>GPU</th>
+                    <th>architecture</th>
+                    <th>CC</th>
+                    <th>bandwidth (GB/s)</th>
+                    <th>peak FP16</th>
+                    <th>peak FP32</th>
+                    <th>peak FP64</th>
+                  </tr>
+                </thead>
+                <tbody id="deviceTableBody"></tbody>
+              </table>
+            </div>
           </article>
           <article class="chart-panel">
             <header>
@@ -163,33 +178,13 @@
             <div class="chart small" id="categoryCoverageChart" data-fallback="category coverage"></div>
           </article>
         </div>
-        <div class="table-shell" style="margin-top: 18px;">
-          <div class="table-scroll short-scroll">
-            <table class="device-summary-table">
-              <thead>
-                <tr>
-                  <th>GPU</th>
-                  <th>architecture</th>
-                  <th>CC</th>
-                  <th>bandwidth (GB/s)</th>
-                  <th>peak FP16</th>
-                  <th>peak FP32</th>
-                  <th>peak FP64</th>
-                  <th>sources</th>
-                  <th>kernels</th>
-                </tr>
-              </thead>
-              <tbody id="deviceTableBody"></tbody>
-            </table>
-          </div>
-        </div>
       </section>
 
       <section class="section" id="performance">
         <div class="section-head">
           <div>
             <div class="eyebrow">Performance space</div>
-            <h2>Arithmetic intensity and measured performance, kernel by kernel.</h2>
+            <h2>Roofline Arithmetic Intensity (RAI) and measured performance, kernel by kernel.</h2>
             <p>
               The performance views below are built from the Nsight Compute profiling corpus and use floating-point
               work over execution time as the measured kernel performance in TFLOP/s.
@@ -264,7 +259,7 @@
                     <th>device</th>
                     <th>model</th>
                     <th>perf (TFLOP/s)</th>
-                    <th>AI</th>
+                    <th>RAI</th>
                     <th>FLOPs</th>
                     <th>bytes</th>
                     <th>time (ns)</th>
@@ -275,6 +270,158 @@
             </div>
           </div>
         </article>
+      </section>
+
+      <section class="section" id="accuracy">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">LLM prediction accuracy</div>
+            <h2>Explore LLM Responses</h2>
+            <p>
+              Sort predictions by raw signed difference, absolute RAI error, or percent-difference error to inspect
+              best-case and worst-case estimates against profiled ground truth.
+            </p>
+          </div>
+        </div>
+        <article class="chart-panel">
+          <div class="control-row">
+            <div class="field">
+              <label for="accuracyModel">model</label>
+              <select id="accuracyModel"><option value="all">all models</option></select>
+            </div>
+            <div class="field">
+              <label for="accuracyGpu">GPU</label>
+              <select id="accuracyGpu"><option value="all">all GPUs</option></select>
+            </div>
+            <div class="field">
+              <label for="accuracyPrompt">prompt</label>
+              <select id="accuracyPrompt"><option value="all">all prompts</option></select>
+            </div>
+            <div class="field">
+              <label for="accuracyPrecision">precision</label>
+              <select id="accuracyPrecision"><option value="all">all precisions</option></select>
+            </div>
+            <div class="field">
+              <label for="accuracyClass">profiled class</label>
+              <select id="accuracyClass">
+                <option value="all">all classes</option>
+                <option value="bandwidth-bound">Bandwidth-Bound</option>
+                <option value="compute-bound">Compute-Bound</option>
+                <option value="zero">Zero-FLOP codes</option>
+                <option value="nonzero">nnz-FLOP codes</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="accuracySort">sort</label>
+              <select id="accuracySort">
+                <option value="worst_ape">worst percent error</option>
+                <option value="best_ape">best percent error</option>
+                <option value="worst_abs">worst absolute RAI error</option>
+                <option value="largest_over">largest over-prediction</option>
+                <option value="largest_under">largest under-prediction</option>
+              </select>
+            </div>
+          </div>
+          <p id="accuracySummary" class="muted" style="margin-top: 16px;">Loading prediction accuracy rows...</p>
+        </article>
+        <div class="table-shell" style="margin-top: 18px;">
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>program / kernel</th>
+                  <th>GPU</th>
+                  <th>model</th>
+                  <th>prompt</th>
+                  <th>precision</th>
+                  <th>expected RAI</th>
+                  <th>predicted RAI</th>
+                  <th>raw diff</th>
+                  <th>abs error</th>
+                  <th>percent diff</th>
+                </tr>
+              </thead>
+              <tbody id="accuracyTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="llm-explorer">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">LLM response explorer</div>
+            <h2>Compare source-only and source+SASS prompts side by side.</h2>
+            <p>
+              Pick a sampled kernel, GPU, model, and precision to inspect the exact prompt, structured response,
+              profiled ground truth, and RAI error.
+            </p>
+          </div>
+        </div>
+        <article class="chart-panel">
+          <div class="control-row">
+            <div class="field" style="flex: 1 1 260px;">
+              <label for="llmProgram">program</label>
+              <select id="llmProgram"></select>
+            </div>
+            <div class="field" style="flex: 1 1 360px;">
+              <label for="llmKernel">kernel</label>
+              <select id="llmKernel"></select>
+            </div>
+            <div class="field">
+              <label for="llmGpu">GPU</label>
+              <select id="llmGpu"></select>
+            </div>
+            <div class="field">
+              <label for="llmModel">model</label>
+              <select id="llmModel"></select>
+            </div>
+            <div class="field">
+              <label for="llmPrecision">precision</label>
+              <select id="llmPrecision">
+                <option value="fp32">fp32</option>
+                <option value="fp16">fp16</option>
+                <option value="fp64">fp64</option>
+              </select>
+            </div>
+          </div>
+          <p id="llmSummary" class="muted" style="margin-top: 16px;">Loading LLM response data...</p>
+          <div class="inline-metrics" id="llmMetricStrip"></div>
+        </article>
+        <div class="llm-compare-grid">
+          <article class="panel explorer-pane">
+            <div class="section-head section-head-tight">
+              <div>
+                <h3>Source-only</h3>
+                <p class="muted" id="llmSourceOnlyMeta">Waiting for a selection.</p>
+              </div>
+            </div>
+            <details class="llm-detail" open>
+              <summary>Structured response</summary>
+              <div id="llmSourceOnlyResponse" class="json-render"></div>
+            </details>
+            <details class="llm-detail">
+              <summary>Input prompt</summary>
+              <pre id="llmSourceOnlyPrompt" class="explorer-code-block mono"></pre>
+            </details>
+          </article>
+          <article class="panel explorer-pane">
+            <div class="section-head section-head-tight">
+              <div>
+                <h3>Source+SASS</h3>
+                <p class="muted" id="llmSassMeta">Waiting for a selection.</p>
+              </div>
+            </div>
+            <details class="llm-detail" open>
+              <summary>Structured response</summary>
+              <div id="llmSassResponse" class="json-render"></div>
+            </details>
+            <details class="llm-detail">
+              <summary>Input prompt</summary>
+              <pre id="llmSassPrompt" class="explorer-code-block mono"></pre>
+            </details>
+          </article>
+        </div>
       </section>
 
       <section class="section" id="explorer">
@@ -396,7 +543,7 @@
         <div class="section-head">
           <div>
             <div class="eyebrow">Notable slices</div>
-            <h2>High-performance and AI-dense source binaries.</h2>
+            <h2>High-performance and RAI-dense source binaries.</h2>
             <p>
               These lists are not meant to replace the interactive explorer. They are here to spotlight strong benchmark
               examples that are easy to reference quickly.

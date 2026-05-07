@@ -1,0 +1,1531 @@
+{
+  "source": "gpuflops_db",
+  "selection": "completed paper models, source-only and source+SASS, no IMIX, shared across paper combinations",
+  "kernel_count": 254,
+  "kernels": [
+    {
+      "program_name": "accuracy-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z15accuracy_kerneliiiPKfPKiPi",
+      "kernel_demangled_name": "accuracy_kernel(int, int, int, const float *, const int *, int *)"
+    },
+    {
+      "program_name": "accuracy-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "main_l57",
+      "kernel_demangled_name": "main:l57"
+    },
+    {
+      "program_name": "ace-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z14calculateForcePA400_A400_dS1_S1_S1_dddddd",
+      "kernel_demangled_name": "calculateForce(double (*)[400][400], double (*)[400][400], double (*)[400][400], double (*)[400][400], double, double, double, double, double, double)"
+    },
+    {
+      "program_name": "ace-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z15thermalEquationPA400_A400_dS1_S1_S1_ddddd",
+      "kernel_demangled_name": "thermalEquation(double (*)[400][400], double (*)[400][400], double (*)[400][400], double (*)[400][400], double, double, double, double, double)"
+    },
+    {
+      "program_name": "ace-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z19boundaryConditionsUPA400_A400_dd",
+      "kernel_demangled_name": "boundaryConditionsU(double (*)[400][400], double)"
+    },
+    {
+      "program_name": "ace-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z21boundaryConditionsPhiPA400_A400_d",
+      "kernel_demangled_name": "boundaryConditionsPhi(double (*)[400][400])"
+    },
+    {
+      "program_name": "ace-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z8swapGridPA400_A400_dS1_",
+      "kernel_demangled_name": "swapGrid(double (*)[400][400], double (*)[400][400])"
+    },
+    {
+      "program_name": "ace-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z9allenCahnPA400_A400_dS1_S1_S1_S1_S1_dddddddd",
+      "kernel_demangled_name": "allenCahn(double (*)[400][400], double (*)[400][400], double (*)[400][400], double (*)[400][400], double (*)[400][400], double (*)[400][400], double, double, double, double, double, double, double, double)"
+    },
+    {
+      "program_name": "ace-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z14calculateForcePA400_A400_dS1_S1_S1_dddddd_l117",
+      "kernel_demangled_name": "calculateForce(double (*)[400][400], double (*)[400][400], double (*)[400][400], double (*)[400][400], double, double, double, double, double, double):l117"
+    },
+    {
+      "program_name": "ace-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z15thermalEquationPA400_A400_dS1_S1_S1_ddddd_l214",
+      "kernel_demangled_name": "thermalEquation(double (*)[400][400], double (*)[400][400], double (*)[400][400], double (*)[400][400], double, double, double, double, double):l214"
+    },
+    {
+      "program_name": "ace-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z19boundaryConditionsUPA400_A400_dd_l230",
+      "kernel_demangled_name": "boundaryConditionsU(double (*)[400][400], double):l230"
+    },
+    {
+      "program_name": "ace-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z21boundaryConditionsPhiPA400_A400_d_l180",
+      "kernel_demangled_name": "boundaryConditionsPhi(double (*)[400][400]):l180"
+    },
+    {
+      "program_name": "ace-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z8swapGridPA400_A400_dS1__l261",
+      "kernel_demangled_name": "swapGrid(double (*)[400][400], double (*)[400][400]):l261"
+    },
+    {
+      "program_name": "adam-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z4adamIffEvPT_S1_S1_PKT0_fffffim10adamMode_tf",
+      "kernel_demangled_name": "void adam<float, float>(T1 *, T1 *, T1 *, const T2 *, float, float, float, float, float, int, unsigned long, adamMode_t, float)"
+    },
+    {
+      "program_name": "adam-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z4adamIffEvPT_S1_S1_PKT0_fffffim10adamMode_tf_l25",
+      "kernel_demangled_name": "void adam<float, float>(T1 *, T1 *, T1 *, const T2 *, float, float, float, float, float, int, unsigned long, adamMode_t, float):l25"
+    },
+    {
+      "program_name": "adamw-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z17fused_4bit_kernelIfLi64EEvPT_PKS0_S1_S1_PaS4_fffffflffffff",
+      "kernel_demangled_name": "void fused_4bit_kernel<float, (int)64>(T1 *, const T1 *, T1 *, T1 *, signed char *, signed char *, float, float, float, float, float, float, long, float, float, float, float, float, float)"
+    },
+    {
+      "program_name": "adamw-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z17fused_4bit_kernelIfLi64EEviiPT_PKS0_S1_S1_PaS4_fffffflffffff_l135",
+      "kernel_demangled_name": "void fused_4bit_kernel<float, (int)64>(int, int, T1 *, const T1 *, T1 *, T1 *, signed char *, signed char *, float, float, float, float, float, float, long, float, float, float, float, float, float):l135"
+    },
+    {
+      "program_name": "addBiasQKV-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z22FP8TrtAddQKVBiasKernel21FP8TrtAddQKVBiasParamI13__nv_fp8_e4m313__nv_bfloat16E",
+      "kernel_demangled_name": "FP8TrtAddQKVBiasKernel(FP8TrtAddQKVBiasParam<__nv_fp8_e4m3, __nv_bfloat16>)"
+    },
+    {
+      "program_name": "addBiasResidualLayerNorm-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z28addBiasResidualPostLayerNormI6__halfLi1EEvPT_PKS1_S4_S4_S4_fi",
+      "kernel_demangled_name": "void addBiasResidualPostLayerNorm<__half, (int)1>(T1 *, const T1 *, const T1 *, const T1 *, const T1 *, float, int)"
+    },
+    {
+      "program_name": "addBiasResidualLayerNorm-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z28addBiasResidualPostLayerNormI6__halfLi2EEvPT_PKS1_S4_S4_S4_fi",
+      "kernel_demangled_name": "void addBiasResidualPostLayerNorm<__half, (int)2>(T1 *, const T1 *, const T1 *, const T1 *, const T1 *, float, int)"
+    },
+    {
+      "program_name": "addBiasResidualLayerNorm-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z30addBiasResidualPostLayerNormV2I6__halfEvPT_PKS1_S4_S4_S4_fi",
+      "kernel_demangled_name": "void addBiasResidualPostLayerNormV2<__half>(T1 *, const T1 *, const T1 *, const T1 *, const T1 *, float, int)"
+    },
+    {
+      "program_name": "addBiasResidualLayerNorm-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z35generalAddBiasResidualPostLayerNormI6__halfEvPT_PKS1_S4_S4_S4_fi",
+      "kernel_demangled_name": "void generalAddBiasResidualPostLayerNorm<__half>(T1 *, const T1 *, const T1 *, const T1 *, const T1 *, float, int)"
+    },
+    {
+      "program_name": "adjacent-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z18BlockAdjDiffKernelILi128EEvPKiPib",
+      "kernel_demangled_name": "void BlockAdjDiffKernel<(int)128>(const int *, int *, bool)"
+    },
+    {
+      "program_name": "adjacent-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z18BlockAdjDiffKernelILi256EEvPKiPib",
+      "kernel_demangled_name": "void BlockAdjDiffKernel<(int)256>(const int *, int *, bool)"
+    },
+    {
+      "program_name": "adjacent-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z18BlockAdjDiffKernelILi64EEvPKiPib",
+      "kernel_demangled_name": "void BlockAdjDiffKernel<(int)64>(const int *, int *, bool)"
+    },
+    {
+      "program_name": "adjacent-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z18BlockAdjDiffKernelILi128EEvPKiPibi_l42",
+      "kernel_demangled_name": "void BlockAdjDiffKernel<(int)128>(const int *, int *, bool, int):l42"
+    },
+    {
+      "program_name": "adjacent-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z18BlockAdjDiffKernelILi256EEvPKiPibi_l42",
+      "kernel_demangled_name": "void BlockAdjDiffKernel<(int)256>(const int *, int *, bool, int):l42"
+    },
+    {
+      "program_name": "adjacent-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z18BlockAdjDiffKernelILi64EEvPKiPibi_l42",
+      "kernel_demangled_name": "void BlockAdjDiffKernel<(int)64>(const int *, int *, bool, int):l42"
+    },
+    {
+      "program_name": "adv-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z16advCubatureHex3DiPKdS0_S0_S0_iS0_Pd",
+      "kernel_demangled_name": "advCubatureHex3D(int, const double *, const double *, const double *, const double *, int, const double *, double *)"
+    },
+    {
+      "program_name": "adv-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "main_l72",
+      "kernel_demangled_name": "main:l72"
+    },
+    {
+      "program_name": "affine-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z6affinePKtPt",
+      "kernel_demangled_name": "affine(const unsigned short *, unsigned short *)"
+    },
+    {
+      "program_name": "affine-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "main_l80",
+      "kernel_demangled_name": "main:l80"
+    },
+    {
+      "program_name": "aidw-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z11AIDW_KernelPKfS0_S0_iS0_S0_PfifS0_",
+      "kernel_demangled_name": "AIDW_Kernel(const float *, const float *, const float *, int, const float *, const float *, float *, int, float, const float *)"
+    },
+    {
+      "program_name": "aidw-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z17AIDW_Kernel_TiledPKfS0_S0_iS0_S0_PfifS0_",
+      "kernel_demangled_name": "AIDW_Kernel_Tiled(const float *, const float *, const float *, int, const float *, const float *, float *, int, float, const float *)"
+    },
+    {
+      "program_name": "aidw-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z11AIDW_KernelPKfS0_S0_iS0_S0_PfifS0__l47",
+      "kernel_demangled_name": "AIDW_Kernel(const float *, const float *, const float *, int, const float *, const float *, float *, int, float, const float *):l47"
+    },
+    {
+      "program_name": "aligned-types-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z10testKernelI13uint2_alignedEvPT_PKS1_i",
+      "kernel_demangled_name": "void testKernel<uint2_aligned>(T1 *, const T1 *, int)"
+    },
+    {
+      "program_name": "aligned-types-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z10testKernelI13uint3_alignedEvPT_PKS1_i",
+      "kernel_demangled_name": "void testKernel<uint3_aligned>(T1 *, const T1 *, int)"
+    },
+    {
+      "program_name": "aligned-types-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z10testKernelI14uchar4_alignedEvPT_PKS1_i",
+      "kernel_demangled_name": "void testKernel<uchar4_aligned>(T1 *, const T1 *, int)"
+    },
+    {
+      "program_name": "aligned-types-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z10testKernelI16uint2_misalignedEvPT_PKS1_i",
+      "kernel_demangled_name": "void testKernel<uint2_misaligned>(T1 *, const T1 *, int)"
+    },
+    {
+      "program_name": "aligned-types-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z10testKernelI16uint3_misalignedEvPT_PKS1_i",
+      "kernel_demangled_name": "void testKernel<uint3_misaligned>(T1 *, const T1 *, int)"
+    },
+    {
+      "program_name": "aligned-types-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z10testKernelI17uchar4_misalignedEvPT_PKS1_i",
+      "kernel_demangled_name": "void testKernel<uchar4_misaligned>(T1 *, const T1 *, int)"
+    },
+    {
+      "program_name": "aligned-types-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z10testKernelIhEvPT_PKS0_i",
+      "kernel_demangled_name": "void testKernel<unsigned char>(T1 *, const T1 *, int)"
+    },
+    {
+      "program_name": "aligned-types-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z10testKernelIjEvPT_PKS0_i",
+      "kernel_demangled_name": "void testKernel<unsigned int>(T1 *, const T1 *, int)"
+    },
+    {
+      "program_name": "aligned-types-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z10testKernelItEvPT_PKS0_i",
+      "kernel_demangled_name": "void testKernel<unsigned short>(T1 *, const T1 *, int)"
+    },
+    {
+      "program_name": "aligned-types-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z7runTestI14uchar4_alignedEiPhS1_ii_l196",
+      "kernel_demangled_name": "int runTest<uchar4_aligned>(unsigned char *, unsigned char *, int, int):l196"
+    },
+    {
+      "program_name": "aligned-types-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z7runTestI17uchar4_misalignedEiPhS1_ii_l196",
+      "kernel_demangled_name": "int runTest<uchar4_misaligned>(unsigned char *, unsigned char *, int, int):l196"
+    },
+    {
+      "program_name": "aligned-types-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z7runTestIhEiPhS0_ii_l187",
+      "kernel_demangled_name": "int runTest<unsigned char>(unsigned char *, unsigned char *, int, int):l187"
+    },
+    {
+      "program_name": "aligned-types-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z7runTestIhEiPhS0_ii_l196",
+      "kernel_demangled_name": "int runTest<unsigned char>(unsigned char *, unsigned char *, int, int):l196"
+    },
+    {
+      "program_name": "aligned-types-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z7runTestIjEiPhS0_ii_l196",
+      "kernel_demangled_name": "int runTest<unsigned int>(unsigned char *, unsigned char *, int, int):l196"
+    },
+    {
+      "program_name": "aligned-types-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z7runTestItEiPhS0_ii_l196",
+      "kernel_demangled_name": "int runTest<unsigned short>(unsigned char *, unsigned char *, int, int):l196"
+    },
+    {
+      "program_name": "all-pairs-distance-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z2k1PKcPi",
+      "kernel_demangled_name": "k1(const char *, int *)"
+    },
+    {
+      "program_name": "all-pairs-distance-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z2k2PKcPi",
+      "kernel_demangled_name": "k2(const char *, int *)"
+    },
+    {
+      "program_name": "all-pairs-distance-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z2k3PKcPi",
+      "kernel_demangled_name": "k3(const char *, int *)"
+    },
+    {
+      "program_name": "all-pairs-distance-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "main_l150",
+      "kernel_demangled_name": "main:l150"
+    },
+    {
+      "program_name": "all-pairs-distance-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "main_l97",
+      "kernel_demangled_name": "main:l97"
+    },
+    {
+      "program_name": "amgmk-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z5relaxPKdPKiS2_PdS0_i",
+      "kernel_demangled_name": "relax(const double *, const int *, const int *, double *, const double *, int)"
+    },
+    {
+      "program_name": "amgmk-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z10test_Relaxv_l258",
+      "kernel_demangled_name": "test_Relax():l258"
+    },
+    {
+      "program_name": "ans-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z20phase1_decode_subseqjjjPjPKjP5uint4jjjj",
+      "kernel_demangled_name": "phase1_decode_subseq(unsigned int, unsigned int, unsigned int, unsigned int *, const unsigned int *, uint4 *, unsigned int, unsigned int, unsigned int, unsigned int)"
+    },
+    {
+      "program_name": "ans-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z25phase2_synchronise_blocksjjjjPjPKjP5uint4Phjjj",
+      "kernel_demangled_name": "phase2_synchronise_blocks(unsigned int, unsigned int, unsigned int, unsigned int, unsigned int *, const unsigned int *, uint4 *, unsigned char *, unsigned int, unsigned int, unsigned int)"
+    },
+    {
+      "program_name": "ans-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z26phase4_decode_write_outputjjjPjPhjPKjPK5uint4jjjj",
+      "kernel_demangled_name": "phase4_decode_write_output(unsigned int, unsigned int, unsigned int, unsigned int *, unsigned char *, unsigned int, const unsigned int *, const uint4 *, unsigned int, unsigned int, unsigned int, unsigned int)"
+    },
+    {
+      "program_name": "ans-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z47phase3_copy_num_symbols_from_aux_to_sync_pointsjP5uint4PKj",
+      "kernel_demangled_name": "phase3_copy_num_symbols_from_aux_to_sync_points(unsigned int, uint4 *, const unsigned int *)"
+    },
+    {
+      "program_name": "ans-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z47phase3_copy_num_symbols_from_sync_points_to_auxjPK5uint4Pj",
+      "kernel_demangled_name": "phase3_copy_num_symbols_from_sync_points_to_aux(unsigned int, const uint4 *, unsigned int *)"
+    },
+    {
+      "program_name": "aobench-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z13render_kernelPhPK7_Sphere6_Planeiii",
+      "kernel_demangled_name": "render_kernel(unsigned char *, const _Sphere *, _Plane, int, int, int)"
+    },
+    {
+      "program_name": "aobench-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z6renderPhiiiPK7_SphereRK6_Plane_l309",
+      "kernel_demangled_name": "render(unsigned char *, int, int, int, const _Sphere *, const _Plane &):l309"
+    },
+    {
+      "program_name": "aop-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z18prepare_svd_kernelILi256E9PayoffPutEviiT0_PKdPiPd",
+      "kernel_demangled_name": "void prepare_svd_kernel<(int)256, PayoffPut>(int, int, T2, const double *, int *, double *)"
+    },
+    {
+      "program_name": "aop-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z21generate_paths_kernelILi256E9PayoffPutEviiT0_ddddPKdPd",
+      "kernel_demangled_name": "void generate_paths_kernel<(int)256, PayoffPut>(int, int, T2, double, double, double, double, const double *, double *)"
+    },
+    {
+      "program_name": "aop-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z22update_cashflow_kernelILi128E9PayoffPutEviT0_dPKdS3_PKiPd",
+      "kernel_demangled_name": "void update_cashflow_kernel<(int)128, PayoffPut>(int, T2, double, const double *, const double *, const int *, double *)"
+    },
+    {
+      "program_name": "aop-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z24compute_final_sum_kernelILi128EEviidPd",
+      "kernel_demangled_name": "void compute_final_sum_kernel<(int)128>(int, int, double, double *)"
+    },
+    {
+      "program_name": "aop-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z25compute_final_beta_kernelILi128EEvPKiPd",
+      "kernel_demangled_name": "void compute_final_beta_kernel<(int)128>(const int *, double *)"
+    },
+    {
+      "program_name": "aop-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z27compute_partial_beta_kernelILi128E9PayoffPutEviT0_PKdS3_S3_PKiPd",
+      "kernel_demangled_name": "void compute_partial_beta_kernel<(int)128, PayoffPut>(int, T2, const double *, const double *, const double *, const int *, double *)"
+    },
+    {
+      "program_name": "aop-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z27compute_partial_sums_kernelILi128EEviPKdPd",
+      "kernel_demangled_name": "void compute_partial_sums_kernel<(int)128>(int, const double *, double *)"
+    },
+    {
+      "program_name": "aop-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z18prepare_svd_kernelILi256E9PayoffPutEviiiT0_PKdPiPd_l491",
+      "kernel_demangled_name": "void prepare_svd_kernel<(int)256, PayoffPut>(int, int, int, T2, const double *, int *, double *):l491"
+    },
+    {
+      "program_name": "aop-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z19compute_beta_kernelILi128E9PayoffPutEviT0_PKdS3_S3_PKiPd_l648",
+      "kernel_demangled_name": "void compute_beta_kernel<(int)128, PayoffPut>(int, T2, const double *, const double *, const double *, const int *, double *):l648"
+    },
+    {
+      "program_name": "aop-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z21generate_paths_kernelILi256E9PayoffPutEviiT0_ddddPKdPd_l97",
+      "kernel_demangled_name": "void generate_paths_kernel<(int)256, PayoffPut>(int, int, T2, double, double, double, double, const double *, double *):l97"
+    },
+    {
+      "program_name": "aop-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z22update_cashflow_kernelILi128E9PayoffPutEviiT0_dPKdS3_PKiPd_l744",
+      "kernel_demangled_name": "void update_cashflow_kernel<(int)128, PayoffPut>(int, int, T2, double, const double *, const double *, const int *, double *):l744"
+    },
+    {
+      "program_name": "asmooth-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z15normalizeFilteriiPfPKf",
+      "kernel_demangled_name": "normalizeFilter(int, int, float *, const float *)"
+    },
+    {
+      "program_name": "asmooth-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z15smoothingFilteriiiiPKfPiPf",
+      "kernel_demangled_name": "smoothingFilter(int, int, int, int, const float *, int *, float *)"
+    },
+    {
+      "program_name": "asmooth-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z9outFilteriiPKfPKiPf",
+      "kernel_demangled_name": "outFilter(int, int, const float *, const int *, float *)"
+    },
+    {
+      "program_name": "asmooth-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "main_l101",
+      "kernel_demangled_name": "main:l101"
+    },
+    {
+      "program_name": "asmooth-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "main_l60",
+      "kernel_demangled_name": "main:l60"
+    },
+    {
+      "program_name": "assert-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z10perfKernelv",
+      "kernel_demangled_name": "perfKernel()"
+    },
+    {
+      "program_name": "assert-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z10testKerneli",
+      "kernel_demangled_name": "testKernel(int)"
+    },
+    {
+      "program_name": "assert-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z11perfKernel2v",
+      "kernel_demangled_name": "perfKernel2()"
+    },
+    {
+      "program_name": "assert-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z10perfKernelii_l31",
+      "kernel_demangled_name": "perfKernel(int, int):l31"
+    },
+    {
+      "program_name": "assert-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z10testKerneliii_l22",
+      "kernel_demangled_name": "testKernel(int, int, int):l22"
+    },
+    {
+      "program_name": "asta-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z15PTTWAC_soa_astaiiiPfPiS0_",
+      "kernel_demangled_name": "PTTWAC_soa_asta(int, int, int, float *, int *, int *)"
+    },
+    {
+      "program_name": "asta-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "main_l170",
+      "kernel_demangled_name": "main:l170"
+    },
+    {
+      "program_name": "atan2-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z9compute_fiPKfS0_Pf",
+      "kernel_demangled_name": "compute_f(int, const float *, const float *, float *)"
+    },
+    {
+      "program_name": "atan2-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z9compute_iiPKfS0_Pi",
+      "kernel_demangled_name": "compute_i(int, const float *, const float *, int *)"
+    },
+    {
+      "program_name": "atan2-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z9compute_siPKfS0_Ps",
+      "kernel_demangled_name": "compute_s(int, const float *, const float *, short *)"
+    },
+    {
+      "program_name": "atan2-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z9compute_fiPKfS0_Pf_l269",
+      "kernel_demangled_name": "compute_f(int, const float *, const float *, float *):l269"
+    },
+    {
+      "program_name": "atan2-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z9compute_iiPKfS0_Pi_l306",
+      "kernel_demangled_name": "compute_i(int, const float *, const float *, int *):l306"
+    },
+    {
+      "program_name": "atan2-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z9compute_siPKfS0_Ps_l289",
+      "kernel_demangled_name": "compute_s(int, const float *, const float *, short *):l289"
+    },
+    {
+      "program_name": "atomicAggregate-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z1kPii",
+      "kernel_demangled_name": "k(int *, int)"
+    },
+    {
+      "program_name": "atomicCAS-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z16atomicMaxDerivedIdEvPT_",
+      "kernel_demangled_name": "void atomicMaxDerived<double>(T1 *)"
+    },
+    {
+      "program_name": "atomicCAS-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z16atomicMaxDerivedIxEvPT_",
+      "kernel_demangled_name": "void atomicMaxDerived<long long>(T1 *)"
+    },
+    {
+      "program_name": "atomicCAS-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z16atomicMaxDerivedIyEvPT_",
+      "kernel_demangled_name": "void atomicMaxDerived<unsigned long long>(T1 *)"
+    },
+    {
+      "program_name": "atomicCAS-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z16atomicMinDerivedIdEvPT_",
+      "kernel_demangled_name": "void atomicMinDerived<double>(T1 *)"
+    },
+    {
+      "program_name": "atomicCAS-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z16atomicMinDerivedIxEvPT_",
+      "kernel_demangled_name": "void atomicMinDerived<long long>(T1 *)"
+    },
+    {
+      "program_name": "atomicCAS-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z16atomicMinDerivedIyEvPT_",
+      "kernel_demangled_name": "void atomicMinDerived<unsigned long long>(T1 *)"
+    },
+    {
+      "program_name": "atomicCost-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z19wiAtomicOnGlobalMemIdEvPT_i",
+      "kernel_demangled_name": "void wiAtomicOnGlobalMem<double>(T1 *, int)"
+    },
+    {
+      "program_name": "atomicCost-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z19wiAtomicOnGlobalMemIfEvPT_i",
+      "kernel_demangled_name": "void wiAtomicOnGlobalMem<float>(T1 *, int)"
+    },
+    {
+      "program_name": "atomicCost-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z19wiAtomicOnGlobalMemIiEvPT_i",
+      "kernel_demangled_name": "void wiAtomicOnGlobalMem<int>(T1 *, int)"
+    },
+    {
+      "program_name": "atomicCost-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z19woAtomicOnGlobalMemIdEvPT_i",
+      "kernel_demangled_name": "void woAtomicOnGlobalMem<double>(T1 *, int)"
+    },
+    {
+      "program_name": "atomicCost-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z19woAtomicOnGlobalMemIfEvPT_i",
+      "kernel_demangled_name": "void woAtomicOnGlobalMem<float>(T1 *, int)"
+    },
+    {
+      "program_name": "atomicCost-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z19woAtomicOnGlobalMemIiEvPT_i",
+      "kernel_demangled_name": "void woAtomicOnGlobalMem<int>(T1 *, int)"
+    },
+    {
+      "program_name": "atomicCost-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z19wiAtomicOnGlobalMemIdEvPT_ii_l26",
+      "kernel_demangled_name": "void wiAtomicOnGlobalMem<double>(T1 *, int, int):l26"
+    },
+    {
+      "program_name": "atomicCost-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z19wiAtomicOnGlobalMemIfEvPT_ii_l26",
+      "kernel_demangled_name": "void wiAtomicOnGlobalMem<float>(T1 *, int, int):l26"
+    },
+    {
+      "program_name": "atomicCost-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z19wiAtomicOnGlobalMemIiEvPT_ii_l26",
+      "kernel_demangled_name": "void wiAtomicOnGlobalMem<int>(T1 *, int, int):l26"
+    },
+    {
+      "program_name": "atomicCost-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z19woAtomicOnGlobalMemIdEvPT_ii_l14",
+      "kernel_demangled_name": "void woAtomicOnGlobalMem<double>(T1 *, int, int):l14"
+    },
+    {
+      "program_name": "atomicCost-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z19woAtomicOnGlobalMemIfEvPT_ii_l14",
+      "kernel_demangled_name": "void woAtomicOnGlobalMem<float>(T1 *, int, int):l14"
+    },
+    {
+      "program_name": "atomicCost-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z19woAtomicOnGlobalMemIiEvPT_ii_l14",
+      "kernel_demangled_name": "void woAtomicOnGlobalMem<int>(T1 *, int, int):l14"
+    },
+    {
+      "program_name": "atomicIntrinsics-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z10testKernelIiEvPT_m",
+      "kernel_demangled_name": "void testKernel<int>(T1 *, unsigned long)"
+    },
+    {
+      "program_name": "atomicIntrinsics-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z8testcaseIiEvii_l25",
+      "kernel_demangled_name": "void testcase<int>(int, int):l25"
+    },
+    {
+      "program_name": "atomicIntrinsics-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z8testcaseIiEvii_l48",
+      "kernel_demangled_name": "void testcase<int>(int, int):l48"
+    },
+    {
+      "program_name": "atomicIntrinsics-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z8testcaseIiEvii_l60",
+      "kernel_demangled_name": "void testcase<int>(int, int):l60"
+    },
+    {
+      "program_name": "atomicIntrinsics-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z8testcaseIiEvii_l79",
+      "kernel_demangled_name": "void testcase<int>(int, int):l79"
+    },
+    {
+      "program_name": "atomicIntrinsics-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z8testcaseIiEvii_l83",
+      "kernel_demangled_name": "void testcase<int>(int, int):l83"
+    },
+    {
+      "program_name": "atomicPerf-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z26WarpRangeAtomicOnGlobalMemIdEvPT_i",
+      "kernel_demangled_name": "void WarpRangeAtomicOnGlobalMem<double>(T1 *, int)"
+    },
+    {
+      "program_name": "atomicPerf-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z26WarpRangeAtomicOnGlobalMemIiEvPT_i",
+      "kernel_demangled_name": "void WarpRangeAtomicOnGlobalMem<int>(T1 *, int)"
+    },
+    {
+      "program_name": "atomicPerf-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z26WarpRangeAtomicOnSharedMemIdEvPT_i",
+      "kernel_demangled_name": "void WarpRangeAtomicOnSharedMem<double>(T1 *, int)"
+    },
+    {
+      "program_name": "atomicPerf-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z27BlockRangeAtomicOnGlobalMemIdEvPT_i",
+      "kernel_demangled_name": "void BlockRangeAtomicOnGlobalMem<double>(T1 *, int)"
+    },
+    {
+      "program_name": "atomicPerf-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z27BlockRangeAtomicOnGlobalMemIiEvPT_i",
+      "kernel_demangled_name": "void BlockRangeAtomicOnGlobalMem<int>(T1 *, int)"
+    },
+    {
+      "program_name": "atomicPerf-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z27BlockRangeAtomicOnSharedMemIdEvPT_i",
+      "kernel_demangled_name": "void BlockRangeAtomicOnSharedMem<double>(T1 *, int)"
+    },
+    {
+      "program_name": "atomicPerf-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z27BlockRangeAtomicOnSharedMemIiEvPT_i",
+      "kernel_demangled_name": "void BlockRangeAtomicOnSharedMem<int>(T1 *, int)"
+    },
+    {
+      "program_name": "atomicPerf-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z28SingleRangeAtomicOnGlobalMemIdEvPT_ii",
+      "kernel_demangled_name": "void SingleRangeAtomicOnGlobalMem<double>(T1 *, int, int)"
+    },
+    {
+      "program_name": "atomicPerf-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z28SingleRangeAtomicOnGlobalMemIiEvPT_ii",
+      "kernel_demangled_name": "void SingleRangeAtomicOnGlobalMem<int>(T1 *, int, int)"
+    },
+    {
+      "program_name": "atomicPerf-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z28SingleRangeAtomicOnSharedMemIdEvPT_ii",
+      "kernel_demangled_name": "void SingleRangeAtomicOnSharedMem<double>(T1 *, int, int)"
+    },
+    {
+      "program_name": "atomicPerf-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z26WarpRangeAtomicOnGlobalMemIdEvPT_i_l23",
+      "kernel_demangled_name": "void WarpRangeAtomicOnGlobalMem<double>(T1 *, int):l23"
+    },
+    {
+      "program_name": "atomicPerf-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z26WarpRangeAtomicOnGlobalMemIiEvPT_i_l23",
+      "kernel_demangled_name": "void WarpRangeAtomicOnGlobalMem<int>(T1 *, int):l23"
+    },
+    {
+      "program_name": "atomicPerf-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z26WarpRangeAtomicOnSharedMemIdEvPT_i_l66",
+      "kernel_demangled_name": "void WarpRangeAtomicOnSharedMem<double>(T1 *, int):l66"
+    },
+    {
+      "program_name": "atomicPerf-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z27BlockRangeAtomicOnGlobalMemIdEvPT_i_l13",
+      "kernel_demangled_name": "void BlockRangeAtomicOnGlobalMem<double>(T1 *, int):l13"
+    },
+    {
+      "program_name": "atomicPerf-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z27BlockRangeAtomicOnGlobalMemIiEvPT_i_l13",
+      "kernel_demangled_name": "void BlockRangeAtomicOnGlobalMem<int>(T1 *, int):l13"
+    },
+    {
+      "program_name": "atomicPerf-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z27BlockRangeAtomicOnSharedMemIdEvPT_i_l43",
+      "kernel_demangled_name": "void BlockRangeAtomicOnSharedMem<double>(T1 *, int):l43"
+    },
+    {
+      "program_name": "atomicPerf-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z28SingleRangeAtomicOnGlobalMemIdEvPT_ii_l33",
+      "kernel_demangled_name": "void SingleRangeAtomicOnGlobalMem<double>(T1 *, int, int):l33"
+    },
+    {
+      "program_name": "atomicPerf-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z28SingleRangeAtomicOnGlobalMemIiEvPT_ii_l33",
+      "kernel_demangled_name": "void SingleRangeAtomicOnGlobalMem<int>(T1 *, int, int):l33"
+    },
+    {
+      "program_name": "atomicPerf-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z28SingleRangeAtomicOnSharedMemIdEvPT_ii_l89",
+      "kernel_demangled_name": "void SingleRangeAtomicOnSharedMem<double>(T1 *, int, int):l89"
+    },
+    {
+      "program_name": "atomicReduction-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z16atomic_reductionPiS_i",
+      "kernel_demangled_name": "atomic_reduction(int *, int *, int)"
+    },
+    {
+      "program_name": "atomicReduction-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z19atomic_reduction_v2PiS_i",
+      "kernel_demangled_name": "atomic_reduction_v2(int *, int *, int)"
+    },
+    {
+      "program_name": "atomicReduction-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z19atomic_reduction_v4PiS_i",
+      "kernel_demangled_name": "atomic_reduction_v4(int *, int *, int)"
+    },
+    {
+      "program_name": "atomicReduction-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z19atomic_reduction_v8PiS_i",
+      "kernel_demangled_name": "atomic_reduction_v8(int *, int *, int)"
+    },
+    {
+      "program_name": "atomicReduction-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z20atomic_reduction_v16PiS_i",
+      "kernel_demangled_name": "atomic_reduction_v16(int *, int *, int)"
+    },
+    {
+      "program_name": "atomicReduction-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "main_l101",
+      "kernel_demangled_name": "main:l101"
+    },
+    {
+      "program_name": "atomicReduction-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "main_l122",
+      "kernel_demangled_name": "main:l122"
+    },
+    {
+      "program_name": "atomicReduction-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "main_l143",
+      "kernel_demangled_name": "main:l143"
+    },
+    {
+      "program_name": "atomicReduction-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "main_l165",
+      "kernel_demangled_name": "main:l165"
+    },
+    {
+      "program_name": "atomicReduction-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "main_l62",
+      "kernel_demangled_name": "main:l62"
+    },
+    {
+      "program_name": "atomicReduction-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "main_l78",
+      "kernel_demangled_name": "main:l78"
+    },
+    {
+      "program_name": "atomicSystemWide-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z12atomicKernelPii",
+      "kernel_demangled_name": "atomicKernel(int *, int)"
+    },
+    {
+      "program_name": "attention-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z17attention_kernel1PKfS0_PfS1_ii",
+      "kernel_demangled_name": "attention_kernel1(const float *, const float *, float *, float *, int, int)"
+    },
+    {
+      "program_name": "attention-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z17attention_kernel2PKfS0_Pfi",
+      "kernel_demangled_name": "attention_kernel2(const float *, const float *, float *, int)"
+    },
+    {
+      "program_name": "attention-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z17attention_kernel3PKfS0_Pfii",
+      "kernel_demangled_name": "attention_kernel3(const float *, const float *, float *, int, int)"
+    },
+    {
+      "program_name": "attentionMultiHead-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z3mhaPKfS0_S0_iiiiifiPf",
+      "kernel_demangled_name": "mha(const float *, const float *, const float *, int, int, int, int, int, float, int, float *)"
+    },
+    {
+      "program_name": "axhelm-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z9axhelm_n3iiPKfS0_S0_S0_Pf",
+      "kernel_demangled_name": "axhelm_n3(int, int, const float *, const float *, const float *, const float *, float *)"
+    },
+    {
+      "program_name": "axhelm-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "main_l92",
+      "kernel_demangled_name": "main:l92"
+    },
+    {
+      "program_name": "babelstream-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z10add_kernelIfEvPKT_S2_PS0_",
+      "kernel_demangled_name": "void add_kernel<float>(const T1 *, const T1 *, T1 *)"
+    },
+    {
+      "program_name": "babelstream-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z10dot_kernelIfEvPKT_S2_PS0_i",
+      "kernel_demangled_name": "void dot_kernel<float>(const T1 *, const T1 *, T1 *, int)"
+    },
+    {
+      "program_name": "babelstream-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z10mul_kernelIfEvPT_PKS0_",
+      "kernel_demangled_name": "void mul_kernel<float>(T1 *, const T1 *)"
+    },
+    {
+      "program_name": "babelstream-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z11copy_kernelIdEvPKT_PS0_",
+      "kernel_demangled_name": "void copy_kernel<double>(const T1 *, T1 *)"
+    },
+    {
+      "program_name": "babelstream-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z11copy_kernelIfEvPKT_PS0_",
+      "kernel_demangled_name": "void copy_kernel<float>(const T1 *, T1 *)"
+    },
+    {
+      "program_name": "babelstream-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z11init_kernelIdEvPT_S1_S1_S0_S0_S0_",
+      "kernel_demangled_name": "void init_kernel<double>(T1 *, T1 *, T1 *, T1, T1, T1)"
+    },
+    {
+      "program_name": "babelstream-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z11init_kernelIfEvPT_S1_S1_S0_S0_S0_",
+      "kernel_demangled_name": "void init_kernel<float>(T1 *, T1 *, T1 *, T1, T1, T1)"
+    },
+    {
+      "program_name": "babelstream-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z12triad_kernelIfEvPT_PKS0_S3_",
+      "kernel_demangled_name": "void triad_kernel<float>(T1 *, const T1 *, const T1 *)"
+    },
+    {
+      "program_name": "babelstream-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z14nstream_kernelIfEvPT_PKS0_S3_",
+      "kernel_demangled_name": "void nstream_kernel<float>(T1 *, const T1 *, const T1 *)"
+    },
+    {
+      "program_name": "babelstream-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z11init_arraysIfEvPT_S1_S1_S0_S0_S0__l71",
+      "kernel_demangled_name": "void init_arrays<float>(T1 *, T1 *, T1 *, T1, T1, T1):l71"
+    },
+    {
+      "program_name": "babelstream-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z3addIfEvPKT_S2_PS0__l104",
+      "kernel_demangled_name": "void add<float>(const T1 *, const T1 *, T1 *):l104"
+    },
+    {
+      "program_name": "babelstream-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z3dotIfET_PKS0_S2__l139",
+      "kernel_demangled_name": "T1 dot<float>(const T1 *, const T1 *):l139"
+    },
+    {
+      "program_name": "babelstream-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z3mulIdEvPT_PKS0__l93",
+      "kernel_demangled_name": "void mul<double>(T1 *, const T1 *):l93"
+    },
+    {
+      "program_name": "babelstream-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z3mulIfEvPT_PKS0__l93",
+      "kernel_demangled_name": "void mul<float>(T1 *, const T1 *):l93"
+    },
+    {
+      "program_name": "babelstream-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z4copyIdEvPKT_PS0__l84",
+      "kernel_demangled_name": "void copy<double>(const T1 *, T1 *):l84"
+    },
+    {
+      "program_name": "babelstream-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z4copyIfEvPKT_PS0__l84",
+      "kernel_demangled_name": "void copy<float>(const T1 *, T1 *):l84"
+    },
+    {
+      "program_name": "babelstream-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z5triadIfEvPT_PKS0_S3__l115",
+      "kernel_demangled_name": "void triad<float>(T1 *, const T1 *, const T1 *):l115"
+    },
+    {
+      "program_name": "babelstream-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z7nstreamIfEvPT_PKS0_S3__l127",
+      "kernel_demangled_name": "void nstream<float>(T1 *, const T1 *, const T1 *):l127"
+    },
+    {
+      "program_name": "background-subtract-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z5mergemPKhS0_S0_PhS1_",
+      "kernel_demangled_name": "merge(unsigned long, const unsigned char *, const unsigned char *, const unsigned char *, unsigned char *, unsigned char *)"
+    },
+    {
+      "program_name": "background-subtract-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z5mergemPKhS0_S0_PhS1__l69",
+      "kernel_demangled_name": "merge(unsigned long, const unsigned char *, const unsigned char *, const unsigned char *, unsigned char *, unsigned char *):l69"
+    },
+    {
+      "program_name": "backprop-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z19kernel_layerforwardPKfPfS1_i",
+      "kernel_demangled_name": "kernel_layerforward(const float *, float *, float *, int)"
+    },
+    {
+      "program_name": "backprop-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z21kernel_adjust_weightsPKfPfS0_S1_i",
+      "kernel_demangled_name": "kernel_adjust_weights(const float *, float *, const float *, float *, int)"
+    },
+    {
+      "program_name": "backprop-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z17bpnn_train_kernelP4BPNNPfS1__l78",
+      "kernel_demangled_name": "bpnn_train_kernel(BPNN *, float *, float *):l78"
+    },
+    {
+      "program_name": "bfs-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z6KernelPK4NodePKiPcS4_PKcPii",
+      "kernel_demangled_name": "Kernel(const Node *, const int *, char *, char *, const char *, int *, int)"
+    },
+    {
+      "program_name": "bfs-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z7Kernel2PcS_S_S_i",
+      "kernel_demangled_name": "Kernel2(char *, char *, char *, char *, int)"
+    },
+    {
+      "program_name": "bfs-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z11run_bfs_gpuiP4NodeiPiPcS2_S2_S1__l83",
+      "kernel_demangled_name": "run_bfs_gpu(int, Node *, int, int *, char *, char *, char *, int *):l83"
+    },
+    {
+      "program_name": "bh-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z10SortKerneliiPiPKiPViS_S_",
+      "kernel_demangled_name": "SortKernel(int, int, int *, const int *, volatile int *, int *, int *)"
+    },
+    {
+      "program_name": "bh-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z12ClearKernel1iiPi",
+      "kernel_demangled_name": "ClearKernel1(int, int, int *)"
+    },
+    {
+      "program_name": "bh-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z12ClearKernel2iPiP6float4S_",
+      "kernel_demangled_name": "ClearKernel2(int, int *, float4 *, int *)"
+    },
+    {
+      "program_name": "bh-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z17BoundingBoxKerneliiPiS_P6float4P6float3S3_PfS_S_Pj",
+      "kernel_demangled_name": "BoundingBoxKernel(int, int, int *, int *, float4 *, float3 *, float3 *, float *, int *, int *, unsigned int *)"
+    },
+    {
+      "program_name": "bh-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z17IntegrationKerneliffP6float4P6float2S0_",
+      "kernel_demangled_name": "IntegrationKernel(int, float, float, float4 *, float2 *, float4 *)"
+    },
+    {
+      "program_name": "bh-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z18TreeBuildingKerneliiPViPK6float4PKfPi",
+      "kernel_demangled_name": "TreeBuildingKernel(int, int, volatile int *, const float4 *, const float *, int *)"
+    },
+    {
+      "program_name": "bh-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z19SummarizationKerneliiPViPKiPV6float4Pi",
+      "kernel_demangled_name": "SummarizationKernel(int, int, volatile int *, const int *, volatile float4 *, int *)"
+    },
+    {
+      "program_name": "bh-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z20InitializationKernelPiPj",
+      "kernel_demangled_name": "InitializationKernel(int *, unsigned int *)"
+    },
+    {
+      "program_name": "bh-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z22ForceCalculationKerneliifffPKiS0_PK6float4P6float2PS1_PKfS0_",
+      "kernel_demangled_name": "ForceCalculationKernel(int, int, float, float, float, const int *, const int *, const float4 *, float2 *, float4 *, const float *, const int *)"
+    },
+    {
+      "program_name": "bilateral-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z15bilateralFilterILi3EEvPKfPfiifff",
+      "kernel_demangled_name": "void bilateralFilter<(int)3>(const float *, float *, int, int, float, float, float)"
+    },
+    {
+      "program_name": "bilateral-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z15bilateralFilterILi6EEvPKfPfiifff",
+      "kernel_demangled_name": "void bilateralFilter<(int)6>(const float *, float *, int, int, float, float, float)"
+    },
+    {
+      "program_name": "bilateral-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z15bilateralFilterILi3EEvPKfPfiifff_l18",
+      "kernel_demangled_name": "void bilateralFilter<(int)3>(const float *, float *, int, int, float, float, float):l18"
+    },
+    {
+      "program_name": "bilateral-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z15bilateralFilterILi6EEvPKfPfiifff_l18",
+      "kernel_demangled_name": "void bilateralFilter<(int)6>(const float *, float *, int, int, float, float, float):l18"
+    },
+    {
+      "program_name": "bilateral-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z15bilateralFilterILi9EEvPKfPfiifff_l18",
+      "kernel_demangled_name": "void bilateralFilter<(int)9>(const float *, float *, int, int, float, float, float):l18"
+    },
+    {
+      "program_name": "bincount-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z8bincountIifiL16DeviceMemoryType0EEvPT_PKT0_T1_S3_S3_S6_S6_",
+      "kernel_demangled_name": "void bincount<int, float, int, (DeviceMemoryType)0>(T1 *, const T2 *, T3, T2, T2, T3, T3)"
+    },
+    {
+      "program_name": "bincount-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z8bincountIifiL16DeviceMemoryType1EEvPT_PKT0_T1_S3_S3_S6_S6_",
+      "kernel_demangled_name": "void bincount<int, float, int, (DeviceMemoryType)1>(T1 *, const T2 *, T3, T2, T2, T3, T3)"
+    },
+    {
+      "program_name": "binomial-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z21binomialOptionsKernelPK13__TOptionDataPf",
+      "kernel_demangled_name": "binomialOptionsKernel(const __TOptionData *, float *)"
+    },
+    {
+      "program_name": "binomial-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "binomialOptionsGPU_l100",
+      "kernel_demangled_name": "binomialOptionsGPU:l100"
+    },
+    {
+      "program_name": "bitonic-sort-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z12bitonic_sortiiPi",
+      "kernel_demangled_name": "bitonic_sort(int, int, int *)"
+    },
+    {
+      "program_name": "bitonic-sort-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z19ParallelBitonicSortPii_l66",
+      "kernel_demangled_name": "ParallelBitonicSort(int *, int):l66"
+    },
+    {
+      "program_name": "bitpacking-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z13bitPackKernelIijEvPKhPKT_PT0_S4_PKm",
+      "kernel_demangled_name": "void bitPackKernel<int, unsigned int>(const unsigned char *, const T1 *, T2 *, const T1 *, const unsigned long *)"
+    },
+    {
+      "program_name": "bitpacking-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z23bitPackConfigScanKernelIiiEvPT_S1_PKT0_PKm",
+      "kernel_demangled_name": "void bitPackConfigScanKernel<int, int>(T1 *, T1 *, const T2 *, const unsigned long *)"
+    },
+    {
+      "program_name": "bitpacking-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z27bitPackConfigFinalizeKernelIiiEvPKT_S2_PhPT0_PKm",
+      "kernel_demangled_name": "void bitPackConfigFinalizeKernel<int, int>(const T1 *, const T1 *, unsigned char *, T2 *, const unsigned long *)"
+    },
+    {
+      "program_name": "bitpermute-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z19bit_rev_permutationPlPKlj",
+      "kernel_demangled_name": "bit_rev_permutation(long *, const long *, unsigned int)"
+    },
+    {
+      "program_name": "bitpermute-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z21bit_rev_permutation_zPlPKlj",
+      "kernel_demangled_name": "bit_rev_permutation_z(long *, const long *, unsigned int)"
+    },
+    {
+      "program_name": "black-scholes-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z15getOutValOptionPK17optionInputStructPfi",
+      "kernel_demangled_name": "getOutValOption(const optionInputStruct *, float *, int)"
+    },
+    {
+      "program_name": "black-scholes-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z29runBlackScholesAnalyticEnginei_l237",
+      "kernel_demangled_name": "runBlackScholesAnalyticEngine(int):l237"
+    },
+    {
+      "program_name": "blockAccess-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z6kernelILi256ELi1024EEvPKfPhj",
+      "kernel_demangled_name": "void kernel<(int)256, (int)1024>(const float *, unsigned char *, unsigned int)"
+    },
+    {
+      "program_name": "blockAccess-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z9referencePKfPhj",
+      "kernel_demangled_name": "reference(const float *, unsigned char *, unsigned int)"
+    },
+    {
+      "program_name": "blockexchange-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z1kILi256ELi1024EEvPKiPii",
+      "kernel_demangled_name": "void k<(int)256, (int)1024>(const int *, int *, int)"
+    },
+    {
+      "program_name": "bn-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z13computeKerneliiPKfPKbiiPfPii_l105",
+      "kernel_demangled_name": "computeKernel(int, int, const float *, const bool *, int, int, float *, int *, int):l105"
+    },
+    {
+      "program_name": "bn-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z13findBestGraphPfPiS_Pb_l241",
+      "kernel_demangled_name": "findBestGraph(float *, int *, float *, bool *):l241"
+    },
+    {
+      "program_name": "bn-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z13findBestGraphPfPiS_Pb_l244",
+      "kernel_demangled_name": "findBestGraph(float *, int *, float *, bool *):l244"
+    },
+    {
+      "program_name": "bn-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z14genScoreKerneliPfPKiPKf_l21",
+      "kernel_demangled_name": "genScoreKernel(int, float *, const int *, const float *):l21"
+    },
+    {
+      "program_name": "bonds-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z5bonds12inArgsStruct13resultsStructi",
+      "kernel_demangled_name": "bonds(inArgsStruct, resultsStruct, int)"
+    },
+    {
+      "program_name": "boxfilter-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z10col_kernelPKjPjiiif",
+      "kernel_demangled_name": "col_kernel(const unsigned int *, unsigned int *, int, int, int, float)"
+    },
+    {
+      "program_name": "boxfilter-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z10row_kernelPK6uchar4Pjiiiifj",
+      "kernel_demangled_name": "row_kernel(const uchar4 *, unsigned int *, int, int, int, int, float, unsigned int)"
+    },
+    {
+      "program_name": "boxfilter-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z12BoxFilterGPUPjS_S_iiiff_l127",
+      "kernel_demangled_name": "BoxFilterGPU(unsigned int *, unsigned int *, unsigned int *, int, int, int, float, float):l127"
+    },
+    {
+      "program_name": "bsearch-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z10kernel_BS2IfEvPKT_S2_Pmmm",
+      "kernel_demangled_name": "void kernel_BS2<float>(const T1 *, const T1 *, unsigned long *, unsigned long, unsigned long)"
+    },
+    {
+      "program_name": "bsearch-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z10kernel_BS3IfEvPKT_S2_Pmmm",
+      "kernel_demangled_name": "void kernel_BS3<float>(const T1 *, const T1 *, unsigned long *, unsigned long, unsigned long)"
+    },
+    {
+      "program_name": "bsearch-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z10kernel_BS4IfEvPKT_S2_Pmmm",
+      "kernel_demangled_name": "void kernel_BS4<float>(const T1 *, const T1 *, unsigned long *, unsigned long, unsigned long)"
+    },
+    {
+      "program_name": "bsearch-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z9kernel_BSIfEvPKT_S2_Pmmm",
+      "kernel_demangled_name": "void kernel_BS<float>(const T1 *, const T1 *, unsigned long *, unsigned long, unsigned long)"
+    },
+    {
+      "program_name": "bsearch-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z2bsIfEvmmPKT_S2_Pmmi_l21",
+      "kernel_demangled_name": "void bs<float>(unsigned long, unsigned long, const T1 *, const T1 *, unsigned long *, unsigned long, int):l21"
+    },
+    {
+      "program_name": "bsearch-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z3bs3IfEvmmPKT_S2_Pmmi_l84",
+      "kernel_demangled_name": "void bs3<float>(unsigned long, unsigned long, const T1 *, const T1 *, unsigned long *, unsigned long, int):l84"
+    },
+    {
+      "program_name": "bsearch-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z3bs4IfEvmmPKT_S2_Pmmi_l117",
+      "kernel_demangled_name": "void bs4<float>(unsigned long, unsigned long, const T1 *, const T1 *, unsigned long *, unsigned long, int):l117"
+    },
+    {
+      "program_name": "bspline-vgh-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z7bsplinePKflllPfS1_S1_S0_S0_S0_S0_S0_S0_S0_S0_S0_fffiiiii",
+      "kernel_demangled_name": "bspline(const float *, long, long, long, float *, float *, float *, const float *, const float *, const float *, const float *, const float *, const float *, const float *, const float *, const float *, float, float, float, int, int, int, int, int)"
+    },
+    {
+      "program_name": "bspline-vgh-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "main_l245",
+      "kernel_demangled_name": "main:l245"
+    },
+    {
+      "program_name": "btree-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_ZN8GpuBTree7kernels10init_btreeI13PoolAllocatorEEvPjT_",
+      "kernel_demangled_name": "void GpuBTree::kernels::init_btree<PoolAllocator>(unsigned int *, T1)"
+    },
+    {
+      "program_name": "burger-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z4corePdS_PKdS1_iidddd",
+      "kernel_demangled_name": "core(double *, double *, const double *, const double *, int, int, double, double, double, double)"
+    },
+    {
+      "program_name": "burger-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z6updatePdS_PKdS1_i",
+      "kernel_demangled_name": "update(double *, double *, const double *, const double *, int)"
+    },
+    {
+      "program_name": "burger-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z7bound_hPdS_ii",
+      "kernel_demangled_name": "bound_h(double *, double *, int, int)"
+    },
+    {
+      "program_name": "burger-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z7bound_vPdS_ii",
+      "kernel_demangled_name": "bound_v(double *, double *, int, int)"
+    },
+    {
+      "program_name": "burger-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "main_l101",
+      "kernel_demangled_name": "main:l101"
+    },
+    {
+      "program_name": "burger-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "main_l110",
+      "kernel_demangled_name": "main:l110"
+    },
+    {
+      "program_name": "burger-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "main_l77",
+      "kernel_demangled_name": "main:l77"
+    },
+    {
+      "program_name": "burger-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "main_l93",
+      "kernel_demangled_name": "main:l93"
+    },
+    {
+      "program_name": "bwt-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z14generate_tablePiii",
+      "kernel_demangled_name": "generate_table(int *, int, int)"
+    },
+    {
+      "program_name": "bwt-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z17bitonic_sort_stepPiiiiPKci",
+      "kernel_demangled_name": "bitonic_sort_step(int *, int, int, int, const char *, int)"
+    },
+    {
+      "program_name": "bwt-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z20reconstruct_sequencePKiPKcPci",
+      "kernel_demangled_name": "reconstruct_sequence(const int *, const char *, char *, int)"
+    },
+    {
+      "program_name": "bwt-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z14generate_tablePiii_l9",
+      "kernel_demangled_name": "generate_table(int *, int, int):l9"
+    },
+    {
+      "program_name": "bwt-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z17bitonic_sort_stepPiiiiPKci_l27",
+      "kernel_demangled_name": "bitonic_sort_step(int *, int, int, int, const char *, int):l27"
+    },
+    {
+      "program_name": "car-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z3carPKfS0_S0_S0_Pf6paramsiim",
+      "kernel_demangled_name": "car(const float *, const float *, const float *, const float *, float *, params, int, int, unsigned long)"
+    },
+    {
+      "program_name": "car-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z3carPKfS0_S0_S0_Pf6paramsiim_l35",
+      "kernel_demangled_name": "car(const float *, const float *, const float *, const float *, float *, params, int, int, unsigned long):l35"
+    },
+    {
+      "program_name": "cbsfil-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z9toCoef2DXPfjjj",
+      "kernel_demangled_name": "toCoef2DX(float *, unsigned int, unsigned int, unsigned int)"
+    },
+    {
+      "program_name": "cbsfil-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z9toCoef2DYPfjjj",
+      "kernel_demangled_name": "toCoef2DY(float *, unsigned int, unsigned int, unsigned int)"
+    },
+    {
+      "program_name": "cbsfil-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z9toCoef2DXPfjjjj_l77",
+      "kernel_demangled_name": "toCoef2DX(float *, unsigned int, unsigned int, unsigned int, unsigned int):l77"
+    },
+    {
+      "program_name": "ccsd-trpdrv-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z11ccsd_kernelPKdS0_S0_S0_S0_S0_S0_S0_S0_S0_S0_S0_S0_S0_S0_dPdS1_S1_S1_iii",
+      "kernel_demangled_name": "ccsd_kernel(const double *, const double *, const double *, const double *, const double *, const double *, const double *, const double *, const double *, const double *, const double *, const double *, const double *, const double *, const double *, double, double *, double *, double *, double *, int, int, int)"
+    },
+    {
+      "program_name": "ccsd-trpdrv-omp",
+      "runtime": "omp",
+      "kernel_mangled_name": "_Z14ccsd_tengy_gpuPKdS0_S0_S0_S0_S0_S0_S0_S0_S0_S0_S0_S0_S0_S0_dPdS1_S1_S1_iii_l43",
+      "kernel_demangled_name": "ccsd_tengy_gpu(const double *, const double *, const double *, const double *, const double *, const double *, const double *, const double *, const double *, const double *, const double *, const double *, const double *, const double *, const double *, double, double *, double *, double *, double *, int, int, int):l43"
+    },
+    {
+      "program_name": "ced-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z11hyst_kernelPKhPhii",
+      "kernel_demangled_name": "hyst_kernel(const unsigned char *, unsigned char *, int, int)"
+    },
+    {
+      "program_name": "ced-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z12sobel_kernelPKhPhS1_ii",
+      "kernel_demangled_name": "sobel_kernel(const unsigned char *, unsigned char *, unsigned char *, int, int)"
+    },
+    {
+      "program_name": "ced-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z15gaussian_kernelPKhPhii",
+      "kernel_demangled_name": "gaussian_kernel(const unsigned char *, unsigned char *, int, int)"
+    },
+    {
+      "program_name": "ced-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z19non_max_supp_kernelPKhPhS0_ii",
+      "kernel_demangled_name": "non_max_supp_kernel(const unsigned char *, unsigned char *, const unsigned char *, int, int)"
+    },
+    {
+      "program_name": "cfd-cuda",
+      "runtime": "cuda",
+      "kernel_mangled_name": "_Z12compute_fluxiPiPfS0_S0_S0_P6Float3S2_S2_S2_",
+      "kernel_demangled_name": "compute_flux(int, int *, float *, float *, float *, float *, Float3 *, Float3 *, Float3 *, Float3 *)"
+    }
+  ]
+}
