@@ -301,6 +301,10 @@
 
 
   function renderPlot(node, traces, layout, emptyMessage) {
+    if (!node) {
+      console.warn("Skipping plot render because the target node is missing.");
+      return;
+    }
     if (!hasPlotly) {
       emptyState(node, emptyMessage || "Interactive charts require Plotly to load.");
       return;
